@@ -51,7 +51,8 @@ adb install -r modified.apk
 ## Modifications
 
 This repository contains modifications to the original app, including:
-- [Add specific modifications made here]
+- Bypass login screen
+- Change Firebase from VisionMinus acct to mine (please use your own)
 
 ## Legal Disclaimer
 
@@ -59,4 +60,4 @@ This project is for educational and research purposes only. The original applica
 
 ## License
 
-[Add appropriate license information here]
+??
