@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textSize="15.0sp" android:textColor="@color/select_change_clarity_color" android:gravity="center" android:background="@drawable/select_change_clarity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:text="标清 270P"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

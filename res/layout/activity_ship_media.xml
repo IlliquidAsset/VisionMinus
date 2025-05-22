@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:keepScreenOn="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar android:id="@id/toolbar" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" android:elevation="1.0dip" app:navigationIcon="@mipmap/ic_back">
+        <com.google.android.material.tabs.TabLayout android:layout_gravity="center" android:id="@id/tab_layout" android:layout_width="wrap_content" android:layout_height="fill_parent" app:tabGravity="center" app:tabIndicatorColor="#ff26292b" app:tabMode="fixed" app:tabPadding="12.0dip" app:tabSelectedTextColor="#ff26292b" app:tabTextAppearance="@style/TabLayoutTextStyle" app:tabTextColor="#ff83888f" />
+        <TextView android:gravity="center_vertical" android:layout_gravity="end|center" android:id="@id/tv_select" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="@dimen/margin_10db" android:text="@string/MediaLib_62" />
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.viewpager.widget.ViewPager android:id="@id/view_pager" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/toolbar" />
+    <include layout="@layout/loading_layout" />
+</RelativeLayout>

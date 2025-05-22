@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/layout_header" android:background="@color/main_bg" android:layout_width="fill_parent" android:layout_height="@dimen/margin_50db" android:layout_alignParentTop="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/image_back" android:padding="@dimen/margin_10db" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_media_back_icon" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="@dimen/text_size_18sp" android:padding="@dimen/margin_10db" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/MediaLib_2" android:layout_centerInParent="true" />
+    <TextView android:textSize="@dimen/text_size_15sp" android:gravity="center" android:id="@id/text_save_share" android:padding="@dimen/margin_10db" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/album_save_share" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/layout_checked" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <TextView android:textSize="@dimen/text_size_15sp" android:gravity="center" android:id="@id/photo_num_all" android:padding="@dimen/margin_10db" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <CheckBox android:id="@id/image_select" android:padding="@dimen/margin_10db" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/Album_Detail_CheckBox" />
+    </LinearLayout>
+</RelativeLayout>

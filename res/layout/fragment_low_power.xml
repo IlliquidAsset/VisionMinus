@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:layout_gravity="center" android:orientation="vertical" android:background="@color/white" android:paddingTop="16.0dip" android:paddingBottom="12.0dip" android:layout_width="320.0dip" android:layout_height="280.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/title_text_color" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="遥控器主控模块升级" android:includeFontPadding="false" android:layout_centerHorizontal="true" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="184.0dip" android:layout_marginLeft="30.0dip" android:layout_marginRight="30.0dip">
+        <TextView android:textColor="@color/red_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="当前电量不足，无法升级" />
+        <ImageView android:id="@id/img_low_power" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:layout_marginBottom="40.0dip" android:src="@mipmap/firmware_update_low_power" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/black_text_color" android:id="@id/tv_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="当前遥控器电量30%，当前飞行器电量25%，请电量充足后进行升级" android:layout_below="@id/img_low_power" />
+    </LinearLayout>
+    <TextView android:textSize="16.0sp" android:textColor="@color/black_text_color" android:gravity="center" android:id="@id/tv_cancel" android:background="@drawable/gcs_firmware_update_cancel_bg" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="25.0dip" android:layout_marginRight="25.0dip" android:text="@string/AP03_AI_2" android:layout_alignParentBottom="true" />
+</LinearLayout>

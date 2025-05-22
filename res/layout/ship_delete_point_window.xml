@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@mipmap/pv_fly_function_menu_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="@color/white" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20db" android:text="@string/ConnectGuide_44" />
+    <TextView android:textColor="@color/white" android:layout_gravity="center" android:id="@id/tv_confirm_delete_point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_50db" android:text="@string/PVW4_Msg_28" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_60db">
+        <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/confirm_text" android:background="@mipmap/pv_function_submit_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:layout_marginRight="30.0dip" android:text="@string/App_MediaLib_26" android:layout_below="@id/set_time_seekbar" android:layout_alignParentRight="true" />
+        <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/cancel_text" android:background="@mipmap/pv_function_cancel_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginTop="30.0dip" android:text="@string/AP03_AI_2" android:layout_below="@id/set_time_seekbar" android:layout_alignParentLeft="true" />
+    </RelativeLayout>
+</LinearLayout>

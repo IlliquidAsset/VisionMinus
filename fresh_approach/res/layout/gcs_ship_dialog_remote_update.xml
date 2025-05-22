@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@color/black" android:layout_width="350.0dip" android:layout_height="220.0dip" android:alpha="0.9"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20db" android:layout_marginBottom="@dimen/margin_50db" android:text="@string/Upgrade_13" />
+    <ProgressBar android:id="@id/progressBar" android:layout_width="fill_parent" android:layout_height="5.0dip" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginRight="@dimen/margin_20db" android:max="100" android:progress="10" android:progressDrawable="@drawable/gcs_ship_dialog_progress_update" style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+    <TextView android:textColor="@color/shipSettingsColorPrimary" android:id="@id/updateRemind" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20db" android:text="@string/Upgrade_39" />
+</LinearLayout>

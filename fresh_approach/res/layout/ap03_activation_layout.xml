@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="start|center|top" android:id="@id/ic_back" android:visibility="gone" android:layout_width="@dimen/dp_35" android:layout_height="@dimen/dp_35" android:layout_marginTop="@dimen/dp_30" android:src="@mipmap/back_icon" android:layout_marginStart="@dimen/dp_25" />
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/aircraft_img" android:layout_width="fill_parent" android:layout_height="@dimen/dp_200" android:layout_margin="@dimen/dp_25" android:src="@mipmap/aircraft_activation_bg" android:scaleType="fitCenter" android:layout_below="@id/activite_title" />
+    <ProgressBar android:id="@id/milst_pb" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/dp_30" android:layout_centerInParent="true" />
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/black_color" android:padding="@dimen/dp_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_40" android:layout_marginTop="@dimen/dp_20" android:layout_marginRight="@dimen/dp_40" android:text="@string/AP03_Activation_2" android:layout_below="@id/aircraft_img" />
+    <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/bt_activite" android:background="@mipmap/ic_w4_join_in_main" android:layout_width="@dimen/dp_220" android:layout_height="@dimen/dp_45" android:layout_marginBottom="@dimen/dp_20" android:text="@string/AP03_Activation_1" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="@dimen/sp_20" android:textColor="@color/black_color" android:id="@id/activite_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_30" android:text="@string/AP03_Activation_1" android:layout_centerHorizontal="true" />
+</RelativeLayout>

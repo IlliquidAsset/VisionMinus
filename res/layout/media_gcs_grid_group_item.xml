@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/img_media_photo" android:background="@mipmap/pictures_no" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+    <com.powervision.media.widgets.CheckedImageView android:id="@id/checkbox_item_select" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_alignParentTop="true" android:layout_alignParentEnd="true" />
+    <ImageView android:id="@id/play_image" android:visibility="gone" android:layout_width="35.0dip" android:layout_height="35.0dip" android:src="@mipmap/video_play" android:layout_centerInParent="true" />
+</RelativeLayout>

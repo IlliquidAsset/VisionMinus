@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.Toolbar android:id="@id/personal_toolbar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?actionBarSize">
+        <TextView android:textSize="@dimen/sp_14" android:textColor="@color/black_color" android:layout_gravity="center_vertical" android:id="@id/personal_cancel" android:paddingTop="@dimen/dp_10" android:paddingBottom="@dimen/dp_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_AI_2" />
+        <TextView android:textSize="@dimen/sp_16" android:textColor="@color/black_color" android:layout_gravity="center" android:id="@id/personal_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/APP_Mine_16" />
+        <TextView android:textSize="@dimen/sp_14" android:textColor="@color/black_color" android:layout_gravity="end|center" android:id="@id/personal_save" android:paddingTop="@dimen/dp_10" android:paddingBottom="@dimen/dp_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/APP_Mine_28" android:layout_marginEnd="@dimen/dp_15" />
+    </androidx.appcompat.widget.Toolbar>
+    <View android:id="@id/placeholder" android:background="@color/white_background" android:layout_width="fill_parent" android:layout_height="@dimen/dp_10" />
+    <RelativeLayout android:id="@id/layout_headPic" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:text="@string/APP_Mine_17" style="@style/user_info_black_text" />
+        <ImageView android:id="@id/head_arrow" style="@style/user_grey_image_arrow" />
+        <ImageView android:id="@id/head_image" android:layout_width="@dimen/dp_45" android:layout_height="@dimen/dp_45" android:layout_margin="@dimen/dp_8" android:src="@mipmap/avatar_placeholder" android:layout_toStartOf="@id/head_arrow" />
+    </RelativeLayout>
+    <View style="@style/user_divider" />
+    <RelativeLayout android:id="@id/layout_nickname" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50">
+        <TextView android:text="@string/APP_Mine_1" style="@style/user_info_black_text" />
+        <ImageView android:id="@id/nickname_arrow" style="@style/user_grey_image_arrow" />
+        <EditText android:id="@id/edit_nickname" android:maxLength="20" android:layout_toStartOf="@id/nickname_arrow" style="@style/user_info_edit" />
+    </RelativeLayout>
+    <View style="@style/user_divider" />
+    <RelativeLayout android:id="@id/layout_birthday" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50">
+        <TextView android:text="@string/APP_Mine_18" style="@style/user_info_black_text" />
+        <ImageView android:id="@id/birthday_arrow" style="@style/user_grey_image_arrow" />
+        <TextView android:textColor="@color/light_gray_color" android:gravity="center" android:id="@id/tv_birthday" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/dp_10" android:layout_toStartOf="@id/birthday_arrow" />
+    </RelativeLayout>
+    <View style="@style/user_divider" />
+    <RelativeLayout android:id="@id/layout_country" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50">
+        <TextView android:text="@string/APP_Login_14" style="@style/user_info_black_text" />
+        <ImageView android:id="@id/country_arrow" style="@style/user_grey_image_arrow" />
+        <TextView android:id="@id/tv_country" android:layout_toStartOf="@id/country_arrow" style="@style/user_info_edit" />
+    </RelativeLayout>
+    <View style="@style/user_divider" />
+    <RelativeLayout android:id="@id/layout_city" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50">
+        <TextView android:text="@string/APP_Mine_19" style="@style/user_info_black_text" />
+        <ImageView android:id="@id/city_arrow" style="@style/user_grey_image_arrow" />
+        <EditText android:id="@id/edit_city" android:layout_toStartOf="@id/city_arrow" style="@style/user_info_edit" />
+    </RelativeLayout>
+    <View android:visibility="gone" style="@style/user_divider" />
+    <RelativeLayout android:id="@id/layout_phone_bind" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50">
+        <TextView android:text="@string/APP_Mine_20" style="@style/user_info_black_text" />
+        <ImageView android:id="@id/phone_bind_arrow" style="@style/user_grey_image_arrow" />
+        <TextView android:id="@id/phone_bind_text" android:layout_toStartOf="@id/phone_bind_arrow" style="@style/user_info_drawable_text" />
+    </RelativeLayout>
+    <View style="@style/user_divider" />
+    <RelativeLayout android:id="@id/layout_email_bind" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50">
+        <TextView android:text="@string/APP_Mine_21" style="@style/user_info_black_text" />
+        <ImageView android:id="@id/email_bind_arrow" style="@style/user_grey_image_arrow" />
+        <TextView android:id="@id/email_bind_text" android:layout_toStartOf="@id/email_bind_arrow" style="@style/user_info_drawable_text" />
+    </RelativeLayout>
+    <View android:background="@color/white_background" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+</LinearLayout>

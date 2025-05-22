@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/rl_root" android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="fill_parent" android:keepScreenOn="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dip" android:text="@string/PVW4_GeneralSetting_31" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/tv_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dip" android:layout_marginBottom="12.0dip" android:text="0%" android:layout_above="@id/confirm_view" android:layout_centerHorizontal="true" />
+    <com.powervision.gcs.view.ship.ConfirmView android:id="@id/confirm_view" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_centerInParent="true" />
+    <TextView android:textSize="16.0sp" android:textColor="#ff3a75f2" android:gravity="center" android:id="@id/tv_calibrate" android:background="@drawable/blue_edit_text_bg" android:layout_width="350.0dip" android:layout_height="40.0dip" android:layout_marginBottom="32.0dip" android:text="@string/PVW4_GeneralSetting_34" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <TextView android:textColor="@color/white" android:id="@id/tv_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="12.0dip" android:text="@string/PVW4_GeneralSetting_33" android:layout_above="@id/tv_calibrate" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/iv_close" android:padding="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_cancel_popup" android:layout_alignParentRight="true" />
+</RelativeLayout>

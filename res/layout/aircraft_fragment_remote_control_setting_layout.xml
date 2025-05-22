@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/aircraft_fragment_general_header_layout" />
+    <androidx.core.widget.NestedScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/dp_10" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <include layout="@layout/divider_white_alpha_10" />
+            <TextView android:id="@id/layout_remote_calibration" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_50" android:text="@string/AP03_GeneralSetting_90" android:drawableEnd="@mipmap/icon_arrow" style="@style/white_text_medium" />
+            <include layout="@layout/divider_white_alpha_10" />
+            <RelativeLayout android:id="@id/layout_remote_mode" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_100">
+                <TextView android:id="@id/text_remote_mode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_GeneralSetting_104" android:layout_alignParentTop="true" android:layout_alignParentStart="true" style="@style/white_text_medium" />
+                <TextView android:textColor="@color/blue" android:id="@id/current_mode_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_GeneralSetting_107" android:drawablePadding="@dimen/dp_10" android:layout_alignParentTop="true" android:drawableEnd="@mipmap/icon_arrow" android:layout_alignParentEnd="true" style="@style/white_text_medium" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_10" android:text="@string/AP03_GeneralSetting_105" android:layout_below="@id/text_remote_mode" android:layout_marginStart="@dimen/dp_30" android:layout_marginEnd="@dimen/dp_30" style="@style/white_text_normal" />
+            </RelativeLayout>
+            <include layout="@layout/divider_white_alpha_10" />
+            <RelativeLayout android:paddingBottom="@dimen/dp_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_123">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_5" android:text="@string/AP03_GeneralSetting_129" android:layout_alignParentTop="true" android:layout_alignParentStart="true" style="@style/white_text_medium" />
+                <TextView android:textSize="@dimen/sp_14" android:textColor="@color/blue" android:gravity="center" android:id="@id/text_custom_button" android:background="@drawable/radius_stroke_rectangle_blue" android:paddingLeft="@dimen/dp_4" android:paddingRight="@dimen/dp_4" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginTop="@dimen/dp_8" android:text="@string/AP03_GeneralSetting_132" android:layout_alignParentTop="true" android:layout_marginEnd="@dimen/dp_20" android:layout_alignParentEnd="true" />
+                <ImageView android:id="@id/img_custom_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:src="@mipmap/aircraft_custom_remote_btn" android:layout_below="@id/text_custom_button" android:layout_marginStart="@dimen/dp_20" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_GeneralSetting_131" android:layout_alignTop="@id/img_custom_btn" android:layout_marginStart="@dimen/dp_10" android:layout_marginEnd="@dimen/dp_20" android:layout_toEndOf="@id/img_custom_btn" style="@style/white_text_normal" />
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/img_custom_btn" android:layout_alignStart="@id/img_custom_btn" android:layout_alignEnd="@id/img_custom_btn">
+                    <TextView android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_CameraSetting_24" android:drawablePadding="@dimen/dp_8" android:drawableStart="@mipmap/aircraft_remote_custom_btn_icon" style="@style/white_text_normal" />
+                </LinearLayout>
+            </RelativeLayout>
+            <include layout="@layout/divider_white_alpha_10" />
+            <TextView android:id="@id/layout_remote_guide" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_50" android:text="@string/AP03_GeneralSetting_137" android:drawableEnd="@mipmap/icon_arrow" style="@style/white_text_medium" />
+            <include layout="@layout/divider_white_alpha_10" />
+            <TextView android:textColor="@color/blue" android:gravity="center" android:id="@id/layout_remote_frequency" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_50" android:text="@string/AP03_GeneralSetting_138" style="@style/white_text_medium" />
+            <include layout="@layout/divider_white_alpha_10" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

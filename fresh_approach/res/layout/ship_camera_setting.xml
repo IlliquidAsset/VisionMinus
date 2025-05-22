@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/set_root" android:background="#80000000" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RadioGroup android:gravity="center" android:orientation="vertical" android:id="@id/ship_camera_menu" android:background="@color/ku_ya_black_2" android:layout_width="50.0dip" android:layout_height="fill_parent">
+        <RadioButton android:id="@id/ship_camera_base_btn" android:background="@null" android:layout_width="wrap_content" android:layout_height="0.0dip" android:button="@drawable/ship_camera_basic_selector" android:layout_weight="1.0" />
+        <RadioButton android:gravity="center" android:id="@id/ship_camera_video_btn" android:background="@null" android:layout_width="wrap_content" android:layout_height="0.0dip" android:button="@drawable/ship_camera_video_selector" android:layout_weight="1.0" />
+        <RadioButton android:gravity="center" android:id="@id/ship_camera_common_btn" android:background="@null" android:paddingLeft="0.0dip" android:layout_width="wrap_content" android:layout_height="0.0dip" android:button="@drawable/ship_camara_public_selector" android:layout_weight="1.0" />
+    </RadioGroup>
+    <View android:background="#67888888" android:layout_width="1.0dip" android:layout_height="fill_parent" />
+    <RelativeLayout android:id="@id/ship_camera_detail" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

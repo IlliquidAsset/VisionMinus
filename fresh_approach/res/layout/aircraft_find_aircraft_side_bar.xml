@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/aircraft_transparent" android:layout_width="30.0dip" android:layout_height="220.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/side_bar_show_icon" android:layout_width="30.0dip" android:layout_height="30.0dip" android:src="@mipmap/aircraft_find_open_arrow" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <ImageView android:id="@id/side_bar_map_switch_mode" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_marginTop="50.0dip" android:src="@mipmap/aircraft_map_type_icon" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/side_bar_show_icon" />
+    <ImageView android:id="@id/side_bar_map_lock" android:layout_width="30.0dip" android:layout_height="25.0dip" android:layout_marginTop="25.0dip" android:src="@mipmap/aircraft_map_locked_icon" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/side_bar_map_switch_mode" />
+    <ImageView android:id="@id/side_bar_location" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_marginTop="25.0dip" android:src="@mipmap/aircraft_map_loction_icon" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/side_bar_map_lock" />
+</LinearLayout>

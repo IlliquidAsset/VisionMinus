@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginTop="@dimen/margin_10db" android:layout_marginBottom="@dimen/margin_10db">
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_check_fish_finder_guider1" />
+        <ImageView android:layout_gravity="center" android:layout_width="@dimen/margin_15db" android:layout_height="@dimen/margin_15db" android:layout_marginTop="@dimen/margin_10db" android:src="@mipmap/ship_check_fish_finder1" />
+    </LinearLayout>
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10db" android:layout_marginTop="@dimen/margin_35db" android:layout_marginRight="@dimen/margin_10db" android:src="@mipmap/ship_check_fish_finder_guider_link" />
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10db" android:layout_marginBottom="@dimen/margin_10db">
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_check_fish_finder_guider2" />
+        <ImageView android:layout_gravity="center" android:layout_width="@dimen/margin_15db" android:layout_height="@dimen/margin_15db" android:layout_marginTop="@dimen/margin_10db" android:src="@mipmap/ship_check_fish_finder2" />
+    </LinearLayout>
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10db" android:layout_marginTop="@dimen/margin_35db" android:layout_marginRight="@dimen/margin_10db" android:src="@mipmap/ship_check_fish_finder_guider_link" />
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10db" android:layout_marginBottom="@dimen/margin_10db">
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_check_fish_finder_guider3" />
+        <ImageView android:layout_gravity="center" android:layout_width="@dimen/margin_15db" android:layout_height="@dimen/margin_15db" android:layout_marginTop="@dimen/margin_10db" android:src="@mipmap/ship_check_fish_finder3" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_30db">
+        <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20db" android:text="@string/PVW4_Check_19" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_Check_20" />
+        <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_Check_21" />
+    </LinearLayout>
+</LinearLayout>

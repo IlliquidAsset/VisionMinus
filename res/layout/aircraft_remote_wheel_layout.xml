@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/aircraft_white" android:id="@id/remote_left_wheel_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0%" android:layout_centerVertical="true" android:layout_marginEnd="15.0dip" android:layout_toStartOf="@id/aircraft_left_wheel_img" />
+    <ImageView android:id="@id/aircraft_left_wheel_img" android:layout_width="20.0dip" android:layout_height="10.0dip" android:src="@mipmap/aircraft_remote_left_wheel_normal" android:layout_centerVertical="true" android:layout_toStartOf="@id/content_middle_seek_bar" />
+    <com.powervision.aircraft.ui.views.CalibrationSeekBar android:id="@id/content_middle_seek_bar" android:layout_width="120.0dip" android:layout_height="30.0dip" android:layout_centerInParent="true" />
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/aircraft_white" android:id="@id/remote_right_wheel_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0%" android:layout_centerVertical="true" android:layout_marginStart="15.0dip" android:layout_toEndOf="@id/aircraft_right_wheel_img" />
+    <ImageView android:id="@id/aircraft_right_wheel_img" android:layout_width="20.0dip" android:layout_height="10.0dip" android:src="@mipmap/aircraft_remote_left_wheel_normal" android:layout_centerVertical="true" android:layout_toEndOf="@id/content_middle_seek_bar" />
+</RelativeLayout>

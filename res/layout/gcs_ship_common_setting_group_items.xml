@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/ku_ya_black" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginBottom="@dimen/margin_1db"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:id="@id/ship_camara_item_name" android:layout_width="wrap_content" android:layout_height="45.0dip" android:layout_marginLeft="@dimen/margin_20db" android:text="simple" />
+    <ImageView android:id="@id/ship_camara_item_arrow" android:layout_width="15.0dip" android:layout_height="15.0dip" android:layout_marginRight="@dimen/margin_20db" android:scaleType="centerCrop" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <View android:background="@drawable/ship_settings_list_item_divider" android:layout_width="fill_parent" android:layout_height="@dimen/margin_1db" android:layout_alignParentBottom="true" />
+</RelativeLayout>

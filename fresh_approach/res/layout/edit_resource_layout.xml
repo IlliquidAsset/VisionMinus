@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/edit_resource_item_bg_selector" android:layout_width="@dimen/dp_70" android:layout_height="@dimen/dp_70" android:layout_margin="@dimen/dp_5"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/image_resource" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="@dimen/dp_1" android:src="@mipmap/edit_resource_null" />
+    <TextView android:textColor="@android:color/white" android:gravity="center" android:id="@id/resource_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" app:layout_constraintBottom_toBottomOf="@id/image_resource" app:layout_constraintTop_toTopOf="@id/image_resource" />
+</androidx.constraintlayout.widget.ConstraintLayout>

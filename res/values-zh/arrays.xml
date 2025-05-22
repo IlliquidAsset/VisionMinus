@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="VideoRate">
+        <item>1M</item>
+        <item>2M</item>
+        <item>3M</item>
+        <item>4M</item>
+    </string-array>
+    <string-array name="airCode">
+        <item>0</item>
+        <item>44</item>
+        <item>86</item>
+    </string-array>
+    <string-array name="channel">
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+        <item>56</item>
+        <item>57</item>
+        <item>58</item>
+        <item>59</item>
+        <item>60</item>
+        <item>61</item>
+        <item>62</item>
+        <item>63</item>
+        <item>64</item>
+        <item>65</item>
+        <item>66</item>
+        <item>67</item>
+        <item>68</item>
+        <item>69</item>
+        <item>70</item>
+    </string-array>
+    <string-array name="check">
+        <item>各项传感器</item>
+        <item>遥控器模式</item>
+        <item>遥控器电量</item>
+        <item>@string/ConnectGuide_2</item>
+        <item>电池温度</item>
+        <item>相机SD卡容量</item>
+        <item>云台状态</item>
+    </string-array>
+    <string-array name="check_sub_sensor">
+        <item>GPS</item>
+        <item>气压计</item>
+        <item>陀螺仪</item>
+        <item>磁力计</item>
+        <item>加速度计</item>
+        <item>IMU</item>
+        <item>超声</item>
+        <item>光流</item>
+    </string-array>
+    <string-array name="dolphin_changeMode_error">
+        <item>@string/PVW4_Msg_73</item>
+        <item>@string/PVW4_Msg_151</item>
+        <item>@string/PVW4_Msg_78</item>
+        <item>发送失败：无返航点</item>
+        <item>@string/PVW4_Msg_75</item>
+        <item>@string/PVW4_Msg_72</item>
+        <item>@string/PVW4_Msg_73</item>
+        <item>@string/PVW4_Msg_151</item>
+        <item></item>
+        <item>@string/PVW4_Msg_78</item>
+        <item></item>
+    </string-array>
+    <string-array name="dolphin_self_error">
+        <item>指南针需要校准</item>
+        <item>@string/PVW4_Msg_111</item>
+        <item>@string/PVW4_Msg_111</item>
+        <item></item>
+        <item></item>
+        <item>GPS异常，请联系售后返修</item>
+        <item>指南针异常，请联系售后返修</item>
+        <item>@string/PVW4_Msg_111</item>
+        <item>@string/PVW4_Msg_111</item>
+        <item></item>
+        <item>GPS异常，请联系售后返修</item>
+        <item>云台电机自检失败</item>
+    </string-array>
+    <string-array name="dolphin_status_error">
+        <item>设备处于翻转状态，将执行自动翻转</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>设备处于翻转状态，将执行自动翻转</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>设备处于翻转状态，将执行自动翻转</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>设备处于翻转状态，将执行自动翻转</item>
+        <item></item>
+        <item>GPS信号弱</item>
+        <item>GPS信号弱</item>
+        <item>GPS信号弱</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>设备处于翻转状态，将执行自动翻转</item>
+        <item></item>
+        <item>GPS信号弱</item>
+        <item>GPS信号弱</item>
+        <item>GPS信号弱</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+    <string-array name="dolphin_sys_error">
+        <item>获取返航点失败，请在GPS信号好时重新加解锁以获取返航点</item>
+        <item></item>
+        <item>@string/PVW4_Msg_114</item>
+        <item>解锁失败：设备未入水</item>
+        <item>设备内部进水，请尽快关机并联系售后返修</item>
+        <item></item>
+        <item>@string/PVW4_Msg_117</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>主机电量低于10%</item>
+        <item>主机电量低于20%</item>
+        <item>电池温度过高，航速将被限制</item>
+        <item>GPS信号弱</item>
+        <item>GPS信号弱</item>
+        <item>@string/PVW4_Msg_69</item>
+        <item></item>
+        <item>@string/PVW4_Msg_169</item>
+        <item></item>
+    </string-array>
+    <string-array name="filterName">
+        <item>原始</item>
+        <item>流年</item>
+        <item>复古</item>
+        <item>黑白</item>
+        <item>清新</item>
+        <item>去雾</item>
+        <item>柔光</item>
+        <item>唯美</item>
+        <item>强烈</item>
+        <item>自然</item>
+    </string-array>
+    <array name="filterPic">
+        <item>@mipmap/original</item>
+        <item>@mipmap/fleeting_time</item>
+        <item>@mipmap/return_old</item>
+        <item>@mipmap/black_white</item>
+        <item>@mipmap/freshness</item>
+        <item>@mipmap/atomization</item>
+        <item>@mipmap/soft_light</item>
+        <item>@mipmap/beautiful</item>
+        <item>@mipmap/strong</item>
+        <item>@mipmap/nature</item>
+    </array>
+    <string-array name="fly_mode_array">
+        <item>姿态模式</item>
+        <item>姿态模式</item>
+        <item>N模式</item>
+        <item>自动</item>
+        <item>特技</item>
+        <item>离线</item>
+        <item>增稳</item>
+        <item>..模式</item>
+        <item>极简</item>
+        <item>航线</item>
+        <item>跟随</item>
+        <item>环绕</item>
+        <item>起飞</item>
+        <item>降落</item>
+        <item>返航</item>
+        <item>E模式</item>
+        <item>摄影</item>
+        <item>延时摄影</item>
+        <item>即时短片</item>
+        <item>P模式</item>
+        <item>普通跟随</item>
+        <item>平行跟随</item>
+        <item>目标锁定</item>
+        <item>水上起降模式</item>
+        <item>防雨模式</item>
+        <item>水上跟随</item>
+    </string-array>
+    <string-array name="groundCode">
+        <item>0</item>
+        <item>44</item>
+        <item>86</item>
+    </string-array>
+    <string-array name="home_devices_name">
+        <item>进入设备</item>
+        <item>进入设备</item>
+    </string-array>
+    <string-array name="pvsonar_setting_table_array">
+        <item>通用设置</item>
+        <item>声呐设置</item>
+        <item>关于</item>
+        <item>历史记录</item>
+    </string-array>
+    <string-array name="ray_sonar_clutter_filter_switch_array">
+        <item>关</item>
+        <item>高</item>
+        <item>中</item>
+        <item>低</item>
+    </string-array>
+    <string-array name="ray_sonar_fish_alarm_array">
+        <item>关</item>
+        <item>大</item>
+        <item>大/中</item>
+        <item>大/中/小</item>
+    </string-array>
+    <string-array name="ray_sonar_fish_icon_depth_array">
+        <item>关/关</item>
+        <item>开/关</item>
+        <item>开/开</item>
+    </string-array>
+    <string-array name="ray_sonar_refresh_rate_array">
+        <item>10%</item>
+        <item>20%</item>
+        <item>30%</item>
+        <item>40%</item>
+        <item>50%</item>
+        <item>60%</item>
+        <item>70%</item>
+        <item>80%</item>
+        <item>90%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="ray_sonar_scan_mode_array">
+        <item>白底模式</item>
+        <item>蓝底模式</item>
+        <item>灰阶模式</item>
+    </string-array>
+    <string-array name="ray_sonar_unit_array">
+        <item>M/°C</item>
+        <item>M/°F</item>
+        <item>Ft/°C</item>
+        <item>Ft/°F</item>
+    </string-array>
+    <string-array name="ship_camera_ev">
+        <item>-2.0</item>
+        <item>-1.5</item>
+        <item>-1.0</item>
+        <item>-0.5</item>
+        <item>0.0</item>
+        <item>0.5</item>
+        <item>1.0</item>
+        <item>1.5</item>
+        <item>2.0</item>
+    </string-array>
+    <string-array name="ship_camera_ev_commond">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="ship_camera_iso">
+        <item>AUTO</item>
+        <item>100</item>
+        <item>200</item>
+        <item>400</item>
+        <item>800</item>
+        <item>1600</item>
+        <item>3200</item>
+        <item>6400</item>
+    </string-array>
+    <string-array name="ship_camera_iso_commond">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="ship_camera_photo_format">
+        <item>3840x2160 16:9</item>
+        <item>4000x3000 4:3</item>
+    </string-array>
+    <string-array name="ship_camera_shooting_times">
+        <item>@string/PVW4_CameraSetting_18</item>
+        <item>@string/PVW4_CameraSetting_19</item>
+    </string-array>
+    <string-array name="ship_camera_video_resolution_normal">
+        <item>720p(1280x720@120)</item>
+        <item>720p(1280x720@240)</item>
+        <item>1080p(1920x1080@60)</item>
+        <item>4k(3840x2160@30)</item>
+    </string-array>
+    <string-array name="ship_camera_video_resolution_slow">
+        <item>720p(1280x720@120)</item>
+        <item>720p(1280x720@240)</item>
+        <item>1080p(1920x1080@60)</item>
+    </string-array>
+    <string-array name="ship_common_awb">
+        <item>AUTO</item>
+        <item>2800K</item>
+        <item>4000K</item>
+        <item>5000K</item>
+        <item>6500K</item>
+        <item>7500K</item>
+    </string-array>
+    <string-array name="ship_common_awb_commond">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="ship_common_effects">
+        <item>正常</item>
+        <item>艺术</item>
+        <item>泛黄</item>
+        <item>底片</item>
+        <item>黑白</item>
+        <item>生动</item>
+        <item>70年代</item>
+    </string-array>
+    <string-array name="ship_common_grid">
+        <item>关闭</item>
+        <item>网格线</item>
+        <item>网格线和对角线</item>
+    </string-array>
+    <string-array name="ship_common_ldc_mode">
+        <item>@string/PVW4_CameraSetting_8</item>
+        <item>@string/PVW4_CameraSetting_9</item>
+    </string-array>
+    <string-array name="ship_common_ldc_mode_commond">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="ship_common_metering_mode">
+        <item>@string/PVW4_CameraSetting_5</item>
+        <item>@string/PVW4_CameraSetting_6</item>
+    </string-array>
+    <string-array name="ship_common_metering_mode_commond">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="ship_common_sharpness">
+        <item>强烈</item>
+        <item>普通</item>
+        <item>柔和</item>
+    </string-array>
+</resources>

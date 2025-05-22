@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:padding="@dimen/dp_24" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sp_18" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/APP_Login_53" />
+    <TextView android:textSize="@dimen/sp_12" android:textColor="#ff858585" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_16" android:text="@string/APP_Login_54" />
+    <TextView android:textSize="@dimen/sp_12" android:textColor="#ff858585" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_16" android:text="@string/APP_Login_55" />
+    <TextView android:textSize="@dimen/sp_12" android:textColor="#ff858585" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_16" android:text="@string/APP_Login_56" />
+    <TextView android:textSize="@dimen/sp_12" android:textColor="#ff858585" android:id="@id/tv_agreement" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_16" android:text="@string/APP_Login_57" android:lineSpacingExtra="@dimen/dp_4" />
+    <TextView android:textSize="@dimen/sp_18" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_accept" android:background="@drawable/solid_rectangle_blue_radius5" android:layout_width="fill_parent" android:layout_height="@dimen/dp_45" android:layout_marginTop="@dimen/dp_24" android:text="@string/APP_Login_59" />
+</LinearLayout>

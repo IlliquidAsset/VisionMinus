@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@mipmap/handheld_record_noise_hor_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/close_layout" android:layout_width="fill_parent" android:layout_height="@dimen/dp_40" android:layout_marginTop="@dimen/dp_5">
+        <ImageView android:id="@id/close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_new_audio_icon0" android:layout_centerVertical="true" android:layout_marginStart="@dimen/dp_12" />
+        <TextView android:textColor="@color/white" android:id="@id/record_close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_CameraSetting_49" android:layout_centerVertical="true" android:layout_marginStart="@dimen/dp_12" android:layout_toEndOf="@id/close" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/record_layout" android:layout_width="fill_parent" android:layout_height="@dimen/dp_40" android:layout_marginTop="@dimen/dp_5">
+        <ImageView android:id="@id/record" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_new_audio_icon4" android:layout_centerVertical="true" android:layout_marginStart="@dimen/dp_12" />
+        <TextView android:textColor="@color/white" android:id="@id/record_open" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_DV_CameraSetting_92" android:layout_centerVertical="true" android:layout_marginStart="@dimen/dp_12" android:layout_toEndOf="@id/record" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/noise_layout" android:layout_width="fill_parent" android:layout_height="@dimen/dp_40" android:layout_marginTop="@dimen/dp_5">
+        <ImageView android:id="@id/noise" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_record_noise6" android:layout_centerVertical="true" android:layout_marginStart="@dimen/dp_12" />
+        <TextView android:textColor="@color/white" android:id="@id/noise_open" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_DV_CameraSetting_93" android:layout_centerVertical="true" android:layout_marginStart="@dimen/dp_12" android:layout_toEndOf="@id/noise" />
+    </RelativeLayout>
+</LinearLayout>

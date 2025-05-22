@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="48.0dip">
+        <ImageView android:id="@id/image_back" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@mipmap/back_icon" />
+        <ImageView android:id="@id/image_share" android:layout_width="40.0dip" android:layout_height="fill_parent" android:src="@mipmap/icon_share" android:scaleType="centerInside" android:layout_alignParentEnd="true" />
+        <ImageView android:id="@id/image_collect" android:visibility="gone" android:layout_width="48.0dip" android:layout_height="fill_parent" android:src="@mipmap/icon_collect" android:scaleType="centerInside" android:layout_toStartOf="@id/image_share" />
+        <TextView android:textSize="16.0sp" android:textColor="@android:color/black" android:gravity="center" android:id="@id/text_title" android:layout_width="fill_parent" android:layout_height="fill_parent" android:maxWidth="200.0dip" android:singleLine="true" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/video_container" android:layout_width="fill_parent" android:layout_height="@dimen/dp_220" android:layout_centerInParent="true">
+        <ImageView android:id="@id/image_preview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:onClick="onPreClick" />
+        <com.powervision.media.widgets.LVideoView android:id="@id/surfaceview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:onClick="onVideoClick" />
+        <ImageView android:layout_gravity="center" android:id="@id/image_control" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/media_icon_play" android:onClick="onControlClick" />
+    </FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="bottom" android:id="@id/video_progress" android:background="@color/transparent" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50" android:layout_below="@id/video_container">
+        <Chronometer android:textColor="@color/black_color" android:gravity="end|center" android:id="@id/time_progress" android:layout_width="@dimen/dp_65" android:layout_height="fill_parent" app:layout_constraintEnd_toStartOf="@id/media_seekbar" app:layout_constraintStart_toStartOf="parent" />
+        <androidx.appcompat.widget.AppCompatSeekBar android:id="@id/media_seekbar" android:layout_width="0.0dip" android:layout_height="wrap_content" android:maxHeight="@dimen/dp_3" android:progressDrawable="@drawable/media_seekbar_grey_progress" android:thumb="@drawable/media_seekbar_thumb" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/time_total" app:layout_constraintStart_toEndOf="@id/time_progress" app:layout_constraintTop_toTopOf="parent" />
+        <Chronometer android:textColor="@color/black_color" android:gravity="center_vertical" android:id="@id/time_total" android:layout_width="@dimen/dp_65" android:layout_height="fill_parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@id/media_seekbar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_alignParentBottom="true">
+        <ImageView android:id="@id/image_delete" android:layout_width="48.0dip" android:layout_height="fill_parent" android:src="@mipmap/icon_delete" android:scaleType="centerInside" android:onClick="onDeleteClick" android:layout_marginEnd="@dimen/dp_10" android:layout_alignParentEnd="true" />
+        <ImageView android:id="@id/image_download" android:layout_width="48.0dip" android:layout_height="fill_parent" android:src="@mipmap/icon_download" android:scaleType="centerInside" android:onClick="onImageDownloadClick" android:layout_marginStart="@dimen/dp_10" />
+        <ImageView android:id="@id/image_information" android:layout_width="40.0dip" android:layout_height="fill_parent" android:src="@mipmap/icon_information" android:scaleType="centerInside" android:onClick="onInformationClick" android:layout_toEndOf="@id/image_download" />
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@color/color_3A75F2" android:gravity="center" android:layout_width="160.0dip" android:layout_height="fill_parent" android:text="@string/App_MediaLib_38" android:layout_centerInParent="true" android:onClick="onEditClick" />
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/sp_15" android:textColor="@color/color_3A75F2" android:gravity="center" android:id="@id/text_download" android:background="@drawable/media_download_bg" android:visibility="gone" android:layout_width="130.0dip" android:layout_height="45.0dip" android:layout_marginBottom="@dimen/dp_160" android:text="@string/App_MediaLib_39" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:onClick="onDownloadOriClick" />
+    <View android:id="@id/view_cover_top" android:background="@color/black_color" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/video_container" />
+    <View android:id="@id/view_cover_bottom" android:background="@color/black_color" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/video_container" />
+</RelativeLayout>

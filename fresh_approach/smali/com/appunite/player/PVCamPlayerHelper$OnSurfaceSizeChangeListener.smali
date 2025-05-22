@@ -1,0 +1,19 @@
+.class public interface abstract Lcom/appunite/player/PVCamPlayerHelper$OnSurfaceSizeChangeListener;
+.super Ljava/lang/Object;
+.source "PVCamPlayerHelper.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/appunite/player/PVCamPlayerHelper;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "OnSurfaceSizeChangeListener"
+.end annotation
+
+
+# virtual methods
+.method public abstract onSurfaceSizeChange(ZII)V
+.end method

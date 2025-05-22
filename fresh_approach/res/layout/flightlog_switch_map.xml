@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/shape_light_black_corner" android:layout_width="135.0dip" android:layout_height="70.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/gaode_layer_standard" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:src="@mipmap/aircraft_normal_map_select" android:layout_marginStart="10.0dip" />
+    <ImageView android:id="@id/gaode_layer_satellite" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_margin="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:src="@mipmap/aircraft_satellite_map_unselect" android:layout_marginStart="10.0dip" />
+</LinearLayout>

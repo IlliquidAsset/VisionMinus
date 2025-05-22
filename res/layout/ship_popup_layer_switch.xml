@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_45db" android:src="@mipmap/popup_window_arrow_up" />
+    <LinearLayout android:orientation="horizontal" android:background="@drawable/shape_light_black_corner" android:padding="@dimen/margin_10db" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/gaode_layer_standard" android:background="@mipmap/ship_normal_map_unselect" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginRight="@dimen/margin_10db" android:layout_weight="1.0" />
+        <ImageView android:id="@id/gaode_layer_satellite" android:background="@mipmap/ship_normal_map_select" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/margin_10db" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

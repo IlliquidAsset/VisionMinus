@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/transparent" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.powervision.gcs.view.ship.ShipSelectTextView android:textSize="@dimen/child_text" android:textColor="@color/white" android:gravity="center" android:id="@id/ship_camara_item_child_text" android:layout_width="fill_parent" android:layout_height="35.0dip" android:text="child" android:layout_centerInParent="true" />
+</RelativeLayout>

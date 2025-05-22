@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/aircraft_include" layout="@layout/aircraft_fragment_general_header_layout" />
+    <androidx.core.widget.NestedScrollView android:id="@id/aircraft_nestedscrollview2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/aircraft_include">
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/sp_14" android:textColor="@color/aircraft_white" android:id="@id/aircraft_rocker_calibration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_4" android:text="@string/AP03_GeneralSetting_91" android:layout_marginStart="@dimen/dp_20" />
+            <LinearLayout android:id="@id/calibration_rocker_layout" android:layout_width="fill_parent" android:layout_height="130.0dip" android:layout_below="@id/aircraft_rocker_calibration">
+                <RelativeLayout android:id="@id/calibration_left_layout" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+                    <com.powervision.aircraft.ui.views.CtlStickCircleView android:id="@id/calibration_left_view" android:layout_width="130.0dip" android:layout_height="130.0dip" android:layout_centerInParent="true" />
+                </RelativeLayout>
+                <RelativeLayout android:id="@id/right_layout" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+                    <com.powervision.aircraft.ui.views.CtlStickCircleView android:id="@id/calibration_right_view" android:layout_width="130.0dip" android:layout_height="130.0dip" android:layout_centerInParent="true" />
+                </RelativeLayout>
+            </LinearLayout>
+            <TextView android:textSize="@dimen/sp_14" android:textColor="@color/aircraft_white" android:id="@id/aircraft_wheel_calibration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_5" android:text="@string/AP03_GeneralSetting_92" android:layout_below="@id/calibration_rocker_layout" android:layout_marginStart="@dimen/dp_20" />
+            <include android:id="@id/aircraft_wheel_view" android:layout_width="fill_parent" android:layout_height="@dimen/dp_30" android:layout_marginTop="15.0dip" android:layout_below="@id/aircraft_wheel_calibration" android:layout_alignParentStart="true" layout="@layout/aircraft_remote_wheel_layout" />
+            <TextView android:textSize="@dimen/sp_14" android:textColor="@color/aircraft_white" android:gravity="center" android:id="@id/aircraft_calibration_tips" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_30" android:text="@string/AP03_GeneralSetting_93" android:layout_below="@id/aircraft_wheel_view" />
+            <TextView android:textSize="@dimen/sp_15" android:textColor="@color/aircraft_calibration_commit_color" android:gravity="center" android:id="@id/aircraft_calibration_btn" android:background="@drawable/radius_stroke_rectangle_blue" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="40.0dip" android:layout_marginTop="@dimen/dp_10" android:layout_marginRight="40.0dip" android:layout_marginBottom="24.0dip" android:text="@string/AP03_GeneralSetting_94" android:layout_below="@id/aircraft_calibration_tips" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

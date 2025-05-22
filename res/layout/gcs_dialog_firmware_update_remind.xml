@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:layout_gravity="center" android:orientation="vertical" android:background="@color/white" android:paddingTop="30.0dip" android:paddingBottom="12.0dip" android:layout_width="340.0dip" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0dip" android:textStyle="bold" android:textColor="@color/black_text_color" android:gravity="center" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/find_new_firmware_is_upgrade" />
+    <RelativeLayout android:layout_gravity="center" android:id="@id/contentNotRemind" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_22db" android:layout_marginBottom="@dimen/margin_35db">
+        <ImageButton android:id="@id/selectBtn" android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/selector_gcs_firmware_update_not_remind" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="7.0dip" android:text="@string/PVW4_AI_3" android:layout_toRightOf="@id/selectBtn" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/contentLowPower" android:paddingTop="@dimen/margin_28db" android:paddingBottom="36.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/img_low_power" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/firmware_update_low_power" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="15.0dip" android:textColor="@color/black_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="28.0dip" android:text="@string/Upgrade_38" android:layout_below="@id/img_low_power" />
+    </RelativeLayout>
+    <LinearLayout android:id="@id/doubleBtnContaner" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="15.0dip" android:textColor="@color/black_text_color" android:gravity="center" android:id="@id/doubleCancelBtn" android:background="@drawable/gcs_firmware_update_cancel_bg" android:layout_width="0.0dip" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:text="@string/AP03_AI_2" android:layout_weight="1.0" />
+        <TextView android:textSize="15.0dip" android:textColor="@color/white" android:gravity="center" android:id="@id/doubleSureBtn" android:background="@drawable/gcs_firmware_update_sure_bg" android:layout_width="0.0dip" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:text="@string/upgrade" android:layout_weight="1.0" />
+    </LinearLayout>
+    <TextView android:textSize="15.0dip" android:textColor="@color/black_text_color" android:gravity="center" android:id="@id/SingleCancelBtn" android:background="@drawable/gcs_firmware_update_cancel_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="25.0dip" android:layout_marginRight="25.0dip" android:text="@string/AP03_AI_2" />
+    <TextView android:textSize="15.0dip" android:textColor="@color/white" android:gravity="center" android:id="@id/SingleSureBtn" android:background="@drawable/gcs_firmware_update_sure_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="25.0dip" android:layout_marginRight="25.0dip" android:text="@string/OK" />
+</LinearLayout>

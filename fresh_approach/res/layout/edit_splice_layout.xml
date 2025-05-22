@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textColor="@color/light_gray_color" android:id="@id/edit_crop" android:padding="@dimen/dp_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/App_MediaLib_73" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/splice_view" android:background="#ff16181d" android:layout_width="fill_parent" android:layout_height="@dimen/dp_80" app:layout_constraintTop_toBottomOf="@id/edit_crop" />
+</androidx.constraintlayout.widget.ConstraintLayout>

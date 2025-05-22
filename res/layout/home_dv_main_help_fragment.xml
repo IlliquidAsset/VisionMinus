@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/top_layout" android:layout_width="fill_parent" android:layout_height="44.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:id="@id/image_back" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@mipmap/back_icon" android:scaleType="centerInside" />
+        <TextView android:textSize="@dimen/sp_20" android:textStyle="bold" android:textColor="@color/black_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_ConnectGuide_52_20" android:layout_centerInParent="true" />
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/black" android:gravity="center_vertical" android:id="@id/text_camera" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dp_12" android:text="@string/AP03_ConnectGuide_77" android:drawableRight="@mipmap/home_icon_guide_tip" android:drawablePadding="@dimen/dp_10" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <ScrollView android:focusable="true" android:focusableInTouchMode="true" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_20" android:layout_marginRight="@dimen/dp_20">
+            <TextView android:textSize="15.0sp" android:textColor="@color/black_color" android:id="@id/text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_20" android:text="@string/AP03_ConnectGuide_78" />
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="@dimen/dp_190" android:layout_marginTop="@dimen/dp_8">
+                <VideoView android:id="@id/video_open" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <ImageView android:id="@id/image_open_bg" android:background="#fff2f2f2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="centerInside" android:minHeight="@dimen/dp_190" />
+                <ImageView android:id="@id/image_open" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/home_dv_icon_play" android:scaleType="centerInside" android:layout_centerInParent="true" />
+            </RelativeLayout>
+            <TextView android:textSize="13.0sp" android:textColor="@color/black_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:text="@string/AP03_ConnectGuide_79" />
+            <TextView android:textSize="13.0sp" android:textColor="@color/black_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_6" android:text="@string/AP03_ConnectGuide_80" />
+            <View android:background="#ffd0d0d0" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginTop="@dimen/dp_20" android:layout_marginBottom="@dimen/dp_20" />
+            <TextView android:textSize="15.0sp" android:textColor="@color/black_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/AP03_ConnectGuide_81" />
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="@dimen/dp_190" android:layout_marginTop="@dimen/dp_8">
+                <VideoView android:id="@id/video_wifi" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <ImageView android:id="@id/image_wifi_bg" android:background="#fff2f2f2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="centerInside" android:minHeight="@dimen/dp_190" />
+                <ImageView android:id="@id/image_wifi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/home_dv_icon_play" android:scaleType="centerInside" android:layout_centerInParent="true" />
+            </RelativeLayout>
+            <TextView android:textSize="@dimen/sp_13" android:textColor="@color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:text="@string/AP03_ConnectGuide_82" />
+            <TextView android:textSize="@dimen/sp_13" android:textColor="@color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_6" android:text="@string/AP03_ConnectGuide_83" />
+            <TextView android:textSize="@dimen/sp_13" android:textColor="@color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_6" android:text="@string/AP03_ConnectGuide_84" />
+            <TextView android:textSize="@dimen/sp_13" android:textColor="#ff2d62d7" android:gravity="center_vertical" android:id="@id/text_scan" android:paddingTop="@dimen/dp_7" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_6" android:text="@string/AP03_ConnectGuide_93" android:drawableLeft="@mipmap/home_dv_icon_qr_scan" android:drawablePadding="@dimen/dp_8" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

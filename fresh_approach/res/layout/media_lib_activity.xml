@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/lib_root" android:background="@color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/media_toolbar" android:layout_width="fill_parent" android:layout_height="@dimen/dp_38" app:layout_constraintTop_toTopOf="parent" layout="@layout/media_list_title" />
+    <com.google.android.material.tabs.TabLayout android:id="@id/tabLayout" android:background="@color/color_1B1B1B" android:padding="@dimen/dp_5" android:layout_width="fill_parent" android:layout_height="@dimen/dp_48" app:layout_constraintTop_toBottomOf="@id/media_toolbar" app:tabIndicatorColor="@color/white" app:tabIndicatorFullWidth="false" app:tabIndicatorHeight="@dimen/dp_2" app:tabMode="fixed" app:tabSelectedTextColor="@color/white" app:tabTextColor="@color/gray_color" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0dip" app:layout_constraintBottom_toTopOf="@id/media_bottom" app:layout_constraintTop_toBottomOf="@id/tabLayout">
+        <me.jingbin.library.ByRecyclerView android:scrollbarSize="@dimen/dp_10" android:scrollbarThumbVertical="@drawable/media_scrollbar_vertical_thumb" android:scrollbarTrackVertical="@color/transparent" android:id="@id/refresh_load_recycler" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <include android:id="@id/empty_layout" layout="@layout/media_empty_layout" />
+    </FrameLayout>
+    <include android:id="@id/media_bottom" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/dp_45" app:layout_constraintBottom_toBottomOf="parent" layout="@layout/media_bottom_option" />
+    <include layout="@layout/media_lib_select_title" />
+</androidx.constraintlayout.widget.ConstraintLayout>

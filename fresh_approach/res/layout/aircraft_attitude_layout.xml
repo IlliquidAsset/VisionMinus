@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@mipmap/aircraft_attitude_bg" android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_100"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ProgressBar android:id="@id/compass_attitude_progress" android:background="@mipmap/attitude_1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:max="100" android:indeterminateOnly="false" android:progressDrawable="@drawable/aircraft_progressbar_pitch" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/compass_gimbal_angle" android:background="@mipmap/aircraft_gimbal_angle" android:layout_width="50.0dip" android:layout_height="50.0dip" android:transformPivotX="25.0dip" android:transformPivotY="50.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" />
+    <ImageView android:id="@id/aircraft_angle" android:background="@mipmap/aircraft_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

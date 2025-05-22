@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="24.0dip" android:width="24.0dip" android:viewportWidth="10.0" android:viewportHeight="10.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:name="play" android:pivotX="5.0" android:pivotY="5.0">
+        <path android:name="play_path" android:fillColor="#ff000000" android:pathData="M 3,2 L 8,5 L8,5 L3,5z M 3,8 L8,5 L8,5 L3,5z" />
+    </group>
+</vector>

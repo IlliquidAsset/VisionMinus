@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="70.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/gudie_top_back_iv" android:padding="8.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@mipmap/back_black" android:layout_marginStart="16.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <ImageView android:id="@id/gudie_top_close_iv" android:padding="8.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@mipmap/close_black" android:layout_marginEnd="16.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/black_color" android:gravity="center" android:id="@id/guide_top_tilte" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_ConnectGuide_7" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/gudie_top_close_iv" app:layout_constraintStart_toEndOf="@id/gudie_top_back_iv" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

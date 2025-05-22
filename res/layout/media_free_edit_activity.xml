@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/media_titlebar_layout" />
+    <LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <net.lucode.hackware.magicindicator.MagicIndicator android:layout_gravity="center_horizontal" android:id="@id/magic_indicator" android:layout_width="240.0dip" android:layout_height="@dimen/dp_45" />
+    </LinearLayout>
+    <androidx.viewpager.widget.ViewPager android:id="@id/view_pager" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <TextView android:textSize="@dimen/sp_15" android:textColor="@color/light_gray_color" android:gravity="center" android:id="@id/text_edit" android:background="@color/color_f0" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50" android:text="@string/App_MediaLib_38" />
+</LinearLayout>

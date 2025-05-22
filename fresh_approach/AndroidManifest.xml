@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.powervision.newvisionplus" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/powervision_launcher_icon_new" android:label="@string/pv_app_name" android:name="com.powervision.newvisionplus.VisionApplication" android:networkSecurityConfig="@xml/network_security_config" android:requestLegacyExternalStorage="true" android:roundIcon="@mipmap/powervision_launcher_icon_new" android:supportsRtl="false" android:theme="@style/NoActionBarTheme">
+        <activity android:name="com.powervision.newvisionplus.WelcomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.StartingWindowTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="cn.powervision.flightlog.activity.FlightLogActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="cn.powervision.flightlog.activity.FlightLogDetialActivity" android:screenOrientation="portrait"/>
+        <activity android:name="cn.powervision.flightlog.activity.FlightlogShareActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:foregroundServiceType="mediaProjection" android:name="cn.powervision.flightlog.RecordingScreenService"/>
+        <activity android:name="com.lewis.share.activity.ShareActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mob.guard.MobTranPullUpActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.mob.open.app_20000"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.mob.guard.MobTranPullLockActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.mob.open.app_lk"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="true" android:name="com.mob.guard.MobGuardPullUpService">
+            <intent-filter>
+                <action android:name="com.mob.intent.MOB_GUARD_SERVICE"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="mob_guard_version" android:value="20001"/>
+        <service android:enabled="true" android:exported="true" android:name="com.mob.MobACService">
+            <intent-filter>
+                <action android:name="com.mob.service.action.MOB_AC_SERVICE"/>
+            </intent-filter>
+        </service>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.powervision.aircraft.ui.activity.AirCraftControlActivity" android:resizeableActivity="false" android:screenOrientation="sensorLandscape">
+            <meta-data android:name="android.max_aspect" android:value="2.4"/>
+            <meta-data android:name="android.notch_support" android:value="true"/>
+            <meta-data android:name="notch.config" android:value="landscape"/>
+        </activity>
+        <activity android:name="com.powervision.aircraft.ui.activity.AircraftSelfCheckActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:name="com.powervision.aircraft.ui.activity.FindAircraftActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.aircraft.ui.activity.IMUCalibrationStartActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:name="com.powervision.aircraft.ui.activity.MagCalibrationStartActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:name="com.powervision.aircraft.ui.activity.NewIMUCalibrationActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.powervision.gcs.ui.aty.ship.ShipMainActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.powervision.gcs.ui.aty.ship.TestRtspActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.powervision.gcs.ui.aty.ship.aoamedia.AOAShipMediaManagerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.gcs.ui.aty.ship.ConnectRemotePairActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.gcs.ui.aty.ship.ConnectScanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.gcs.ui.aty.ship.ConnectSeekerPairActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.gcs.ui.aty.ship.RemotePairHelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.gcs.ui.aty.ship.ShipCaptureActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.powervision.gcs.ui.aty.ship.ShipCheckActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.powervision.gcs.ui.aty.ship.ShipConnectedActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.powervision.gcs.ui.aty.ActiviteActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.gcs.ui.aty.ship.ShipGalleryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.gcs.ui.aty.ship.ShipMagnetAdjustActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.powervision.gcs.ui.aty.ship.ShipMediaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.gcs.ui.aty.ship.ShipPhotoPreviewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.powervision.gcs.ui.aty.ship.ShipVideoPreviewActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="layoutDirection|locale|orientation|screenSize" android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.powervision.home.ui.activity.HomeActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"/>
+            </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" android:resource="@xml/accessory_filter"/>
+        </activity>
+        <activity android:name="com.powervision.home.ui.activity.PVW4ConnectedActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.powervision.home.ui.activity.GuideMainModeActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.powervision.home.ui.activity.GuideConnectWifiActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.powervision.home.ui.activity.QrCaptureActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.powervision.home.ui.activity.AP03ActivationActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.powervision.home.ui.activity.GuideRemoteControlerConnectActivity" android:screenOrientation="landscape"/>
+        <activity android:launchMode="singleTask" android:name="com.powervision.home.ui.activity.GuideConnectHelpActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.powervision.home.ui.activity.GuideDvConnectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.home.ui.activity.GuideFlyModeSelectActivity" android:screenOrientation="landscape"/>
+        <activity android:launchMode="singleTask" android:name="com.powervision.home.ui.activity.GuideConnectDeviceActivity" android:screenOrientation="landscape"/>
+        <activity android:launchMode="singleTask" android:name="com.powervision.home.ui.activity.GuideRemoteControlPaireActivity" android:screenOrientation="landscape"/>
+        <activity android:launchMode="singleTask" android:name="com.powervision.login.ui.activity.CreateLoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.powervision.login.ui.activity.ServiceAgreementActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.powervision.login.ui.activity.InputVerifyCodeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.powervision.login.ui.activity.SelectCountryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.powervision.media.MediaActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.powervision.media.ui.activity.DeviceMediaActivity" android:theme="@style/FullScreenTheme"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.powervision.media.ui.activity.PreviewActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:hardwareAccelerated="true" android:name="com.powervision.media.ui.activity.PhotoPreviewActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.powervision.media.ui.activity.VideoAlbumActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.powervision.media.ui.activity.ImageAlbumActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.powervision.media.ui.activity.FreeEditActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.powervision.media.ui.activity.VideoPlayActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.powervision.media.ui.activity.MediaLibActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.powervision.media.ui.activity.MediaLibPreviewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.powervision.media.ui.activity.BurstActivity"/>
+        <activity android:name="com.powervision.user.ui.activity.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.user.ui.activity.ModifyPersonalInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.user.ui.activity.PhoneBindActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.user.ui.activity.EmailBindActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.user.ui.activity.UserRealNameIntroductionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.user.ui.activity.UserRealNameRegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.user.ui.activity.UserRealNameNewAddActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.user.ui.activity.UserRealNameNewAddSrActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.user.ui.activity.MessageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.powervision.service.MainActivity"/>
+        <activity android:name="com.powervision.service.ui.activity.ServiceImageActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.powervision.handheld.ui.activity.NewHandheldDeviceActivity" android:resizeableActivity="false" android:screenOrientation="sensor">
+            <meta-data android:name="android.max_aspect" android:value="2.4"/>
+            <meta-data android:name="android.notch_support" android:value="true"/>
+            <meta-data android:name="notch.config" android:value="portrait|landscape"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.powervision.handheld.ui.activity.TestActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.lewis.edit.ui.activity.AVEditActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.lewis.edit.ui.activity.InputTitleActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateVisible"/>
+        <activity android:name="com.lewis.edit.ui.activity.ImageEditActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.lewis.edit.ui.activity.FilterAdjustActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.yalantis.ucrop.UCropActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.lewis.edit.ui.activity.EditFileSelectActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="ae8d4722ed1df616cdb5f1f0406c9512"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDHAiRxnUMKQNO-McTPGYN5Pz6VUFahOjc"/>
+        <service android:name="com.amap.api.location.APSService"/>
+        <activity android:launchMode="singleTop" android:name="cn.powervision.upgrade.activity.FirmwareDownloadActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="cn.powervision.upgrade.activity.FirmwareUpgradeActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="cn.powervision.upgrade.activity.FirmWareDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="cn.powervision.upgrade.activity.FirmWareUpgradeFinishActivity" android:screenOrientation="portrait"/>
+        <activity android:name="cn.powervision.upgrade.activity.AfterSaleListActivity" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="com.powervision.firebase.PowerFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:launchMode="singleTop" android:name="com.powervision.firebase.MessageActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="firebase_messaging_auto_init_enabled" android:value="false"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.powervision.base.base.web.WebViewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.powervision.base.activity.QRControllerMatchActivity" android:screenOrientation="landscape"/>
+        <provider android:authorities="com.powervision.newvisionplus.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <service android:name="com.cclink.obbdownloader.download.ObbDownloadService"/>
+        <receiver android:name="com.cclink.obbdownloader.download.ObbDownloadReceiver"/>
+        <activity android:exported="false" android:label="" android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity" android:theme="@style/EasyPermissions.Transparent"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.powervision.newvisionplus.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+        <provider android:authorities="com.powervision.newvisionplus.com.mob.MobProvider" android:exported="false" android:multiprocess="true" android:name="com.mob.MobProvider"/>
+        <meta-data android:name="Mob-AppKey" android:value="27d0f89172003"/>
+        <meta-data android:name="Mob-AppSecret" android:value="6b4cfa46153148d5d5d924b5d6fa8c81"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mob.tools.MobUIShell" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.powervision.newvisionplus.cn.sharesdk.ShareSDKFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="cn.sharesdk.framework.utils.ShareSDKFileProvider"/>
+        <activity android:launchMode="singleTask" android:name="cn.sharesdk.tencent.qq.ReceiveActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tencent101514017"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="cn.sharesdk.line.LineHandlerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="lineauth"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:exported="true" android:name=".lineapi.LineAuthenticationCallbackActivity" android:targetActivity="cn.sharesdk.line.LineHandlerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="cn.sharesdk.wechat.utils.WechatHandlerActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity-alias android:exported="true" android:name="com.powervision.newvisionplus.wxapi.WXEntryActivity" android:targetActivity="cn.sharesdk.wechat.utils.WechatHandlerActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="cn.sharesdk.framework.loopshare.RestoreTempActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="cn.sharesdk.loopshare.LoopShareActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cn.sharesdk.loop" android:scheme="ssdk27d0f89172003"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

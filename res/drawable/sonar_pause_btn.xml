@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector android:drawable="@drawable/sonar_pause_vector"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <target android:name="pause" android:animation="@animator/positive_rotation_90" />
+    <target android:name="pause_path" android:animation="@animator/pause_to_play" />
+</animated-vector>

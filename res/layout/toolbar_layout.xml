@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/top_bar" style="@style/toolbar_style"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/back_image" style="@style/toolbar_left_style" />
+    <TextView android:id="@id/home_title" android:text="" style="@style/toolbar_center_style" />
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginRight="12.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <TextView android:id="@id/sub_title_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dip" android:text="" />
+        <ImageView android:id="@id/sub_title_image" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:layout_marginRight="4.0dip" />
+        <View android:layout_gravity="end|center|top" android:id="@id/red_dot" android:background="@drawable/dot_red" android:visibility="invisible" android:layout_width="8.0dip" android:layout_height="8.0dip" />
+    </FrameLayout>
+</RelativeLayout>

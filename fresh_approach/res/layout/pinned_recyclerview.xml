@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/sp_16" android:textColor="@android:color/white" android:layout_gravity="center" android:id="@id/tip_message" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_MediaLib_47" />
+    <androidx.core.widget.SwipeRefreshLayout android:id="@id/swipe_refresh_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.powervision.base.pinnedrecycler.PinnedHeaderRecyclerView android:id="@id/recycler_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </androidx.core.widget.SwipeRefreshLayout>
+</FrameLayout>

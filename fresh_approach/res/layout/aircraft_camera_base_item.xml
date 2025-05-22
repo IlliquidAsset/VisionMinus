@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:id="@id/setting_title" android:paddingTop="@dimen/dp_10" android:paddingBottom="@dimen/dp_10" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/white_text_medium" />
+    <com.powervision.base.views.HPickerView android:id="@id/pickerView" android:background="@color/black_alpha_20" android:layout_width="fill_parent" android:layout_height="@dimen/dp_40" app:layout_constraintTop_toBottomOf="@id/setting_title" />
+    <View android:id="@id/divider" android:background="@color/white_alpha_90" android:layout_width="fill_parent" android:layout_height="@dimen/dp_1" android:layout_marginTop="@dimen/dp_10" android:layout_marginStart="@dimen/dp_20" app:layout_constraintTop_toBottomOf="@id/pickerView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

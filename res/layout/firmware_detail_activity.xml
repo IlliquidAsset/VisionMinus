@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="26.0dip" android:textColor="@color/black" android:id="@id/detail_title" android:layout_width="wrap_content" android:layout_height="35.0dip" android:layout_marginTop="30.0dip" android:text="@string/AP03_Upgrade_106" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/close_black" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="8.0dip" android:src="@mipmap/close_black" android:layout_alignParentRight="true" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/detail_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:layout_below="@id/detail_title">
+        <ImageView android:id="@id/device_img" android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_100" android:layout_marginLeft="25.0dip" android:layout_marginTop="24.0dip" android:src="@mipmap/detail_ap03" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_10" android:layout_marginTop="@dimen/dp_20">
+            <TextView android:textSize="14.0dip" android:textColor="@color/black" android:id="@id/main_version_text" android:layout_width="wrap_content" android:layout_height="22.0dip" android:text="主机:" />
+            <TextView android:textSize="14.0dip" android:textColor="@color/black" android:id="@id/remote_version_text" android:layout_width="wrap_content" android:layout_height="22.0dip" android:text="遥控器:" />
+            <TextView android:textSize="14.0dip" android:textColor="@color/gray_color" android:id="@id/size" android:layout_width="wrap_content" android:layout_height="22.0dip" android:text="固件大小:" />
+        </LinearLayout>
+    </LinearLayout>
+    <ScrollView android:scrollbarStyle="insideInset" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/dp_30" android:layout_marginTop="30.0dip" android:layout_marginRight="@dimen/dp_30" android:layout_marginBottom="25.0dip" android:layout_above="@id/download_or_update" android:layout_below="@id/detail_layout">
+        <TextView android:textSize="14.0dip" android:id="@id/release_note_conentent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="N/A" android:lineSpacingExtra="4.0dip" />
+    </ScrollView>
+    <Button android:textColor="@color/white" android:id="@id/download_or_update" android:background="@color/blue" android:layout_width="@dimen/dp_300" android:layout_height="50.0dip" android:layout_marginBottom="35.0dip" android:text="@string/AP03_MediaLib_14" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

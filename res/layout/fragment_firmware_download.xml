@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:background="@color/white" android:paddingLeft="20.0dip" android:paddingTop="16.0dip" android:paddingRight="20.0dip" android:paddingBottom="10.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/black_text_color" android:layout_gravity="center_horizontal" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="120.0dip">
+        <TextView android:textStyle="bold" android:textColor="@color/black_text_color" android:layout_gravity="center_vertical" android:id="@id/tv_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="固件大小： 10M" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ll_progress" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/black_text_color" android:id="@id/tv_progress_rate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0%" />
+            <ProgressBar android:id="@id/pb_progress" android:layout_width="fill_parent" android:layout_height="6.0dip" android:layout_marginLeft="26.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="26.0dip" android:max="100" android:progress="0" android:progressDrawable="@drawable/firmware_download_progressbar_color" style="?android:progressBarStyleHorizontal" />
+        </LinearLayout>
+    </FrameLayout>
+    <TextView android:textSize="@dimen/text_size_12sp" android:textColor="#ff666666" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_Msg_1" />
+    <TextView android:textSize="@dimen/text_size_12sp" android:textColor="#ff666666" android:layout_gravity="center_vertical" android:id="@id/tv_note" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Upgrade_69" android:lines="2" />
+    <LinearLayout android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dip">
+        <TextView android:textSize="15.0sp" android:textColor="@color/black_text_color" android:gravity="center" android:id="@id/tv_cancel" android:background="@drawable/gcs_firmware_update_cancel_bg" android:layout_width="0.0dip" android:layout_height="45.0dip" android:text="@string/AP03_AI_2" android:layout_weight="1.0" />
+        <Space android:id="@id/s_divider" android:layout_width="20.0dip" android:layout_height="0.0dip" />
+        <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/tv_sure" android:background="@drawable/gcs_firmware_update_sure_bg" android:layout_width="0.0dip" android:layout_height="45.0dip" android:text="@string/OK" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

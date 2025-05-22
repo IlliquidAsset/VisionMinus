@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/about_title" app:layout_constraintTop_toTopOf="parent" layout="@layout/aircraft_fragment_general_header_layout" />
+    <View android:id="@id/flight_header_line" android:background="@color/white_alpha_90" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginStart="20.0dip" app:layout_constraintBottom_toBottomOf="@id/about_title" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/aircraft_white" android:id="@id/version_hw_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="硬件版本号" app:layout_constraintLeft_toLeftOf="@id/flight_header_line" app:layout_constraintTop_toBottomOf="@id/flight_header_line" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/aircraft_general_setting_input_color" android:id="@id/version_hw_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="N/A" android:drawablePadding="10.0dip" android:layout_marginEnd="20.0dip" app:layout_constraintRight_toRightOf="@id/flight_header_line" app:layout_constraintTop_toBottomOf="@id/flight_header_line" />
+</androidx.constraintlayout.widget.ConstraintLayout>

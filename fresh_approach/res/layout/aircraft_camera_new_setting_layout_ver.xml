@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/view_empty_cover" android:background="@color/transparent" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="3.0" />
+    <include android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="5.0" layout="@layout/aircraft_camera_new_setting_layout" />
+</LinearLayout>

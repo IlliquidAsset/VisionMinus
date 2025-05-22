@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/toolbar_layout" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <com.xiao.nicevideoplayer.NiceVideoPlayer android:id="@id/video_player" android:layout_width="256.0dip" android:layout_height="144.0dip" />
+        <FrameLayout android:background="@mipmap/ic_connect_scan_bg" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center" android:id="@id/iv_scan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_connect_scan_top" />
+        </FrameLayout>
+        <LinearLayout android:orientation="vertical" android:paddingLeft="40.0dip" android:paddingRight="40.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/black_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_GeneralSetting_15" />
+            <TextView android:textSize="10.0sp" android:textColor="@color/red_text_color" android:id="@id/tv_psn_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:layout_marginBottom="4.0dip" android:text="@string/PVW4_GeneralSetting_17" />
+            <LinearLayout android:background="@drawable/black_edit_text_bg" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginTop="8.0dip">
+                <EditText android:textSize="14.0sp" android:textColor="@color/black_text_color" android:textColorHint="@color/hint_text_color" android:gravity="center_vertical" android:id="@id/et_psn" android:background="@color/transparent" android:paddingLeft="8.0dip" android:paddingRight="8.0dip" android:layout_width="0.0dip" android:layout_height="40.0dip" android:hint="@string/PVW4_GeneralSetting_16" android:layout_weight="1.0" />
+                <ImageView android:id="@id/iv_clear" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/icon_close" />
+            </LinearLayout>
+            <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="@string/ConnectGuide_40" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:id="@id/rl_finish" android:layout_marginLeft="40.0dip" android:layout_marginTop="16.0dip" android:layout_marginRight="40.0dip" android:layout_marginBottom="16.0dip" style="@style/bottom_btn_style">
+        <TextView android:textColor="@color/connect_guide_bottom_btn_text_color_selector" android:id="@id/tv_finish" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_GeneralSetting_22" android:includeFontPadding="false" android:layout_centerInParent="true" />
+        <androidx.core.widget.ContentLoadingProgressBar android:id="@id/progress_bar" android:visibility="invisible" android:layout_width="10.0dip" android:layout_height="10.0dip" android:layout_centerVertical="true" android:layout_marginStart="4.0dip" android:layout_toEndOf="@id/tv_finish" style="?android:progressBarStyleSmall" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <cn.bingoogolapple.qrcode.zxing.ZXingView android:id="@id/zxingview" android:layout_width="fill_parent" android:layout_height="fill_parent" app:qrcv_animTime="1000" app:qrcv_barCodeTipText="" app:qrcv_barcodeRectHeight="120.0dip" app:qrcv_borderColor="@android:color/transparent" app:qrcv_borderSize="1.0dip" app:qrcv_cornerColor="@color/white" app:qrcv_cornerDisplayType="center" app:qrcv_cornerLength="20.0dip" app:qrcv_cornerSize="3.0dip" app:qrcv_customLightDrawable="@mipmap/icon_light_off" app:qrcv_customScanLineDrawable="@mipmap/scan_icon_scanline" app:qrcv_isAutoZoom="true" app:qrcv_isBarcode="false" app:qrcv_isOnlyDecodeScanBoxArea="false" app:qrcv_isScanLineReverse="true" app:qrcv_isShowDefaultGridScanLineDrawable="false" app:qrcv_isShowDefaultScanLineDrawable="true" app:qrcv_isShowLocationPoint="true" app:qrcv_isShowTipBackground="true" app:qrcv_isShowTipTextAsSingleLine="false" app:qrcv_isTipTextBelowRect="false" app:qrcv_left_offset="60.0dip" app:qrcv_maskColor="#90000000" app:qrcv_qrCodeTipText="" app:qrcv_rectWidth="180.0dip" app:qrcv_scanLineColor="@color/colorPrimaryDark" app:qrcv_scanLineMargin="0.0dip" app:qrcv_scanLineSize="0.5dip" app:qrcv_tipTextColor="@android:color/white" app:qrcv_tipTextSize="12.0sp" app:qrcv_verticalBias="0.5" />
+    <LinearLayout android:orientation="vertical" android:layout_width="180.0dip" android:layout_height="fill_parent" android:layout_marginLeft="60.0dip">
+        <Space android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <LinearLayout android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <ImageView android:id="@id/image_light" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:src="@drawable/light_selector" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/text_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dip" android:text="@string/AP03_GeneralSetting_148" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:text="@string/AP03_GeneralSetting_149" android:layout_below="@id/text_title" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/white" android:gravity="center_horizontal" android:id="@id/text_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="18.0dip" android:text="@string/AP03_GeneralSetting_150" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/white" android:id="@id/text_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginTop="6.0dip" android:text="@string/AP03_GeneralSetting_273" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ll_type_remote" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_centerVertical="true" android:layout_marginStart="300.0dip" android:layout_marginEnd="90.0dip">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_GeneralSetting_136" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:src="@mipmap/ic_ap03_body_with_scan_indicator" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/ll_type_seeker" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_marginLeft="300.0dip" android:layout_marginRight="90.0dip" android:layout_centerVertical="true">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <ImageView android:id="@id/image1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/home_dv_icon_qr_scan" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="15.0sp" android:textColor="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:layout_toLeftOf="@id/image1" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <ImageView android:id="@id/image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="15.0sp" android:textColor="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:layout_toLeftOf="@id/image" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

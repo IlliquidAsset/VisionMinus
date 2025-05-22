@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/black_color" android:gravity="center" android:id="@id/text_take_photo" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50" android:text="@string/APP_Mine_26" />
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/black_color" android:gravity="center" android:id="@id/text_get_photo" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50" android:text="@string/APP_Mine_27" />
+    <View android:background="@color/user_line_divider" android:layout_width="fill_parent" android:layout_height="@dimen/px_3" />
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/black_color" android:gravity="center" android:id="@id/text_cancel" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50" android:text="@string/App_MediaLib_20" />
+</LinearLayout>

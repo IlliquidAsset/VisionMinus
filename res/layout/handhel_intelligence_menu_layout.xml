@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/handheld_delay_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="90.0dip" android:layout_alignParentTop="true" android:layout_marginStart="220.0dip" android:layout_alignParentStart="true">
+        <ImageView android:id="@id/handheld_delay_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_delay_icon" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@android:color/white" android:id="@id/handheld_delay_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:text="延时摄影" android:layout_below="@id/handheld_delay_img" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/handheld_slow_motion_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="90.0dip" android:layout_alignParentTop="true" android:layout_marginEnd="220.0dip" android:layout_alignParentEnd="true">
+        <ImageView android:id="@id/handheld_slow_motion_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_slow_motion_icon" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@android:color/white" android:id="@id/handheld_slow_motion_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:text="慢动作" android:layout_below="@id/handheld_slow_motion_img" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/handheld_panoramic_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="90.0dip" android:layout_alignParentBottom="true" android:layout_marginStart="230.0dip">
+        <ImageView android:id="@id/handheld_panoramic_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_panoramic_icon" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@android:color/white" android:id="@id/handheld_panoramic_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:text="全景" android:layout_below="@id/handheld_panoramic_img" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/handheld_hdr_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="90.0dip" android:layout_alignParentBottom="true" android:layout_marginEnd="220.0dip" android:layout_alignParentEnd="true">
+        <ImageView android:id="@id/handheld_hdr_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_hdr_icon" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@android:color/white" android:id="@id/handheld_hdr_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:text="HDR" android:layout_below="@id/handheld_hdr_img" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <ImageView android:id="@id/handheld_close" android:layout_width="@dimen/dp_20" android:layout_height="@dimen/dp_20" android:layout_marginTop="@dimen/dp_40" android:src="@mipmap/base_close" android:layout_alignParentTop="true" android:layout_marginEnd="@dimen/dp_40" android:layout_alignParentEnd="true" />
+</RelativeLayout>

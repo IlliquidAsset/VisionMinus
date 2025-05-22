@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/water_camera_setting_view" android:background="@color/transparent" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/water_camera_setting_layout" android:background="@color/default_bg" android:layout_width="@dimen/margin_270db" android:layout_height="fill_parent" android:layout_alignParentRight="true">
+        <RadioGroup android:orientation="horizontal" android:id="@id/water_params_rg" android:layout_width="fill_parent" android:layout_height="@dimen/margin_50db">
+            <RadioButton android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:gravity="center" android:id="@id/water_camera_params_rb" android:layout_width="0.0dip" android:layout_height="fill_parent" android:button="@null" android:drawableTop="@drawable/water_camera_params_selector" android:drawablePadding="-10.0dip" android:layout_weight="1.0" />
+            <RadioButton android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:gravity="center" android:id="@id/water_video_params_rb" android:layout_width="0.0dip" android:layout_height="fill_parent" android:button="@null" android:drawableTop="@drawable/water_video_params_selector" android:drawablePadding="-10.0dip" android:layout_weight="1.0" />
+            <RadioButton android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:gravity="center" android:id="@id/water_image_params_rb" android:layout_width="0.0dip" android:layout_height="fill_parent" android:button="@null" android:drawableTop="@drawable/water_image_params_selector" android:drawablePadding="-10.0dip" android:layout_weight="1.0" />
+        </RadioGroup>
+        <RadioGroup android:orientation="horizontal" android:id="@id/water_params_rg_line" android:layout_width="fill_parent" android:layout_height="@dimen/margin_1db">
+            <RadioButton android:id="@id/water_camera_params_rb_line" android:background="@drawable/water_params_line_selector" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:button="@null" android:layout_weight="1.0" />
+            <RadioButton android:id="@id/water_video_params_rb_line" android:background="@drawable/water_params_line_selector" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:button="@null" android:layout_weight="1.0" />
+            <RadioButton android:id="@id/water_image_params_rb_line" android:background="@drawable/water_params_line_selector" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:button="@null" android:layout_weight="1.0" />
+        </RadioGroup>
+        <View android:background="@color/white" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <ListView android:id="@id/water_camera_setting_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@color/transparent" />
+    </LinearLayout>
+    <RelativeLayout android:orientation="vertical" android:id="@id/water_camera_setting_value_layout" android:background="@color/default_bg" android:visibility="gone" android:layout_width="@dimen/margin_270db" android:layout_height="fill_parent" android:layout_alignParentRight="true">
+        <ImageView android:id="@id/water_camera_setting_value_back" android:layout_width="@dimen/margin_50db" android:layout_height="@dimen/margin_50db" android:src="@mipmap/back_white_icon" android:scaleType="center" />
+        <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:id="@id/water_camera_setting_value_title" android:layout_width="fill_parent" android:layout_height="@dimen/margin_50db" android:layout_marginLeft="@dimen/margin_50db" android:layout_marginRight="@dimen/margin_50db" android:maxLines="1" />
+        <View android:background="@color/white" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_below="@id/water_camera_setting_value_back" />
+        <ListView android:id="@id/water_camera_setting_value_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="1.0px" android:listSelector="@color/transparent" android:layout_below="@id/water_camera_setting_value_back" />
+    </RelativeLayout>
+</RelativeLayout>

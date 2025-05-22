@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/shape_hint_scan_area_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/text_size_16sp" android:textColor="@color/black" android:gravity="center" android:id="@id/text" android:paddingLeft="@dimen/margin_18db" android:paddingTop="@dimen/margin_10db" android:paddingRight="@dimen/margin_18db" android:paddingBottom="@dimen/margin_10db" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ship_function_list_record_route" android:layout_centerInParent="true" />
+</RelativeLayout>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.powervision.login.views.BackListenerEditText android:background="@drawable/login_verify_et_underline_selector" android:layout_width="fill_parent" android:layout_height="fill_parent" android:inputType="number" android:textCursorDrawable="@drawable/login_verify_code_cursor_drawable"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

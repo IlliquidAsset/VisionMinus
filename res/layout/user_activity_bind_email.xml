@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/actionbar" layout="@layout/toolbar_title_center" />
+    <View android:id="@id/space" android:background="@color/white_background" android:layout_width="fill_parent" android:layout_height="@dimen/dp_10" app:layout_constraintTop_toBottomOf="@id/actionbar" />
+    <EditText android:id="@id/edit_email" android:layout_width="fill_parent" android:hint="@string/APP_Mine_31" android:inputType="textEmailAddress" app:layout_constraintTop_toBottomOf="@id/space" style="@style/user_bind_edit" />
+    <View android:id="@id/divider" android:layout_width="fill_parent" app:layout_constraintTop_toBottomOf="@id/edit_email" style="@style/user_divider" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/user_guideline" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintGuide_percent="0.66" />
+    <EditText android:id="@id/edit_code" android:layout_width="@dimen/dp_0" android:hint="@string/APP_Mine_30" android:inputType="phone" app:layout_constraintEnd_toStartOf="@id/user_guideline" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/divider" style="@style/user_bind_edit" />
+    <View android:background="@color/user_line_divider" android:layout_width="1.0px" android:layout_height="@dimen/dp_50" app:layout_constraintBottom_toBottomOf="@id/edit_code" app:layout_constraintStart_toEndOf="@id/edit_code" app:layout_constraintTop_toTopOf="@id/edit_code" />
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/black_color" android:gravity="center" android:id="@id/text_get_code" android:layout_width="0.0dip" android:layout_height="@dimen/dp_50" android:text="@string/APP_Login_19" android:layout_weight="1.0" app:layout_constraintBottom_toBottomOf="@id/edit_code" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@id/user_guideline" app:layout_constraintTop_toTopOf="@id/edit_code" />
+    <View android:background="@color/white_background" android:layout_width="fill_parent" android:layout_height="@dimen/dp_0" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@id/edit_code" />
+    <Button android:textSize="@dimen/sp_15" android:textColor="@android:color/white" android:gravity="center" android:id="@id/button_confirm" android:background="@drawable/user_btn_bg" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50" android:layout_margin="@dimen/dp_50" android:text="@string/AP03_AI_3" app:layout_constraintTop_toBottomOf="@id/edit_code" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/item_root_layout" android:layout_width="fill_parent" android:layout_height="50.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/camera_recording_setting_icon_iv" android:layout_width="70.0dip" android:layout_height="30.0dip" android:layout_marginTop="10.0dip" android:layout_marginStart="30.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="12.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/camera_recording_setting_blance_content_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10.0dip" app:layout_constraintBottom_toBottomOf="@id/camera_recording_setting_icon_iv" app:layout_constraintStart_toEndOf="@id/camera_recording_setting_icon_iv" app:layout_constraintTop_toTopOf="@id/camera_recording_setting_icon_iv" />
+    <View android:id="@id/aircraft_view" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+</androidx.constraintlayout.widget.ConstraintLayout>

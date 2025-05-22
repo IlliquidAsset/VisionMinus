@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/edit_color_video_part_bg" android:layout_width="@dimen/dp_80" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/iv_item_image" android:layout_width="@dimen/dp_80" android:layout_height="@dimen/dp_45" android:scaleType="center" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="@dimen/sp_11" android:textColor="@color/white" android:id="@id/tv_item_time" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0s" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <ImageView android:id="@id/view_vs_time_line" android:visibility="gone" android:layout_width="@dimen/dp_2" android:layout_height="@dimen/dp_55" android:src="@mipmap/edit_icon_vs_record" android:scaleType="center" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/rg" android:background="@mipmap/underwater_lmh_bg" android:layout_width="117.0dip" android:layout_height="20.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RadioButton android:id="@id/rbL" android:background="@drawable/ray_speed_level_low_selector" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginLeft="2.0dip" android:button="@null" />
+    <View android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <RadioButton android:id="@id/rbM" android:background="@drawable/ray_speed_level_middle_selector" android:layout_width="16.0dip" android:layout_height="16.0dip" android:button="@null" />
+    <View android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <RadioButton android:id="@id/rbH" android:background="@drawable/ray_speed_level_high_selector" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginRight="2.0dip" android:button="@null" />
+</RadioGroup>

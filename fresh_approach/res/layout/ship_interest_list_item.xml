@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:id="@id/rl_interest_item_root" android:paddingTop="@dimen/margin_15db" android:paddingBottom="@dimen/margin_15db" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="@dimen/margin_15db"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ship_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:src="@mipmap/ship_interest_icon" android:layout_centerVertical="true" />
+    <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/ship_tv_interest" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10db" android:layout_marginRight="@dimen/margin_100db" android:maxLines="2" android:layout_toRightOf="@id/ship_icon" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/ship_interest_edit" android:padding="@dimen/margin_6db" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_60db" android:src="@mipmap/ship_interest_edit" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/ship_interest_delete" android:padding="@dimen/margin_6db" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_20db" android:src="@mipmap/ship_interest_delete" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

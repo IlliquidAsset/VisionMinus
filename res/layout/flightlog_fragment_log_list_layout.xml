@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/smart_circle_white_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="80.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout android:orientation="horizontal" android:id="@id/top_title" android:background="@drawable/top_left_right_radius_10" android:layout_width="fill_parent" android:layout_height="40.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+            <TextView android:textSize="11.0sp" android:textColor="@color/grey_title" android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_FlightLog_23" android:layout_weight="1.0" />
+            <TextView android:textSize="11.0sp" android:textColor="@color/grey_title" android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_FlightLog_24" android:layout_weight="1.0" />
+            <TextView android:textSize="11.0sp" android:textColor="@color/grey_title" android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_FlightLog_25" android:layout_weight="1.0" />
+            <TextView android:textSize="11.0sp" android:textColor="@color/grey_title" android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_FlightLog_26" android:layout_weight="1.0" />
+        </LinearLayout>
+        <cn.powervision.flightlog.customViews.SkidRemoveView android:id="@id/skid_remove_view" android:layout_width="fill_parent" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/top_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

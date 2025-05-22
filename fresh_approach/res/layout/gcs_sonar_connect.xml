@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/layout_qr" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_15db">
+        <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/gcs_firmware_update_sure_bg" android:gravity="center|right" android:id="@id/text_scan" android:background="@mipmap/btn_white" android:paddingRight="@dimen/margin_20db" android:visibility="visible" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ConnectGuide_30" />
+        <ImageView android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15db" android:src="@mipmap/ic_seeker_pair" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_12db">
+        <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:id="@id/text_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginRight="@dimen/margin_10db" android:text="@string/PVW4_GeneralSetting_85" android:layout_centerVertical="true" />
+        <EditText android:textSize="@dimen/text_size_14sp" android:textColor="@color/gcs_firmware_update_sure_bg" android:textColorHint="@color/gcs_firmware_update_sure_bg" android:gravity="center" android:id="@id/edit_psn" android:background="@drawable/ship_sonar_paring_input_bg" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_margin="@dimen/margin_20db" android:hint="@string/PVW4_GeneralSetting_86" android:cursorVisible="false" android:lines="1" android:singleLine="true" android:maxLength="14" android:inputType="text" />
+        <RelativeLayout android:id="@id/rl_pair" android:background="@drawable/ship_sonar_paring_btn_bg" android:layout_width="fill_parent" android:layout_height="@dimen/margin_40db" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginRight="@dimen/margin_20db">
+            <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/gcs_firmware_update_sure_bg" android:id="@id/text_pair" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_GeneralSetting_22" android:layout_centerInParent="true" />
+            <androidx.core.widget.ContentLoadingProgressBar android:id="@id/pair_progress_bar" android:visibility="invisible" android:layout_width="12.0dip" android:layout_height="12.0dip" android:layout_centerVertical="true" android:layout_marginStart="6.0dip" android:layout_toEndOf="@id/text_pair" style="?android:progressBarStyleSmall" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

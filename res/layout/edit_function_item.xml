@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/edit_resource_item_bg_selector" android:layout_width="@dimen/dp_75" android:layout_height="@dimen/dp_75" android:layout_margin="@dimen/dp_8"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/sp_12" android:textColor="@android:color/white" android:gravity="center" android:id="@id/edit_function" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/App_MediaLib_90" android:drawableTop="@mipmap/edit_crop" android:drawablePadding="@dimen/dp_8" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

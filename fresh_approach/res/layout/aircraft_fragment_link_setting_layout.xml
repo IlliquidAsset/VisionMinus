@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/black_alpha_10" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/aircraft_fragment_general_header_layout" />
+    <include layout="@layout/divider_white_alpha_10" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/link_signal_strength" android:layout_width="wrap_content" android:layout_height="@dimen/dp_50" android:text="@string/AP03_GeneralSetting_170" style="@style/white_text_medium" />
+        <TextView android:id="@id/link_signal_strength_value" android:layout_width="wrap_content" android:layout_height="@dimen/dp_50" android:text="N/A" android:layout_alignParentEnd="true" style="@style/white_text_medium" />
+    </RelativeLayout>
+    <include layout="@layout/divider_white_alpha_10" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/downstream_bandwidth" android:layout_width="wrap_content" android:layout_height="@dimen/dp_50" android:text="@string/AP03_GeneralSetting_164" style="@style/white_text_medium" />
+        <androidx.appcompat.widget.AppCompatSpinner android:id="@id/downstream_bandwidth_value" android:background="@drawable/radius_stroke_rectangle_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:popupBackground="@drawable/spinner_drop_bg" android:layout_centerVertical="true" android:layout_marginEnd="@dimen/dp_20" android:layout_alignParentEnd="true" style="@style/white_text_spinner" />
+    </RelativeLayout>
+    <include layout="@layout/divider_white_alpha_10" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/video_quality" android:layout_width="wrap_content" android:layout_height="@dimen/dp_50" android:text="@string/AP03_GeneralSetting_165" style="@style/white_text_medium" />
+        <TextView android:id="@id/video_quality_value" android:layout_width="wrap_content" android:layout_height="@dimen/dp_50" android:text="0.00Mbps" android:layout_alignParentEnd="true" style="@style/white_text_medium" />
+    </RelativeLayout>
+    <include layout="@layout/divider_white_alpha_10" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/video_mode" android:layout_width="wrap_content" android:layout_height="@dimen/dp_40" android:text="@string/AP03_GeneralSetting_166" style="@style/white_text_medium" />
+        <androidx.appcompat.widget.AppCompatSpinner android:id="@id/video_mode_value" android:background="@drawable/radius_stroke_rectangle_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:popupBackground="@drawable/spinner_drop_bg" android:layout_alignParentTop="true" android:layout_marginEnd="@dimen/dp_20" android:layout_alignParentEnd="true" style="@style/white_text_spinner" />
+        <TextView android:id="@id/video_mode_hide" android:layout_width="wrap_content" android:layout_height="@dimen/dp_40" android:text="@string/AP03_GeneralSetting_169" android:layout_below="@id/video_mode" android:layout_marginStart="30.0dip" style="@style/white_text_small" />
+    </RelativeLayout>
+    <include layout="@layout/divider_white_alpha_10" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/wifi_ssid" android:layout_width="wrap_content" android:layout_height="@dimen/dp_50" android:text="Wi-Fi-SSID" style="@style/white_text_medium" />
+        <TextView android:id="@id/wifi_ssid_value" android:layout_width="wrap_content" android:layout_height="@dimen/dp_50" android:text="N/A" android:layout_alignParentEnd="true" style="@style/white_text_medium" />
+    </RelativeLayout>
+    <include layout="@layout/divider_white_alpha_10" />
+</LinearLayout>

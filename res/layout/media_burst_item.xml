@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/burst_image" android:layout_width="@dimen/dp_0" android:layout_height="wrap_content" android:scaleType="fitCenter" android:adjustViewBounds="true" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <ImageView android:id="@id/burst_select" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:src="@drawable/media_content_selector" android:layout_marginEnd="@dimen/dp_10" app:layout_constraintEnd_toEndOf="@id/burst_image" app:layout_constraintTop_toTopOf="@id/burst_image" />
+</androidx.constraintlayout.widget.ConstraintLayout>

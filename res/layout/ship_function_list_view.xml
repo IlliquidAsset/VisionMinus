@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:background="@color/nine_trans_black" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="end" android:id="@id/ship_function_list_close" android:padding="@dimen/margin_20db" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_cancel_popup" />
+    <TextView android:textColor="@color/white" android:layout_gravity="center_horizontal" android:id="@id/tv_function_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="80.0dip" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/ll_function" android:paddingLeft="120.0dip" android:paddingRight="120.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ship_function_list_search_fish" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_function_list_search_fish" />
+            <TextView android:textColor="@color/white" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/PVW4_StatusBar_10" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ship_function_list_off_hook" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:id="@id/iv_off_hook" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_function_list_off_hook" />
+            <TextView android:textColor="@color/white" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/ship_function_list_off_hook" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ship_function_list_vr" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_function_list_vr" />
+            <TextView android:textColor="@color/white" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/ship_function_list_vr" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ll_intelli" android:paddingLeft="120.0dip" android:paddingRight="120.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ship_function_list_airline_sche" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:id="@id/ship_iv_airline_scheme" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_function_list_airline_sche" />
+            <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/tv_airline_scheme" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/PVW4_AI_1" />
+        </LinearLayout>
+        <LinearLayout android:enabled="false" android:gravity="center" android:orientation="vertical" android:id="@id/ship_function_scan_area" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:id="@id/ship_iv_scan_area" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_function_scan_area_disable" />
+            <TextView android:textColor="@color/color_50_white" android:gravity="center" android:id="@id/tv_scan_area" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/PVW4_AI_20" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ship_function_list_safe_area" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:id="@id/iv_safe_zone_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_function_list_safe_area" />
+            <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/tv_safe_zone_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/ship_function_list_safe_area" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

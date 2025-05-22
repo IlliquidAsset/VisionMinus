@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/fl_edit_layout_control" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <HorizontalScrollView android:id="@id/hsv_edit_aspect_ratio" android:visibility="gone" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_edit_aspect_ratio" android:layout_width="wrap_content" android:layout_height="@dimen/dp_90" android:paddingStart="@dimen/dp_30" android:paddingEnd="@dimen/dp_30" />
+        </HorizontalScrollView>
+        <include android:id="@id/layout_bottom_rotate_view" layout="@layout/ucrop_layout_rotate" />
+    </FrameLayout>
+    <androidx.appcompat.widget.Toolbar android:gravity="center" android:orientation="vertical" android:id="@id/tb_edit_bottom_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?actionBarSize" android:layout_below="@id/fl_edit_layout_control">
+        <TextView android:textSize="@dimen/sp_17" android:textColor="@color/black_color" android:layout_gravity="center" android:id="@id/tb_edit_bottom_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </androidx.appcompat.widget.Toolbar>
+</RelativeLayout>

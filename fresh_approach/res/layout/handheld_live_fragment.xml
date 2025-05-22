@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/handheld_content_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_50" android:layout_marginStart="@dimen/dp_50">
+        <RelativeLayout android:id="@id/custom_live_layout" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/custom_live_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/icon_live_stream_set_unselect" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="15.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_15" android:text="@string/AP03_DV_CameraSetting_24" android:layout_below="@id/custom_live_img" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/youtube_layout" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/youtube_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_youtube_icon" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="15.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/APP_function_20" android:layout_below="@id/youtube_img" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/qzone_layout" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/qzone_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_qzone_icon" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="15.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/APP_function_17" android:layout_below="@id/qzone_img" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_50">
+        <RelativeLayout android:id="@id/facebook_layout" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/facebook_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_facebook_icon" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="15.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/APP_function_19" android:layout_below="@id/facebook_img" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/custom_layout" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/custom_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/handheld_custom_icon" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="15.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/handheld_custom_livee" android:layout_below="@id/custom_img" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

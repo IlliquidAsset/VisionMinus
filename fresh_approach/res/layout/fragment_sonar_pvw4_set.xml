@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="10.0dip">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <RelativeLayout android:background="@color/ku_ya_black" android:layout_width="fill_parent" android:layout_height="45.0dip">
+                <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:id="@id/light_title" android:layout_width="wrap_content" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" android:text="@string/PVW4_GeneralSetting_101" />
+                <ToggleButton android:id="@id/light_toggle" android:background="@drawable/toggle_fish" android:layout_width="50.0dip" android:layout_height="25.0dip" android:layout_marginRight="10.0dip" android:checked="false" android:button="@null" android:textOn="" android:textOff="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <View android:background="@drawable/ship_settings_list_item_divider" android:layout_width="fill_parent" android:layout_height="@dimen/margin_1db" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:background="@color/ku_ya_black" android:layout_width="fill_parent" android:layout_height="45.0dip">
+                <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:id="@id/pvw4_color_mode_title" android:layout_width="wrap_content" android:layout_height="45.0dip" android:layout_marginLeft="@dimen/margin_20db" android:text="@string/PVW4_Sonar_15" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/color_4374E6" android:gravity="center" android:id="@id/pvw4_color_content" android:background="@drawable/pvsonar_mode_button_bg" android:paddingLeft="2.0dip" android:paddingRight="2.0dip" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginRight="20.0dip" android:minWidth="90.0dip" android:text="@string/PVW4_Sonar_12" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <View android:background="@drawable/ship_settings_list_item_divider" android:layout_width="fill_parent" android:layout_height="@dimen/margin_1db" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:background="@color/ku_ya_black" android:layout_width="fill_parent" android:layout_height="45.0dip">
+                <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:id="@id/auto_deep" android:layout_width="wrap_content" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" android:text="@string/PVW4_GeneralSetting_102" />
+                <ToggleButton android:id="@id/auto_deep_toggle" android:background="@drawable/toggle_fish" android:layout_width="50.0dip" android:layout_height="25.0dip" android:layout_marginRight="10.0dip" android:checked="false" android:button="@null" android:textOn="" android:textOff="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <View android:background="@drawable/ship_settings_list_item_divider" android:layout_width="fill_parent" android:layout_height="@dimen/margin_1db" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/manutal_title" android:background="@color/ku_ya_black" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginBottom="@dimen/margin_1db">
+                <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:id="@id/pvw4_mantual_deep" android:layout_width="wrap_content" android:layout_height="45.0dip" android:layout_marginLeft="@dimen/margin_20db" android:text="@string/PVW4_GeneralSetting_103" />
+                <ImageView android:id="@id/ship_common_setting_rock_arrow" android:layout_width="15.0dip" android:layout_height="15.0dip" android:layout_marginRight="@dimen/margin_20db" android:src="@mipmap/camera_settings_tabulation_right" android:scaleType="centerCrop" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <View android:background="@drawable/ship_settings_list_item_divider" android:layout_width="fill_parent" android:layout_height="@dimen/margin_1db" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/manual_content" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="@dimen/margin_40db">
+                    <TextView android:id="@id/depth_min" android:text="@string/PVW4_GeneralSetting_104" style="@style/text_white_margin_start60px" />
+                    <androidx.appcompat.widget.AppCompatSeekBar android:id="@id/seebar_depth_min" android:layout_width="200.0dip" android:layout_height="wrap_content" android:progress="1" style="@style/sonar_seekbar_style" />
+                    <TextView android:textSize="@dimen/text_size_13sp" android:textColor="@color/color_white" android:id="@id/depth_min_num" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/depth_num" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="@dimen/margin_40db">
+                    <TextView android:id="@id/depth_max" android:text="@string/PVW4_GeneralSetting_105" style="@style/text_white_margin_start60px" />
+                    <androidx.appcompat.widget.AppCompatSeekBar android:id="@id/seebar_depth_max" android:layout_width="200.0dip" android:layout_height="wrap_content" style="@style/sonar_seekbar_style2" />
+                    <TextView android:textSize="@dimen/text_size_13sp" android:textColor="@color/color_white" android:id="@id/depth_max_num" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/depth_num" />
+                </LinearLayout>
+            </LinearLayout>
+            <View android:id="@id/manutal_divider" android:background="@drawable/ship_settings_list_item_divider" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/margin_1db" android:layout_alignParentBottom="true" />
+            <LinearLayout android:orientation="vertical" android:id="@id/sonar_layout" android:background="@color/ku_ya_black" android:paddingTop="@dimen/margin_2db" android:paddingBottom="@dimen/margin_2db" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/color_white" android:gravity="center_vertical" android:id="@id/sonar_text" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginLeft="20.0dip" android:text="@string/PVW4_GeneralSetting_65" android:includeFontPadding="false" android:layout_alignParentLeft="true" />
+                    <androidx.core.widget.ContentLoadingProgressBar android:id="@id/sonar_progress_bar" android:visibility="invisible" android:layout_width="12.0dip" android:layout_height="12.0dip" android:layout_centerVertical="true" android:layout_marginStart="6.0dip" android:layout_toEndOf="@id/sonar_text" style="?android:progressBarStyleSmall" />
+                    <ImageView android:id="@id/imageView3" android:layout_width="15.0dip" android:layout_height="15.0dip" android:layout_marginRight="20.0dip" android:src="@mipmap/camera_settings_tabulation_right" android:scaleType="fitXY" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                </RelativeLayout>
+                <ViewStub android:id="@id/sonar_stub" android:layout="@layout/gcs_sonar_connect" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12db" android:layout_marginBottom="@dimen/margin_12db" />
+            </LinearLayout>
+            <View android:background="@drawable/ship_settings_list_item_divider" android:layout_width="fill_parent" android:layout_height="@dimen/margin_1db" android:layout_alignParentBottom="true" />
+            <RelativeLayout android:background="@color/ku_ya_black" android:layout_width="fill_parent" android:layout_height="66.0dip">
+                <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:id="@id/data_store_des" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginLeft="20.0dip" android:text="@string/PVW4_GeneralSetting_139" />
+                <TextView android:textSize="12.0dip" android:textColor="@color/white" android:gravity="top" android:id="@id/data_store_location" android:layout_width="wrap_content" android:layout_height="15.0dip" android:layout_marginLeft="20.0dip" android:text="@string/PVW4_Msg_177" android:layout_below="@id/data_store_des" />
+                <ToggleButton android:id="@id/data_store_toggle" android:background="@drawable/toggle_fish" android:layout_width="50.0dip" android:layout_height="25.0dip" android:layout_marginRight="10.0dip" android:checked="true" android:button="@null" android:textOn="" android:textOff="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <View android:background="@drawable/ship_settings_list_item_divider" android:layout_width="fill_parent" android:layout_height="@dimen/margin_1db" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

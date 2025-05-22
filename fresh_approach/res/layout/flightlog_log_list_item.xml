@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/top_title" android:background="@color/transparent" android:layout_width="fill_parent" android:layout_height="66.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <TextView android:textSize="11.0sp" android:textColor="@color/grey_title" android:gravity="center" android:id="@id/item_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:text="" android:layout_weight="1.0" android:layout_marginStart="8.0dip" android:layout_marginEnd="8.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+            <TextView android:textSize="13.0sp" android:textColor="@color/black_color" android:id="@id/item_city_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="" android:layout_below="@id/item_date" android:layout_marginStart="8.0dip" android:layout_marginEnd="8.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/item_date" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView android:textSize="14.0sp" android:textColor="@color/black_color" android:gravity="center" android:id="@id/item_meileage" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_FlightLog_23" android:layout_weight="1.0" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/black_color" android:gravity="center" android:id="@id/item_time" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_FlightLog_25" android:layout_weight="1.0" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/black_color" android:gravity="center" android:id="@id/item_max_height" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_FlightLog_26" android:layout_weight="1.0" />
+    </LinearLayout>
+    <TextView android:textSize="15.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/item_delete" android:background="#ffec1328" android:layout_width="65.0dip" android:layout_height="fill_parent" android:text="@string/AP03_DV_MediaLib_13" android:paddingStart="16.0dip" android:paddingEnd="16.0dip" />
+</LinearLayout>

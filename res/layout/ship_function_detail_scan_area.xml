@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/nine_trans_black" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/layout_bottom" android:layout_width="fill_parent" android:layout_height="@dimen/margin_50db" android:layout_alignParentBottom="true">
+        <View android:background="@color/ten_trans_white" android:layout_width="fill_parent" android:layout_height="@dimen/magin_0.5db" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/tv_function_hide" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/PVW4_AI_7" android:layout_weight="1.0" />
+            <View android:background="@color/ten_trans_white" android:layout_width="@dimen/magin_0.5db" android:layout_height="wrap_content" />
+            <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/tv_function_delete" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/PVW4_AI_8" android:layout_weight="1.0" />
+            <View android:background="@color/ten_trans_white" android:layout_width="@dimen/magin_0.5db" android:layout_height="wrap_content" />
+            <TextView android:textColor="@color/ship_color_pause_route" android:gravity="center" android:id="@id/tv_function_pause" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/PVW4_AI_11" android:layout_weight="1.0" />
+        </LinearLayout>
+    </RelativeLayout>
+    <ScrollView android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/layout_bottom" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/text_size_16sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_20db" android:text="@string/PVW4_AI_20" />
+                <ImageView android:id="@id/ship_detail_close_iv" android:padding="@dimen/margin_18db" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_cancel_popup" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <TextView android:textSize="@dimen/text_size_16sp" android:textColor="@color/white" android:id="@id/text_type" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginRight="@dimen/margin_22db" android:text="@string/ship_function_rect" />
+            <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:id="@id/text_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginRight="@dimen/margin_22db" android:text="@string/PVW4_AI_22" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20db">
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:visibility="gone" android:layout_width="@dimen/margin_0db" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageView android:id="@id/ship_airline_triangle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_function_detail_triangle_select" />
+                    <TextView android:textColor="@color/actionsheet_blue" android:layout_gravity="center_horizontal" android:id="@id/tv_ship_triangle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10db" android:text="@string/ship_function_triangle" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="@dimen/margin_0db" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageView android:id="@id/ship_airline_rect" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_function_detail_rect_normal" />
+                    <TextView android:textColor="@color/white" android:layout_gravity="center_horizontal" android:id="@id/ship_tv_rect" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10db" android:text="@string/ship_function_rect" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:visibility="visible" android:layout_width="@dimen/margin_0db" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageView android:id="@id/ship_airline_polygon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/zidingyi_white" />
+                    <TextView android:textColor="@color/white" android:layout_gravity="center_horizontal" android:id="@id/ship_tv_polygon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10db" android:text="@string/PVW4_GeneralSetting_3" />
+                </LinearLayout>
+            </LinearLayout>
+            <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:id="@id/text_spacing" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginTop="@dimen/margin_15db" android:text="@string/scan_spacing" />
+            <androidx.appcompat.widget.AppCompatSeekBar android:layout_gravity="center_horizontal" android:id="@id/scan_seekBar" android:layout_width="150.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15db" android:maxHeight="2.0dip" android:progressDrawable="@drawable/scan_spacing" android:thumb="@drawable/sonar_thumb" />
+            <RelativeLayout android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db">
+                <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_Sonar_3" android:layout_centerVertical="true" />
+                <ToggleButton android:id="@id/toggle_fish" android:background="@android:color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:button="@drawable/toggle_fish" android:textOn="" android:textOff="" android:text="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="21.0dip" android:layout_marginTop="@dimen/margin_15db" android:layout_alignParentBottom="true">
+                <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ship_route_speed" />
+                <TextView android:textSize="@dimen/text_size_14sp" android:textColor="#ff2ebcfa" android:id="@id/ship_function_airline_speed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatSeekBar android:layout_gravity="center_horizontal" android:id="@id/threshold_value_bar" android:layout_width="150.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15db" android:maxHeight="2.0dip" android:progressDrawable="@drawable/scan_spacing" android:thumb="@drawable/sonar_thumb" /> /> <View android:background="@drawable/divider_setting" android:layout_width="fill_parent" android:layout_height="@dimen/margin_1db" android:layout_marginTop="@dimen/margin_15db" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

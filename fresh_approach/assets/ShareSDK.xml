@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DevInfor>
+<SinaWeibo Id="5" SortId="5" AppKey="4018602526" AppSecret="671b22e7075993def36934ea6280f6a7" ShareByAppClient="true" BypassApproval="false" Enable="true" RedirectUrl="http://www.powervision.me" />
+<TencentWeibo Enable="false" />
+<Douban Enable="false" />
+<QZone Id="4" SortId="4" AppId="101514017" AppKey="086534ddb553b8ea61c77f5d16ba7f6a" ShareByAppClient="true" BypassApproval="false" Enable="true" />
+<Renren Enable="false" />
+<KaiXin Enable="false" />
+<Facebook Id="6" SortId="6" ShareByAppClient="true" Enable="true" ConsumerKey="249716929228530" ConsumerSecret="186d750c84d55a8590e073020896e47e" RedirectUrl="https://mob.com" />
+<Twitter Id="8" SortId="8" ShareByAppClient="true" Enable="true" ConsumerKey="Ang0das78GxJOE63MmljJhWqR" ConsumerSecret="5P57hzAeuC7bCbXDrMqrXdUtMt0OYsAGlFih252YEfrPaqie12" CallbackUrl="http://www.powervision.me" />
+<Evernote Enable="false" />
+<FourSquare Enable="false" />
+<GooglePlus Enable="false" />
+<Instagram Id="7" SortId="7" Enable="true" ClientId="cd9c4f17833e4e0a93bbcfdd7348b352" ClientSecret="d985b5fce56c477ab5505f17a43b6af5" RedirectUri="http://www.sharesdk.cn" />
+<LinkedIn Enable="false" />
+<Tumblr Enable="false" />
+<Email Enable="false" />
+<ShortMessage Enable="false" />
+<Wechat Id="1" SortId="1" AppId="wx6aa0a0619aaaa5c0" AppSecret="3755e74e5a0a06ea42284b7ebf92a200" userName="gh_afb25ac019c9" path="pages/index/index.html?id=1" WithShareTicket="true" MiniprogramType="2" BypassApproval="false" Enable="true" />
+<WechatMoments Id="2" SortId="2" AppId="wx6aa0a0619aaaa5c0" AppSecret="3755e74e5a0a06ea42284b7ebf92a200" BypassApproval="false" Enable="true" />
+<QQ Id="3" SortId="3" AppId="101514017" AppKey="086534ddb553b8ea61c77f5d16ba7f6a" ShareByAppClient="true" BypassApproval="false" Enable="true" />
+<Instapaper Enable="false" />
+<Pocket Enable="false" />
+<YouDao Enable="false" />
+<Pinterest Enable="false" />
+<Flickr Enable="false" />
+<Dropbox Enable="false" />
+<VKontakte Enable="false" />
+<WechatFavorite Enable="false" />
+<Yixin Enable="false" />
+<YixinMoments Enable="false" />
+<Mingdao Enable="false" />
+<Line Id="9" SortId="9" callbackscheme="lineauth" Enable="true" ChannelID="1651035019" ChannelSecret="ae0cbd98c526afbc3b5d68f814047983" RedirectUri="https://www.mob.com/" />
+<WhatsApp Enable="false" />
+<KakaoTalk Enable="false" />
+<KakaoStory Enable="false" />
+<FacebookMessenger Enable="false" />
+<Alipay Enable="false" />
+<AlipayMoments Enable="false" />
+<Dingding Enable="false" />
+<Youtube Id="10" SortId="10" AppSecret="AIzaSyByA0IGPHNh4KWWToWz8-qdKtG-wHi4kMA" ShareByAppClient="true" Enable="true" ClientID="815328382428-pbcbeuol4pegh5a60gauqm227rk5idoa.apps.googleusercontent.com" RedirectUrl="http://localhost" />
+<Meipai Enable="false" />
+<Telegram Enable="false" />
+<Cmcc Enable="false" />
+<Reddit Enable="false" />
+<Telecom Enable="false" />
+<Accountkit Enable="false" />
+<Douyin Enable="false" />
+<Wework Enable="false" />
+<HWAccount Enable="false" />
+<Oasis Enable="false" />
+<XMAccount Enable="false" />
+<SnapChat Enable="false" />
+<Kuaishou Enable="false" />
+<Littleredbook Enable="false" />
+<Watermelonvideo Enable="false" />
+<Tiktok Enable="false" />
+</DevInfor>

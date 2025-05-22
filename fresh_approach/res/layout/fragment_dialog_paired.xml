@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="300.0dip" android:layout_height="215.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="end" android:id="@id/iv_close" android:visibility="invisible" android:layout_width="32.0dip" android:layout_height="32.0dip" android:src="@mipmap/icon_close" />
+    </FrameLayout>
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff222222" android:gravity="center" android:id="@id/tv_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="36.0dip" android:layout_marginRight="36.0dip" android:text="@string/Upgrade_18" android:includeFontPadding="false" />
+    <FrameLayout android:id="@id/fl_indicator" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="36.0dip" android:layout_marginTop="16.0dip" android:layout_marginRight="36.0dip" android:layout_marginBottom="16.0dip">
+        <TextView android:textColor="#ff666666" android:gravity="center" android:id="@id/tv_indicator" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/PVW4_Msg_55" />
+    </FrameLayout>
+    <TextView android:textSize="15.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="bottom" android:id="@id/tv_sure" android:background="@drawable/gcs_firmware_update_sure_bg" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="24.0dip" android:layout_marginRight="24.0dip" android:layout_marginBottom="12.0dip" android:text="@string/OK" android:layout_alignParentBottom="true" />
+</LinearLayout>

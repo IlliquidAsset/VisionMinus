@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/img_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:src="@mipmap/icon_back_black" android:layout_marginStart="@dimen/dp_25" />
+    <TextView android:textSize="@dimen/sp_26" android:textColor="@color/black_color" android:id="@id/tv_select_country" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_25" android:text="@string/APP_Login_24" android:textAllCaps="false" android:layout_marginStart="@dimen/dp_30" />
+    <TextView android:background="@color/login_blue" android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_2" android:layout_marginTop="@dimen/dp_8" android:layout_marginStart="@dimen/dp_30" />
+    <androidx.appcompat.widget.SearchView android:id="@id/searchEdit" android:background="@drawable/edit_frame_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/dp_30" />
+    <me.yokeyword.indexablerv.IndexableLayout android:id="@id/indexableLayout" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" app:indexBar_layout_width="@dimen/dp_40" app:indexBar_selectedTextColor="@color/black_color" app:indexBar_textColor="#ffcccccc" app:indexBar_textSize="@dimen/sp_14" app:indexBar_textSpace="5.0dip" />
+    <ListView android:id="@id/search_list" android:visibility="gone" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/dp_30" android:paddingEnd="@dimen/dp_30" />
+</LinearLayout>

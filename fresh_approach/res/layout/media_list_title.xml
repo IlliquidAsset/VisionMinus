@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/color_1B1B1B" android:layout_width="fill_parent" android:layout_height="@dimen/dp_45"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/media_back" android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_38" android:src="@mipmap/back" android:scaleType="centerInside" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="@dimen/sp_15" android:textColor="@android:color/white" android:id="@id/media_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_MediaLib_0" android:drawableEnd="@mipmap/icon_pack_down" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/media_select" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/AP03_MediaLib_7" android:layout_marginEnd="@dimen/dp_20" app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <corners android:radius="360.0dip" />
+            <padding android:left="15.0dip" android:top="15.0dip" android:right="15.0dip" android:bottom="15.0dip" />
+            <solid android:color="#70000000" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/elp_close_white" android:left="15.0dip" android:top="15.0dip" android:right="15.0dip" android:bottom="15.0dip" />
+</layer-list>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/nine_trans_black" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/top" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/text_size_16sp" android:textColor="@color/white" android:id="@id/text_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_20db" android:text="@string/PVW4_Msg_132" />
+            <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:id="@id/text_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginRight="@dimen/margin_22db" android:text="@string/PVW4_Map_31" android:layout_below="@id/text_title" />
+            <ImageView android:id="@id/ship_detail_close_iv" android:padding="@dimen/margin_18db" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_cancel_popup" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <TextView android:textColor="@color/white" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginRight="@dimen/margin_22db" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_82db" android:layout_alignParentBottom="true">
+        <androidx.appcompat.widget.AppCompatSeekBar android:id="@id/threshold_value_bar" android:layout_width="150.0dip" android:layout_height="wrap_content" android:max="100" android:min="0" style="@style/sonar_seekbar_style" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="@dimen/margin_50db" android:layout_marginTop="@dimen/margin_38db" android:layout_alignParentBottom="true">
+        <View android:background="@color/ten_trans_white" android:layout_width="fill_parent" android:layout_height="@dimen/magin_0.5db" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/tv_function_hide" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/PVW4_AI_7" android:layout_weight="1.0" />
+            <View android:background="@color/ten_trans_white" android:layout_width="@dimen/magin_0.5db" android:layout_height="wrap_content" />
+            <TextView android:textColor="@color/ship_color_pause_route" android:gravity="center" android:id="@id/tv_function_pause" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/mission_pause" android:layout_weight="1.0" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

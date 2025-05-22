@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.Toolbar android:gravity="center" android:orientation="vertical" android:id="@id/toolbar" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50" android:layout_alignParentBottom="true">
+        <TextView android:textSize="@dimen/sp_17" android:textColor="@color/black_color" android:layout_gravity="center" android:id="@id/toolbar_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </androidx.appcompat.widget.Toolbar>
+    <ImageView android:id="@id/image_show" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/layout_bottom" />
+    <FrameLayout android:id="@id/layout_bottom" android:background="@color/transparent" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_50" android:layout_alignParentBottom="true">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/rv_filter_list" android:background="@color/white" android:padding="@dimen/dp_10" android:visibility="gone" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="@dimen/dp_120" />
+        <include android:id="@id/adjust_bottom" android:visibility="gone" layout="@layout/edit_adjust_layout" />
+    </FrameLayout>
+    <View android:background="@color/transparent" android:layout_width="fill_parent" android:layout_height="@dimen/dp_60" android:layout_above="@id/layout_bottom" />
+</RelativeLayout>

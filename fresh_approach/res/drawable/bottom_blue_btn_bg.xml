@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/gcs_firmware_update_sure_bg" />
+            <stroke android:width="1.0dip" android:color="@color/gcs_firmware_update_sure_bg" />
+            <corners android:radius="4.0dip" />
+        </shape>
+    </item>
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/gary" />
+            <stroke android:width="1.0dip" android:color="@color/gary" />
+            <corners android:radius="4.0dip" />
+        </shape>
+    </item>
+</selector>

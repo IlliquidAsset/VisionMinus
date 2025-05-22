@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/default_bg" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/back_contain" android:layout_width="fill_parent" android:layout_height="40.0dip">
+        <TextView android:textColor="@color/white" android:id="@id/back" android:layout_width="60.0dip" android:layout_height="fill_parent" android:layout_marginLeft="16.0dip" android:text="" android:drawableLeft="@mipmap/sonar_back_btn" android:drawablePadding="6.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
+    <androidx.core.view.ViewPager android:id="@id/sonar_viewpager" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginBottom="@dimen/margin_20db" app:layout_constraintBottom_toTopOf="@id/viewpage_bottom" app:layout_constraintTop_toBottomOf="@id/back_contain" />
+    <RelativeLayout android:orientation="horizontal" android:id="@id/viewpage_bottom" android:layout_width="fill_parent" android:layout_height="10.0dip" android:layout_marginBottom="24.0dip" app:layout_constraintBottom_toBottomOf="parent">
+        <ImageView android:id="@id/im_dian" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@mipmap/lunbo1" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

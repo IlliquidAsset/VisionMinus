@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ToggleButton android:id="@id/aircraft_perception_toggle" android:background="@drawable/air_toggle_btn" android:layout_width="@dimen/dp_60" android:layout_height="@dimen/dp_30" android:button="@null" android:textOn="" android:textOff="" android:text="" android:layout_marginEnd="@dimen/dp_20"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

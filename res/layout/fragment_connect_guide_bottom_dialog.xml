@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="12.0dip" android:layout_marginRight="12.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/iv_connect_guide_back" android:layout_width="44.0dip" android:layout_height="44.0dip" android:layout_marginTop="28.0dip" android:src="@mipmap/back_icon" />
+    <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/black_text_color" android:gravity="center" android:id="@id/tv_connect_guide_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="28.0dip" android:layout_marginRight="12.0dip" android:minHeight="44.0dip" android:text="@string/ConnectGuide_12" android:layout_toStartOf="@id/tv_connect_guide_close" android:layout_toEndOf="@id/iv_connect_guide_back" />
+    <ImageView android:id="@id/tv_connect_guide_close" android:layout_width="44.0dip" android:layout_height="44.0dip" android:layout_marginTop="28.0dip" android:src="@mipmap/icon_close" android:layout_alignParentRight="true" />
+    <include layout="@layout/view_connect_guide_1" />
+    <include layout="@layout/view_connect_guide_2" />
+    <include layout="@layout/view_connect_guide_model" />
+    <include layout="@layout/view_connect_guide_remote_wifi" />
+    <include layout="@layout/view_connect_guide_remote" />
+    <include layout="@layout/view_connect_guide_wifi" />
+</RelativeLayout>

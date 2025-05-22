@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation00" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation01" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation02" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation03" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation04" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation05" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation06" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation07" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation08" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation09" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation10" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation11" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation12" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation13" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation14" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation15" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation16" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation17" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation18" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation19" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation20" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation21" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation22" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation23" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation24" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation25" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation26" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation27" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation28" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation29" />
+    <item android:duration="50" android:drawable="@mipmap/home_fly_mode_animation30" />
+</animation-list>

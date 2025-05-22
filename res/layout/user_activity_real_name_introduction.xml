@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/actionbar" layout="@layout/toolbar_title_center" />
+    <View android:id="@id/space" android:background="@color/white_background" android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_10" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/actionbar" />
+    <ScrollView android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_0" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/space">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/dp_10" android:paddingEnd="@dimen/dp_10">
+            <TextView android:textSize="@dimen/sp_13" android:textColor="@color/black_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_Verified_6" />
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/sp_13" android:textColor="@color/black_color" android:id="@id/tv_user_rni_go_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_Verified_6_1" />
+                <TextView android:textSize="@dimen/sp_13" android:textColor="@color/blue" android:id="@id/tv_user_rni_go_url" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toEndOf="@id/tv_user_rni_go_tip" />
+            </RelativeLayout>
+            <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:src="@mipmap/user_icon_urn_register" android:adjustViewBounds="true" />
+            <View android:background="@color/grey_line" android:layout_width="fill_parent" android:layout_height="@dimen/dp_1" android:layout_marginTop="@dimen/dp_10" android:layout_marginBottom="@dimen/dp_10" />
+            <TextView android:textSize="@dimen/sp_13" android:textColor="@color/black_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_Verified_7" />
+            <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:src="@mipmap/user_icon_urn_new_add_fly" android:adjustViewBounds="true" />
+            <View android:background="@color/grey_line" android:layout_width="fill_parent" android:layout_height="@dimen/dp_1" android:layout_marginTop="@dimen/dp_10" android:layout_marginBottom="@dimen/dp_10" />
+            <TextView android:textSize="@dimen/sp_13" android:textColor="@color/black_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_Verified_8" />
+            <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:src="@mipmap/user_icon_urn_sn" android:adjustViewBounds="true" />
+            <View android:background="@color/grey_line" android:layout_width="fill_parent" android:layout_height="@dimen/dp_1" android:layout_marginTop="@dimen/dp_10" android:layout_marginBottom="@dimen/dp_10" />
+            <TextView android:textSize="@dimen/sp_13" android:textColor="@color/black_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_Verified_9" />
+            <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:src="@mipmap/user_icon_urn_q_code" android:adjustViewBounds="true" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

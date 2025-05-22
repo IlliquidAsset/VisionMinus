@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/layout_fps_set" android:background="@color/black" android:layout_width="fill_parent" android:layout_height="50.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/image_fps_set" android:padding="@dimen/dp_10" android:layout_width="@dimen/dp_90" android:layout_height="@dimen/dp_50" android:src="@mipmap/icon_fhd_4x" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/layout_fhd_120" android:paddingTop="@dimen/dp_4" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/sp_14" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FHD" />
+        <TextView android:textSize="@dimen/sp_12" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="120fps(4x)" />
+        <ImageView android:id="@id/image_fhd_120" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_arrow_up" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/layout_hd_120" android:paddingTop="@dimen/dp_4" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/sp_14" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="HD" />
+        <TextView android:textSize="@dimen/sp_12" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="120fps(4x)" />
+        <ImageView android:id="@id/image_hd_120" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_arrow_up" />
+    </LinearLayout>
+</LinearLayout>

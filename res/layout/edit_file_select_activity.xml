@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/container" android:layout_width="fill_parent" android:layout_height="0.0dip" app:layout_constraintBottom_toTopOf="@id/tv_install" app:layout_constraintTop_toBottomOf="@id/toolbar" />
+    <TextView android:textSize="@dimen/sp_15" android:textColor="@color/light_gray_color" android:gravity="center" android:id="@id/tv_install" android:background="#fff0f0f0" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50" android:text="@string/App_MediaLib_19" app:layout_constraintBottom_toBottomOf="parent" />
+    <androidx.appcompat.widget.Toolbar android:id="@id/toolbar" android:background="@android:color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:actionBarSize" app:layout_constraintTop_toTopOf="parent" app:navigationIcon="@mipmap/edit_back">
+        <TextView android:textSize="@dimen/sp_18" android:textColor="@android:color/white" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/App_MediaLib_19" />
+    </androidx.appcompat.widget.Toolbar>
+</androidx.constraintlayout.widget.ConstraintLayout>

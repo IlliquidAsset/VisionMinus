@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="@dimen/dp_10" android:layout_width="wrap_content" android:layout_height="fill_parent" android:paddingStart="@dimen/dp_10" android:paddingEnd="@dimen/dp_10"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/filter_image" android:layout_width="@dimen/dp_60" android:layout_height="@dimen/dp_60" android:scaleType="centerCrop" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="@dimen/sp_12" android:textColor="@color/black_color" android:id="@id/filter_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_5" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/filter_image" />
+    <ImageView android:id="@id/select_circle" android:visibility="invisible" android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_0" android:src="@drawable/edit_select_filter" app:layout_constraintBottom_toBottomOf="@id/filter_image" app:layout_constraintEnd_toEndOf="@id/filter_image" app:layout_constraintStart_toStartOf="@id/filter_image" app:layout_constraintTop_toTopOf="@id/filter_image" />
+</androidx.constraintlayout.widget.ConstraintLayout>

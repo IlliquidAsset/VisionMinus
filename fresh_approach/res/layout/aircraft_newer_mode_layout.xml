@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_newer_mode" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sp_16" android:textColor="@color/white" android:gravity="center" android:paddingTop="@dimen/dp_15" android:paddingBottom="@dimen/dp_15" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/AP03_GeneralSetting_69" />
+    <RelativeLayout android:background="@mipmap/newer_mode_tip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="13.0sp" android:textColor="@color/color_white" android:id="@id/text_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_8" />
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/sp_15" android:textColor="#ff3671f6" android:gravity="center" android:id="@id/text_ok" android:paddingTop="@dimen/dp_15" android:paddingBottom="@dimen/dp_15" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/AP03_AI_3" />
+</LinearLayout>

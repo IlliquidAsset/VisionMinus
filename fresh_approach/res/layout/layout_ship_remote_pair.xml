@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/black" android:paddingLeft="20.0dip" android:paddingRight="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:id="@id/v_ll_scan_layout" android:background="@drawable/white_round_corner_view" android:paddingLeft="12.0dip" android:paddingRight="12.0dip" android:layout_width="wrap_content" android:layout_height="32.0dip" android:layout_marginTop="20.0dip">
+        <ImageView android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@mipmap/ic_ship_scan" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/ConnectGuide_30" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="132.0dip">
+        <ImageView android:id="@id/ic_w4_remote_with_scan_indicator" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginRight="32.0dip" android:src="@mipmap/ic_w4_body_with_scan_indicator" android:layout_centerVertical="true" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/ll_psn" android:background="@drawable/white_edit_text_bg" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginTop="8.0dip" android:layout_marginBottom="24.0dip" android:layout_alignParentBottom="true" android:layout_toEndOf="@id/ic_w4_remote_with_scan_indicator">
+            <EditText android:textSize="14.0sp" android:textColor="@color/pvw4_blue" android:textColorHint="@color/pvw4_blue" android:gravity="center_vertical" android:id="@id/et_psn" android:background="@color/transparent" android:paddingLeft="12.0dip" android:paddingRight="12.0dip" android:layout_width="0.0dip" android:layout_height="40.0dip" android:hint="@string/PVW4_GeneralSetting_16" android:cursorVisible="false" android:maxLines="2" android:layout_weight="1.0" />
+            <ImageView android:id="@id/iv_clear" android:padding="16.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@mipmap/camera_close" />
+        </LinearLayout>
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/v_tv_psn_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_GeneralSetting_15" android:layout_above="@id/ll_psn" android:layout_toEndOf="@id/ic_w4_remote_with_scan_indicator" />
+    </RelativeLayout>
+    <TextView android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ConnectGuide_40" />
+    <RelativeLayout android:id="@id/rl_pair" android:background="@drawable/ship_sonar_paring_btn_bg" android:layout_width="fill_parent" android:layout_height="@dimen/margin_40db" android:layout_marginTop="24.0dip" android:layout_marginBottom="22.0dip">
+        <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/gcs_firmware_update_sure_bg" android:id="@id/text_pair" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_GeneralSetting_22" android:layout_centerInParent="true" />
+        <androidx.core.widget.ContentLoadingProgressBar android:id="@id/pair_progress_bar" android:visibility="invisible" android:layout_width="12.0dip" android:layout_height="12.0dip" android:layout_centerVertical="true" android:layout_marginStart="6.0dip" android:layout_toEndOf="@id/text_pair" style="?android:progressBarStyleSmall" />
+    </RelativeLayout>
+</LinearLayout>

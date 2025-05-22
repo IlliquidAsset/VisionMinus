@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ProgressBar android:layout_gravity="center" android:id="@id/pb_loading" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <ImageView android:id="@id/image_preview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" />
+    <ImageView android:layout_gravity="center" android:id="@id/iv_play" android:visibility="visible" android:layout_width="50.0dip" android:layout_height="50.0dip" android:src="@mipmap/media_icon_play" />
+    <include android:layout_gravity="bottom" android:id="@id/time_seek" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/media_controller_seek_layout" />
+</FrameLayout>

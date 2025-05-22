@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/root" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="@dimen/dp_40"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/camera_param_ios_layout" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <TextView android:id="@id/camera_param_ios_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_5" android:text="ISO" style="@style/handheld_camera_param_name_style" />
+        <TextView android:id="@id/camera_param_ios_Value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_5" android:text="@string/aircraft_not_num" android:layout_alignParentBottom="true" style="@style/handheld_camera_param_value_style" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/camera_param_shutter_layout" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginStart="@dimen/dp_10" android:layout_toEndOf="@id/camera_param_ios_layout">
+        <TextView android:id="@id/camera_param_shutter_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_5" android:text="SHUTTER" style="@style/handheld_camera_param_name_style" />
+        <TextView android:id="@id/camera_param_shutter_Value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_5" android:text="@string/aircraft_not_num" android:layout_alignParentBottom="true" style="@style/handheld_camera_param_value_style" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/camera_param_wb_layout" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginStart="@dimen/dp_10" android:layout_toEndOf="@id/camera_param_shutter_layout">
+        <TextView android:id="@id/camera_param_wb_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_5" android:text="WB" style="@style/handheld_camera_param_name_style" />
+        <TextView android:id="@id/camera_param_wb_Value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_5" android:text="@string/aircraft_not_num" android:layout_alignParentBottom="true" style="@style/handheld_camera_param_value_style" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/camera_param_ev_layout" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginStart="@dimen/dp_10" android:layout_toEndOf="@id/camera_param_wb_layout">
+        <TextView android:id="@id/camera_param_ev_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_5" android:text="EV" style="@style/handheld_camera_param_name_style" />
+        <TextView android:id="@id/camera_param_ev_Value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_5" android:text="@string/aircraft_not_num" android:layout_alignParentBottom="true" style="@style/handheld_camera_param_value_style" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/camera_param_format_layout" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginStart="@dimen/dp_10" android:layout_toEndOf="@id/camera_param_ev_layout">
+        <TextView android:id="@id/camera_param_format_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_5" android:text="FORMAT" style="@style/handheld_camera_param_name_style" />
+        <TextView android:id="@id/camera_param_format_Value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_5" android:text="@string/aircraft_not_num" android:layout_alignParentBottom="true" style="@style/handheld_camera_param_value_style" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/camera_param_sd_layout" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginStart="@dimen/dp_10" android:layout_toEndOf="@id/camera_param_format_layout">
+        <ImageView android:id="@id/camera_param_sd_img" android:layout_width="@dimen/dp_14" android:layout_height="@dimen/dp_9" android:layout_marginTop="5.0dip" android:src="@mipmap/handheld_new_sd_icon" />
+        <TextView android:id="@id/camera_param_sd_Value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_5" android:text="@string/aircraft_not_num" android:layout_alignParentBottom="true" style="@style/handheld_camera_param_value_style" />
+    </RelativeLayout>
+</RelativeLayout>

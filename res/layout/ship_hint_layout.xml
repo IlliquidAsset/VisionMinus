@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/shape_hint_waring_bg" android:padding="@dimen/margin_3db" android:layout_width="@dimen/margin_160dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/image_waring" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10db" android:layout_marginTop="@dimen/margin_3db" android:src="@mipmap/ship_hint_waring" />
+        <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_3db" android:text="@string/ship_hint_waring" android:layout_toRightOf="@id/image_waring" />
+        <ImageView android:id="@id/ship_iv_close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_cancel_popup" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/text_size_13sp" android:textColor="@color/white" android:id="@id/text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_5db" android:layout_marginTop="1.0dip" android:text="@string/ship_hint_waring_desc" />
+</LinearLayout>

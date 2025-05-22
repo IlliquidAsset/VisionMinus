@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/upgrade_sidebar_root_layout" android:background="@mipmap/home_upgrade_side_bar_blue" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/upgrade_sidebar_icon" android:layout_width="@dimen/dp_16" android:layout_height="@dimen/dp_16" android:src="@mipmap/home_icon_down" android:layout_marginStart="@dimen/dp_20" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textColor="@android:color/white" android:layout_gravity="center_vertical" android:id="@id/upgrade_sidebar_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_Upgrade_5" android:layout_marginStart="@dimen/dp_8" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@id/upgrade_sidebar_icon" app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout android:id="@id/upgrade_sidebar_close" android:layout_width="@dimen/dp_30" android:layout_height="fill_parent" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:layout_width="@dimen/dp_14" android:layout_height="@dimen/dp_14" android:layout_margin="6.0dip" android:layout_marginRight="@dimen/dp_12" android:src="@mipmap/base_close" android:layout_centerInParent="true" android:foregroundGravity="center" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

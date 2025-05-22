@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation android:id="@id/nav_graph_message" app:startDestination="@id/user_messagefragment"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <fragment android:label="MessageFragment" android:name="com.powervision.user.ui.fragment.MessageFragment" android:id="@id/user_messagefragment">
+        <action android:id="@id/user_action_user_messagefragment_to_user_messagedetailfragment" app:destination="@id/user_messagedetailfragment" />
+    </fragment>
+    <fragment android:label="fragment_message_detail" android:name="com.powervision.user.ui.fragment.MessageDetailFragment" android:id="@id/user_messagedetailfragment">
+        <action android:id="@id/user_action_messagedetail_to_message" app:destination="@id/user_messagefragment" app:popUpTo="@id/user_messagefragment" app:popUpToInclusive="true" />
+        <argument android:name="msgType" android:defaultValue="0" app:argType="string" />
+    </fragment>
+</navigation>

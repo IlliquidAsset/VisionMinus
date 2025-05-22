@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:orientation="horizontal" android:id="@id/sonar_area_fl" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/water_area" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="12.0">
+        <com.powervision.gcs.Texture.SonarTextureView android:id="@id/sonar_image" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <com.powervision.gcs.view.FishImageView android:id="@id/fish_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginRight="22.0dip">
+            <View android:id="@id/information_bg" android:layout_width="210.0dip" android:layout_height="60.0dip" android:layout_marginTop="16.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="10.0dip" app:layout_constraintEnd_toEndOf="parent" />
+            <TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/toodeeportooshallow" android:background="@drawable/toast_bg_t60" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginLeft="80.0dip" android:layout_marginTop="110.0dip" android:minWidth="120.0dip" android:text="@string/too_deep_or_too_shollw" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="@id/information_bg" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+    <com.powervision.gcs.Texture.TextureVerticalView android:id="@id/raw_sig" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+</merge>

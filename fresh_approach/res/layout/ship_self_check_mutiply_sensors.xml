@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/twenty_trans_white" android:layout_width="fill_parent" android:layout_height="@dimen/magin_0.5db" android:layout_marginLeft="@dimen/margin_20db" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="45.0dip">
+        <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:layout_width="wrap_content" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" android:text="@string/PVW4_Check_9" />
+        <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/red_text_color" android:id="@id/tv_check_self_magnet" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_30db" android:text="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:background="@color/twenty_trans_white" android:layout_width="fill_parent" android:layout_height="@dimen/magin_0.5db" android:layout_marginLeft="@dimen/margin_20db" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="45.0dip">
+        <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:layout_width="wrap_content" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" android:text="@string/PVW4_Check_6" />
+        <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/red_text_color" android:id="@id/tv_check_self_imu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_30db" android:text="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:background="@color/twenty_trans_white" android:layout_width="fill_parent" android:layout_height="@dimen/magin_0.5db" android:layout_marginLeft="@dimen/margin_20db" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="45.0dip">
+        <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:id="@id/ship_camara_item_name" android:layout_width="wrap_content" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" android:text="@string/PVW4_Msg_124" />
+        <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/red_text_color" android:id="@id/ship_self_gps" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_30db" android:text="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:background="@color/twenty_trans_white" android:layout_width="fill_parent" android:layout_height="@dimen/magin_0.5db" />
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/aircraft_dialog_bg" android:layout_width="@dimen/dp_320" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_20" android:layout_marginTop="@dimen/dp_20" android:layout_marginRight="@dimen/dp_20">
+        <ImageView android:id="@id/image" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@mipmap/aircraft_histogram_img" android:scaleType="fitXY" />
+        <TextView android:textSize="@dimen/sp_12" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dip" android:text="@string/AP03_CameraSetting_44" android:ems="1" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="26.0dip">
+            <TextView android:textSize="@dimen/sp_12" android:textColor="@color/white_alpha_20" android:gravity="center" android:layout_gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_CameraSetting_40" android:layout_weight="1.0" />
+            <TextView android:textSize="@dimen/sp_12" android:textColor="@color/white_alpha_20" android:gravity="center" android:layout_gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_CameraSetting_41" android:layout_weight="1.0" />
+            <TextView android:textSize="@dimen/sp_12" android:textColor="@color/white_alpha_20" android:gravity="center" android:layout_gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_CameraSetting_42" android:layout_weight="1.0" />
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/white_alpha_20" android:id="@id/text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_10" android:layout_marginTop="@dimen/dp_20" android:layout_marginRight="@dimen/dp_20" android:text="@string/AP03_CameraSetting_45" android:layout_below="@id/layout" />
+    <TextView android:textSize="@dimen/sp_12" android:textColor="@color/blue" android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_10" android:text="@string/AP03_CameraSetting_43" android:layout_above="@id/text" />
+    <View android:id="@id/view" android:background="@color/white_alpha_40" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginTop="@dimen/dp_10" android:layout_below="@id/text" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_below="@id/view">
+        <TextView android:textSize="@dimen/sp_14" android:textColor="@color/white_alpha_20" android:gravity="center" android:layout_gravity="center" android:id="@id/text_cancel" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_Activation_9" android:layout_weight="1.0" android:lineSpacingMultiplier="1.2" />
+        <View android:background="@color/white_alpha_40" android:layout_width="1.0px" android:layout_height="fill_parent" />
+        <TextView android:textSize="@dimen/sp_14" android:textColor="@color/blue" android:gravity="center" android:layout_gravity="center" android:id="@id/text_ok" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_Activation_6" android:layout_weight="1.0" android:layout_below="@id/text" android:lineSpacingMultiplier="1.2" />
+    </LinearLayout>
+</RelativeLayout>

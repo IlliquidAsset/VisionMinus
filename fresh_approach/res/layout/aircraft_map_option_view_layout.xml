@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/aircraft_path_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/aircraft_flight_path_open_icon" />
+    <ImageView android:id="@id/aircraft_location_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:src="@mipmap/aircraft_map_loction_icon" />
+    <ImageView android:id="@id/aircraft_lock_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:src="@mipmap/aircraft_map_locked_icon" />
+    <ImageView android:id="@id/aircraft_map_type_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:src="@mipmap/aircraft_map_type_icon" />
+</LinearLayout>

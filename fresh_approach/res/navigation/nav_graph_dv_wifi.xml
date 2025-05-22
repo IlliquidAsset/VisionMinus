@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation android:id="@id/nav_graph_main.xml" app:startDestination="@id/dvMainFragment"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <fragment android:label="fragment_page1" android:name="com.powervision.home.ui.fragment.DvModeMainFragment" android:id="@id/dvMainFragment">
+        <action android:id="@id/action_2_help" app:destination="@id/helpFragment" app:enterAnim="@anim/anim_right_in" app:exitAnim="@anim/anim_left_out" app:popEnterAnim="@anim/anim_left_in" app:popExitAnim="@anim/anim_right_out" />
+    </fragment>
+    <fragment android:label="fragment_page2" android:name="com.powervision.home.ui.fragment.DvModeHelpFragment" android:id="@id/helpFragment">
+        <action android:id="@id/action_2_main" app:destination="@id/dvMainFragment" app:popUpTo="@id/dvMainFragment" app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

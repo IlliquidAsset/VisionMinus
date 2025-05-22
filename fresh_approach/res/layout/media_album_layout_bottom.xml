@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/layout_footer" android:background="#ff222527" android:layout_width="fill_parent" android:layout_height="@dimen/dp_50"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/text_download" android:visibility="gone" android:text="@string/AP03_MediaLib_14" android:drawableTop="@mipmap/album_download" style="@style/Album_Detail_TextView" />
+    <TextView android:id="@id/text_edit" android:text="@string/App_MediaLib_188" android:drawableTop="@drawable/album_edit_selector" style="@style/Album_Detail_TextView" />
+    <TextView android:id="@id/text_share" android:text="@string/App_MediaLib_49" android:drawableTop="@drawable/album_share_selector" style="@style/Album_Detail_TextView" />
+    <TextView android:id="@id/text_delete" android:text="@string/AP03_MediaLib_13" android:drawableTop="@mipmap/album_delete" style="@style/Album_Detail_TextView" />
+</LinearLayout>

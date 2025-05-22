@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/common_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:focusable="true" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/general_setting_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <View android:id="@id/shadow_view" android:background="@color/aircraft_transparent" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="25.0" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="75.0">
+            <RadioGroup android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/general_setting_group" android:background="@color/black_alpha_30" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="9.0">
+                <RadioButton android:gravity="center" android:id="@id/flight_control_setting_rb" android:layout_width="wrap_content" android:layout_height="0.0dip" android:button="@drawable/aircraft_flight_control_setting_bg" android:layout_weight="1.0" />
+                <RadioButton android:gravity="center" android:id="@id/perception_setting_rb" android:layout_width="wrap_content" android:layout_height="0.0dip" android:button="@drawable/aircraft_perception_setting_bg" android:layout_weight="1.0" />
+                <RadioButton android:gravity="center" android:id="@id/remote_control_setting_rb" android:layout_width="wrap_content" android:layout_height="0.0dip" android:button="@drawable/aircraft_remote_control_setting_bg" android:layout_weight="1.0" />
+                <RadioButton android:gravity="center" android:id="@id/battery_setting_rb" android:layout_width="wrap_content" android:layout_height="0.0dip" android:button="@drawable/aircraft_battery_setting_bg" android:layout_weight="1.0" />
+                <RadioButton android:gravity="center" android:id="@id/cloud_platform_rb" android:layout_width="wrap_content" android:layout_height="0.0dip" android:button="@drawable/aircraft_cloud_platform_setting_bg" android:layout_weight="1.0" />
+                <RadioButton android:gravity="center" android:id="@id/basic_setting_rb" android:layout_width="wrap_content" android:layout_height="0.0dip" android:button="@drawable/aircraft_basic_setting_bg" android:layout_weight="1.0" />
+            </RadioGroup>
+            <RelativeLayout android:id="@id/general_setting_content_layout" android:background="@color/aircraft_content_bg" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="65.0" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

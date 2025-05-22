@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/album_edit_black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:android_custom="http://schemas.android.com/apk/res-auto">
+    <com.powervision.gcs.view.PhotoPrViewPager android:id="@id/album_viewpager" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <include layout="@layout/ship_album_layout_top" />
+    <include layout="@layout/ship_preview_footer" />
+    <include layout="@layout/loading_layout" />
+    <com.powervision.gcs.view.ship.ShipRoundProgress android:id="@id/download_progress_status" android:visibility="gone" android:layout_width="80.0dip" android:layout_height="80.0dip" android:layout_marginRight="32.0dip" android:layout_centerInParent="true" android_custom:roundProgressColor="#ffc2c2c2" android_custom:roundWidth="1.0dip" android_custom:style="FILL" />
+</RelativeLayout>

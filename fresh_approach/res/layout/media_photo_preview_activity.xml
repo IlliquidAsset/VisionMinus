@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/album_edit_black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.powervision.media.widgets.PhotoPrViewPager android:id="@id/album_viewpager" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <include layout="@layout/media_album_layout_top" />
+    <include layout="@layout/media_preview_footer" />
+    <include layout="@layout/media_loading_layout" />
+</RelativeLayout>

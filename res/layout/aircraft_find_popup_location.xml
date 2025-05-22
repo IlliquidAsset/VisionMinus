@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/shape_light_black_corner" android:layout_width="wrap_content" android:layout_height="40.0dip">
+        <ImageView android:id="@id/aircraft_user_location" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@mipmap/aircraft_find_user_location" android:layout_marginStart="15.0dip" />
+        <View android:orientation="vertical" android:background="@color/black_alpha_70" android:layout_width="0.5dip" android:layout_height="20.0dip" android:layout_marginStart="15.0dip" />
+        <ImageView android:id="@id/aircraft_device_location" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@mipmap/aircraft_find_device_location" android:layout_marginStart="15.0dip" />
+        <View android:orientation="vertical" android:background="@color/black_alpha_70" android:layout_width="0.5dip" android:layout_height="20.0dip" android:layout_marginStart="15.0dip" />
+    </LinearLayout>
+</LinearLayout>

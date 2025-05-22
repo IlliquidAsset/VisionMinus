@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/actionbar" layout="@layout/toolbar_title_center" />
+    <View android:id="@id/space" android:background="@color/white_background" android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_10" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/actionbar" />
+    <FrameLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fl_user_activity_add_sr" android:background="@color/gray_color_f1" android:padding="@dimen/dp_15" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/space">
+        <EditText android:textSize="@dimen/sp_15" android:textColor="@color/black_color" android:id="@id/et_user_activity_add_sr" android:background="@null" android:layout_width="fill_parent" android:layout_height="wrap_content" android:cursorVisible="true" android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" android:inputType="textVisiblePassword" android:textCursorDrawable="@null" />
+        <TextView android:textSize="@dimen/sp_13" android:textColor="@color/gray_color_97" android:layout_gravity="end" android:id="@id/tv_user_activity_add_sr_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="14" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

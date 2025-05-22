@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="@dimen/dp_30" android:paddingStart="@dimen/dp_10" android:paddingEnd="@dimen/dp_10"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/iv_country_flag" android:layout_width="@dimen/dp_28" android:layout_height="@dimen/dp_20" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/black_color" android:id="@id/tv_country_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="111" android:layout_marginStart="6.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@id/iv_country_flag" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/light_gray_color" android:id="@id/tv_country_code" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+32" android:layout_marginStart="@dimen/dp_6" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@id/tv_country_title" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

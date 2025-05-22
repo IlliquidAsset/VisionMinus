@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10db" android:src="@mipmap/popup_window_arrow_up" />
+    <LinearLayout android:orientation="vertical" android:background="@drawable/shape_light_black_corner" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10db" android:layout_marginTop="@dimen/margin_12db" android:layout_marginBottom="@dimen/margin_5db" android:text="@string/PVW4_Map_7" />
+        <View android:background="@color/color_sixty_trans_white" android:layout_width="fill_parent" android:layout_height="@dimen/magin_0.5db" android:layout_marginLeft="@dimen/margin_10db" android:layout_marginRight="@dimen/margin_8db" />
+        <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10db" android:layout_marginTop="@dimen/margin_5db" android:layout_marginRight="@dimen/margin_8db" android:layout_marginBottom="@dimen/margin_12db" android:text="@string/PVW4_Map_10" />
+    </LinearLayout>
+</LinearLayout>

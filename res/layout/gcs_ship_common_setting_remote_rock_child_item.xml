@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/title_layout" android:layout_width="fill_parent" android:layout_height="40.0dip">
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="40.0dip" android:layout_weight="1.0">
+            <TextView android:textColor="@color/white" android:id="@id/ship_remote_rock_mode1_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="mode1" android:layout_centerInParent="true" />
+            <View android:id="@id/ship_remote_rock_mode1_line" android:layout_width="30.0dip" android:layout_height="1.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="40.0dip" android:layout_weight="1.0">
+            <TextView android:textColor="@color/white" android:id="@id/ship_remote_rock_mode2_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="mode2" android:layout_centerInParent="true" />
+            <View android:id="@id/ship_remote_rock_mode2_line" android:layout_width="30.0dip" android:layout_height="1.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="40.0dip" android:layout_weight="1.0">
+            <TextView android:textColor="@color/white" android:id="@id/ship_remote_rock_mode3_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="mode3" android:layout_centerInParent="true" />
+            <View android:id="@id/ship_remote_rock_mode3_line" android:layout_width="35.0dip" android:layout_height="1.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="40.0dip" android:layout_weight="1.0">
+            <TextView android:textColor="@color/white" android:id="@id/ship_remote_rock_mode4_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="mode4" android:layout_centerInParent="true" />
+            <View android:id="@id/ship_remote_rock_mode4_line" android:layout_width="35.0dip" android:layout_height="1.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout android:id="@id/ship_reomte_rock_mode1_detail" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginTop="20.0dip" android:layout_marginRight="@dimen/margin_20db" android:layout_below="@id/title_layout">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:background="@mipmap/ship_common_remote_mode1" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/ship_reomte_rock_mode2_detail" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginTop="20.0dip" android:layout_marginRight="@dimen/margin_20db" android:layout_below="@id/title_layout">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:background="@mipmap/ship_common_remote_mode2" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/ship_reomte_rock_mode3_detail" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginTop="20.0dip" android:layout_marginRight="@dimen/margin_20db" android:layout_below="@id/title_layout">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:background="@mipmap/ship_common_remote_mode3" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/ship_reomte_rock_mode4_detail" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginTop="20.0dip" android:layout_marginRight="@dimen/margin_20db" android:layout_below="@id/title_layout">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:background="@mipmap/ship_common_remote_mode4" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

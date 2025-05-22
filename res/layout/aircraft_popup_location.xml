@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dp_1" android:src="@mipmap/popup_window_arrow_up" />
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/shape_light_black_corner" android:layout_width="wrap_content" android:layout_height="45.0dip">
+        <ImageView android:id="@id/aircraft_user_location" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/aircraft_location_unfocus" />
+        <View android:orientation="vertical" android:background="#66ffffff" android:layout_width="0.5dip" android:layout_height="30.0dip" />
+        <ImageView android:id="@id/aircraft_bord_location" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/aircraft_main_location_unfocus" />
+        <View android:orientation="vertical" android:background="#66ffffff" android:layout_width="0.5dip" android:layout_height="30.0dip" />
+        <ImageView android:id="@id/aircraft_return_location" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/aircraft_return_unfocus" />
+    </LinearLayout>
+</LinearLayout>

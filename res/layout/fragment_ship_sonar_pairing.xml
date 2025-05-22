@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/input_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginRight="@dimen/margin_20db">
+        <ImageView android:id="@id/sonar_paring_logo" android:background="@color/white" android:layout_width="130.0dip" android:layout_height="130.0dip" android:layout_marginTop="40.0dip" android:src="@mipmap/sonar_paring_logo" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/sonar_pair_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="16.0dip" android:text="@string/PVW4_GeneralSetting_85" android:layout_alignTop="@id/sonar_paring_logo" android:layout_toEndOf="@id/sonar_paring_logo" />
+        <EditText android:textSize="@dimen/text_size_14sp" android:textColor="@color/gcs_firmware_update_sure_bg" android:textColorHint="@color/gcs_firmware_update_sure_bg" android:gravity="center" android:id="@id/sonar_ssid_view" android:background="@drawable/ship_sonar_paring_input_bg" android:layout_width="200.0dip" android:layout_height="40.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="20.0dip" android:hint="@string/PVW4_GeneralSetting_86" android:lines="1" android:layout_below="@id/sonar_pair_title" android:layout_toEndOf="@id/sonar_paring_logo" />
+    </RelativeLayout>
+    <Button android:textColor="@color/white" android:id="@id/sonar_ok_btn" android:background="@drawable/ship_sonar_paring_btn" android:layout_width="200.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_40db" android:text="@string/OK" android:layout_below="@id/input_layout" android:layout_centerHorizontal="true" />
+</RelativeLayout>

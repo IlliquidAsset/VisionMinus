@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@drawable/shape_light_black_corner" android:layout_width="@dimen/margin_300db" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/rl_bottom" android:layout_width="fill_parent" android:layout_height="@dimen/margin_44db" android:layout_alignParentBottom="true">
+        <View android:background="@color/twenty_trans_white" android:layout_width="fill_parent" android:layout_height="@dimen/magin_0.5db" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/ship_route_cancle" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/AP03_AI_2" android:layout_weight="1.0" />
+            <View android:background="@color/twenty_trans_white" android:layout_width="@dimen/magin_0.5db" android:layout_height="wrap_content" />
+            <TextView android:textColor="@color/safe_blue_color" android:gravity="center" android:id="@id/ship_route_confirm" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/App_MediaLib_26" android:layout_weight="1.0" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/rl_bottom" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginTop="@dimen/margin_20db" android:layout_marginBottom="@dimen/margin_10db">
+            <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_Map_11" />
+            <EditText android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:textColorHint="#ff999999" android:ellipsize="end" android:id="@id/ship_et_interest_des" android:background="@null" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10db" android:layout_marginRight="@dimen/margin_15db" android:maxLines="1" android:inputType="text" />
+        </LinearLayout>
+        <View android:background="@color/ship_interest_line" android:layout_width="fill_parent" android:layout_height="@dimen/magin_0.5db" android:layout_marginLeft="@dimen/margin_18db" android:layout_marginRight="@dimen/margin_18db" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginTop="@dimen/margin_5db" android:layout_marginRight="@dimen/margin_15db">
+            <TextView android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+            <TextView android:textColor="@color/white" android:ellipsize="end" android:id="@id/ship_tv_address" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginTop="@dimen/margin_5db" android:layout_marginRight="@dimen/margin_15db">
+            <TextView android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_Map_14" />
+            <TextView android:textColor="@color/white" android:id="@id/ship_tv_lat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20db" android:layout_marginTop="@dimen/margin_5db" android:layout_marginRight="@dimen/margin_15db">
+            <TextView android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_Map_13" />
+            <TextView android:textColor="@color/white" android:id="@id/ship_tv_lon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

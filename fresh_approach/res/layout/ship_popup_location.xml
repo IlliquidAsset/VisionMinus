@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_1db" android:src="@mipmap/popup_window_arrow_up" />
+    <RelativeLayout android:background="@drawable/shape_light_black_corner" android:layout_width="@dimen/margin_100db" android:layout_height="@dimen/margin_45db">
+        <ImageView android:id="@id/ship_bord_location" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_12db" android:src="@mipmap/ship_main_location_unfocus" android:layout_centerVertical="true" />
+        <View android:orientation="vertical" android:background="@color/color_sixty_trans_white" android:layout_width="@dimen/magin_0.5db" android:layout_height="@dimen/margin_30db" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/ship_user_location" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_12db" android:src="@mipmap/ship_location_unfocus" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</LinearLayout>

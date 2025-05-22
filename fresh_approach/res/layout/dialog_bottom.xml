@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@color/transparent" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/dialog_white_item_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/text_size_16sp" android:textColor="@color/black_text_color" android:gravity="center" android:id="@id/tips" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20db" android:text="@string/ConnectGuide_44" />
+        <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/dark_gray_text_color" android:gravity="center" android:id="@id/text_tips" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/dialog_delete_pic_tips" />
+        <View android:background="@color/color_light_white" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/red_text_color" android:gravity="center" android:id="@id/text_delete" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/PVW4_Map_19" />
+    </LinearLayout>
+    <View android:background="@color/color_light_white" style="@style/divider_line_1px" />
+    <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/black_text_color" android:gravity="center" android:id="@id/text_cancel" android:background="@drawable/dialog_white_item_bg" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/AP03_AI_2" />
+</LinearLayout>

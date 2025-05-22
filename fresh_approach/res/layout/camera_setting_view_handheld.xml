@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/camera_setting_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RadioGroup android:orientation="horizontal" android:id="@id/camera_group" android:background="@color/black_alpha_10" android:layout_width="@dimen/dp_320" android:layout_height="@dimen/dp_40" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <RadioButton android:id="@id/radio_basic" android:drawableTop="@drawable/camera_basic_setting_selector" style="@style/aircraft_camera_radio_button_style" />
+        <RadioButton android:id="@id/radio_camera" android:drawableTop="@drawable/camera_shoot_setting_selector" style="@style/aircraft_camera_radio_button_style" />
+        <RadioButton android:id="@id/radio_general" android:drawableTop="@drawable/camera_general_setting_selector" style="@style/aircraft_camera_radio_button_style" />
+    </RadioGroup>
+    <com.powervision.base.views.NoScrollViewPager android:id="@id/viewPager" android:background="@color/black_alpha_10" android:layout_width="@dimen/dp_320" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/camera_group" />
+    <View android:id="@id/camera_setting_empty_view" android:layout_width="0.0dip" android:layout_height="fill_parent" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@id/camera_group" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

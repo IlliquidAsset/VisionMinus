@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingBottom="6.0dip" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:android_custom="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_gravity="center" android:id="@id/media_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/img_media_photo" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" />
+        <ImageView android:id="@id/item_select" android:visibility="visible" android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@mipmap/media_unselect" android:scaleType="centerInside" android:layout_alignParentRight="true" />
+        <TextView android:textSize="8.0dip" android:textColor="@color/white" android:gravity="center" android:id="@id/download_status" android:background="@color/color_40000000" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/PVW4_Msg_47" android:includeFontPadding="false" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        <com.powervision.gcs.view.ship.ShipRoundProgress android:id="@id/download_progress_status" android:visibility="gone" android:layout_width="36.0dip" android:layout_height="36.0dip" android:layout_centerInParent="true" android_custom:roundProgressColor="#99ffffff" android_custom:roundWidth="1.0dip" android_custom:style="FILL" />
+    </RelativeLayout>
+</FrameLayout>

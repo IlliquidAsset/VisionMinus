@@ -1,0 +1,34 @@
+.class public final synthetic Lcom/powervision/gcs/view/-$$Lambda$RockerCalibrateFragment$p6adSpNoAStuHlRIKzjp5xXlPlE;
+.super Ljava/lang/Object;
+.source "lambda"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/powervision/gcs/view/RockerCalibrateFragment;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/powervision/gcs/view/RockerCalibrateFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/powervision/gcs/view/-$$Lambda$RockerCalibrateFragment$p6adSpNoAStuHlRIKzjp5xXlPlE;->f$0:Lcom/powervision/gcs/view/RockerCalibrateFragment;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onClick(Landroid/view/View;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/powervision/gcs/view/-$$Lambda$RockerCalibrateFragment$p6adSpNoAStuHlRIKzjp5xXlPlE;->f$0:Lcom/powervision/gcs/view/RockerCalibrateFragment;
+
+    invoke-virtual {v0, p1}, Lcom/powervision/gcs/view/RockerCalibrateFragment;->lambda$initListener$0$RockerCalibrateFragment(Landroid/view/View;)V
+
+    return-void
+.end method

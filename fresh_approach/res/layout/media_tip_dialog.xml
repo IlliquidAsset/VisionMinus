@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/white_round_4_bg" android:layout_width="300.0dip" android:layout_height="200.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sp_18" android:textColor="@color/black_color" android:gravity="center_horizontal" android:id="@id/text_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_30" android:layout_marginTop="@dimen/dp_20" android:layout_marginRight="@dimen/dp_30" android:text="@string/App_MediaLib_62" />
+    <TextView android:textSize="@dimen/sp_14" android:textColor="#ff666666" android:gravity="center" android:id="@id/text_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_35" android:layout_marginTop="20.0dip" android:layout_marginRight="@dimen/dp_35" android:layout_below="@id/text_title" />
+    <Button android:textColor="@color/white" android:id="@id/btn_ok" android:background="@drawable/dialog_btn_selector" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="@dimen/dp_35" android:layout_marginRight="@dimen/dp_35" android:layout_marginBottom="@dimen/sp_18" android:text="@string/AP03_Activation_6" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" />
+</RelativeLayout>

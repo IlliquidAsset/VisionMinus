@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="@dimen/dp_50"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/top_line" android:background="@color/white_alpha_90" android:layout_width="fill_parent" android:layout_height="@dimen/dp_1" android:layout_marginStart="@dimen/dp_20" app:layout_constraintTop_toTopOf="parent" />
+    <View android:id="@id/bottom_line" android:background="@color/white_alpha_90" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/dp_1" android:layout_marginStart="@dimen/dp_20" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@id/version_name" />
+    <TextView android:id="@id/version_name" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/white_text_medium" />
+    <TextView android:textColor="@color/blue" android:id="@id/check_version" android:background="@drawable/radius_stroke_rectangle_blue" android:padding="@dimen/dp_5" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_GeneralSetting_226" android:layout_marginEnd="@dimen/dp_20" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:id="@id/version_code" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/check_version" app:layout_constraintTop_toTopOf="parent" style="@style/white_text_medium" />
+</androidx.constraintlayout.widget.ConstraintLayout>

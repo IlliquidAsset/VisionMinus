@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_20" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_19" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_18" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_17" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_16" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_15" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_14" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_13" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_12" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_11" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_10" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_9" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_8" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_7" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_6" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_5" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_4" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_3" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_2" />
+    <item android:duration="15" android:drawable="@mipmap/w4_connecting_1" />
+    <item android:duration="0" android:drawable="@mipmap/w4_connecting_0" />
+</animation-list>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.core.widget.NestedScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.powervision.gcs.view.AboutVersionView android:id="@id/version_app" android:layout_width="fill_parent" android:layout_height="54.0dip" android:layout_marginLeft="20.0dip" />
+            <com.powervision.gcs.view.AboutVersionView android:id="@id/version_main" android:layout_width="fill_parent" android:layout_height="54.0dip" android:layout_marginLeft="20.0dip" />
+            <View android:layout_width="1000.0dip" android:layout_height="0.0dip" />
+            <com.powervision.gcs.view.AboutVersionView android:id="@id/version_remote" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" />
+            <LinearLayout android:orientation="vertical" android:id="@id/remote_update_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip">
+                <com.powervision.gcs.view.AboutVersionView android:id="@id/version_mcu" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" />
+                <com.powervision.gcs.view.AboutVersionView android:id="@id/version_wifi" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" />
+                <com.powervision.gcs.view.AboutVersionView android:id="@id/version_dl01" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" />
+            </LinearLayout>
+            <com.powervision.gcs.view.AboutVersionView android:id="@id/version_serial" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

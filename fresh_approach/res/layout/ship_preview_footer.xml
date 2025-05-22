@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/preview_layout_footer" android:background="@color/main_bg" android:layout_width="fill_parent" android:layout_height="@dimen/margin_50db" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="@color/album_black" android:layout_gravity="center_vertical" android:id="@id/text_download" android:text="@string/album_download" android:drawableTop="@mipmap/ship_media_download_icon_enable" style="@style/Album_Detail_TextView" />
+    <TextView android:textColor="@color/album_black" android:layout_gravity="center_vertical" android:id="@id/text_delete" android:text="@string/album_delete" android:drawableTop="@mipmap/ship_media_delete_icon_enable" style="@style/Album_Detail_TextView" />
+</LinearLayout>

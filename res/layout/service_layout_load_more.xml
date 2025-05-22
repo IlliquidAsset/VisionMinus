@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ll_load_run_text" android:layout_width="fill_parent" android:layout_height="@dimen/dp_28">
+        <ProgressBar android:layout_width="wrap_content" android:layout_height="@dimen/dp_20" style="@style/Widget.AppCompat.ProgressBar" />
+        <TextView android:textSize="@dimen/sp_14" android:textColor="@color/light_gray_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/App_MediaLib_213" android:layout_marginStart="@dimen/dp_5" />
+    </LinearLayout>
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/light_gray_color" android:layout_gravity="center" android:id="@id/tv_load_error_text" android:padding="@dimen/dp_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AP03_MediaLib_59" />
+    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/light_gray_color" android:layout_gravity="center" android:id="@id/tv_load_end_text" android:padding="@dimen/dp_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/App_MediaLib_214" />
+</FrameLayout>

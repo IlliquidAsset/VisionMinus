@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <cn.bingoogolapple.qrcode.zxing.ZXingView android:id="@id/zxingview" android:layout_width="fill_parent" android:layout_height="fill_parent" app:qrcv_animTime="1000" app:qrcv_barCodeTipText="" app:qrcv_barcodeRectHeight="120.0dip" app:qrcv_borderColor="@android:color/transparent" app:qrcv_borderSize="1.0dip" app:qrcv_cornerColor="@color/white" app:qrcv_cornerDisplayType="center" app:qrcv_cornerLength="20.0dip" app:qrcv_cornerSize="3.0dip" app:qrcv_customLightDrawable="@mipmap/icon_light_off" app:qrcv_customScanLineDrawable="@mipmap/scan_icon_scanline" app:qrcv_isAutoZoom="true" app:qrcv_isBarcode="false" app:qrcv_isOnlyDecodeScanBoxArea="false" app:qrcv_isScanLineReverse="true" app:qrcv_isShowDefaultGridScanLineDrawable="false" app:qrcv_isShowDefaultScanLineDrawable="true" app:qrcv_isShowLocationPoint="true" app:qrcv_isShowTipBackground="true" app:qrcv_isShowTipTextAsSingleLine="false" app:qrcv_isTipTextBelowRect="false" app:qrcv_left_offset="60.0dip" app:qrcv_maskColor="#90000000" app:qrcv_qrCodeTipText="" app:qrcv_rectWidth="180.0dip" app:qrcv_scanLineColor="@color/colorPrimaryDark" app:qrcv_scanLineMargin="0.0dip" app:qrcv_scanLineSize="0.5dip" app:qrcv_tipTextColor="@android:color/white" app:qrcv_tipTextSize="12.0sp" app:qrcv_verticalBias="0.5" />
+    <LinearLayout android:orientation="vertical" android:layout_width="@dimen/margin_180dp" android:layout_height="fill_parent" android:layout_marginLeft="60.0dip">
+        <Space android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <LinearLayout android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <ImageView android:id="@id/image_light" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_30db" android:src="@drawable/light_selector" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textSize="@dimen/text_size_18sp" android:textColor="@color/white" android:id="@id/text_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_18db" android:text="@string/AP03_GeneralSetting_148" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_6db" android:text="@string/PVW4_GeneralSetting_26" android:layout_below="@id/text_title" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:id="@id/text_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_18db" android:text="@string/PVW4_GeneralSetting_90" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_GeneralSetting_27" android:layout_above="@id/text_bottom" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:id="@id/text_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_8db" android:layout_marginTop="6.0dip" android:text="@string/PVW4_Msg_33" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ll_type_remote" android:layout_width="fill_parent" android:layout_height="@dimen/margin_200db" android:layout_marginLeft="300.0dip" android:layout_marginRight="@dimen/margin_90db" android:layout_centerVertical="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/PVW4_GeneralSetting_136" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:src="@mipmap/ic_w4_body_with_scan_indicator" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/ll_type_seeker" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/margin_200db" android:layout_marginLeft="300.0dip" android:layout_marginRight="@dimen/margin_90db" android:layout_centerVertical="true">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <ImageView android:id="@id/image1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/icon_qr" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/PVW4_GeneralSetting_91" android:layout_toLeftOf="@id/image1" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <ImageView android:id="@id/image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/icon_seeker" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/text_size_15sp" android:textColor="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/PVW4_GeneralSetting_92" android:layout_toLeftOf="@id/image" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="45.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/text_size_14sp" android:textColor="@color/white" android:gravity="center" android:id="@id/ship_camara_item_name" android:layout_width="wrap_content" android:layout_height="45.0dip" android:layout_marginLeft="20.0dip" android:text="simple" />
+    <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/white" android:id="@id/tv_check_self_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_30db" android:text="@string/battery_display" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/ship_camara_item_arrow" android:layout_width="15.0dip" android:layout_height="15.0dip" android:layout_marginRight="2.0dip" android:scaleType="centerCrop" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

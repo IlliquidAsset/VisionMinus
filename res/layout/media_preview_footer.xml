@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/preview_layout_footer" android:background="@color/album_black" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_alignParentBottom="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/text_edit" android:text="@string/App_MediaLib_38" android:drawableTop="@drawable/album_edit_selector" style="@style/Album_Detail_TextView" />
+    <TextView android:id="@id/text_share" android:text="@string/App_MediaLib_42" android:drawableTop="@drawable/album_share_selector" style="@style/Album_Detail_TextView" />
+    <TextView android:id="@id/text_delete" android:text="@string/App_MediaLib_35" android:drawableTop="@mipmap/album_delete" style="@style/Album_Detail_TextView" />
+</LinearLayout>

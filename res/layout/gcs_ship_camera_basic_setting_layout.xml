@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="40.0dip">
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/white" android:gravity="center" android:paddingLeft="8.0dip" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="@string/PVW4_CameraSetting_1" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/ship_color_camera_set" android:gravity="center_vertical" android:id="@id/ship_camera_basic_iso_values" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginRight="@dimen/margin_10db" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <com.powervision.gcs.view.wheelview.WheelHorizontalView android:id="@id/ship_camara_basic_iso" android:background="@color/ship_camera_basic_item_bg" android:layout_width="fill_parent" android:layout_height="@dimen/item_height" app:itemsPadding="0.0dip" app:visibleItems="3" />
+        <View android:background="@color/ship_color_setting_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="40.0dip">
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/white" android:gravity="center" android:paddingLeft="8.0dip" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="@string/PVW4_CameraSetting_2" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/ship_color_camera_set" android:gravity="center_vertical" android:id="@id/ship_camera_basic_ev_values" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginRight="@dimen/margin_10db" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <com.powervision.gcs.view.wheelview.WheelHorizontalView android:id="@id/ship_camara_basic_ev" android:background="@color/ship_camera_basic_item_bg" android:layout_width="fill_parent" android:layout_height="40.0dip" app:itemsPadding="0.0dip" app:visibleItems="3" />
+        <View android:background="@color/ship_color_setting_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="40.0dip">
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/white" android:gravity="center" android:paddingLeft="8.0dip" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="@string/PVW4_CameraSetting_3" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/ship_color_camera_set" android:gravity="center_vertical" android:id="@id/ship_camera_basic_wb_values" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginRight="@dimen/margin_10db" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <com.powervision.gcs.view.wheelview.WheelHorizontalView android:id="@id/ship_camara_basic_wb" android:background="@color/ship_camera_basic_item_bg" android:layout_width="fill_parent" android:layout_height="@dimen/item_height" app:itemsPadding="0.0dip" app:visibleItems="3" />
+        <View android:background="@color/ship_color_setting_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="40.0dip">
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/white" android:gravity="center" android:paddingLeft="8.0dip" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="@string/PVW4_CameraSetting_4" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/ship_color_camera_set" android:gravity="center_vertical" android:id="@id/ship_camera_basic_mm_values" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginRight="@dimen/margin_10db" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <com.powervision.gcs.view.wheelview.WheelHorizontalView android:id="@id/ship_camara_basic_mm" android:background="@color/ship_camera_basic_item_bg" android:layout_width="fill_parent" android:layout_height="@dimen/item_height" app:itemsPadding="0.0dip" app:visibleItems="2" />
+        <View android:background="@color/ship_color_setting_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="40.0dip">
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/white" android:gravity="center" android:paddingLeft="8.0dip" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="@string/PVW4_CameraSetting_7" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/ship_color_camera_set" android:gravity="center_vertical" android:id="@id/ship_camera_basic_ldc_values" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginRight="@dimen/margin_10db" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <com.powervision.gcs.view.wheelview.WheelHorizontalView android:id="@id/ship_camara_basic_ldc" android:background="@color/ship_camera_basic_item_bg" android:layout_width="fill_parent" android:layout_height="@dimen/item_height" app:itemsPadding="0.0dip" app:visibleItems="2" />
+        <View android:background="@color/ship_color_setting_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="@dimen/margin_40db">
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/white" android:gravity="center" android:paddingLeft="8.0dip" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="@string/PVW4_CameraSetting_10" android:layout_centerVertical="true" />
+            <ToggleButton android:id="@id/ship_camera_reversal_switch" android:background="@drawable/ship_camer_basic_setting_swithc_ral" android:layout_width="50.0dip" android:layout_height="25.0dip" android:layout_marginRight="10.0dip" android:checked="false" android:button="@null" android:textOn="" android:textOff="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <View android:background="@color/ship_color_setting_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="@dimen/margin_40db">
+            <TextView android:textSize="@dimen/set_text" android:textColor="@color/white" android:gravity="center" android:paddingLeft="8.0dip" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="@string/PVW4_CameraSetting_11" android:layout_centerVertical="true" />
+            <ToggleButton android:id="@id/ship_camera_shake_switch" android:background="@drawable/ship_camer_basic_setting_swithc_ral" android:layout_width="50.0dip" android:layout_height="25.0dip" android:layout_marginRight="10.0dip" android:checked="false" android:button="@null" android:textOn="" android:textOff="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <View android:background="@color/ship_color_setting_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    </LinearLayout>
+</ScrollView>

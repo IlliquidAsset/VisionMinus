@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/screenAdvLL" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/screenAdvIv" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+        <com.powervision.media.widgets.LVideoView android:id="@id/video_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <TextView android:textColor="@color/color_white" android:layout_gravity="end" android:id="@id/stayTimeTv" android:background="@drawable/app_shape_splash_btn_bg" android:padding="@dimen/dp_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_55" android:layout_marginEnd="@dimen/dp_20" />
+    </FrameLayout>
+</merge>

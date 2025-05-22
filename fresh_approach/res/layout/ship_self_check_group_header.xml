@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/check_crop_layout" android:layout_width="@dimen/margin_120db" android:layout_height="@dimen/margin_100db">
+            <ImageView android:id="@id/check_dophin_green" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ship_check_dophin_green" android:layout_centerInParent="true" />
+            <ImageView android:id="@id/check_dophin_green_line" android:visibility="gone" android:layout_width="@dimen/margin_80db" android:layout_height="wrap_content" android:src="@mipmap/check_scan_icon" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="@dimen/text_size_16sp" android:textColor="#ff00ff00" android:id="@id/tv_check_state" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_40db" android:layout_marginTop="@dimen/margin_10db" android:text="@string/PVW4_Check_2" />
+            <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/white" android:id="@id/tv_check_state_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_40db" android:layout_marginBottom="@dimen/margin_10db" android:text="@string/PVW4_Check_3" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>
