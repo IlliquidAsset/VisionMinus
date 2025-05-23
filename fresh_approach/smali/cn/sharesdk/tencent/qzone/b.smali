@@ -1559,6 +1559,8 @@
 
     move-object/from16 v0, p12
 
+    return-void
+
     .line 276
     invoke-static/range {p6 .. p6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 

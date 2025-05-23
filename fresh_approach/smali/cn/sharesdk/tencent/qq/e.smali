@@ -60,6 +60,8 @@
 
     move-result-object p1
 
+    return-void
+
     iput-object p1, p0, Lcn/sharesdk/tencent/qq/e;->e:Lcom/tencent/tauth/Tencent;
 
     .line 117

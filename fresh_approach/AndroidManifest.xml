@@ -149,9 +149,7 @@
         <activity android:name="com.lewis.edit.ui.activity.FilterAdjustActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.yalantis.ucrop.UCropActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.lewis.edit.ui.activity.EditFileSelectActivity" android:screenOrientation="portrait"/>
-        <meta-data android:name="com.amap.api.v2.apikey" android:value="ae8d4722ed1df616cdb5f1f0406c9512"/>
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDHAiRxnUMKQNO-McTPGYN5Pz6VUFahOjc"/>
-        <service android:name="com.amap.api.location.APSService"/>
         <activity android:launchMode="singleTop" android:name="cn.powervision.upgrade.activity.FirmwareDownloadActivity" android:screenOrientation="portrait"/>
         <activity android:launchMode="singleTop" android:name="cn.powervision.upgrade.activity.FirmwareUpgradeActivity" android:screenOrientation="portrait"/>
         <activity android:launchMode="singleTask" android:name="cn.powervision.upgrade.activity.FirmWareDetailActivity" android:screenOrientation="portrait"/>
@@ -205,8 +203,6 @@
         <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
         <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
         <provider android:authorities="com.powervision.newvisionplus.com.mob.MobProvider" android:exported="false" android:multiprocess="true" android:name="com.mob.MobProvider"/>
-        <meta-data android:name="Mob-AppKey" android:value="27d0f89172003"/>
-        <meta-data android:name="Mob-AppSecret" android:value="6b4cfa46153148d5d5d924b5d6fa8c81"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mob.tools.MobUIShell" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden">
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
@@ -215,12 +211,6 @@
         </activity>
         <provider android:authorities="com.powervision.newvisionplus.cn.sharesdk.ShareSDKFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="cn.sharesdk.framework.utils.ShareSDKFileProvider"/>
         <activity android:launchMode="singleTask" android:name="cn.sharesdk.tencent.qq.ReceiveActivity" android:noHistory="true">
-            <intent-filter>
-                <data android:scheme="tencent101514017"/>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-            </intent-filter>
         </activity>
         <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>

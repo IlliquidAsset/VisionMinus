@@ -3,6 +3,5 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView android:id="@id/text_download" android:visibility="gone" android:text="@string/AP03_MediaLib_14" android:drawableTop="@mipmap/album_download" style="@style/Album_Detail_TextView" />
     <TextView android:id="@id/text_edit" android:text="@string/App_MediaLib_188" android:drawableTop="@drawable/album_edit_selector" style="@style/Album_Detail_TextView" />
-    <TextView android:id="@id/text_share" android:text="@string/App_MediaLib_49" android:drawableTop="@drawable/album_share_selector" style="@style/Album_Detail_TextView" />
     <TextView android:id="@id/text_delete" android:text="@string/AP03_MediaLib_13" android:drawableTop="@mipmap/album_delete" style="@style/Album_Detail_TextView" />
 </LinearLayout>

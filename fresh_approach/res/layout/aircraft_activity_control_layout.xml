@@ -11,7 +11,7 @@
     </RelativeLayout>
     <com.powervision.base.views.LongTouchStickPointView android:id="@id/stick_point_view" android:layout_width="fill_parent" android:layout_height="fill_parent" app:aircraft_touch_stick_point_color="@color/aircraft_seekbar_frame_line" app:aircraft_touch_stick_point_darg_mode="vertical" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" />
     <com.powervision.base.views.CircleRelativeLayout android:id="@id/layout_map" android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_100" android:layout_marginTop="@dimen/dp_5" android:layout_marginStart="@dimen/dp_50" app:isCycle="true" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
-        <com.powervision.airmap.mapview.AirMapView android:id="@id/air_map" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <FrameLayout android:id="@id/air_map_placeholder" android:layout_width="fill_parent" android:layout_height="fill_parent" />
         <ImageView android:id="@id/mapViewMask" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@mipmap/icon_airmap_disable" />
     </com.powervision.base.views.CircleRelativeLayout>
     <com.powervision.base.views.CircleRelativeLayout android:id="@id/layout_attitude" android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_100" android:layout_marginTop="@dimen/dp_5" android:layout_marginStart="@dimen/dp_50" app:isCycle="true" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">

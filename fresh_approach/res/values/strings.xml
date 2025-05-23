@@ -3174,7 +3174,6 @@ Update now?"</string>
     <string name="aircraft_delay_time_info">&lt;font color=\"#67E194\">%1$s&lt;/font>/%2$s   &lt;font color=\"#67E194\">%3$s&lt;/font>/%4$s</string>
     <string name="aircraft_not_num">N/A</string>
     <string name="aircraft_video_size_unit">fps</string>
-    <string name="airmap_key">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVkZW50aWFsX2lkIjoiY3JlZGVudGlhbHw4R3pKdzJsdW5wWXl4bkNXYXFFWnlzS1E0eUJtIiwiYXBwbGljYXRpb25faWQiOiJhcHBsaWNhdGlvbnwzWEJYUTlESDNuZEEza1NEQjRQdmZSb0w4S1kiLCJvcmdhbml6YXRpb25faWQiOiJkZXZlbG9wZXJ8cVFteFpkT0YzcWwyQlBjQXpQOW92YzQ4emFhRSIsImlhdCI6MTU2MDMyMDc4M30.Ly7K6_JKDewYeNBLKzhLnjR92R8M3XKv5wcIB4hOovg</string>
     <string name="album_delete">Delete</string>
     <string name="album_download">Download</string>
     <string name="album_save_share">save/share</string>
@@ -3247,7 +3246,6 @@ Update now?"</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
-    <string name="facebook_app_id">249716929228530</string>
     <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
     <string name="find_new_firmware_is_upgrade">"There is a new firmware version. 
 Upgrade?"</string>

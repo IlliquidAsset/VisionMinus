@@ -221,37 +221,17 @@
 .end method
 
 .method public static getPositionByOriginalData(D)D
-    .locals 5
+    .locals 2
+    .param p0, "originalData"    # D
 
+    .prologue
     .line 48
-    new-instance v0, Ljava/math/BigDecimal;
+    const-wide v0, 0x416312d000000000L # Double value 10000000.0
 
-    invoke-direct {v0, p0, p1}, Ljava/math/BigDecimal;-><init>(D)V
+    .line 49
+    div-double/2addr p0, v0
 
-    new-instance p0, Ljava/math/BigDecimal;
-
-    const-wide/high16 v1, 0x4024000000000000L    # 10.0
-
-    const-wide/high16 v3, 0x401c000000000000L    # 7.0
-
-    invoke-static {v1, v2, v3, v4}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v1
-
-    invoke-direct {p0, v1, v2}, Ljava/math/BigDecimal;-><init>(D)V
-
-    const/4 p1, 0x7
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, p0, p1, v1}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;II)Ljava/math/BigDecimal;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Ljava/math/BigDecimal;->doubleValue()D
-
-    move-result-wide p0
-
+    .line 50
     return-wide p0
 .end method
 

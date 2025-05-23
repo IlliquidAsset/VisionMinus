@@ -786,6 +786,8 @@
 .method public show(Landroid/content/Context;)V
     .locals 5
 
+    return-void
+
     .line 445
     new-instance v0, Ljava/util/HashMap;
 
