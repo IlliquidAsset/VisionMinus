@@ -133,7 +133,7 @@
 .method public addLocationListener(Landroid/content/Context;Ljava/lang/String;Lcom/powervision/map/utils/LocationUtil$ILocationListener;)V
     .locals 7
 
-    const-wide/16 v3, 0x3e8
+    const-wide/16 v3, 0x7530L
 
     const/4 v5, 0x0
 
