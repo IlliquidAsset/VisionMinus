@@ -305,7 +305,7 @@ location"</string>
     <string name="AP03_ConnectGuide_27">Change new remote controller</string>
     <string name="AP03_ConnectGuide_28">Remote controller pairing</string>
     <string name="AP03_ConnectGuide_29">Touch to scan</string>
-    <string name="AP03_ConnectGuide_3">PowerEgg X supports multiple intelligent flight modes for experience excellence</string>
+    <string name="AP03_ConnectGuide_3">Vision Minus supports multiple intelligent flight modes for experience excellence</string>
     <string name="AP03_ConnectGuide_30">Aircraft PSN</string>
     <string name="AP03_ConnectGuide_31">Please enter the aircraft SN</string>
     <string name="AP03_ConnectGuide_32">1. Connect the remote controller to your mobile device</string>
@@ -697,7 +697,7 @@ location"</string>
     <string name="AP03_DV_Teaching_1">Gesture control</string>
     <string name="AP03_DV_Teaching_10">Skip?</string>
     <string name="AP03_DV_Teaching_11">Quit?</string>
-    <string name="AP03_DV_Teaching_2">PowerEgg X can recognize your gesture commands, and execute Follow, Take a photo, Take a video, and Take group photo functions.</string>
+    <string name="AP03_DV_Teaching_2">Vision Minus can recognize your gesture commands, and execute Follow, Take a photo, Take a video, and Take group photo functions.</string>
     <string name="AP03_DV_Teaching_3">Tap to open Camera Settings</string>
     <string name="AP03_DV_Teaching_4">Enable</string>
     <string name="AP03_DV_Teaching_5">First, try to make a palm gesture to the camera, the camera will start to follow you</string>
@@ -751,7 +751,7 @@ location"</string>
     <string name="AP03_FlightLog_40">Exported successfully</string>
     <string name="AP03_FlightLog_41">Dynamic path</string>
     <string name="AP03_FlightLog_42">Save to local</string>
-    <string name="AP03_FlightLog_43">Allow screen recording in Vision+ 2?</string>
+    <string name="AP03_FlightLog_43">Allow screen recording in Vision Minus?</string>
     <string name="AP03_FlightLog_44">Please wait for the path flash to finish</string>
     <string name="AP03_FlightLog_44_45_group">"Please wait for the path flash to finish 
 You can store your screen recordings to your camera roll or share them with your friends."</string>
@@ -765,7 +765,7 @@ You can store your screen recordings to your camera roll or share them with your
     <string name="AP03_FlightLog_51">Continue sharing to WeChat</string>
     <string name="AP03_FlightLog_52">Syncing</string>
     <string name="AP03_FlightLog_53">Please make sure that the local cached flight records are clear?</string>
-    <string name="AP03_FlightLog_55">Vision+ 2 is recording screen</string>
+    <string name="AP03_FlightLog_55">Vision Minus is recording screen</string>
     <string name="AP03_FlightLog_6">Number of flights</string>
     <string name="AP03_FlightLog_7">Location</string>
     <string name="AP03_FlightLog_8">Maximum flight distance</string>
@@ -1391,7 +1391,7 @@ Thumbwheel calibration: Slide the thumbwheel leftwards and rightwards
     <string name="AP03_Msg_155">Failed to format aircraft memory</string>
     <string name="AP03_Msg_156">Failed to turn on or turn off audio</string>
     <string name="AP03_Msg_157">Location permissions disabled</string>
-    <string name="AP03_Msg_158">Go to Settings > Privacy > Location Services to allow location access of Vision+ 2</string>
+    <string name="AP03_Msg_158">Go to Settings > Privacy > Location Services to allow location access of Vision Minus</string>
     <string name="AP03_Msg_159">Settings</string>
     <string name="AP03_Msg_16">The aircraft returns to the starting point when a quickshot is captured</string>
     <string name="AP03_Msg_160">Select a subject first</string>
@@ -1910,7 +1910,7 @@ Smart functions unusable"</string>
     <string name="APP_Login_61">Please authorize the following permissions to ensure related functions work properly: storage, location</string>
     <string name="APP_Login_62">Set up</string>
     <string name="APP_Login_63">Quit</string>
-    <string name="APP_Login_64">You have not agreed to the user agreement and privacy terms of Vision + 2 and cannot use Vision + 2</string>
+    <string name="APP_Login_64">You have not agreed to the user agreement and privacy terms of Vision Minus and cannot use Vision Minus</string>
     <string name="APP_Login_65">"By signing in, you agree to the 
 user agreement and privacy terms"</string>
     <string name="APP_Login_7">Forgot password</string>
@@ -2102,7 +2102,7 @@ Update now?"</string>
     <string name="App_MediaLib_124">Original</string>
     <string name="App_MediaLib_125">Pause</string>
     <string name="App_MediaLib_126">Please select background music</string>
-    <string name="App_MediaLib_127">Please go to Settings > Privacy > Photos and allow Vision+ 2 to access Photos.</string>
+    <string name="App_MediaLib_127">Please go to Settings > Privacy > Photos and allow Vision Minus to access Photos.</string>
     <string name="App_MediaLib_128">Select photo</string>
     <string name="App_MediaLib_129">Free</string>
     <string name="App_MediaLib_13">SD card</string>
@@ -2203,7 +2203,7 @@ Update now?"</string>
     <string name="App_MediaLib_25">All selected but unedited works and edited videos will be saved</string>
     <string name="App_MediaLib_26">OK</string>
     <string name="App_MediaLib_27">Saving to local Photos...</string>
-    <string name="App_MediaLib_28">Please keep Vision+ 2 running when we are generating your video</string>
+    <string name="App_MediaLib_28">Please keep Vision Minus running when we are generating your video</string>
     <string name="App_MediaLib_29">Video saved</string>
     <string name="App_MediaLib_3">Select</string>
     <string name="App_MediaLib_30">Selected items saved to local Photos</string>
@@ -2346,7 +2346,7 @@ Update now?"</string>
     <string name="ConnectGuide_64" />
     <string name="ConnectGuide_65">Please wait for seconds until the remote controller connects to the vehicle automatically</string>
     <string name="ConnectGuide_66">Connect mobile device and the vehicle via WiFi</string>
-    <string name="ConnectGuide_67">4.Please connect the remote controller and the mobie device via USB cable and click the confirmation button on Vision+ 2, please ensure enabled Personal Hotspot of the mobile device</string>
+    <string name="ConnectGuide_67">4.Please connect the remote controller and the mobie device via USB cable and click the confirmation button on Vision Minus, please ensure enabled Personal Hotspot of the mobile device</string>
     <string name="ConnectGuide_68">Tips: Please use only one mobile device and select one mode to connect the device at a time</string>
     <string name="ConnectGuide_7">Link with fish finder</string>
     <string name="ConnectGuide_8">Follow the guide to link with your fish finder.</string>
@@ -2835,9 +2835,9 @@ Update now?"</string>
     <string name="PVW4_Msg_14">Wrong command</string>
     <string name="PVW4_Msg_140">Route planning complete</string>
     <string name="PVW4_Msg_141">The device is going towards the fishing point. Exit?</string>
-    <string name="PVW4_Msg_142">Vision+2 will access the camera to take photo and video during your use the device</string>
-    <string name="PVW4_Msg_143">Vision+2 will access your album to save or imoprt the photo and video which shooted by the device</string>
-    <string name="PVW4_Msg_144">"Vision+2 will show your location and the device's location on the map,which will be benifical for you to accurately controll the device"</string>
+    <string name="PVW4_Msg_142">Vision Minus will access the camera to take photo and video during your use the device</string>
+    <string name="PVW4_Msg_143">Vision Minus will access your album to save or imoprt the photo and video which shooted by the device</string>
+    <string name="PVW4_Msg_144">"Vision Minus will show your location and the device's location on the map,which will be benifical for you to accurately controll the device"</string>
     <string name="PVW4_Msg_145">Smart functions</string>
     <string name="PVW4_Msg_146">Device locked</string>
     <string name="PVW4_Msg_147">Weak GPS signal. Please ensure that the GPS signal is strong, and try again.</string>
@@ -3111,7 +3111,7 @@ Update now?"</string>
     <string name="Upgrade_73">Remote controller battery level: 30%. Please upgrade when the battery level is enough.</string>
     <string name="Upgrade_74">Remote controller main control module firmware is upgrading...data is transmitting</string>
     <string name="Upgrade_75">Remote controller main control module firmware is upgrading… firmware is installing</string>
-    <string name="Upgrade_76">The remote controller indicator will blink when the main control module fimware is upgraded. Please wait for the remote controller to connect to the vehicle automatically.(Remote USB Mode: Please re-plug the USB cable and restart the Vision+ 2 App.)</string>
+    <string name="Upgrade_76">The remote controller indicator will blink when the main control module fimware is upgraded. Please wait for the remote controller to connect to the vehicle automatically.(Remote USB Mode: Please re-plug the USB cable and restart the Vision Minus App.)</string>
     <string name="Upgrade_77">Main control module firmware is upgraded. Please wait for the remote controller to connect automatically.</string>
     <string name="Upgrade_78">Remote controller WiFi module firmware download</string>
     <string name="Upgrade_79">Remote controller Wi-Fi module firmware download being completed</string>
@@ -3119,7 +3119,7 @@ Update now?"</string>
     <string name="Upgrade_80">Remote controller Wi-Fi module firmware upgrade</string>
     <string name="Upgrade_81">Remote controller Wi-Fi module firmware is upgrading...data is transmitting</string>
     <string name="Upgrade_82">Remote controller Wi-Fi module firmware is upgrading...installing</string>
-    <string name="Upgrade_83">Remote USB Mode: Please re-plug the usb cable and restart the Vision+ 2 App after the Wi-Fi module firmware being upgraded.</string>
+    <string name="Upgrade_83">Remote USB Mode: Please re-plug the usb cable and restart the Vision Minus App after the Wi-Fi module firmware being upgraded.</string>
     <string name="Upgrade_84">The Wi-Fi module firmware is upgraded. Please re-connect the remote controller.</string>
     <string name="Upgrade_85">Remote controller image transmission module firmwar download</string>
     <string name="Upgrade_86">Remote controller image transmission module firmwar download being completed</string>
@@ -3127,7 +3127,7 @@ Update now?"</string>
     <string name="Upgrade_88">Remote controller image transmission module firmware is upgrading...data is transmission</string>
     <string name="Upgrade_89">Remote image transmission module upgrading...installing</string>
     <string name="Upgrade_9">There is new remote firmware.</string>
-    <string name="Upgrade_90">The remote controller indicator will blink when the image transmission module firmware is upgraded. Please wait for the remote controller to connect to the vehicle automatically.（Remote USB Mode: Please re-plug the USB cable and restart the Vision+ 2 App.）</string>
+    <string name="Upgrade_90">The remote controller indicator will blink when the image transmission module firmware is upgraded. Please wait for the remote controller to connect to the vehicle automatically.（Remote USB Mode: Please re-plug the USB cable and restart the Vision Minus App.）</string>
     <string name="Upgrade_91">Upgrade exception. Please check the network connection. If the upgrade fails frequently, please contact the after-sales service center.</string>
     <string name="Upgrade_92">Download the new vehicle firmware?</string>
     <string name="Upgrade_93">Download the new remote controller firmware?</string>
@@ -3326,7 +3326,7 @@ Ensure that the battery level of the vehicle and remote is higher than 50%. Do n
     <string name="home_animation_home_device_status_key">home_device_status_tv</string>
     <string name="home_animation_into_key">home_into_device</string>
     <string name="home_animation_top_device_name_key">top_device_name_tv</string>
-    <string name="home_ap03_poweregg">PowerEgg X</string>
+    <string name="home_ap03_poweregg">Vision Minus</string>
     <string name="home_app_name">Home</string>
     <string name="home_device_handheld">PowerDolphin</string>
     <string name="home_fragment_intent_key">intent_data</string>
@@ -3415,15 +3415,15 @@ Ensure that the battery level of the vehicle and remote is higher than 50%. Do n
     <string name="preference_copied">\"%1$s\" copied to clipboard.</string>
     <string name="progress">Progress:</string>
     <string name="project_id">powervision-android</string>
-    <string name="pv_app_name">Vision+2</string>
+    <string name="pv_app_name">Vision Minus</string>
     <string name="pv_sonar_unit">Parameter unit</string>
     <string name="pvw4_update_body_step3_warning">"1.During firmware upgrading, the taillight will flicker in white.
 2.During firmware upgrading, may encounter disconnection, please wait until auto reconnected.
 3.After upgrade completed, taillight will turn to blue."</string>
     <string name="pvw4_update_body_title">Host firmware upgrade</string>
-    <string name="pvw4_update_complete_mcu">The remote controller indicator will blink when the main control module fimware is upgraded. Please wait for the remote controller to connect to the vehicle automatically.Please re-plug the USB cable and restart the Vision+ 2 App.</string>
-    <string name="pvw4_update_complete_wifi">Please re-plug the usb cable and restart the Vision+ 2 App after the Wi-Fi module firmware being upgraded.</string>
-    <string name="pvw4_update_completet_dl01">The remote controller indicator will blink when the image transmission module firmware is upgraded. Please wait for the remote controller to connect to the vehicle automatically.Please re-plug the USB cable and restart the Vision+ 2 App.</string>
+    <string name="pvw4_update_complete_mcu">The remote controller indicator will blink when the main control module fimware is upgraded. Please wait for the remote controller to connect to the vehicle automatically.Please re-plug the USB cable and restart the Vision Minus App.</string>
+    <string name="pvw4_update_complete_wifi">Please re-plug the usb cable and restart the Vision Minus App after the Wi-Fi module firmware being upgraded.</string>
+    <string name="pvw4_update_completet_dl01">The remote controller indicator will blink when the image transmission module firmware is upgraded. Please wait for the remote controller to connect to the vehicle automatically.Please re-plug the USB cable and restart the Vision Minus App.</string>
     <string name="pvw4_update_dl01_title">Remote controller image transmission module firmware upgrade</string>
     <string name="pvw4_update_mcu_title">Upgrade the remote controller main control module firmware</string>
     <string name="pvw4_update_wifi_title">Remote controller Wi-Fi module firmware upgrad</string>
