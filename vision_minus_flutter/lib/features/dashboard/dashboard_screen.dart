@@ -3,18 +3,42 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../connection/connection_provider.dart';
 import '../connection/connection_screen.dart';
 import '../../core/models/boat_state.dart' as bs;
+import '../../core/sdk/power_sdk_bridge.dart';
+import '../../core/sdk/sdk_constants.dart';
+import '../map/map_widget.dart';
+import '../map/map_provider.dart';
+import '../rth/rth_button.dart';
+import '../rth/rth_provider.dart';
+import '../navigation/navigation_provider.dart';
+import '../navigation/waypoint_editor_panel.dart';
+import '../navigation/mission_controls.dart';
 import 'widgets/gps_status_widget.dart';
 import 'widgets/battery_indicator.dart';
 import 'widgets/thrust_gauge.dart';
 import 'widgets/compass_widget.dart';
 
-class DashboardScreen extends ConsumerWidget {
+class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final boatState = ref.watch(boatStateProvider);
+  ConsumerState<DashboardScreen> createState() => _DashboardScreenState();
+}
 
+class _DashboardScreenState extends ConsumerState<DashboardScreen> {
+  bool _showWaypointPanel = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Set home position to phone GPS on dashboard load
+    Future.microtask(() {
+      ref.read(rthProvider.notifier).setHomeToPhone();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final boatState = ref.watch(boatStateProvider);
     // Navigate back to connection screen if disconnected
     if (boatState.connectionState == bs.ConnectionState.disconnected) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -29,12 +53,13 @@ class DashboardScreen extends ConsumerWidget {
       body: SafeArea(
         child: Row(
           children: [
-            // Left panel: telemetry
+            // Left panel: telemetry + optional waypoint editor
             SizedBox(
-              width: 200,
+              width: _showWaypointPanel ? 280 : 200,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Arm status
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -55,36 +80,29 @@ class DashboardScreen extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  const Divider(color: Colors.white24),
+                  const Divider(color: Colors.white24, height: 1),
                   GpsStatusWidget(gps: boatState.gps),
-                  const Divider(color: Colors.white24),
+                  const Divider(color: Colors.white24, height: 1),
                   BatteryIndicator(battery: boatState.battery),
-                  const Divider(color: Colors.white24),
+                  const Divider(color: Colors.white24, height: 1),
                   ThrustGauge(gps: boatState.gps),
-                  const Divider(color: Colors.white24),
+                  const Divider(color: Colors.white24, height: 1),
                   CompassWidget(yaw: boatState.yaw),
+                  const Divider(color: Colors.white24, height: 1),
+
+                  // Waypoint editor panel (shown when editing)
+                  if (_showWaypointPanel) ...[
+                    const Expanded(child: WaypointEditorPanel()),
+                    const MissionControls(),
+                  ] else
+                    const Spacer(),
                 ],
               ),
             ),
 
-            // Center: map/video placeholder
+            // Center: live map
             Expanded(
-              child: Container(
-                color: Colors.black,
-                child: const Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.map, size: 64, color: Colors.white24),
-                      SizedBox(height: 16),
-                      Text(
-                        'Map view coming in Phase 3',
-                        style: TextStyle(color: Colors.white38),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              child: const MapWidget(),
             ),
 
             // Right panel: controls
@@ -93,33 +111,40 @@ class DashboardScreen extends ConsumerWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // RTH button
+                  const RthButton(),
+                  const SizedBox(height: 16),
+
+                  // Mission button
                   _controlButton(
-                    icon: Icons.home,
-                    label: 'RTH',
-                    color: Colors.orange,
+                    icon: _showWaypointPanel ? Icons.map : Icons.route,
+                    label: _showWaypointPanel ? 'Map' : 'Mission',
+                    color: _showWaypointPanel ? Colors.cyan : Colors.blue,
                     onTap: () {
-                      // TODO: Phase 4
+                      setState(() {
+                        _showWaypointPanel = !_showWaypointPanel;
+                      });
+                      if (_showWaypointPanel) {
+                        ref.read(waypointEditModeProvider.notifier).state = true;
+                        ref.read(navigationProvider.notifier).startEditing();
+                      } else {
+                        ref.read(waypointEditModeProvider.notifier).state = false;
+                        ref.read(navigationProvider.notifier).stopEditing();
+                      }
                     },
                   ),
                   const SizedBox(height: 16),
-                  _controlButton(
-                    icon: Icons.route,
-                    label: 'Mission',
-                    color: Colors.blue,
-                    onTap: () {
-                      // TODO: Phase 5
-                    },
-                  ),
-                  const SizedBox(height: 16),
+
+                  // Arm/Disarm button
                   _controlButton(
                     icon: Icons.power_settings_new,
                     label: boatState.isArmed ? 'Disarm' : 'Arm',
                     color: boatState.isArmed ? Colors.red : Colors.green,
-                    onTap: () {
-                      // TODO: Phase 5 - arm/disarm toggle
-                    },
+                    onTap: () => _toggleArm(context, ref, boatState.isArmed),
                   ),
                   const SizedBox(height: 16),
+
+                  // Disconnect button
                   _controlButton(
                     icon: Icons.usb_off,
                     label: 'Disconnect',
@@ -133,6 +158,54 @@ class DashboardScreen extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  void _toggleArm(BuildContext context, WidgetRef ref, bool isArmed) {
+    if (isArmed) {
+      // Disarm — confirm first
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Disarm Boat?'),
+          content: const Text('This will stop all motors.'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+                PowerSdkBridge.setArmStatus(ArmStatus.disarmed);
+              },
+              child: const Text('Disarm', style: TextStyle(color: Colors.red)),
+            ),
+          ],
+        ),
+      );
+    } else {
+      // Arm — confirm first
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Arm Boat?'),
+          content: const Text('Motors will be ready. Ensure the area is clear.'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+                PowerSdkBridge.setArmStatus(ArmStatus.armed);
+              },
+              child: const Text('Arm', style: TextStyle(color: Colors.green)),
+            ),
+          ],
+        ),
+      );
+    }
   }
 
   Widget _controlButton({
