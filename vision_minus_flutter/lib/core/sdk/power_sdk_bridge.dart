@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/services.dart';
 
 /// Bridge to the native PowerVision SDK via MethodChannel and EventChannels.
@@ -9,57 +11,183 @@ class PowerSdkBridge {
   static const _navigationChannel = EventChannel('com.visionminus/navigation');
   static const _attitudeChannel = EventChannel('com.visionminus/attitude');
 
+  static bool _initialized = false;
+
+  static final StreamController<Map<String, dynamic>> _gpsController =
+      StreamController.broadcast();
+  static final StreamController<Map<String, dynamic>> _batteryController =
+      StreamController.broadcast();
+  static final StreamController<Map<String, dynamic>> _connectionController =
+      StreamController.broadcast();
+  static final StreamController<Map<String, dynamic>> _navigationController =
+      StreamController.broadcast();
+  static final StreamController<Map<String, dynamic>> _attitudeController =
+      StreamController.broadcast();
+
   // --- Streams ---
 
-  static Stream<Map<String, dynamic>> get gpsStream =>
-      _gpsChannel.receiveBroadcastStream().map(_castEvent);
+  static void init() {
+    if (_initialized) return;
+    _initialized = true;
+
+    _gpsChannel.receiveBroadcastStream().listen(
+          (event) => _gpsController.add(_castEvent(event)),
+          onError: (error) => _gpsController.addError(error),
+        );
+
+    _batteryChannel.receiveBroadcastStream().listen(
+          (event) => _batteryController.add(_castEvent(event)),
+          onError: (error) => _batteryController.addError(error),
+        );
+
+    _connectionChannel.receiveBroadcastStream().listen(
+          (event) => _connectionController.add(_castEvent(event)),
+          onError: (error) => _connectionController.addError(error),
+        );
+
+    _navigationChannel.receiveBroadcastStream().listen(
+          (event) => _navigationController.add(_castEvent(event)),
+          onError: (error) => _navigationController.addError(error),
+        );
+
+    _attitudeChannel.receiveBroadcastStream().listen(
+          (event) => _attitudeController.add(_castEvent(event)),
+          onError: (error) => _attitudeController.addError(error),
+        );
+  }
+
+  static Stream<Map<String, dynamic>> get gpsStream => _gpsController.stream;
 
   static Stream<Map<String, dynamic>> get batteryStream =>
-      _batteryChannel.receiveBroadcastStream().map(_castEvent);
+      _batteryController.stream;
 
   static Stream<Map<String, dynamic>> get connectionStream =>
-      _connectionChannel.receiveBroadcastStream().map(_castEvent);
+      _connectionController.stream;
 
   static Stream<Map<String, dynamic>> get navigationStream =>
-      _navigationChannel.receiveBroadcastStream().map(_castEvent);
+      _navigationController.stream;
 
   static Stream<Map<String, dynamic>> get attitudeStream =>
-      _attitudeChannel.receiveBroadcastStream().map(_castEvent);
+      _attitudeController.stream;
 
   // --- Connection ---
 
+  static Future<Map<String, dynamic>> connectWifi() async {
+    final result = await _method.invokeMethod<dynamic>('connectWifi');
+    return _castMethodMap(result);
+  }
+
+  static Future<Map<String, dynamic>> connectUsb() async {
+    final result = await _method.invokeMethod<dynamic>('connectUsb');
+    return _castMethodMap(result);
+  }
+
   static Future<bool> connect() async {
-    final result = await _method.invokeMethod<bool>('connect');
-    return result ?? false;
+    final result = await connectUsb();
+    return (result['success'] as bool?) ?? false;
   }
 
   static Future<void> disconnect() async {
     await _method.invokeMethod('disconnect');
   }
 
+  static Future<Map<String, dynamic>> getConnectionStatus() async {
+    final result = await _method.invokeMethod<dynamic>('getConnectionStatus');
+    return _castMethodMap(result);
+  }
+
+  static Future<List<String>> getAvailableTransports() async {
+    final result =
+        await _method.invokeMethod<dynamic>('getAvailableTransports');
+    if (result is List) {
+      return result.map((item) => item.toString()).toList();
+    }
+    return const [];
+  }
+
+  static Future<String> getWifiConfidence() async {
+    final result = await _method.invokeMethod<dynamic>('getWifiConfidence');
+    return result?.toString() ?? 'NONE';
+  }
+
   static Future<bool> isConnected() async {
-    final result = await _method.invokeMethod<bool>('isConnected');
-    return result ?? false;
+    final result = await getConnectionStatus();
+    final phase = result['phase']?.toString().toLowerCase();
+    return phase == 'connected';
   }
 
   // --- Arm/Disarm ---
 
   static Future<int> setArmStatus(int status) async {
-    final result = await _method.invokeMethod<int>('setArmStatus', {'status': status});
+    final result =
+        await _method.invokeMethod<int>('setArmStatus', {'status': status});
+    return result ?? -1;
+  }
+
+  // --- Camera ---
+
+  static Future<int> cameraConnect() async =>
+      await _method.invokeMethod<int>('cameraConnect') ?? -1;
+
+  static Future<int> cameraDisconnect() async =>
+      await _method.invokeMethod<int>('cameraDisconnect') ?? -1;
+
+  static Future<int> takePhoto() async =>
+      await _method.invokeMethod<int>('takePhoto') ?? -1;
+
+  static Future<int> startRecord() async =>
+      await _method.invokeMethod<int>('startRecord') ?? -1;
+
+  static Future<int> stopRecord() async =>
+      await _method.invokeMethod<int>('stopRecord') ?? -1;
+
+  static Future<int> switchToPhotoMode() async =>
+      await _method.invokeMethod<int>('switchToPhotoMode') ?? -1;
+
+  static Future<int> switchToVideoMode() async =>
+      await _method.invokeMethod<int>('switchToVideoMode') ?? -1;
+
+  static Future<Map<String, dynamic>> getStorageInfo() async {
+    final result = await _method.invokeMethod<dynamic>('getStorageInfo');
+    return _castMethodMap(result);
+  }
+
+  static Future<int> setStorageDevice(int type) async {
+    final result =
+        await _method.invokeMethod<int>('setStorageDevice', {'type': type});
+    return result ?? -1;
+  }
+
+  static Future<Map<String, dynamic>> getCameraSettings() async {
+    final result = await _method.invokeMethod<dynamic>('getCameraSettings');
+    return _castMethodMap(result);
+  }
+
+  static Future<int> setPhotoResolution(int resolution) async {
+    final result = await _method
+        .invokeMethod<int>('setPhotoResolution', {'resolution': resolution});
+    return result ?? -1;
+  }
+
+  static Future<int> setPhotoFormat(int format) async {
+    final result =
+        await _method.invokeMethod<int>('setPhotoFormat', {'format': format});
     return result ?? -1;
   }
 
   // --- Sail Mode ---
 
   static Future<int> setSailMode(int mode) async {
-    final result = await _method.invokeMethod<int>('setSailMode', {'mode': mode});
+    final result =
+        await _method.invokeMethod<int>('setSailMode', {'mode': mode});
     return result ?? -1;
   }
 
   // --- Speed Mode ---
 
   static Future<int> setSpeedMode(int mode) async {
-    final result = await _method.invokeMethod<int>('setSpeedMode', {'mode': mode});
+    final result =
+        await _method.invokeMethod<int>('setSpeedMode', {'mode': mode});
     return result ?? -1;
   }
 
@@ -84,7 +212,8 @@ class PowerSdkBridge {
 
   /// Upload waypoints to the boat.
   /// Each waypoint map should contain: lat, lon, thrust (1-100), stayTime, recvRadius, direction
-  static Future<int> uploadWaypoints(List<Map<String, double>> waypoints) async {
+  static Future<int> uploadWaypoints(
+      List<Map<String, double>> waypoints) async {
     final result = await _method.invokeMethod<int>('uploadWaypoints', {
       'waypoints': waypoints,
     });
@@ -120,7 +249,8 @@ class PowerSdkBridge {
   }
 
   /// Update the user (phone) location on the boat. Lat/lon in degE7 format.
-  static Future<int> setUserLocation({required int lat, required int lon}) async {
+  static Future<int> setUserLocation(
+      {required int lat, required int lon}) async {
     final result = await _method.invokeMethod<int>('setUserLocation', {
       'lat': lat,
       'lon': lon,
@@ -141,7 +271,8 @@ class PowerSdkBridge {
   // --- Light ---
 
   static Future<int> controlLight(int mode) async {
-    final result = await _method.invokeMethod<int>('controlLight', {'mode': mode});
+    final result =
+        await _method.invokeMethod<int>('controlLight', {'mode': mode});
     return result ?? -1;
   }
 
@@ -166,7 +297,8 @@ class PowerSdkBridge {
   // --- Nest Opener ---
 
   static Future<int> setNestOpenerStatus(int status) async {
-    final result = await _method.invokeMethod<int>('setNestOpenerStatus', {'status': status});
+    final result = await _method
+        .invokeMethod<int>('setNestOpenerStatus', {'status': status});
     return result ?? -1;
   }
 
@@ -189,5 +321,12 @@ class PowerSdkBridge {
       return Map<String, dynamic>.from(event);
     }
     return {'type': 'unknown', 'raw': event};
+  }
+
+  static Map<String, dynamic> _castMethodMap(dynamic result) {
+    if (result is Map) {
+      return Map<String, dynamic>.from(result);
+    }
+    return const <String, dynamic>{};
   }
 }

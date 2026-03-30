@@ -41,6 +41,7 @@ class RthNotifier extends StateNotifier<RthState> {
   StreamSubscription? _navSub;
 
   RthNotifier(this._ref) : super(const RthState()) {
+    PowerSdkBridge.init();
     _listenToNavEvents();
   }
 
@@ -62,21 +63,27 @@ class RthNotifier extends StateNotifier<RthState> {
               statusMessage: status,
             );
           }
+          break;
         case 'remaining_rtl_time':
           state = state.copyWith(
             remainingSeconds: event['time_seconds'] as int? ?? 0,
           );
+          break;
         case 'execute_return_over':
           state = state.copyWith(
             status: RthStatus.completed,
             statusMessage: 'Return complete',
           );
           _ref.read(rthActiveProvider.notifier).state = false;
+          break;
         case 'set_return_point_result':
           state = state.copyWith(
             status: RthStatus.idle,
             statusMessage: 'Home set',
           );
+          break;
+        default:
+          break;
       }
     });
   }

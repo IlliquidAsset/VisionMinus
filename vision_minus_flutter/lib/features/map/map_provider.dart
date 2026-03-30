@@ -49,6 +49,10 @@ class BoatTrailNotifier extends StateNotifier<List<LatLng>> {
 /// Whether the map camera should follow the boat.
 final mapFollowBoatProvider = StateProvider<bool>((ref) => true);
 
+enum MapFocusCommand { boat, phone }
+
+final mapFocusCommandProvider = StateProvider<MapFocusCommand?>((ref) => null);
+
 /// Whether waypoint editing mode is active.
 final waypointEditModeProvider = StateProvider<bool>((ref) => false);
 

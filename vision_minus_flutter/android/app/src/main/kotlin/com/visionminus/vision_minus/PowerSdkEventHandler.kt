@@ -2,6 +2,7 @@ package com.visionminus.vision_minus
 
 import android.os.Handler
 import android.os.Looper
+import com.visionminus.vision_minus.connection.CallbackGate
 import io.flutter.plugin.common.EventChannel
 
 /**
@@ -18,7 +19,24 @@ object PowerSdkEventHandler {
     var navigationSink: EventChannel.EventSink? = null
     var attitudeSink: EventChannel.EventSink? = null
 
+    @Volatile
+    private var callbackGate: CallbackGate? = null
+
+    @Volatile
+    private var callbackToken: CallbackGate.GenerationToken? = null
+
+    fun installCallbackGate(gate: CallbackGate, token: CallbackGate.GenerationToken) {
+        callbackGate = gate
+        callbackToken = token
+    }
+
     fun sendEvent(sink: EventChannel.EventSink?, event: Map<String, Any?>) {
+        val gate = callbackGate
+        val token = callbackToken
+        if (gate != null && token != null && !gate.isCurrent(token)) {
+            gate.logDropped("PowerSdkEventHandler", token)
+            return
+        }
         mainHandler.post { sink?.success(event) }
     }
 

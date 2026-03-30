@@ -1,0 +1,45 @@
+
+/fs/microsd/log/msg_008/msgs.txt
+[   6.237] esc config 6
+[   6.270] esc_config_param continue1 0
+[  10.203] esc config 0
+[  10.530] esc config 1
+[  10.936] esc config 2
+[  12.324] esc config 3
+[  12.965] pwm_test_exit config continue 0
+[  12.987] pwm_test_exit config continue 0
+[  13.031] pwm_test_exit config continue 1
+[  13.053] pwm_test_exit config continue 1
+[  13.098] pwm_test_exit config continue 2
+[  13.120] pwm_test_exit config continue 2
+[  13.187] pwm_test_exit config continue 4
+[  13.209] pwm_test_exit config continue 4
+[  13.253] pwm_test_exit config continue 5
+[  13.275] pwm_test_exit config continue 5
+[  13.320] pwm_test_exit config continue 6
+[  13.342] pwm_test_exit config continue 6
+[  13.386] pwm_test_exit config continue 7
+[  13.409] pwm_test_exit config continue 7
+[  13.453] pwm_test_exit config continue 8
+[  13.475] pwm_test_exit config continue 8
+[  13.503] esc config ok
+[ 569.599] sp_man:566264ms elapsed:3334ms x:0 y:5 r:0
+[ 569.610] sp_man:566264ms elapsed:3345ms x:0 y:5 r:0
+[ 569.621] sp_man:566264ms elapsed:3356ms x:0 y:5 r:0
+[ 569.632] sp_man:566264ms elapsed:3367ms x:0 y:5 r:0
+[ 569.643] sp_man:566264ms elapsed:3378ms x:0 y:5 r:0
+[ 569.654] sp_man:566264ms elapsed:3389ms x:0 y:5 r:0
+[ 569.665] sp_man:566264ms elapsed:3400ms x:0 y:5 r:0
+[ 569.676] sp_man:566264ms elapsed:3411ms x:0 y:5 r:0
+[ 569.688] sp_man:566264ms elapsed:3422ms x:0 y:5 r:0
+[ 569.698] sp_man:566264ms elapsed:3433ms x:0 y:5 r:0
+[ 622.576] sp_man:619236ms elapsed:3339ms x:0 y:5 r:0
+[ 622.587] sp_man:619236ms elapsed:3350ms x:0 y:5 r:0
+[ 622.598] sp_man:619236ms elapsed:3361ms x:0 y:5 r:0
+[ 622.609] sp_man:619236ms elapsed:3372ms x:0 y:5 r:0
+[ 622.620] sp_man:619236ms elapsed:3383ms x:0 y:5 r:0
+[ 622.631] sp_man:619236ms elapsed:3394ms x:0 y:5 r:0
+[ 622.642] sp_man:619236ms elapsed:3405ms x:0 y:5 r:0
+[ 622.653] sp_man:619236ms elapsed:3416ms x:0 y:5 r:0
+[ 622.664] sp_man:619236ms elapsed:3427ms x:0 y:5 r:0
+[ 622.676] sp_man:619236ms elapsed:3438ms x:0 y:5 r:0

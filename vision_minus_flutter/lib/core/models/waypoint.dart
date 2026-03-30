@@ -10,7 +10,7 @@ class Waypoint {
   const Waypoint({
     required this.lat,
     required this.lon,
-    this.thrustPercent = 30,
+    this.thrustPercent = 5,
     this.stayTimeSeconds = 0,
     this.recvRadiusMeters = 5,
     this.directionDeg = 0,

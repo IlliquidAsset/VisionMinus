@@ -1,0 +1,60 @@
+PERFORMANCE COUNTERS PRE-FLIGHT
+
+sd write: 0 events, 0 overruns, 0us elapsed, 0us avg, min 0us max 0us 0.000us rms
+navigator: 27 events, 0 overruns, 5411us elapsed, 200us avg, min 27us max 3482us 683.364us rms
+mavlink_txe: 0 events
+mavlink_el: 0 events, 0 overruns, 0us elapsed, 0us avg, min 0us max 0us 0.000us rms
+pv_motion_control: 6650 events, 0 overruns, 308797us elapsed, 46us avg, min 42us max 536us 13.344us rms
+mavlink_txe: 0 events
+mavlink_el: 9253 events, 0 overruns, 533230us elapsed, 57us avg, min 34us max 2333us 72.295us rms
+sd drop: 0 events
+sensors: 6904 events, 0 overruns, 2559164us elapsed, 370us avg, min 26us max 1118482us 18919.936us rms
+ctrl_latency: 0 events, 0 overruns, 0us elapsed, 0us avg, min 0us max 0us 0.000us rms
+mpu6k_duplicates: 8024 events
+mpu6k_reset: 0 events
+mpu6k_good_trans: 32393 events
+mpu6k_bad_reg: 0 events
+mpu6k_bad_trans: 0 events
+mpu6k_read: 40419 events, 0 overruns, 2817177us elapsed, 69us avg, min 45us max 90us 13.697us rms
+mpu6k_gyro_read: 0 events
+mpu6k_acc_read: 3 events
+mmc5883_conf_errors: 7 events
+mmc5883_range_errors: 0 events
+mmc5883_buffer_overflows: 1908 events
+mmc5883_comms_errors: 0 events
+mmc5883_read: 1911 events, 0 overruns, 3984069us elapsed, 2084us avg, min 1us max 37790us 1442.178us rms
+eeprom_errs: 0 events
+eeprom_rst: 52 events
+eeprom_trans: 1838 events, 0 overruns, 2454426us elapsed, 1335us avg, min 60us max 20076us 1624.407us rms
+adc_samples: 340180 events, 0 overruns, 898367us elapsed, 2us avg, min 2us max 3us 0.480us rms
+dma_alloc: 8 events
+
+LOAD PRE-FLIGHT
+
+Processes: 22 total, 3 running, 19 sleeping
+CPU usage: 19.40% tasks, 2.61% sched, 77.99% idle
+Uptime: 35.838s total, 28.336s idle
+
+ PID COMMAND                   CPU(ms) CPU(%)  USED/STACK PRIO(BASE) STATE 
+   0 Idle Task                   28335 77.985     0/    0   0 (  0)  READY 
+   1 hpwork                        965  2.798   836/ 1592 192 (192)  w:sig 
+   2 lpwork                        141  0.373   572/ 1592  50 ( 50)  READY 
+   3 init                         1332  0.000  1004/ 2496 100 (100)  w:sem 
+  44 sdlog2_msg                     64  0.000   924/ 1016 130 (130)  READY 
+  10 pwm_led                         8  0.000   676/ 1496 250 (250)  w:sig 
+  24 dataman                         1  0.000   660/ 1192  90 ( 90)  w:sem 
+  29 gps                            90  0.373   812/ 1600 220 (220)  w:sem 
+  38 sensors                       814  4.104  1884/ 1992 250 (250)  w:sig 
+  41 sdlog2                        295  3.544  2652/ 3392 177 (177)  RUN   
+  75 sdlog2_writer                  16  2.985  1052/ 2040  95 ( 95)  w:sem 
+  46 esc                           175  0.559  1044/ 2040 253 (253)  w:sig 
+  47 esc_com_rx                    153  0.559   628/ 2040 253 (253)  w:sig 
+  50 commander                     288  1.492  2908/ 3592 140 (140)  READY 
+  52 mavlink_if0                   709  2.425  2004/ 3496 100 (100)  READY 
+  53 mavlink_rcv_if0                77  0.000   804/ 2792 175 (175)  w:sem 
+  54 commander_low_prio             24  0.000  1028/ 2992  50 ( 50)  w:sem 
+  57 attitude_estimator_q         1370  0.000  1972/ 2496 250 (250)  w:sem 
+  59 position_estimator_inav       340  0.186  3900/ 5296 250 (250)  w:sem 
+  62 pv_motion_control             501  0.000   740/ 2032 250 (250)  w:sem 
+  68 mavlink_if1                    16  0.000  1236/ 3496 100 (100)  READY 
+  71 navigator                       4  0.000   748/ 1496 105 (105)  w:sem 

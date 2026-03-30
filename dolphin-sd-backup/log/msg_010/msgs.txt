@@ -1,0 +1,25 @@
+
+/fs/microsd/log/msg_010/msgs.txt
+[   6.228] esc config 6
+[   6.261] esc_config_param continue1 0
+[  10.182] esc config 0
+[  10.510] esc config 1
+[  10.916] esc config 2
+[  12.304] esc config 3
+[  12.947] pwm_test_exit config continue 0
+[  12.969] pwm_test_exit config continue 0
+[  13.013] pwm_test_exit config continue 1
+[  13.036] pwm_test_exit config continue 1
+[  13.080] pwm_test_exit config continue 2
+[  13.102] pwm_test_exit config continue 2
+[  13.169] pwm_test_exit config continue 4
+[  13.191] pwm_test_exit config continue 4
+[  13.235] pwm_test_exit config continue 5
+[  13.257] pwm_test_exit config continue 5
+[  13.302] pwm_test_exit config continue 6
+[  13.324] pwm_test_exit config continue 6
+[  13.368] pwm_test_exit config continue 7
+[  13.390] pwm_test_exit config continue 7
+[  13.435] pwm_test_exit config continue 8
+[  13.457] pwm_test_exit config continue 8
+[  13.483] esc config ok

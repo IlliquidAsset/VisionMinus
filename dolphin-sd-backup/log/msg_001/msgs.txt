@@ -1,0 +1,4 @@
+
+/fs/microsd/log/msg_001/msgs.txt
+[   6.202] esc config 6
+[   6.235] esc_config_param continue1 0

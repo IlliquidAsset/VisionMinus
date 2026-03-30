@@ -1,0 +1,65 @@
+
+/fs/microsd/log/msg_018/msgs.txt
+[   3.980] esc config 6
+[   4.014] esc_config_param continue1 0
+[   7.921] esc config 0
+[   8.235] esc config 1
+[   8.641] esc config 2
+[  10.030] esc config 3
+[  10.674] pwm_test_exit config continue 0
+[  10.696] pwm_test_exit config continue 0
+[  10.741] pwm_test_exit config continue 1
+[  10.763] pwm_test_exit config continue 1
+[  10.807] pwm_test_exit config continue 2
+[  10.829] pwm_test_exit config continue 2
+[  10.896] pwm_test_exit config continue 4
+[  10.918] pwm_test_exit config continue 4
+[  10.962] pwm_test_exit config continue 5
+[  10.985] pwm_test_exit config continue 5
+[  11.029] pwm_test_exit config continue 6
+[  11.051] pwm_test_exit config continue 6
+[  11.095] pwm_test_exit config continue 7
+[  11.118] pwm_test_exit config continue 7
+[  11.162] pwm_test_exit config continue 8
+[  11.184] pwm_test_exit config continue 8
+[  11.208] esc config ok
+[1841.956] sp_man:1838622ms elapsed:3333ms x:0 y:5 r:-1
+[1841.967] sp_man:1838622ms elapsed:3344ms x:0 y:5 r:-1
+[1841.978] sp_man:1838622ms elapsed:3355ms x:0 y:5 r:-1
+[1841.989] sp_man:1838622ms elapsed:3366ms x:0 y:5 r:-1
+[1842.000] sp_man:1838622ms elapsed:3377ms x:0 y:5 r:-1
+[1842.012] sp_man:1838622ms elapsed:3389ms x:0 y:5 r:-1
+[1842.022] sp_man:1838622ms elapsed:3399ms x:0 y:5 r:-1
+[1842.033] sp_man:1838622ms elapsed:3410ms x:0 y:5 r:-1
+[1842.045] sp_man:1838622ms elapsed:3422ms x:0 y:5 r:-1
+[1842.055] sp_man:1838622ms elapsed:3432ms x:0 y:5 r:-1
+[4609.078] sp_man:4605734ms elapsed:3343ms x:0 y:5 r:0
+[4609.089] sp_man:4605734ms elapsed:3354ms x:0 y:5 r:0
+[4609.100] sp_man:4605734ms elapsed:3365ms x:0 y:5 r:0
+[4609.111] sp_man:4605734ms elapsed:3376ms x:0 y:5 r:0
+[4609.122] sp_man:4605734ms elapsed:3387ms x:0 y:5 r:0
+[4609.134] sp_man:4605734ms elapsed:3398ms x:0 y:5 r:0
+[4609.145] sp_man:4605734ms elapsed:3409ms x:0 y:5 r:0
+[4609.156] sp_man:4605734ms elapsed:3420ms x:0 y:5 r:0
+[4609.167] sp_man:4605734ms elapsed:3432ms x:0 y:5 r:0
+[4609.179] sp_man:4605734ms elapsed:3444ms x:0 y:5 r:0
+[4736.187] sp_man:4732849ms elapsed:3336ms x:0 y:5 r:0
+[4736.197] sp_man:4732849ms elapsed:3347ms x:0 y:5 r:0
+[4736.208] sp_man:4732849ms elapsed:3359ms x:0 y:5 r:0
+[4736.219] sp_man:4732849ms elapsed:3369ms x:0 y:5 r:0
+[4736.230] sp_man:4732849ms elapsed:3381ms x:0 y:5 r:0
+[4736.242] sp_man:4732849ms elapsed:3392ms x:0 y:5 r:0
+[4736.252] sp_man:4732849ms elapsed:3403ms x:0 y:5 r:0
+[4736.264] sp_man:4732849ms elapsed:3414ms x:0 y:5 r:0
+[4736.275] sp_man:4732849ms elapsed:3425ms x:0 y:5 r:0
+[4736.286] sp_man:4732849ms elapsed:3436ms x:0 y:5 r:0
+[4868.103] sp_man:4864767ms elapsed:3335ms x:0 y:5 r:0
+[4868.114] sp_man:4864767ms elapsed:3346ms x:0 y:5 r:0
+[4868.125] sp_man:4864767ms elapsed:3357ms x:0 y:5 r:0
+[4868.136] sp_man:4864767ms elapsed:3368ms x:0 y:5 r:0
+[4868.147] sp_man:4864767ms elapsed:3379ms x:0 y:5 r:0
+[4868.158] sp_man:4864767ms elapsed:3390ms x:0 y:5 r:0
+[4868.169] sp_man:4864767ms elapsed:3401ms x:0 y:5 r:0
+[4868.181] sp_man:4864767ms elapsed:3413ms x:0 y:5 r:0
+[4868.191] sp_man:4864767ms elapsed:3423ms x:0 y:5 r:0
+[4868.203] sp_man:4864767ms elapsed:3434ms x:0 y:5 r:0

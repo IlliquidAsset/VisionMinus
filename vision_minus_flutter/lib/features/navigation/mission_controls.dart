@@ -11,86 +11,110 @@ class MissionControls extends ConsumerWidget {
     final navState = ref.watch(navigationProvider);
     final editMode = ref.watch(waypointEditModeProvider);
 
+    final actions = <Widget>[
+      _buildButton(
+        label: editMode ? 'Done' : 'Edit',
+        icon: editMode ? Icons.check : Icons.edit,
+        color: editMode ? Colors.green : Colors.blue,
+        onTap: () {
+          final newEditMode = !editMode;
+          ref.read(waypointEditModeProvider.notifier).state = newEditMode;
+          if (newEditMode) {
+            ref.read(navigationProvider.notifier).startEditing();
+          } else {
+            ref.read(navigationProvider.notifier).stopEditing();
+          }
+        },
+      ),
+    ];
+
+    if (navState.waypoints.isNotEmpty &&
+        (navState.missionState == MissionState.editing ||
+            navState.missionState == MissionState.idle)) {
+      actions.add(
+        _buildButton(
+          label: 'Upload',
+          icon: Icons.cloud_upload,
+          color: Colors.amber,
+          onTap: () => ref.read(navigationProvider.notifier).uploadMission(),
+        ),
+      );
+    }
+
+    if (navState.missionState == MissionState.uploaded) {
+      actions.add(
+        _buildButton(
+          label: 'Start',
+          icon: Icons.play_arrow,
+          color: Colors.green,
+          onTap: () => ref.read(navigationProvider.notifier).startMission(),
+        ),
+      );
+    }
+
+    if (navState.missionState == MissionState.running) {
+      actions.add(
+        _buildButton(
+          label: 'Pause',
+          icon: Icons.pause,
+          color: Colors.amber,
+          onTap: () => ref.read(navigationProvider.notifier).pauseMission(),
+        ),
+      );
+    }
+
+    if (navState.missionState == MissionState.paused) {
+      actions.add(
+        _buildButton(
+          label: 'Resume',
+          icon: Icons.play_arrow,
+          color: Colors.green,
+          onTap: () => ref.read(navigationProvider.notifier).resumeMission(),
+        ),
+      );
+    }
+
+    if (navState.missionState == MissionState.running ||
+        navState.missionState == MissionState.paused ||
+        navState.missionState == MissionState.uploaded) {
+      actions.add(
+        _buildButton(
+          label: 'Cancel',
+          icon: Icons.stop,
+          color: Colors.red,
+          onTap: () => _confirmCancel(context, ref),
+        ),
+      );
+    }
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       color: Colors.grey[900],
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Edit/Done toggle
-          _buildButton(
-            label: editMode ? 'Done' : 'Edit',
-            icon: editMode ? Icons.check : Icons.edit,
-            color: editMode ? Colors.green : Colors.blue,
-            onTap: () {
-              final newEditMode = !editMode;
-              ref.read(waypointEditModeProvider.notifier).state = newEditMode;
-              if (newEditMode) {
-                ref.read(navigationProvider.notifier).startEditing();
-              } else {
-                ref.read(navigationProvider.notifier).stopEditing();
-              }
-            },
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                for (var i = 0; i < actions.length; i++) ...[
+                  if (i > 0) const SizedBox(width: 6),
+                  actions[i],
+                ],
+              ],
+            ),
           ),
-
-          // Upload
-          if (navState.waypoints.isNotEmpty &&
-              (navState.missionState == MissionState.editing ||
-               navState.missionState == MissionState.idle))
-            _buildButton(
-              label: 'Upload',
-              icon: Icons.cloud_upload,
-              color: Colors.amber,
-              onTap: () => ref.read(navigationProvider.notifier).uploadMission(),
-            ),
-
-          // Start
-          if (navState.missionState == MissionState.uploaded)
-            _buildButton(
-              label: 'Start',
-              icon: Icons.play_arrow,
-              color: Colors.green,
-              onTap: () => ref.read(navigationProvider.notifier).startMission(),
-            ),
-
-          // Pause/Resume
-          if (navState.missionState == MissionState.running)
-            _buildButton(
-              label: 'Pause',
-              icon: Icons.pause,
-              color: Colors.amber,
-              onTap: () => ref.read(navigationProvider.notifier).pauseMission(),
-            ),
-          if (navState.missionState == MissionState.paused)
-            _buildButton(
-              label: 'Resume',
-              icon: Icons.play_arrow,
-              color: Colors.green,
-              onTap: () => ref.read(navigationProvider.notifier).resumeMission(),
-            ),
-
-          // Cancel (during running/paused/uploaded)
-          if (navState.missionState == MissionState.running ||
-              navState.missionState == MissionState.paused ||
-              navState.missionState == MissionState.uploaded)
-            _buildButton(
-              label: 'Cancel',
-              icon: Icons.stop,
-              color: Colors.red,
-              onTap: () => _confirmCancel(context, ref),
-            ),
-
-          // Status message
           if (navState.statusMessage != null)
             Padding(
-              padding: const EdgeInsets.only(left: 8),
+              padding: const EdgeInsets.only(left: 2, top: 4),
               child: Text(
                 navState.statusMessage!,
                 style: TextStyle(
                   color: navState.missionState == MissionState.error
                       ? Colors.red
                       : Colors.white54,
-                  fontSize: 11,
+                  fontSize: 10,
                 ),
               ),
             ),

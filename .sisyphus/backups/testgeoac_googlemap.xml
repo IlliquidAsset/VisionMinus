@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.gms.maps.MapView android:id="@id/google_map" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <Button android:id="@id/math" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  math  " />
+    <Button android:id="@id/draw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="   draw   " android:layout_below="@id/math" />
+    <Button android:id="@id/checkx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_40" android:text="   check X   " android:layout_toRightOf="@id/math" />
+    <Button android:id="@id/checky" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_40" android:text="   check Y   " android:layout_toRightOf="@id/draw" android:layout_below="@id/math" />
+    <com.powervision.gcs.view.GeoSetRangeView android:id="@id/geosetview" android:layout_width="70.0dip" android:layout_height="180.0dip" android:layout_marginRight="20.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

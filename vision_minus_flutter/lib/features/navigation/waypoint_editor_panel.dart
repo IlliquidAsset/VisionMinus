@@ -12,7 +12,7 @@ class WaypointEditorPanel extends ConsumerWidget {
 
     if (waypoints.isEmpty) {
       return Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(6),
         color: Colors.grey[900],
         child: const Center(
           child: Text(
@@ -30,7 +30,7 @@ class WaypointEditorPanel extends ConsumerWidget {
         children: [
           // Header with default thrust control
           Padding(
-            padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
+            padding: const EdgeInsets.fromLTRB(8, 4, 8, 0),
             child: Row(
               children: [
                 Text(
@@ -58,14 +58,14 @@ class WaypointEditorPanel extends ConsumerWidget {
           Expanded(
             child: ListView.builder(
               itemCount: waypoints.length,
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 4),
               itemBuilder: (context, index) {
                 final wp = waypoints[index];
                 return Card(
                   color: Colors.grey[850],
-                  margin: const EdgeInsets.symmetric(vertical: 2),
+                  margin: const EdgeInsets.symmetric(vertical: 1),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                     child: Row(
                       children: [
                         // Waypoint number
@@ -87,7 +87,7 @@ class WaypointEditorPanel extends ConsumerWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(width: 8),
+                        const SizedBox(width: 6),
                         // Thrust slider — 1% to 100%
                         Expanded(
                           child: Column(
@@ -98,7 +98,7 @@ class WaypointEditorPanel extends ConsumerWidget {
                                 style: const TextStyle(color: Colors.white70, fontSize: 10),
                               ),
                               SizedBox(
-                                height: 20,
+                                height: 18,
                                 child: Slider(
                                   value: wp.thrustPercent,
                                   min: 1,
@@ -117,23 +117,32 @@ class WaypointEditorPanel extends ConsumerWidget {
                         ),
                         // Dwell time
                         SizedBox(
-                          width: 50,
+                          width: 64,
                           child: Column(
                             children: [
-                              const Text('Dwell', style: TextStyle(color: Colors.white38, fontSize: 9)),
+                              const Text('Dwell (s)', style: TextStyle(color: Colors.white54, fontSize: 9)),
                               SizedBox(
-                                height: 24,
-                                width: 40,
+                                height: 30,
+                                width: 56,
                                 child: TextField(
                                   keyboardType: TextInputType.number,
                                   style: const TextStyle(color: Colors.white, fontSize: 11),
                                   textAlign: TextAlign.center,
-                                  decoration: const InputDecoration(
-                                    hintText: '0s',
-                                    hintStyle: TextStyle(color: Colors.white24, fontSize: 11),
-                                    border: InputBorder.none,
-                                    contentPadding: EdgeInsets.zero,
+                                  decoration: InputDecoration(
+                                    hintText: wp.stayTimeSeconds.toStringAsFixed(0),
+                                    hintStyle: const TextStyle(color: Colors.white38, fontSize: 11),
                                     isDense: true,
+                                    filled: true,
+                                    fillColor: Colors.black26,
+                                    contentPadding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(6),
+                                      borderSide: const BorderSide(color: Colors.white24),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(6),
+                                      borderSide: const BorderSide(color: Colors.white24),
+                                    ),
                                   ),
                                   onSubmitted: (val) {
                                     final seconds = double.tryParse(val) ?? 0;

@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/models/boat_state.dart' as bs;
 import '../../core/models/waypoint.dart';
 import '../../core/sdk/power_sdk_bridge.dart';
 import '../../core/sdk/sdk_constants.dart';
+import '../connection/connection_provider.dart';
 
 enum MissionState { idle, editing, uploading, uploaded, running, paused, completed, error }
 
@@ -18,7 +20,7 @@ class NavigationState {
     this.missionState = MissionState.idle,
     this.currentWaypointIndex = -1,
     this.statusMessage,
-    this.defaultThrust = 30,
+    this.defaultThrust = 5,
   });
 
   NavigationState copyWith({
@@ -40,13 +42,15 @@ class NavigationState {
 
 final navigationProvider =
     StateNotifierProvider<NavigationNotifier, NavigationState>((ref) {
-  return NavigationNotifier();
+  return NavigationNotifier(ref);
 });
 
 class NavigationNotifier extends StateNotifier<NavigationState> {
+  final Ref _ref;
   StreamSubscription? _navSub;
 
-  NavigationNotifier() : super(const NavigationState()) {
+  NavigationNotifier(this._ref) : super(const NavigationState()) {
+    PowerSdkBridge.init();
     _listenToNavEvents();
   }
 
@@ -67,6 +71,7 @@ class NavigationNotifier extends StateNotifier<NavigationState> {
               statusMessage: 'Upload failed (code: $result)',
             );
           }
+          break;
         case 'mission_run_status':
           final seq = event['seq'] as int? ?? 0;
           state = state.copyWith(
@@ -74,6 +79,7 @@ class NavigationNotifier extends StateNotifier<NavigationState> {
             currentWaypointIndex: seq,
             statusMessage: 'Running WP ${seq + 1}/${state.waypoints.length}',
           );
+          break;
         case 'execute_return_over':
           // Mission completed or RTH done
           if (state.missionState == MissionState.running) {
@@ -82,6 +88,9 @@ class NavigationNotifier extends StateNotifier<NavigationState> {
               statusMessage: 'Mission complete',
             );
           }
+          break;
+        default:
+          break;
       }
     });
   }
@@ -145,18 +154,62 @@ class NavigationNotifier extends StateNotifier<NavigationState> {
       missionState: MissionState.uploading,
       statusMessage: 'Uploading...',
     );
-    await PowerSdkBridge.uploadWaypoints(
+    final result = await PowerSdkBridge.uploadWaypoints(
       state.waypoints.map((wp) => wp.toUploadMap()).toList(),
     );
+    if (result != 0) {
+      state = state.copyWith(
+        missionState: MissionState.error,
+        statusMessage: 'Upload command failed (code: $result)',
+      );
+    }
   }
 
   Future<void> startMission() async {
+    final boat = _ref.read(boatStateProvider);
+    final gps = boat.gps;
+
+    if (boat.connectionState != bs.ConnectionState.connected) {
+      state = state.copyWith(
+        missionState: MissionState.error,
+        statusMessage: 'Connect to drone first',
+      );
+      return;
+    }
+
+    if (!gps.hasFix || gps.satellites <= 8 || gps.eph > 300) {
+      state = state.copyWith(
+        missionState: MissionState.error,
+        statusMessage: 'GPS not ready (need >8 sats & good HDOP)',
+      );
+      return;
+    }
+
+    if (boat.isArmed) {
+      state = state.copyWith(
+        missionState: MissionState.error,
+        statusMessage: 'Disarm before starting Intelligent mode',
+      );
+      return;
+    }
+
     state = state.copyWith(
-      missionState: MissionState.running,
-      currentWaypointIndex: 0,
+      missionState: MissionState.uploaded,
       statusMessage: 'Starting mission...',
     );
-    await PowerSdkBridge.setSailMode(SailMode.waypoint);
+    final result = await PowerSdkBridge.setSailMode(SailMode.waypoint);
+    if (result == 0) {
+      state = state.copyWith(
+        missionState: MissionState.running,
+        currentWaypointIndex: 0,
+        statusMessage: 'Mission started',
+      );
+    } else {
+      state = state.copyWith(
+        missionState: MissionState.error,
+        statusMessage: 'Start mission failed (code: $result)',
+      );
+    }
   }
 
   Future<void> pauseMission() async {

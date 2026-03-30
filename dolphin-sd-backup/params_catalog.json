@@ -1,0 +1,361 @@
+{
+  "file": "mtd_params",
+  "file_size": 847,
+  "parsed_bytes": 847,
+  "parameter_count": 44,
+  "warnings": [],
+  "parameters": [
+    {
+      "name": "PV_SD_FLAG",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "01000000",
+      "value": 1,
+      "safety": "SAFE"
+    },
+    {
+      "name": "GPS_SAT_TIME",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "7b100100",
+      "value": 69755,
+      "safety": "SAFE"
+    },
+    {
+      "name": "CAL_BOARD_ID",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "39323933",
+      "value": 859386425,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_GYRO0_ID",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00002600",
+      "value": 2490368,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_GYRO0_XOFF",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "000000a0462fa2bf",
+      "value": -0.03551693633198738,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_GYRO0_YOFF",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "000000c093b0903f",
+      "value": 0.01629858836531639,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_GYRO0_ZOFF",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "000000607faf80bf",
+      "value": -0.00814723502844572,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_MAG0_ID",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "09300600",
+      "value": 405513,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_MAG0_ROT",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00000000",
+      "value": 0,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "SYS_AUTOSTART",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "ab0f0000",
+      "value": 4011,
+      "safety": "DANGEROUS"
+    },
+    {
+      "name": "ESC_VERSION",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "26040000",
+      "value": 1062,
+      "safety": "DANGEROUS"
+    },
+    {
+      "name": "PV_V_VER",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "07207e71",
+      "value": 1904091143,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_V_PARAMVER",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "07207e71",
+      "value": 1904091143,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_V_LOGCOUNT",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "13000000",
+      "value": 19,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_V_STARTCOUNT",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "03000000",
+      "value": 3,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_SD_SIZE",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "0000000008a92d40",
+      "value": 14.83013916015625,
+      "safety": "SAFE"
+    },
+    {
+      "name": "SCALE",
+      "type": "float64",
+      "type_byte": "0x00",
+      "raw_hex": "000000000000f03f",
+      "value": 1.0,
+      "safety": "SAFE"
+    },
+    {
+      "name": "CAL_ACC0_ID",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00001800",
+      "value": 1572864,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_ACC0_XOFF",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "00000000803c7b3f",
+      "value": 0.006649494171142578,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_ACC0_YOFF",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "0000000020f39e3f",
+      "value": 0.030224323272705078,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_ACC0_ZOFF",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "00000000e0caa03f",
+      "value": 0.032797813415527344,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_ACC0_XSCALE",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "000000c0a9b5f03f",
+      "value": 1.04435133934021,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_ACC0_YSCALE",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "00000040942ff03f",
+      "value": 1.0116159915924072,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_ACC0_ZSCALE",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "00000040b830f03f",
+      "value": 1.0118944644927979,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_GYRO1_ID",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00000000",
+      "value": 0,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_GYRO2_ID",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00000000",
+      "value": 0,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_ACC_PRIME",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00001800",
+      "value": 1572864,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_GYRO_PRIME",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00002600",
+      "value": 2490368,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAL_MAG_PRIME",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "09300600",
+      "value": 405513,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "SYS_AUTOSTART",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "ab0f0000",
+      "value": 4011,
+      "safety": "DANGEROUS"
+    },
+    {
+      "name": "ESC_VERSION",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "26040000",
+      "value": 1062,
+      "safety": "DANGEROUS"
+    },
+    {
+      "name": "PV_V_SD_FMT",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00000000",
+      "value": 0,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_V_KEY_FLAG",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "01000000",
+      "value": 1,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_V_STAT",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00000000",
+      "value": 0,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_V_YEILDTEST",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00000000",
+      "value": 0,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_V_PROD",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "00000000",
+      "value": 0,
+      "safety": "SAFE"
+    },
+    {
+      "name": "CAP_U_LIMIT",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "230f0000",
+      "value": 3875,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "CAP_D_LIMIT",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "110a0000",
+      "value": 2577,
+      "safety": "CAUTION"
+    },
+    {
+      "name": "PV_V_VER",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "07207e71",
+      "value": 1904091143,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_V_PARAMVER",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "07207e71",
+      "value": 1904091143,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_V_LOGCOUNT",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "10000000",
+      "value": 16,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_BOARD_ID",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "06000000",
+      "value": 6,
+      "safety": "DANGEROUS"
+    },
+    {
+      "name": "PV_V_STARTCOUNT",
+      "type": "int32",
+      "type_byte": "0x10",
+      "raw_hex": "1a000000",
+      "value": 26,
+      "safety": "SAFE"
+    },
+    {
+      "name": "PV_SD_SIZE",
+      "type": "float64",
+      "type_byte": "0x01",
+      "raw_hex": "0000000008a92d40",
+      "value": 14.83013916015625,
+      "safety": "SAFE"
+    }
+  ]
+}

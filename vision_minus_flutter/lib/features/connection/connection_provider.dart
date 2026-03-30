@@ -1,57 +1,49 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/connection/connection_controller.dart';
+import '../../core/connection/connection_phase.dart';
+import '../../core/connection/connection_repository.dart';
+import '../../core/connection/connection_state.dart' as runtime;
 import '../../core/sdk/power_sdk_bridge.dart';
 import '../../core/models/boat_state.dart';
 import '../../core/models/gps_position.dart';
 import '../../core/models/battery_status.dart';
 
+final connectionRepositoryProvider = Provider<ConnectionRepository>((ref) {
+  final repository = ConnectionRepository();
+  ref.onDispose(repository.dispose);
+  return repository;
+});
+
+final connectionControllerProvider = Provider<ConnectionController>((ref) {
+  return ConnectionController();
+});
+
 /// Main boat state provider — aggregates all telemetry streams.
 final boatStateProvider =
     StateNotifierProvider<BoatStateNotifier, BoatState>((ref) {
-  return BoatStateNotifier();
+  return BoatStateNotifier(ref);
 });
 
 class BoatStateNotifier extends StateNotifier<BoatState> {
+  final Ref _ref;
+
   StreamSubscription? _gpsSub;
   StreamSubscription? _batterySub;
   StreamSubscription? _connectionSub;
   StreamSubscription? _navigationSub;
   StreamSubscription? _attitudeSub;
 
-  BoatStateNotifier() : super(const BoatState()) {
+  BoatStateNotifier(this._ref) : super(const BoatState()) {
+    PowerSdkBridge.init();
     _listenToStreams();
   }
 
   void _listenToStreams() {
-    _connectionSub = PowerSdkBridge.connectionStream.listen((event) {
-      final type = event['type'] as String?;
-      switch (type) {
-        case 'usb_state':
-          final usbState = event['state'] as String?;
-          switch (usbState) {
-            case 'connected':
-              state = state.copyWith(connectionState: ConnectionState.connected);
-            case 'disconnected':
-              state = state.copyWith(connectionState: ConnectionState.disconnected);
-            case 'requesting_permission':
-              state = state.copyWith(connectionState: ConnectionState.requestingPermission);
-            case 'error':
-              state = state.copyWith(
-                connectionState: ConnectionState.error,
-                errorMessage: event['message'] as String?,
-              );
-            default:
-              break;
-          }
-        case 'arm_status':
-          state = state.copyWith(isArmed: (event['status'] as int?) == 1);
-        case 'current_mode':
-          // Could track mode changes here
-          break;
-        case 'error':
-          state = state.copyWith(errorMessage: event['error'] as String?);
-      }
-    });
+    final connectionRepository = _ref.read(connectionRepositoryProvider);
+    _applyConnectionState(connectionRepository.currentState);
+    _connectionSub =
+        connectionRepository.connectionStateStream.listen(_applyConnectionState);
 
     _gpsSub = PowerSdkBridge.gpsStream.listen((event) {
       final type = event['type'] as String?;
@@ -72,8 +64,12 @@ class BoatStateNotifier extends StateNotifier<BoatState> {
       switch (type) {
         case 'sail_mode':
           state = state.copyWith(sailMode: event['mode'] as int? ?? 0);
+          break;
         case 'speed_mode':
           state = state.copyWith(speedMode: event['mode'] as int? ?? 0);
+          break;
+        default:
+          break;
       }
     });
 
@@ -88,14 +84,63 @@ class BoatStateNotifier extends StateNotifier<BoatState> {
     });
   }
 
+  void _applyConnectionState(runtime.ConnectionState connectionState) {
+    ConnectionState boatConnectionState;
+    switch (connectionState.phase) {
+      case ConnectionPhase.connected:
+      case ConnectionPhase.degraded:
+        boatConnectionState = ConnectionState.connected;
+        break;
+      case ConnectionPhase.connecting:
+      case ConnectionPhase.sdkActive:
+      case ConnectionPhase.droneConnecting:
+      case ConnectionPhase.discovering:
+      case ConnectionPhase.transportAvailable:
+        final status = connectionState.statusMessage?.toLowerCase();
+        if (status != null && status.contains('permission')) {
+          boatConnectionState = ConnectionState.requestingPermission;
+        } else {
+          boatConnectionState = ConnectionState.connecting;
+        }
+        break;
+      case ConnectionPhase.error:
+        boatConnectionState = ConnectionState.error;
+        break;
+      case ConnectionPhase.disconnected:
+      case ConnectionPhase.idle:
+        boatConnectionState = ConnectionState.disconnected;
+        break;
+    }
+
+    state = state.copyWith(
+      connectionState: boatConnectionState,
+      errorMessage: connectionState.errorMessage,
+    );
+  }
+
   Future<void> connect() async {
     state = state.copyWith(connectionState: ConnectionState.connecting);
-    await PowerSdkBridge.connect();
+    await _ref.read(connectionControllerProvider).autoConnect();
+  }
+
+  Future<void> connectWifi() async {
+    state = state.copyWith(connectionState: ConnectionState.connecting);
+    await _ref.read(connectionControllerProvider).connectWifi();
+  }
+
+  Future<void> connectUsb() async {
+    state = state.copyWith(connectionState: ConnectionState.connecting);
+    await _ref.read(connectionControllerProvider).connectUsb();
   }
 
   Future<void> disconnect() async {
-    await PowerSdkBridge.disconnect();
+    await _ref.read(connectionControllerProvider).disconnect();
     state = state.copyWith(connectionState: ConnectionState.disconnected);
+  }
+
+  Future<void> retry() async {
+    state = state.copyWith(connectionState: ConnectionState.connecting);
+    await _ref.read(connectionControllerProvider).retry();
   }
 
   @override

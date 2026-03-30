@@ -61,8 +61,9 @@ object JniW4Native {
     }
 
     @JvmStatic
-    fun W4onElectricQuantityDisplayCallBackFromJni(voltage: Int, percent: Int, status: Byte) {
-        PowerSdkEventHandler.onW4Battery(voltage, percent, status)
+    fun W4onElectricQuantityDisplayCallBackFromJni(voltageBattery: Int, currentBattery: Int, batteryRemaining: Byte) {
+        val remainingPercent = batteryRemaining.toInt() and 0xFF
+        PowerSdkEventHandler.onW4Battery(voltageBattery, remainingPercent, batteryRemaining)
     }
 
     @JvmStatic

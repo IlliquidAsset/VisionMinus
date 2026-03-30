@@ -4,10 +4,13 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../shared/utils/geo_utils.dart';
 import '../connection/connection_provider.dart';
 import '../navigation/navigation_provider.dart';
+import '../settings/unit_system_provider.dart';
 import 'map_provider.dart';
 
 class MapWidget extends ConsumerStatefulWidget {
-  const MapWidget({super.key});
+  final bool compact;
+
+  const MapWidget({super.key, this.compact = false});
 
   @override
   ConsumerState<MapWidget> createState() => _MapWidgetState();
@@ -25,16 +28,41 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
     final phonePos = ref.watch(phonePositionProvider);
     final trail = ref.watch(boatTrailProvider);
     final followBoat = ref.watch(mapFollowBoatProvider);
+    final focusCommand = ref.watch(mapFocusCommandProvider);
     final editMode = ref.watch(waypointEditModeProvider);
     final rthActive = ref.watch(rthActiveProvider);
     final navState = ref.watch(navigationProvider);
+    final unitSystem = ref.watch(unitSystemProvider);
+    final boatPos = boatState.gps;
+
+    if (!widget.compact && focusCommand != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        switch (focusCommand) {
+          case MapFocusCommand.boat:
+            if (boatPos.hasFix && boatPos.latE7 != 0) {
+              _mapController?.animateCamera(
+                CameraUpdate.newLatLng(LatLng(boatPos.lat, boatPos.lon)),
+              );
+            }
+            break;
+          case MapFocusCommand.phone:
+            phonePos.whenData((pos) {
+              _mapController?.animateCamera(
+                CameraUpdate.newLatLng(LatLng(pos.latitude, pos.longitude)),
+              );
+            });
+            break;
+        }
+        ref.read(mapFocusCommandProvider.notifier).state = null;
+      });
+    }
 
     // Build markers
     final markers = <Marker>{};
     final polylines = <Polyline>{};
 
     // Boat marker
-    final boatPos = boatState.gps;
     if (boatPos.hasFix && boatPos.latE7 != 0) {
       markers.add(Marker(
         markerId: const MarkerId('boat'),
@@ -138,7 +166,11 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
           initialCameraPosition: CameraPosition(
             target: boatPos.hasFix && boatPos.latE7 != 0
                 ? LatLng(boatPos.lat, boatPos.lon)
-                : _defaultPosition,
+                : phonePos.when(
+                    data: (pos) => LatLng(pos.latitude, pos.longitude),
+                    loading: () => _defaultPosition,
+                    error: (_, __) => _defaultPosition,
+                  ),
             zoom: 16,
           ),
           mapType: MapType.satellite,
@@ -150,7 +182,9 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
           onMapCreated: (controller) {
             _mapController = controller;
           },
-          onTap: editMode
+          onTap: widget.compact
+              ? null
+              : editMode
               ? (latLng) {
                   ref.read(navigationProvider.notifier).addWaypoint(
                         latLng.latitude,
@@ -160,14 +194,14 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
               : null,
           onCameraMove: (_) {
             // User moved the map manually — stop auto-follow
-            if (followBoat) {
+            if (followBoat && !widget.compact) {
               ref.read(mapFollowBoatProvider.notifier).state = false;
             }
           },
         ),
 
         // Distance overlay (top-center)
-        if (boatPos.hasFix)
+        if (!widget.compact && boatPos.hasFix)
           Positioned(
             top: 8,
             left: 0,
@@ -175,10 +209,14 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
             child: Center(
               child: phonePos.when(
                 data: (pos) {
-                  final dist = GeoUtils.distanceFeet(
-                    boatPos.lat, boatPos.lon,
-                    pos.latitude, pos.longitude,
+                  final meters = GeoUtils.distanceMeters(
+                    boatPos.lat,
+                    boatPos.lon,
+                    pos.latitude,
+                    pos.longitude,
                   );
+                  final dist = distanceForUnit(meters, unitSystem);
+                  final distUnit = distanceUnitLabel(unitSystem);
                   final bearing = GeoUtils.bearing(
                     pos.latitude, pos.longitude,
                     boatPos.lat, boatPos.lon,
@@ -190,7 +228,7 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Text(
-                      '${dist.toStringAsFixed(0)} ft  ${bearing.toStringAsFixed(0)}°',
+                      '${dist.toStringAsFixed(0)} $distUnit  ${bearing.toStringAsFixed(0)}°',
                       style: const TextStyle(color: Colors.white, fontSize: 13),
                     ),
                   );
@@ -202,7 +240,8 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
           ),
 
         // Follow button (bottom-left)
-        Positioned(
+        if (!widget.compact)
+          Positioned(
           bottom: 16,
           left: 16,
           child: FloatingActionButton.small(
@@ -210,10 +249,18 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
             backgroundColor: followBoat ? Colors.blue : Colors.grey[800],
             onPressed: () {
               ref.read(mapFollowBoatProvider.notifier).state = !followBoat;
-              if (!followBoat && boatPos.hasFix) {
-                _mapController?.animateCamera(
-                  CameraUpdate.newLatLng(LatLng(boatPos.lat, boatPos.lon)),
-                );
+              if (!followBoat) {
+                if (boatPos.hasFix && boatPos.latE7 != 0) {
+                  _mapController?.animateCamera(
+                    CameraUpdate.newLatLng(LatLng(boatPos.lat, boatPos.lon)),
+                  );
+                } else {
+                  phonePos.whenData((pos) {
+                    _mapController?.animateCamera(
+                      CameraUpdate.newLatLng(LatLng(pos.latitude, pos.longitude)),
+                    );
+                  });
+                }
               }
             },
             child: Icon(
@@ -224,7 +271,7 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
         ),
 
         // Edit mode indicator
-        if (editMode)
+        if (editMode && !widget.compact)
           Positioned(
             top: 8,
             right: 8,
