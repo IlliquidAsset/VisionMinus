@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/models/boat_state.dart' as bs;
 import '../../../core/connection/connection_phase.dart';
 import '../../../core/connection/connection_state.dart' as runtime;
 import '../../../core/connection/transport_mode.dart';
+import '../../../core/models/gps_position.dart';
 import '../../connection/connection_provider.dart';
 
 class TopTelemetryBar extends ConsumerWidget {
-  const TopTelemetryBar({super.key});
+  final bs.CommandIntentState intentState;
+  final String intentReason;
+  final int intentTargetStatus;
+  final double intentOpacity;
+
+  const TopTelemetryBar({
+    super.key,
+    required this.intentState,
+    required this.intentReason,
+    required this.intentTargetStatus,
+    required this.intentOpacity,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -50,7 +63,31 @@ class TopTelemetryBar extends ConsumerWidget {
               _stat(icon: Icons.network_cell, text: 'SIG', color: signalColor),
               const SizedBox(width: 6),
               _stat(icon: Icons.usb, text: mode, color: Colors.white70),
+              if (intentState != bs.CommandIntentState.idle) ...[
+                const SizedBox(width: 8),
+                AnimatedOpacity(
+                  duration: const Duration(seconds: 5),
+                  curve: Curves.linear,
+                  opacity: intentOpacity,
+                  child: _intentStatusChip(),
+                ),
+              ],
               const Spacer(),
+              if (boat.effectiveGpsDegradedReason ==
+                  GpsDegradedReason.missingEph)
+                const Flexible(
+                  child: Text(
+                    'GPS telemetry present, autonomy confidence unavailable',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(color: Colors.amberAccent, fontSize: 10),
+                  ),
+                ),
+              if (boat.effectiveGpsDegradedReason ==
+                      GpsDegradedReason.missingEph &&
+                  boat.errorMessage != null &&
+                  boat.errorMessage!.isNotEmpty)
+                const SizedBox(width: 6),
               if (boat.errorMessage != null && boat.errorMessage!.isNotEmpty)
                 Flexible(
                   child: Text(
@@ -65,6 +102,55 @@ class TopTelemetryBar extends ConsumerWidget {
         },
       ),
     );
+  }
+
+  Widget _intentStatusChip() {
+    final color = _intentColor(intentState);
+    final reason = intentReason.trim();
+    final label =
+        'Unlock ${intentState.name}${intentTargetStatus < 0 ? '' : ' T:$intentTargetStatus'}${reason.isEmpty ? '' : ' • $reason'}';
+
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 250),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 8,
+            height: 8,
+            decoration: BoxDecoration(
+              color: color,
+              shape: BoxShape.circle,
+            ),
+          ),
+          const SizedBox(width: 4),
+          Flexible(
+            child: Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: color,
+                fontSize: 10,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Color _intentColor(bs.CommandIntentState state) {
+    return switch (state) {
+      bs.CommandIntentState.failed ||
+      bs.CommandIntentState.timeout ||
+      bs.CommandIntentState.stale => Colors.redAccent,
+      bs.CommandIntentState.confirmed => Colors.greenAccent,
+      bs.CommandIntentState.acked => Colors.orangeAccent,
+      bs.CommandIntentState.sent => Colors.blueAccent,
+      bs.CommandIntentState.idle => Colors.white70,
+    };
   }
 
   Widget _stat({

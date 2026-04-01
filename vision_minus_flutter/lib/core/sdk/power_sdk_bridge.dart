@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:developer' as developer;
 
 import 'package:flutter/services.dart';
 
-/// Bridge to the native PowerVision SDK via MethodChannel and EventChannels.
+import '../models/gps_position.dart';
+
 class PowerSdkBridge {
   static const _method = MethodChannel('com.visionminus/sdk');
   static const _gpsChannel = EventChannel('com.visionminus/gps');
@@ -10,6 +12,7 @@ class PowerSdkBridge {
   static const _connectionChannel = EventChannel('com.visionminus/connection');
   static const _navigationChannel = EventChannel('com.visionminus/navigation');
   static const _attitudeChannel = EventChannel('com.visionminus/attitude');
+  static const _phoneHeadingChannel = EventChannel('com.visionminus/phone_heading');
 
   static bool _initialized = false;
 
@@ -22,6 +25,8 @@ class PowerSdkBridge {
   static final StreamController<Map<String, dynamic>> _navigationController =
       StreamController.broadcast();
   static final StreamController<Map<String, dynamic>> _attitudeController =
+      StreamController.broadcast();
+  static final StreamController<Map<String, dynamic>> _phoneHeadingController =
       StreamController.broadcast();
 
   // --- Streams ---
@@ -54,6 +59,11 @@ class PowerSdkBridge {
           (event) => _attitudeController.add(_castEvent(event)),
           onError: (error) => _attitudeController.addError(error),
         );
+
+    _phoneHeadingChannel.receiveBroadcastStream().listen(
+          (event) => _phoneHeadingController.add(_castEvent(event)),
+          onError: (error) => _phoneHeadingController.addError(error),
+        );
   }
 
   static Stream<Map<String, dynamic>> get gpsStream => _gpsController.stream;
@@ -69,6 +79,9 @@ class PowerSdkBridge {
 
   static Stream<Map<String, dynamic>> get attitudeStream =>
       _attitudeController.stream;
+
+  static Stream<Map<String, dynamic>> get phoneHeadingStream =>
+      _phoneHeadingController.stream;
 
   // --- Connection ---
 
@@ -122,6 +135,26 @@ class PowerSdkBridge {
     final result =
         await _method.invokeMethod<int>('setArmStatus', {'status': status});
     return result ?? -1;
+  }
+
+  static Future<Map<String, dynamic>> resyncRuntimeState({
+    required String reason,
+  }) async {
+    final result = await _method.invokeMethod<dynamic>(
+      'resyncRuntimeState',
+      {'reason': reason},
+    );
+    return _castMethodMap(result);
+  }
+
+  static Future<Map<String, dynamic>> resyncMissionState({
+    required String reason,
+  }) async {
+    final result = await _method.invokeMethod<dynamic>(
+      'resyncMissionState',
+      {'reason': reason},
+    );
+    return _castMethodMap(result);
   }
 
   // --- Camera ---
@@ -214,6 +247,17 @@ class PowerSdkBridge {
   /// Each waypoint map should contain: lat, lon, thrust (1-100), stayTime, recvRadius, direction
   static Future<int> uploadWaypoints(
       List<Map<String, double>> waypoints) async {
+    for (final wp in waypoints) {
+      final lat = wp['lat'] ?? 0.0;
+      final lon = wp['lon'] ?? 0.0;
+      if (!GpsPosition.isCoordinateSane(lat, lon)) {
+        developer.log(
+          'BLOCKED uploadWaypoints: insane waypoint lat=$lat lon=$lon',
+          name: 'runtime.safety',
+        );
+        return -99;
+      }
+    }
     final result = await _method.invokeMethod<int>('uploadWaypoints', {
       'waypoints': waypoints,
     });
@@ -232,13 +276,19 @@ class PowerSdkBridge {
     return result ?? -1;
   }
 
-  /// Set the return point. type=1 for custom (phone GPS).
   static Future<int> setReturnPoint({
     int type = 1,
     required double lat,
     required double lon,
     double alt = 0.0,
   }) async {
+    if (!GpsPosition.isCoordinateSane(lat, lon)) {
+      developer.log(
+        'BLOCKED setReturnPoint: insane coordinates lat=$lat lon=$lon',
+        name: 'runtime.safety',
+      );
+      return -99;
+    }
     final result = await _method.invokeMethod<int>('setReturnPoint', {
       'type': type,
       'lat': lat,
@@ -248,9 +298,15 @@ class PowerSdkBridge {
     return result ?? -1;
   }
 
-  /// Update the user (phone) location on the boat. Lat/lon in degE7 format.
   static Future<int> setUserLocation(
       {required int lat, required int lon}) async {
+    if (!GpsPosition.isCoordinateSaneE7(lat, lon)) {
+      developer.log(
+        'BLOCKED setUserLocation: insane coordinates latE7=$lat lonE7=$lon',
+        name: 'runtime.safety',
+      );
+      return -99;
+    }
     final result = await _method.invokeMethod<int>('setUserLocation', {
       'lat': lat,
       'lon': lon,
@@ -328,5 +384,37 @@ class PowerSdkBridge {
       return Map<String, dynamic>.from(result);
     }
     return const <String, dynamic>{};
+  }
+
+  static Future<String> startLogRecording() async {
+    final result = await _method.invokeMethod<String>('startLogRecording');
+    return result ?? '';
+  }
+
+  static Future<String> stopLogRecording() async {
+    final result = await _method.invokeMethod<String>('stopLogRecording');
+    return result ?? '';
+  }
+
+  static Future<bool> isLogRecording() async {
+    final result = await _method.invokeMethod<bool>('isLogRecording');
+    return result ?? false;
+  }
+
+  static Future<String> getLogPath() async {
+    final result = await _method.invokeMethod<String>('getLogPath');
+    return result ?? '';
+  }
+
+  static Future<List<String>> listLogFiles() async {
+    final result = await _method.invokeMethod<List>('listLogFiles');
+    return result?.cast<String>() ?? [];
+  }
+
+  static Future<String> readLogFile(String path) async {
+    final result = await _method.invokeMethod<String>('readLogFile', {
+      'path': path,
+    });
+    return result ?? '';
   }
 }

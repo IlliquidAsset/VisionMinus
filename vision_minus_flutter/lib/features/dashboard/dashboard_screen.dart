@@ -12,9 +12,10 @@ import '../connection/connection_screen.dart';
 import '../map/map_provider.dart';
 import '../map/map_widget.dart';
 import '../media/media_gallery_screen.dart';
-import '../rth/rth_provider.dart';
 import '../settings/settings_panel.dart';
 import '../settings/unit_system_provider.dart';
+import '../spot_lock/spot_lock_controller.dart';
+import '../rth/rth_provider.dart';
 import 'widgets/bottom_info_bar.dart';
 import 'widgets/camera_controls.dart';
 import 'widgets/left_action_sidebar.dart';
@@ -25,6 +26,7 @@ import '../navigation/mission_controls.dart';
 import 'widgets/slide_confirm_overlay.dart';
 import 'widgets/top_telemetry_bar.dart';
 import 'widgets/video_feed_widget.dart';
+import 'widgets/virtual_joystick.dart';
 
 enum _SlideAction {
   rth,
@@ -39,42 +41,52 @@ class DashboardScreen extends ConsumerStatefulWidget {
   ConsumerState<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends ConsumerState<DashboardScreen> {
+class _DashboardScreenState extends ConsumerState<DashboardScreen>
+    with WidgetsBindingObserver {
   bool _hasNavigatedAway = false;
   bool _mapExpanded = false;
   bool _hookOpened = false;
   bool _lightOn = false;
   bool _isRecording = false;
-  bool _isArmed = false;
   bool _showSettingsPanel = false;
   bool _showWaypointPanel = false;
   _SlideAction? _pendingSlideAction;
+  bool _wasInBackground = false;
 
   int _leftY = 0;
   int _rightX = 0;
-  StreamSubscription<Map<String, dynamic>>? _connectionEventSub;
+  bs.CommandIntentState _lastIntentState = bs.CommandIntentState.idle;
+  String _lastIntentReason = '';
+  int _lastIntentTargetStatus = -1;
+  DateTime? _intentFadeStarted;
+  Timer? _intentFadeResetTimer;
+  bool _intentFadeOut = false;
+  bool _intentResetToIdle = false;
 
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      ref.read(rthProvider.notifier).setHomeToPhone();
-    });
-    _connectionEventSub = PowerSdkBridge.connectionStream.listen((event) {
-      if (event['type'] != 'arm_status') {
-        return;
-      }
-      final status = (event['status'] as num?)?.toInt() ?? 0;
-      if (!mounted) {
-        return;
-      }
-      setState(() => _isArmed = status == 1);
-    });
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.paused ||
+        state == AppLifecycleState.detached) {
+      _wasInBackground = true;
+      return;
+    }
+
+    if (state == AppLifecycleState.resumed) {
+      unawaited(_triggerForegroundResync());
+    }
   }
 
   @override
   void dispose() {
-    _connectionEventSub?.cancel();
+    _intentFadeResetTimer?.cancel();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -83,6 +95,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     final boat = ref.watch(boatStateProvider);
     final phonePos = ref.watch(phonePositionProvider);
     final unitSystem = ref.watch(unitSystemProvider);
+    final spotLock = ref.watch(spotLockProvider);
+    final isArmed = boat.isUnlockConfirmed;
+    final speedMode = _normalizedSpeedMode(boat.speedMode);
+
+    _syncUnlockIntentFadeState(boat);
 
     if (!_hasNavigatedAway &&
         boat.connectionState == bs.ConnectionState.disconnected) {
@@ -122,8 +139,20 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             _mapExpanded ? const MapWidget() : const VideoFeedWidget(),
 
             // Layer 1
-            const Positioned(
-                top: 0, left: 0, right: 0, child: TopTelemetryBar()),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: TopTelemetryBar(
+                intentState: _intentResetToIdle
+                    ? bs.CommandIntentState.idle
+                    : boat.armCommandIntentState,
+                intentReason: boat.armCommandIntentReason,
+                intentTargetStatus: boat.armCommandTargetStatus,
+                intentOpacity:
+                    _intentFadeStarted != null && _intentFadeOut ? 0 : 1,
+              ),
+            ),
 
             // Layer 2
             Positioned(
@@ -136,58 +165,22 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
 
             // Layer 3
             Positioned(
-              top: 116,
+              top: 136,
               left: 25,
               child: LeftActionSidebar(
                 hookOpened: _hookOpened,
-                isArmed: _isArmed,
+                isArmed: isArmed,
                 onRthTap: () => _showSlideAction(_SlideAction.rth),
                 onIntelligentTap: _openIntelligentMode,
                 onToggleHook: _toggleHook,
                 onArmToggleTap: () => _showSlideAction(
-                    _isArmed ? _SlideAction.disarm : _SlideAction.arm),
+                    isArmed ? _SlideAction.disarm : _SlideAction.arm),
               ),
             ),
 
             // Layer 4
             if (!_showWaypointPanel)
-              Positioned(
-                bottom: 20,
-                left: 82,
-                child: ShipRocker(
-                  size: 128,
-                  label: 'L',
-                  axis: ShipRockerAxis.vertical,
-                  onAxisChanged: (value) {
-                    _leftY = (value * 1000).round().clamp(-1000, 1000);
-                    _sendRocker();
-                  },
-                  onRelease: () {
-                    _leftY = 0;
-                    _sendRocker();
-                  },
-                ),
-              ),
-
-            // Layer 5
-            if (!_showWaypointPanel)
-              Positioned(
-                bottom: 20,
-                right: 82,
-                child: ShipRocker(
-                  size: 128,
-                  label: 'R',
-                  axis: ShipRockerAxis.horizontal,
-                  onAxisChanged: (value) {
-                    _rightX = (value * 1000).round().clamp(-1000, 1000);
-                    _sendRocker();
-                  },
-                  onRelease: () {
-                    _rightX = 0;
-                    _sendRocker();
-                  },
-                ),
-              ),
+              ..._buildRockerLayout(speedMode),
 
             // Layer 6
             Positioned(
@@ -198,7 +191,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   child: BottomInfoBar(
                 speedMps: boat.gps.speedMps,
                 distanceMeters: distanceMeters,
-                speedMode: boat.speedMode,
+                speedMode: speedMode,
                 lightOn: _lightOn,
                 unitSystem: unitSystem,
                 onSpeedModeChanged: (mode) => PowerSdkBridge.setSpeedMode(mode),
@@ -236,6 +229,51 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 },
               ),
             ),
+            Positioned(
+              bottom: 258,
+              right: 16,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  InkWell(
+                    borderRadius: BorderRadius.circular(999),
+                    onTap: () =>
+                        ref.read(spotLockProvider.notifier).toggle(),
+                    child: Ink(
+                      width: 42,
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: _spotLockColor(spotLock.state)
+                            .withValues(alpha: 0.35),
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white38),
+                      ),
+                      child: const Icon(
+                        Icons.gps_fixed,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
+                  ),
+                  if (spotLock.state != SpotLockState.idle)
+                    Container(
+                      margin: const EdgeInsets.only(top: 6),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 6, vertical: 3),
+                      decoration: BoxDecoration(
+                        color: Colors.black87,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.white24),
+                      ),
+                      child: Text(
+                        '${spotLock.distanceMeters.toStringAsFixed(1)}m',
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 10),
+                      ),
+                    ),
+                ],
+              ),
+            ),
             if (_pendingSlideAction != null)
               SlideConfirmOverlay(
                 title: _slideTitle(_pendingSlideAction!),
@@ -246,7 +284,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               ),
             if (_showSettingsPanel)
               SettingsPanel(
-                isArmed: _isArmed,
+                isArmed: isArmed,
                 onClose: () => setState(() => _showSettingsPanel = false),
               ),
             if (_showWaypointPanel)
@@ -285,7 +323,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               ),
             if (boat.gps.satellites <= 8)
               Positioned(
-                top: 40,
+                top: 132,
                 left: 0,
                 right: 0,
                 child: Center(
@@ -297,7 +335,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                       border: Border.all(color: Colors.orangeAccent.withValues(alpha: 0.7)),
                     ),
                     child: const Text(
-                      'Low GPS lock: thrust & mission start can be blocked indoors',
+                      'Low GPS lock: mission start can be blocked indoors',
                       style: TextStyle(color: Colors.orangeAccent, fontSize: 11),
                     ),
                   ),
@@ -357,17 +395,19 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       switch (value) {
         case 'boat':
           setState(() => _mapExpanded = true);
+          ref.read(mapFollowModeProvider.notifier).state = MapFollowMode.drone;
           ref.read(mapFocusCommandProvider.notifier).state = MapFocusCommand.boat;
           break;
         case 'phone':
           setState(() => _mapExpanded = true);
+          ref.read(mapFollowModeProvider.notifier).state = MapFollowMode.phone;
           ref.read(mapFocusCommandProvider.notifier).state = MapFocusCommand.phone;
           break;
         case 'follow_on':
-          ref.read(mapFollowBoatProvider.notifier).state = true;
+          ref.read(mapFollowModeProvider.notifier).state = MapFollowMode.drone;
           break;
         case 'follow_off':
-          ref.read(mapFollowBoatProvider.notifier).state = false;
+          ref.read(mapFollowModeProvider.notifier).state = MapFollowMode.free;
           break;
       }
     });
@@ -437,19 +477,89 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     setState(() => _pendingSlideAction = null);
     switch (action) {
       case _SlideAction.rth:
-        await PowerSdkBridge.rtl();
-        _showToast('RTH triggered');
+        final boat = ref.read(boatStateProvider);
+        if (!boat.gps.isSane) {
+          _showToast('RTH blocked: drone GPS position invalid');
+          break;
+        }
+        if (!boat.isArmed) {
+          _showToast('RTH blocked: drone not armed');
+          break;
+        }
+        final rthNotifier = ref.read(rthProvider.notifier);
+        if (!rthNotifier.isHomeVerified) {
+          await rthNotifier.setHomeToPhone();
+        }
+        await rthNotifier.returnToHome();
+        if (!mounted) return;
+        final rthState = ref.read(rthProvider);
+        _showToast(rthState.statusMessage ?? 'RTH triggered');
         break;
       case _SlideAction.arm:
-        final result = await PowerSdkBridge.setArmStatus(1);
-        _showToast(result == 0 ? 'Arm command sent' : 'Arm failed ($result)');
+        final result =
+            await ref.read(boatStateProvider.notifier).requestArmStatus(1);
+        _showToast(result == 0
+            ? 'Unlock request sent; waiting for callback confirmation'
+            : 'Unlock failed ($result)');
         break;
       case _SlideAction.disarm:
-        final result = await PowerSdkBridge.setArmStatus(0);
-        _showToast(
-            result == 0 ? 'Disarm command sent' : 'Disarm failed ($result)');
+        final result =
+            await ref.read(boatStateProvider.notifier).requestArmStatus(0);
+        _showToast(result == 0
+            ? 'Disarm request sent; waiting for callback confirmation'
+            : 'Disarm failed ($result)');
         break;
     }
+  }
+
+  bool _isTerminalIntentState(bs.CommandIntentState state) {
+    return state == bs.CommandIntentState.confirmed ||
+        state == bs.CommandIntentState.failed ||
+        state == bs.CommandIntentState.timeout;
+  }
+
+  void _syncUnlockIntentFadeState(bs.BoatState boat) {
+    final nextState = boat.armCommandIntentState;
+    final nextReason = boat.armCommandIntentReason;
+    final nextTargetStatus = boat.armCommandTargetStatus;
+    final intentChanged = nextState != _lastIntentState ||
+        nextReason != _lastIntentReason ||
+        nextTargetStatus != _lastIntentTargetStatus;
+
+    if (!intentChanged) {
+      return;
+    }
+
+    _lastIntentState = nextState;
+    _lastIntentReason = nextReason;
+    _lastIntentTargetStatus = nextTargetStatus;
+
+    _intentFadeResetTimer?.cancel();
+
+    if (_isTerminalIntentState(nextState)) {
+      _intentFadeStarted = DateTime.now();
+      _intentResetToIdle = false;
+      _intentFadeOut = false;
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        setState(() => _intentFadeOut = true);
+      });
+
+      _intentFadeResetTimer = Timer(const Duration(seconds: 5), () {
+        if (!mounted) return;
+        setState(() {
+          _intentResetToIdle = true;
+          _intentFadeOut = false;
+          _intentFadeStarted = null;
+        });
+      });
+      return;
+    }
+
+    _intentFadeStarted = null;
+    _intentFadeOut = false;
+    _intentResetToIdle = false;
   }
 
   String _slideTitle(_SlideAction action) {
@@ -485,7 +595,161 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   }
 
   void _sendRocker() {
-    PowerSdkBridge.controlRocker(x: _rightX, y: 0, r: _leftY, z: 0);
+    ref
+        .read(spotLockProvider.notifier)
+        .setManualInputActive(_leftY != 0 || _rightX != 0);
+
+    final boat = ref.read(boatStateProvider);
+    final manualReady =
+        boat.connectionState == bs.ConnectionState.connected &&
+        boat.isUnlockConfirmed;
+
+    if (!manualReady) {
+      unawaited(PowerSdkBridge.controlRocker(x: 0, y: 0, r: 0, z: 0));
+      return;
+    }
+
+    final thrust = _leftY.clamp(-1000, 1000);
+    final steering = _rightX.clamp(-1000, 1000);
+
+    unawaited(PowerSdkBridge.controlRocker(
+      x: thrust,
+      y: 0,
+      r: steering,
+      z: 0,
+    ));
+  }
+
+  int _normalizedSpeedMode(int mode) {
+    if (mode < 1 || mode > 3) {
+      return 1;
+    }
+    return mode;
+  }
+
+  List<Widget> _buildRockerLayout(int speedMode) {
+    switch (speedMode) {
+      case 2:
+        return [
+          Positioned(
+            bottom: 20,
+            left: 82,
+            child: ShipRocker(
+              size: 128,
+              label: 'L',
+              axis: ShipRockerAxis.horizontal,
+              onAxisChanged: (value) {
+                _rightX = (value * 1000).round().clamp(-1000, 1000);
+                _sendRocker();
+              },
+              onRelease: () {
+                _rightX = 0;
+                _sendRocker();
+              },
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            right: 82,
+            child: ShipRocker(
+              size: 128,
+              label: 'R',
+              axis: ShipRockerAxis.vertical,
+              onAxisChanged: (value) {
+                _leftY = (value * 1000).round().clamp(-1000, 1000);
+                _sendRocker();
+              },
+              onRelease: () {
+                _leftY = 0;
+                _sendRocker();
+              },
+            ),
+          ),
+        ];
+      case 3:
+        return [
+          Positioned(
+            bottom: 20,
+            left: 82,
+            child: VirtualJoystick(
+              size: 140,
+              label: 'Drive',
+              onUpdate: (x, y) {
+                _rightX = (x * 1000).round().clamp(-1000, 1000);
+                _leftY = (y * 1000).round().clamp(-1000, 1000);
+                _sendRocker();
+              },
+              onRelease: () {
+                _rightX = 0;
+                _leftY = 0;
+                _sendRocker();
+              },
+            ),
+          ),
+        ];
+      case 1:
+      default:
+        return [
+          Positioned(
+            bottom: 20,
+            left: 82,
+            child: ShipRocker(
+              size: 128,
+              label: 'L',
+              axis: ShipRockerAxis.vertical,
+              onAxisChanged: (value) {
+                _leftY = (value * 1000).round().clamp(-1000, 1000);
+                _sendRocker();
+              },
+              onRelease: () {
+                _leftY = 0;
+                _sendRocker();
+              },
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            right: 82,
+            child: ShipRocker(
+              size: 128,
+              label: 'R',
+              axis: ShipRockerAxis.horizontal,
+              onAxisChanged: (value) {
+                _rightX = (value * 1000).round().clamp(-1000, 1000);
+                _sendRocker();
+              },
+              onRelease: () {
+                _rightX = 0;
+                _sendRocker();
+              },
+            ),
+          ),
+        ];
+    }
+  }
+
+  Color _spotLockColor(SpotLockState state) {
+    switch (state) {
+      case SpotLockState.idle:
+        return Colors.grey;
+      case SpotLockState.acquiring:
+        return Colors.blue;
+      case SpotLockState.holding:
+        return Colors.green;
+      case SpotLockState.correcting:
+        return Colors.orange;
+      case SpotLockState.suspended:
+        return Colors.red;
+    }
+  }
+
+  Future<void> _triggerForegroundResync() async {
+    final notifier = ref.read(boatStateProvider.notifier);
+    await notifier.onAppResume();
+    if (_wasInBackground) {
+      await notifier.onForegroundAfterExternalControl();
+      _wasInBackground = false;
+    }
   }
 
   void _showToast(String text) {

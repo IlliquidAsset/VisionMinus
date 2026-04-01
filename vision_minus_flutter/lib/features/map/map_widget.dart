@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import '../../core/models/boat_state.dart';
+import '../../core/models/gps_position.dart';
 import '../../shared/utils/geo_utils.dart';
 import '../connection/connection_provider.dart';
 import '../navigation/navigation_provider.dart';
@@ -18,38 +22,51 @@ class MapWidget extends ConsumerStatefulWidget {
 
 class _MapWidgetState extends ConsumerState<MapWidget> {
   GoogleMapController? _mapController;
+  static const int _phoneHeadingStaleMs = 2000;
+  static const int _droneHeadingStaleMs = 2000;
+  static const double _cameraBearingThresholdDeg = 2;
+  static const double _cameraTargetThresholdMeters = 1.5;
 
   // Default to Cherokee Lake area
   static const _defaultPosition = LatLng(36.17, -83.5);
+  LatLng? _lastCameraTarget;
+  double? _lastCameraBearing;
+  bool _programmaticCameraMove = false;
 
   @override
   Widget build(BuildContext context) {
     final boatState = ref.watch(boatStateProvider);
     final phonePos = ref.watch(phonePositionProvider);
+    final phoneHeading = ref.watch(phoneHeadingProvider);
     final trail = ref.watch(boatTrailProvider);
-    final followBoat = ref.watch(mapFollowBoatProvider);
+    final followMode = ref.watch(mapFollowModeProvider);
     final focusCommand = ref.watch(mapFocusCommandProvider);
     final editMode = ref.watch(waypointEditModeProvider);
     final rthActive = ref.watch(rthActiveProvider);
     final navState = ref.watch(navigationProvider);
     final unitSystem = ref.watch(unitSystemProvider);
     final boatPos = boatState.gps;
+    final boatHasSaneFix = boatPos.hasFix && boatPos.isSane;
+    final cameraBearing = _resolveCameraBearing(
+      followMode: followMode,
+      boatState: boatState,
+      phoneHeading: phoneHeading.valueOrNull,
+    );
 
     if (!widget.compact && focusCommand != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         switch (focusCommand) {
           case MapFocusCommand.boat:
-            if (boatPos.hasFix && boatPos.latE7 != 0) {
-              _mapController?.animateCamera(
-                CameraUpdate.newLatLng(LatLng(boatPos.lat, boatPos.lon)),
-              );
+            if (boatHasSaneFix) {
+              _animateCameraTarget(LatLng(boatPos.lat, boatPos.lon), cameraBearing);
             }
             break;
           case MapFocusCommand.phone:
             phonePos.whenData((pos) {
-              _mapController?.animateCamera(
-                CameraUpdate.newLatLng(LatLng(pos.latitude, pos.longitude)),
+              _animateCameraTarget(
+                LatLng(pos.latitude, pos.longitude),
+                cameraBearing,
               );
             });
             break;
@@ -63,7 +80,7 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
     final polylines = <Polyline>{};
 
     // Boat marker
-    if (boatPos.hasFix && boatPos.latE7 != 0) {
+    if (boatHasSaneFix) {
       markers.add(Marker(
         markerId: const MarkerId('boat'),
         position: LatLng(boatPos.lat, boatPos.lon),
@@ -75,16 +92,20 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
         ),
       ));
 
-      // Follow boat with camera
-      if (followBoat && _mapController != null) {
-        _mapController!.animateCamera(
-          CameraUpdate.newLatLng(LatLng(boatPos.lat, boatPos.lon)),
-        );
+      // Follow drone with camera
+      if (followMode == MapFollowMode.drone && _mapController != null) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (!mounted) return;
+          _animateCameraTarget(LatLng(boatPos.lat, boatPos.lon), cameraBearing);
+        });
       }
     }
 
     // Phone marker (home position)
     phonePos.whenData((pos) {
+      final phoneSane = GpsPosition.isCoordinateSane(pos.latitude, pos.longitude);
+      if (!phoneSane) return;
+
       markers.add(Marker(
         markerId: const MarkerId('phone'),
         position: LatLng(pos.latitude, pos.longitude),
@@ -92,8 +113,15 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
         infoWindow: const InfoWindow(title: 'Home (Phone)'),
       ));
 
+      if (followMode == MapFollowMode.phone && _mapController != null) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (!mounted) return;
+          _animateCameraTarget(LatLng(pos.latitude, pos.longitude), cameraBearing);
+        });
+      }
+
       // RTH line from boat to phone
-      if (rthActive && boatPos.hasFix) {
+      if (rthActive && boatHasSaneFix) {
         polylines.add(Polyline(
           polylineId: const PolylineId('rth_path'),
           points: [
@@ -162,46 +190,58 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
 
     return Stack(
       children: [
-        GoogleMap(
-          initialCameraPosition: CameraPosition(
-            target: boatPos.hasFix && boatPos.latE7 != 0
-                ? LatLng(boatPos.lat, boatPos.lon)
-                : phonePos.when(
-                    data: (pos) => LatLng(pos.latitude, pos.longitude),
-                    loading: () => _defaultPosition,
-                    error: (_, __) => _defaultPosition,
-                  ),
-            zoom: 16,
+        IgnorePointer(
+          ignoring: widget.compact,
+          child: GoogleMap(
+            initialCameraPosition: CameraPosition(
+              target: boatHasSaneFix
+                  ? LatLng(boatPos.lat, boatPos.lon)
+                  : phonePos.when(
+                      data: (pos) => GpsPosition.isCoordinateSane(pos.latitude, pos.longitude)
+                          ? LatLng(pos.latitude, pos.longitude)
+                          : _defaultPosition,
+                      loading: () => _defaultPosition,
+                      error: (_, __) => _defaultPosition,
+                    ),
+              zoom: 16,
+              bearing: cameraBearing,
+            ),
+            mapType: MapType.satellite,
+            markers: markers,
+            polylines: polylines,
+            myLocationEnabled: false,
+            myLocationButtonEnabled: false,
+            zoomControlsEnabled: false,
+            onMapCreated: (controller) {
+              _mapController = controller;
+            },
+            onTap: widget.compact
+                ? null
+                : editMode
+                ? (latLng) {
+                    ref.read(navigationProvider.notifier).addWaypoint(
+                          latLng.latitude,
+                          latLng.longitude,
+                        );
+                  }
+                : null,
+            onCameraMove: (_) {
+              if (_programmaticCameraMove || widget.compact) {
+                return;
+              }
+              // User moved the map manually — stop auto-follow
+              if (followMode != MapFollowMode.free) {
+                ref.read(mapFollowModeProvider.notifier).state = MapFollowMode.free;
+              }
+            },
+            onCameraIdle: () {
+              _programmaticCameraMove = false;
+            },
           ),
-          mapType: MapType.satellite,
-          markers: markers,
-          polylines: polylines,
-          myLocationEnabled: false,
-          myLocationButtonEnabled: false,
-          zoomControlsEnabled: false,
-          onMapCreated: (controller) {
-            _mapController = controller;
-          },
-          onTap: widget.compact
-              ? null
-              : editMode
-              ? (latLng) {
-                  ref.read(navigationProvider.notifier).addWaypoint(
-                        latLng.latitude,
-                        latLng.longitude,
-                      );
-                }
-              : null,
-          onCameraMove: (_) {
-            // User moved the map manually — stop auto-follow
-            if (followBoat && !widget.compact) {
-              ref.read(mapFollowBoatProvider.notifier).state = false;
-            }
-          },
         ),
 
         // Distance overlay (top-center)
-        if (!widget.compact && boatPos.hasFix)
+        if (!widget.compact && boatHasSaneFix)
           Positioned(
             top: 8,
             left: 0,
@@ -239,32 +279,44 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
             ),
           ),
 
-        // Follow button (bottom-left)
+        // Locator button (bottom-left)
         if (!widget.compact)
           Positioned(
-          bottom: 16,
+          bottom: 160,
           left: 16,
           child: FloatingActionButton.small(
             heroTag: 'follow',
-            backgroundColor: followBoat ? Colors.blue : Colors.grey[800],
+            backgroundColor: _followModeColor(followMode),
             onPressed: () {
-              ref.read(mapFollowBoatProvider.notifier).state = !followBoat;
-              if (!followBoat) {
-                if (boatPos.hasFix && boatPos.latE7 != 0) {
-                  _mapController?.animateCamera(
-                    CameraUpdate.newLatLng(LatLng(boatPos.lat, boatPos.lon)),
+              final nextMode = _nextFollowMode(followMode);
+              ref.read(mapFollowModeProvider.notifier).state = nextMode;
+
+              if (nextMode == MapFollowMode.drone) {
+                if (boatHasSaneFix) {
+                  _animateCameraTarget(
+                    LatLng(boatPos.lat, boatPos.lon),
+                    _resolveCameraBearing(
+                      followMode: nextMode,
+                      boatState: boatState,
+                      phoneHeading: phoneHeading.valueOrNull,
+                    ),
                   );
-                } else {
-                  phonePos.whenData((pos) {
-                    _mapController?.animateCamera(
-                      CameraUpdate.newLatLng(LatLng(pos.latitude, pos.longitude)),
-                    );
-                  });
                 }
+              } else if (nextMode == MapFollowMode.phone) {
+                phonePos.whenData((pos) {
+                  _animateCameraTarget(
+                    LatLng(pos.latitude, pos.longitude),
+                    _resolveCameraBearing(
+                      followMode: nextMode,
+                      boatState: boatState,
+                      phoneHeading: phoneHeading.valueOrNull,
+                    ),
+                  );
+                });
               }
             },
             child: Icon(
-              followBoat ? Icons.gps_fixed : Icons.gps_not_fixed,
+              _followModeIcon(followMode),
               color: Colors.white,
             ),
           ),
@@ -295,5 +347,104 @@ class _MapWidgetState extends ConsumerState<MapWidget> {
   void dispose() {
     _mapController?.dispose();
     super.dispose();
+  }
+
+  void _animateCameraTarget(LatLng target, double bearing) {
+    if (!GpsPosition.isCoordinateSane(target.latitude, target.longitude)) {
+      return;
+    }
+    final lastTarget = _lastCameraTarget;
+    final lastBearing = _lastCameraBearing;
+    final targetChanged = lastTarget == null ||
+        GeoUtils.distanceMeters(
+              lastTarget.latitude,
+              lastTarget.longitude,
+              target.latitude,
+              target.longitude,
+            ) >
+            _cameraTargetThresholdMeters;
+    final bearingDelta = lastBearing == null
+        ? 360.0
+        : ((bearing - lastBearing).abs() % 360.0).clamp(0.0, 360.0);
+    final bearingChanged = bearingDelta > _cameraBearingThresholdDeg &&
+        (360.0 - bearingDelta) > _cameraBearingThresholdDeg;
+    if (!targetChanged && !bearingChanged) {
+      return;
+    }
+    _programmaticCameraMove = true;
+    _lastCameraTarget = target;
+    _lastCameraBearing = bearing;
+    _mapController?.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: target,
+          zoom: 16,
+          bearing: bearing,
+        ),
+      ),
+    );
+  }
+
+  double _resolveCameraBearing({
+    required MapFollowMode followMode,
+    required BoatState boatState,
+    required PhoneHeading? phoneHeading,
+  }) {
+    final nowMs = DateTime.now().millisecondsSinceEpoch;
+
+    if (followMode == MapFollowMode.drone) {
+      final isStale = nowMs - boatState.telemetryUpdatedAtMs > _droneHeadingStaleMs;
+      if (isStale) {
+        return 0;
+      }
+      // Boat yaw is radians from SDK; map bearing expects degrees.
+      return (boatState.yaw * 180 / pi + 360) % 360;
+    }
+
+    if (followMode == MapFollowMode.phone) {
+      if (phoneHeading == null) {
+        return 0;
+      }
+      final isStale = nowMs - phoneHeading.updatedAtMs > _phoneHeadingStaleMs;
+      if (isStale) {
+        return 0;
+      }
+      return phoneHeading.bearingDeg;
+    }
+
+    return 0;
+  }
+
+  MapFollowMode _nextFollowMode(MapFollowMode mode) {
+    switch (mode) {
+      case MapFollowMode.drone:
+        return MapFollowMode.phone;
+      case MapFollowMode.phone:
+        return MapFollowMode.free;
+      case MapFollowMode.free:
+        return MapFollowMode.drone;
+    }
+  }
+
+  IconData _followModeIcon(MapFollowMode mode) {
+    switch (mode) {
+      case MapFollowMode.drone:
+        return Icons.directions_boat;
+      case MapFollowMode.phone:
+        return Icons.person_pin_circle;
+      case MapFollowMode.free:
+        return Icons.gps_off;
+    }
+  }
+
+  Color _followModeColor(MapFollowMode mode) {
+    switch (mode) {
+      case MapFollowMode.drone:
+        return Colors.blue;
+      case MapFollowMode.phone:
+        return Colors.green;
+      case MapFollowMode.free:
+        return Colors.grey;
+    }
   }
 }

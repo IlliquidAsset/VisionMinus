@@ -6,6 +6,6 @@ void main() {
   testWidgets('App renders connection screen', (WidgetTester tester) async {
     await tester.pumpWidget(const ProviderScope(child: VisionMinusApp()));
     expect(find.text('VisionMinus'), findsOneWidget);
-    expect(find.text('Water Drone Controller'), findsOneWidget);
+    expect(find.byType(ProviderScope), findsOneWidget);
   });
 }

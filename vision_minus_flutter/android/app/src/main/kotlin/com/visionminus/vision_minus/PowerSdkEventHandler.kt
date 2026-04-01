@@ -2,6 +2,7 @@ package com.visionminus.vision_minus
 
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import com.visionminus.vision_minus.connection.CallbackGate
 import io.flutter.plugin.common.EventChannel
 
@@ -10,20 +11,49 @@ import io.flutter.plugin.common.EventChannel
  * All events are sent on the main thread to satisfy Flutter's threading requirements.
  */
 object PowerSdkEventHandler {
+    private const val TAG = "PowerSdkEventHandler"
     private val mainHandler = Handler(Looper.getMainLooper())
 
     // EventChannel sinks
-    var gpsSink: EventChannel.EventSink? = null
-    var batterySink: EventChannel.EventSink? = null
-    var connectionSink: EventChannel.EventSink? = null
-    var navigationSink: EventChannel.EventSink? = null
-    var attitudeSink: EventChannel.EventSink? = null
+    @Volatile var gpsSink: EventChannel.EventSink? = null
+    @Volatile var batterySink: EventChannel.EventSink? = null
+    @Volatile var connectionSink: EventChannel.EventSink? = null
+    @Volatile var navigationSink: EventChannel.EventSink? = null
+    @Volatile var attitudeSink: EventChannel.EventSink? = null
+    @Volatile var phoneHeadingSink: EventChannel.EventSink? = null
 
     @Volatile
     private var callbackGate: CallbackGate? = null
 
     @Volatile
     private var callbackToken: CallbackGate.GenerationToken? = null
+
+    @Volatile
+    private var lastArmStatus: Int? = null
+
+    @Volatile
+    private var lastCurrentMode: String? = null
+
+    @Volatile
+    private var lastCurrentSubMode: String? = null
+
+    @Volatile
+    private var lastUploadWaypointResult: Int? = null
+
+    @Volatile
+    private var lastSetSailModeResult: Int? = null
+
+    @Volatile
+    private var lastSailMode: Int? = null
+
+    @Volatile
+    private var lastMissionRunStatus: Int? = null
+
+    @Volatile
+    private var lastMissionRunSeq: Int? = null
+
+    @Volatile
+    private var lastModeError: String? = null
 
     fun installCallbackGate(gate: CallbackGate, token: CallbackGate.GenerationToken) {
         callbackGate = gate
@@ -37,7 +67,14 @@ object PowerSdkEventHandler {
             gate.logDropped("PowerSdkEventHandler", token)
             return
         }
-        mainHandler.post { sink?.success(event) }
+        val timestampedEvent: Map<String, Any?> = if (event.containsKey("ts_ms")) {
+            event
+        } else {
+            HashMap(event).apply {
+                this["ts_ms"] = System.currentTimeMillis()
+            }
+        }
+        mainHandler.post { sink?.success(timestampedEvent) }
     }
 
     // --- GPS events ---
@@ -57,14 +94,24 @@ object PowerSdkEventHandler {
         ))
     }
 
-    fun onW4GpsRawInt(lat: Int, lon: Int, alt: Int, satellites: Int, fixType: Byte) {
+    fun onW4GpsRawInt(lat: Int, lon: Int, alt: Int, satellites: Int, fixType: Int, eph: Int) {
+        Log.i(TAG, "w4_gps lat=$lat lon=$lon alt=$alt sats=$satellites fix=$fixType eph=$eph")
         sendEvent(gpsSink, mapOf(
             "type" to "w4_gps",
             "lat" to lat,
             "lon" to lon,
             "alt" to alt,
-            "satellites" to satellites.toInt(),
-            "fix_type" to fixType.toInt()
+            "satellites" to satellites,
+            "fix_type" to fixType,
+            "eph" to eph,
+        ))
+    }
+
+    fun onPhoneHeading(headingDeg: Float, accuracy: Int) {
+        sendEvent(phoneHeadingSink, mapOf(
+            "type" to "phone_heading",
+            "heading_deg" to headingDeg.toDouble(),
+            "accuracy" to accuracy
         ))
     }
 
@@ -151,15 +198,121 @@ object PowerSdkEventHandler {
     }
 
     fun onArmStatus(status: Int) {
+        lastArmStatus = status
+        Log.i(TAG, "onArmStatus status=$status")
+        DeviceLogRecorder.log("ARM", "onArmStatus status=$status")
         sendEvent(connectionSink, mapOf("type" to "arm_status", "status" to status))
     }
 
     fun onSetArmResult(result: Int) {
+        Log.i(TAG, "onSetArmResult result=$result")
+        DeviceLogRecorder.log("ARM", "onSetArmResult result=$result")
         sendEvent(connectionSink, mapOf("type" to "set_arm_result", "result" to result))
     }
 
     fun onCurrentMode(mode: String, subMode: String) {
+        lastCurrentMode = mode
+        lastCurrentSubMode = subMode
         sendEvent(connectionSink, mapOf("type" to "current_mode", "mode" to mode, "sub_mode" to subMode))
+    }
+
+    fun replayLastRuntimeState(reason: String): Boolean {
+        var replayed = false
+        val arm = lastArmStatus
+        if (arm != null) {
+            sendEvent(connectionSink, mapOf("type" to "arm_status", "status" to arm, "resync_reason" to reason))
+            replayed = true
+        }
+
+        val mode = lastCurrentMode
+        val subMode = lastCurrentSubMode
+        if (mode != null || subMode != null) {
+            sendEvent(
+                connectionSink,
+                mapOf(
+                    "type" to "current_mode",
+                    "mode" to (mode ?: ""),
+                    "sub_mode" to (subMode ?: ""),
+                    "resync_reason" to reason,
+                ),
+            )
+            replayed = true
+        }
+
+        return replayed
+    }
+
+    fun replayLastMissionState(reason: String): Boolean {
+        var replayed = false
+
+        val uploadResult = lastUploadWaypointResult
+        if (uploadResult != null) {
+            sendEvent(
+                navigationSink,
+                mapOf(
+                    "type" to "upload_waypoint_result",
+                    "result" to uploadResult,
+                    "resync_reason" to reason,
+                ),
+            )
+            replayed = true
+        }
+
+        val sailModeResult = lastSetSailModeResult
+        if (sailModeResult != null) {
+            sendEvent(
+                navigationSink,
+                mapOf(
+                    "type" to "set_sail_mode_result",
+                    "result" to sailModeResult,
+                    "resync_reason" to reason,
+                ),
+            )
+            replayed = true
+        }
+
+        val sailMode = lastSailMode
+        if (sailMode != null) {
+            sendEvent(
+                navigationSink,
+                mapOf(
+                    "type" to "sail_mode",
+                    "mode" to sailMode,
+                    "resync_reason" to reason,
+                ),
+            )
+            replayed = true
+        }
+
+        val runStatus = lastMissionRunStatus
+        val runSeq = lastMissionRunSeq
+        if (runStatus != null || runSeq != null) {
+            sendEvent(
+                navigationSink,
+                mapOf(
+                    "type" to "mission_run_status",
+                    "status" to (runStatus ?: 0),
+                    "seq" to (runSeq ?: 0),
+                    "resync_reason" to reason,
+                ),
+            )
+            replayed = true
+        }
+
+        val modeError = lastModeError
+        if (!modeError.isNullOrBlank()) {
+            sendEvent(
+                navigationSink,
+                mapOf(
+                    "type" to "mode_error",
+                    "error" to modeError,
+                    "resync_reason" to reason,
+                ),
+            )
+            replayed = true
+        }
+
+        return replayed
     }
 
     fun onSysStatus(p0: Int, p1: Int, p2: Int, p3: Int, p4: Int, p5: Int) {
@@ -193,6 +346,7 @@ object PowerSdkEventHandler {
     }
 
     fun onUploadWaypointResult(result: Int) {
+        lastUploadWaypointResult = result
         sendEvent(navigationSink, mapOf("type" to "upload_waypoint_result", "result" to result))
     }
 
@@ -201,6 +355,8 @@ object PowerSdkEventHandler {
     }
 
     fun onMissionRunStatus(status: Int, seq: Short) {
+        lastMissionRunStatus = status
+        lastMissionRunSeq = seq.toInt()
         sendEvent(navigationSink, mapOf("type" to "mission_run_status", "status" to status, "seq" to seq.toInt()))
     }
 
@@ -209,10 +365,12 @@ object PowerSdkEventHandler {
     }
 
     fun onModeError(error: String) {
+        lastModeError = error
         sendEvent(navigationSink, mapOf("type" to "mode_error", "error" to error))
     }
 
     fun onW4SailMode(mode: Int) {
+        lastSailMode = mode
         sendEvent(navigationSink, mapOf("type" to "sail_mode", "mode" to mode))
     }
 
@@ -221,6 +379,7 @@ object PowerSdkEventHandler {
     }
 
     fun onSetSailModeResult(result: Int) {
+        lastSetSailModeResult = result
         sendEvent(navigationSink, mapOf("type" to "set_sail_mode_result", "result" to result))
     }
 
@@ -241,7 +400,11 @@ object PowerSdkEventHandler {
     }
 
     fun onMagCalibrationStatus(status: Int) {
-        sendEvent(navigationSink, mapOf("type" to "mag_calibration_status", "status" to status))
+        sendEvent(navigationSink, mapOf(
+            "type" to "mag_calibration_status",
+            "status" to status,
+            "callback" to "onMagCalibrationStatus"
+        ))
     }
 
     fun onParameterResult(name: String, value: Float) {

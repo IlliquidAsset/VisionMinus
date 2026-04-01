@@ -96,9 +96,9 @@ class BottomInfoBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          _modeButton('C', 0),
-          _modeButton('N', 1),
-          _modeButton('U', 2),
+          _modeButton('L', 1),
+          _modeButton('M', 2),
+          _modeButton('H', 3),
         ],
       ),
     );

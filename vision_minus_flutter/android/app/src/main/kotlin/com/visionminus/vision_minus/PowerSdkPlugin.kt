@@ -6,6 +6,7 @@ import android.hardware.usb.UsbManager
 import android.os.Handler
 import android.os.Looper
 import android.os.ParcelFileDescriptor
+import android.util.Log
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
@@ -13,7 +14,6 @@ import io.flutter.plugin.common.MethodChannel
 import com.powervision.natives.JniAp03Native
 import com.powervision.natives.JniCameraNative
 import com.powervision.natives.JniW4Native
-import com.powervision.natives.model.Rocker
 import com.powervision.natives.model.WayPointParameter
 import com.visionminus.vision_minus.connection.ConnectionRuntime
 import com.visionminus.vision_minus.connection.ConnectionRuntimeImpl
@@ -28,6 +28,10 @@ class PowerSdkPlugin(
     private var wifiController: WifiTransportController? = null,
     private val runtime: ConnectionRuntime = ConnectionRuntimeImpl,
 ) : FlutterPlugin, MethodChannel.MethodCallHandler {
+    companion object {
+        private const val TAG = "PowerSdkPlugin"
+    }
+
     private lateinit var methodChannel: MethodChannel
     private lateinit var gpsChannel: EventChannel
     private lateinit var batteryChannel: EventChannel
@@ -35,7 +39,9 @@ class PowerSdkPlugin(
     private lateinit var connectionStateChannel: EventChannel
     private lateinit var navigationChannel: EventChannel
     private lateinit var attitudeChannel: EventChannel
+    private lateinit var phoneHeadingChannel: EventChannel
     private var context: Context? = null
+    private var phoneHeadingSensorManager: PhoneHeadingSensorManager? = null
     private val connectionExecutor = Executors.newSingleThreadExecutor()
     private val mainHandler = Handler(Looper.getMainLooper())
 
@@ -48,6 +54,7 @@ class PowerSdkPlugin(
                 ConnectionRuntimeImpl.setCurrentPhase(snapshot.currentPhase)
             }
         }
+        phoneHeadingSensorManager = PhoneHeadingSensorManager(binding.applicationContext)
         wifiController?.startMonitoring()
 
         methodChannel = MethodChannel(binding.binaryMessenger, "com.visionminus/sdk")
@@ -106,13 +113,35 @@ class PowerSdkPlugin(
             }
         })
 
+        phoneHeadingChannel = EventChannel(binding.binaryMessenger, "com.visionminus/phone_heading")
+        phoneHeadingChannel.setStreamHandler(object : EventChannel.StreamHandler {
+            override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
+                PowerSdkEventHandler.phoneHeadingSink = events
+                phoneHeadingSensorManager?.start()
+            }
+
+            override fun onCancel(arguments: Any?) {
+                phoneHeadingSensorManager?.stop()
+                PowerSdkEventHandler.phoneHeadingSink = null
+            }
+        })
+
         // Initialize USB connection manager
         UsbConnectionManager.init(binding.applicationContext)
+        DeviceLogRecorder.init(binding.applicationContext)
     }
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         methodChannel.setMethodCallHandler(null)
         wifiController?.stopMonitoring()
+        phoneHeadingSensorManager?.stop()
+        phoneHeadingSensorManager = null
+        PowerSdkEventHandler.gpsSink = null
+        PowerSdkEventHandler.batterySink = null
+        PowerSdkEventHandler.connectionSink = null
+        PowerSdkEventHandler.navigationSink = null
+        PowerSdkEventHandler.attitudeSink = null
+        PowerSdkEventHandler.phoneHeadingSink = null
         context?.let { UsbConnectionManager.cleanup(it) }
         context = null
     }
@@ -188,7 +217,42 @@ class PowerSdkPlugin(
             // --- Arm/Disarm ---
             "setArmStatus" -> {
                 val status = call.argument<Int>("status") ?: 0
+                val registerResult = JniW4Native.registerW4Callbacks()
+                Log.i(
+                    TAG,
+                    "setArmStatus status=$status registerW4Callbacks=$registerResult",
+                )
                 result.success(JniW4Native.setArmStatus(status))
+            }
+            "resyncRuntimeState" -> {
+                val reason = call.argument<String>("reason") ?: "unknown"
+                val registerResult = JniW4Native.registerW4Callbacks()
+                val replayed = PowerSdkEventHandler.replayLastRuntimeState(reason)
+                Log.i(
+                    TAG,
+                    "resyncRuntimeState reason=$reason registerW4Callbacks=$registerResult replayed=$replayed",
+                )
+                result.success(
+                    mapOf(
+                        "registerResult" to registerResult,
+                        "replayed" to replayed,
+                    ),
+                )
+            }
+            "resyncMissionState" -> {
+                val reason = call.argument<String>("reason") ?: "unknown"
+                val registerResult = JniW4Native.registerW4Callbacks()
+                val replayed = PowerSdkEventHandler.replayLastMissionState(reason)
+                Log.i(
+                    TAG,
+                    "resyncMissionState reason=$reason registerW4Callbacks=$registerResult replayed=$replayed",
+                )
+                result.success(
+                    mapOf(
+                        "registerResult" to registerResult,
+                        "replayed" to replayed,
+                    ),
+                )
             }
 
             "cameraConnect" -> result.success(JniCameraNative.commandConnect())
@@ -249,11 +313,11 @@ class PowerSdkPlugin(
 
             // --- Joystick ---
             "controlRocker" -> {
-                val rocker = Rocker().apply {
-                    x = call.argument<Int>("x") ?: 0
-                    y = call.argument<Int>("y") ?: 0
-                    r = call.argument<Int>("r") ?: 0
-                    z = call.argument<Int>("z") ?: 0
+                val inputX = call.argument<Int>("x") ?: 0
+                val inputR = call.argument<Int>("r") ?: 0
+                val rocker = JniW4Native.buildParityRocker(inputX, inputR)
+                if (rocker.x != 0 || rocker.r != 0) {
+                    DeviceLogRecorder.log("ROCKER", "x=${rocker.x} r=${rocker.r}")
                 }
                 result.success(JniW4Native.controlRocker(rocker))
             }
@@ -346,6 +410,17 @@ class PowerSdkPlugin(
             "setNestOpenerStatus" -> {
                 val status = call.argument<Int>("status") ?: 0
                 result.success(JniW4Native.setNestOpenerStatus(status))
+            }
+
+            // --- Device Log Recorder ---
+            "startLogRecording" -> result.success(DeviceLogRecorder.start())
+            "stopLogRecording" -> result.success(DeviceLogRecorder.stop())
+            "isLogRecording" -> result.success(DeviceLogRecorder.isRecording())
+            "getLogPath" -> result.success(DeviceLogRecorder.getLogPath())
+            "listLogFiles" -> result.success(DeviceLogRecorder.listLogs())
+            "readLogFile" -> {
+                val path = call.argument<String>("path") ?: ""
+                result.success(DeviceLogRecorder.readLog(path))
             }
 
             else -> result.notImplemented()

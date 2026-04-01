@@ -11,6 +11,9 @@ import com.visionminus.vision_minus.PowerSdkEventHandler
  */
 object JniW4Native {
 
+    private const val ROCKER_MIN = -1000
+    private const val ROCKER_MAX = 1000
+
     // --- Native methods (called by us -> .so) ---
 
     @JvmStatic external fun connectDevice(): Int
@@ -43,6 +46,16 @@ object JniW4Native {
     @JvmStatic external fun reSet()
     @JvmStatic external fun test()
 
+    @JvmStatic
+    fun buildParityRocker(rawX: Int, rawR: Int): Rocker {
+        return Rocker().apply {
+            x = rawX.coerceIn(ROCKER_MIN, ROCKER_MAX)
+            r = rawR.coerceIn(ROCKER_MIN, ROCKER_MAX)
+            y = 0
+            z = 0
+        }
+    }
+
     // --- Callback methods (called by .so -> us) ---
 
     @JvmStatic
@@ -56,8 +69,8 @@ object JniW4Native {
     }
 
     @JvmStatic
-    fun W4OnGpsRawIntCallBackFromJni(lat: Int, lon: Int, alt: Int, satellites: Int, fixType: Byte) {
-        PowerSdkEventHandler.onW4GpsRawInt(lat, lon, alt, satellites, fixType)
+    fun W4OnGpsRawIntCallBackFromJni(fixType: Int, lat: Int, lon: Int, eph: Int, satellites: Byte) {
+        PowerSdkEventHandler.onW4GpsRawInt(lat, lon, 0, satellites.toInt() and 0xFF, fixType, eph)
     }
 
     @JvmStatic
@@ -88,7 +101,18 @@ object JniW4Native {
 
     @JvmStatic
     fun onArmStatusCallBackFromJni(status: Int) {
+        android.util.Log.i("JniW4Native", "onArmStatusCallBackFromJni status=$status")
+        val listener = PVSDK_W4_API.get().getArmStatusListener()
+        if (listener != null) {
+            if (status == 0) listener.rayArm() else listener.rayDisarm()
+        }
         PowerSdkEventHandler.onArmStatus(status)
+    }
+
+    @JvmStatic
+    fun onSetArmResultCallBackFromJni(result: Int) {
+        android.util.Log.i("JniW4Native", "onSetArmResultCallBackFromJni result=$result")
+        PowerSdkEventHandler.onSetArmResult(result)
     }
 
     @JvmStatic
@@ -164,11 +188,6 @@ object JniW4Native {
     @JvmStatic
     fun onSelfErrorResultCallBackFromJni(error: String) {
         PowerSdkEventHandler.onError("self", error)
-    }
-
-    @JvmStatic
-    fun onSetArmResultCallBackFromJni(result: Int) {
-        PowerSdkEventHandler.onSetArmResult(result)
     }
 
     @JvmStatic

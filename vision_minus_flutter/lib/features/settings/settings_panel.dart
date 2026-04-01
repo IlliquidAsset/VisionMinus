@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:developer' as developer;
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/sdk/power_sdk_bridge.dart';
+import '../../core/models/boat_state.dart' as bs;
 import '../connection/connection_provider.dart';
 import 'unit_system_provider.dart';
 
@@ -42,9 +44,21 @@ class _SettingsPanelState extends ConsumerState<SettingsPanel> {
   Map<String, dynamic> _connectionStatus = const {};
   Map<String, dynamic> _storageInfo = const {};
   Map<String, dynamic> _cameraSettings = const {};
+  List<String> _logFiles = const [];
+  String _currentLogPath = '';
+  bool _logRecording = false;
 
   StreamSubscription<Map<String, dynamic>>? _batterySub;
   StreamSubscription<Map<String, dynamic>>? _connectionSub;
+  StreamSubscription<Map<String, dynamic>>? _navigationSub;
+  Timer? _calibrationStartTimeout;
+  Timer? _calibrationTerminalTimeout;
+
+  bs.CommandIntentState _calibrationStartIntent = bs.CommandIntentState.idle;
+  bs.CommandIntentState _calibrationTerminalIntent = bs.CommandIntentState.idle;
+  String? _calibrationIntentReason;
+  int? _lastCalibrationStatus;
+  bool _calibrationTimeoutVisible = false;
 
   @override
   void initState() {
@@ -55,6 +69,7 @@ class _SettingsPanelState extends ConsumerState<SettingsPanel> {
     });
     _batterySub = PowerSdkBridge.batteryStream.listen(_onBatteryEvent);
     _connectionSub = PowerSdkBridge.connectionStream.listen(_onConnectionEvent);
+    _navigationSub = PowerSdkBridge.navigationStream.listen(_onNavigationEvent);
     _loadConnectionStatus();
   }
 
@@ -62,6 +77,9 @@ class _SettingsPanelState extends ConsumerState<SettingsPanel> {
   void dispose() {
     _batterySub?.cancel();
     _connectionSub?.cancel();
+    _navigationSub?.cancel();
+    _calibrationStartTimeout?.cancel();
+    _calibrationTerminalTimeout?.cancel();
     super.dispose();
   }
 
@@ -288,6 +306,19 @@ class _SettingsPanelState extends ConsumerState<SettingsPanel> {
               ],
             ),
             const SizedBox(height: 14),
+            _buildCalibrationFsmCard(boat),
+            const SizedBox(height: 14),
+            _infoRow('Calibration start intent', _calibrationStartIntent.name),
+            _infoRow('Calibration terminal intent', _calibrationTerminalIntent.name),
+            _infoRow(
+              'Calibration reason',
+              _calibrationIntentReason ?? 'No calibration command yet',
+            ),
+            _infoRow(
+              'Last calibration callback',
+              _lastCalibrationStatus?.toString() ?? 'No callback',
+            ),
+            const SizedBox(height: 8),
             _infoRow('Firmware version', _firmwareVersion),
             _infoRow('Device info', 'PowerVision PowerDolphin'),
             _infoRow('Connection phase', (_connectionStatus['phase'] ?? 'unknown').toString()),
@@ -312,6 +343,35 @@ class _SettingsPanelState extends ConsumerState<SettingsPanel> {
               'Photo style',
               _naIfNegative((_cameraSettings['photoStyle'] as num?)?.toInt()),
             ),
+            const SizedBox(height: 8),
+            const _PlainText('Runtime logs'),
+            const SizedBox(height: 8),
+            _infoRow('Recording', _logRecording ? 'Active' : 'Inactive'),
+            _infoRow(
+              'Active log',
+              _currentLogPath.isEmpty ? 'Unavailable' : _currentLogPath,
+            ),
+            if (_logFiles.isEmpty)
+              const _PlainText('No runtime logs available yet.')
+            else
+              ..._logFiles.take(5).map(
+                (path) => Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: OutlinedButton(
+                    onPressed: () => _openLogFile(path),
+                    style: OutlinedButton.styleFrom(
+                      alignment: Alignment.centerLeft,
+                      foregroundColor: Colors.white,
+                      side: const BorderSide(color: Colors.white24),
+                    ),
+                    child: Text(
+                      _logLabel(path),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+              ),
           ],
         );
       case SettingsTab.about:
@@ -369,6 +429,200 @@ class _SettingsPanelState extends ConsumerState<SettingsPanel> {
     );
   }
 
+  Widget _buildCalibrationFsmCard(bs.BoatState boat) {
+    final phase = _effectiveCalibrationPhase(boat);
+    final progress = (boat.calibrationProgress.clamp(0, 100)).toDouble() / 100.0;
+    final progressText = '${(progress * 100).round()}%';
+    final statusSummary = _calibrationStatusSummary(boat);
+    final showOrientation = phase == bs.CalibrationPhase.orienting;
+    final showProgress =
+        phase == bs.CalibrationPhase.progressing || phase == bs.CalibrationPhase.orienting;
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.03),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: _phaseColor(phase).withValues(alpha: 0.55)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Text(
+                'Compass calibration state',
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(width: 8),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                decoration: BoxDecoration(
+                  color: _phaseColor(phase).withValues(alpha: 0.2),
+                  borderRadius: BorderRadius.circular(999),
+                ),
+                child: Text(
+                  _phaseLabel(phase),
+                  style: TextStyle(
+                    color: _phaseColor(phase),
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            statusSummary,
+            style: const TextStyle(color: Colors.white70, fontSize: 13),
+          ),
+          if (showOrientation) ...[
+            const SizedBox(height: 10),
+            Text(
+              _orientationGuidance(boat.calibrationOrientationSide),
+              style: const TextStyle(
+                color: Colors.cyanAccent,
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+          if (showProgress) ...[
+            const SizedBox(height: 10),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(3),
+              child: LinearProgressIndicator(
+                minHeight: 6,
+                value: progress,
+                backgroundColor: Colors.white10,
+                valueColor: const AlwaysStoppedAnimation<Color>(Colors.cyanAccent),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Progress $progressText',
+              style: const TextStyle(color: Colors.white70, fontSize: 12),
+            ),
+          ],
+          const SizedBox(height: 10),
+          Wrap(
+            spacing: 6,
+            runSpacing: 6,
+            children: List.generate(6, (index) {
+              final done = ((boat.calibrationSideDoneMask >> index) & 0x1) == 1;
+              return Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: done
+                      ? Colors.green.withValues(alpha: 0.2)
+                      : Colors.white.withValues(alpha: 0.06),
+                  borderRadius: BorderRadius.circular(999),
+                  border: Border.all(
+                    color: done ? Colors.greenAccent : Colors.white24,
+                  ),
+                ),
+                child: Text(
+                  'Side ${index + 1}${done ? ' ✓' : ''}',
+                  style: TextStyle(
+                    color: done ? Colors.greenAccent : Colors.white70,
+                    fontSize: 12,
+                  ),
+                ),
+              );
+            }),
+          ),
+        ],
+      ),
+    );
+  }
+
+  bs.CalibrationPhase _effectiveCalibrationPhase(bs.BoatState boat) {
+    if (_calibrationTimeoutVisible ||
+        _calibrationStartIntent == bs.CommandIntentState.timeout ||
+        _calibrationTerminalIntent == bs.CommandIntentState.timeout) {
+      return bs.CalibrationPhase.timeout;
+    }
+    if (_calibrationIntentReason?.toLowerCase().contains('cancelled') ?? false) {
+      return bs.CalibrationPhase.cancelled;
+    }
+    return boat.calibrationPhase;
+  }
+
+  String _phaseLabel(bs.CalibrationPhase phase) {
+    switch (phase) {
+      case bs.CalibrationPhase.idle:
+        return 'Idle';
+      case bs.CalibrationPhase.startPending:
+        return 'Pending';
+      case bs.CalibrationPhase.started:
+        return 'Started';
+      case bs.CalibrationPhase.orienting:
+        return 'Orienting';
+      case bs.CalibrationPhase.progressing:
+        return 'Progressing';
+      case bs.CalibrationPhase.success:
+        return 'Success';
+      case bs.CalibrationPhase.failed:
+        return 'Failed';
+      case bs.CalibrationPhase.timeout:
+        return 'Timeout';
+      case bs.CalibrationPhase.cancelled:
+        return 'Cancelled';
+    }
+  }
+
+  Color _phaseColor(bs.CalibrationPhase phase) {
+    switch (phase) {
+      case bs.CalibrationPhase.success:
+        return Colors.greenAccent;
+      case bs.CalibrationPhase.failed:
+      case bs.CalibrationPhase.timeout:
+      case bs.CalibrationPhase.cancelled:
+        return Colors.redAccent;
+      case bs.CalibrationPhase.orienting:
+      case bs.CalibrationPhase.progressing:
+      case bs.CalibrationPhase.started:
+        return Colors.cyanAccent;
+      case bs.CalibrationPhase.startPending:
+        return Colors.amberAccent;
+      case bs.CalibrationPhase.idle:
+        return Colors.white70;
+    }
+  }
+
+  String _calibrationStatusSummary(bs.BoatState boat) {
+    final status = boat.calibrationRawStatus;
+    if (_calibrationTimeoutVisible) {
+      return 'Calibration timed out after '
+          '${bs.RuntimeCommandTimeouts.calibrationTerminal.inSeconds}s without success/failure callback.';
+    }
+    if (status == 5 && boat.calibrationPhase == bs.CalibrationPhase.startPending) {
+      return 'Calibration pending: request accepted but not started yet.';
+    }
+    if (status == 6 && boat.calibrationPhase == bs.CalibrationPhase.success) {
+      return 'Calibration already completed on device.';
+    }
+    if (boat.calibrationPhase == bs.CalibrationPhase.success) {
+      return 'Calibration completed successfully.';
+    }
+    if (boat.calibrationPhase == bs.CalibrationPhase.failed) {
+      return 'Calibration failed. Restart calibration and follow orientation guidance.';
+    }
+    if (boat.calibrationPhase == bs.CalibrationPhase.started) {
+      return 'Start callback confirmed. Waiting for orientation/progress callbacks.';
+    }
+    return _calibrationIntentReason ?? 'Waiting for calibration callback state.';
+  }
+
+  String _orientationGuidance(int side) {
+    if (side >= 0) {
+      return 'Rotate boat to Side ${side + 1} and keep motion steady.';
+    }
+    return 'Rotate boat to the highlighted side and keep motion steady.';
+  }
+
   String _tabTitle(SettingsTab tab) {
     switch (tab) {
       case SettingsTab.control:
@@ -386,12 +640,12 @@ class _SettingsPanelState extends ConsumerState<SettingsPanel> {
 
   String _speedModeLabel(int mode) {
     switch (mode) {
-      case 0:
-        return 'Cruise';
       case 1:
-        return 'Normal';
+        return 'Low';
       case 2:
-        return 'Underwater';
+        return 'Medium';
+      case 3:
+        return 'High';
       default:
         return mode.toString();
     }
@@ -425,19 +679,68 @@ class _SettingsPanelState extends ConsumerState<SettingsPanel> {
   }
 
   Future<void> _startCalibration() async {
+    _calibrationStartTimeout?.cancel();
+    _calibrationTerminalTimeout?.cancel();
+    _calibrationTimeoutVisible = false;
+    _setCalibrationIntent(
+      start: bs.CommandIntentState.sent,
+      terminal: bs.CommandIntentState.idle,
+      reason:
+          'Sent start calibration command; waiting for callback (${bs.RuntimeCommandTimeouts.calibrationStart.inSeconds}s timeout)',
+      lifecycle: 'sent',
+    );
+    _calibrationStartTimeout = Timer(bs.RuntimeCommandTimeouts.calibrationStart, () {
+      if (!mounted || _calibrationStartIntent == bs.CommandIntentState.confirmed) {
+        return;
+      }
+      _setCalibrationIntent(
+        start: bs.CommandIntentState.timeout,
+        reason:
+            'Calibration start timeout after ${bs.RuntimeCommandTimeouts.calibrationStart.inSeconds}s (no mag_calibration_status callback)',
+        lifecycle: 'timed_out',
+      );
+    });
     final result = await PowerSdkBridge.startMagCalibration();
     if (!mounted) return;
-    _showSnack(result == 0
-        ? 'Compass calibration started'
-        : 'Start calibration failed ($result)');
+    if (result == 0) {
+      _setCalibrationIntent(
+        start: bs.CommandIntentState.acked,
+        reason: 'Start calibration acknowledged by method return',
+        lifecycle: 'acked',
+      );
+      _showSnack('Compass calibration start command sent');
+    } else {
+      _calibrationStartTimeout?.cancel();
+      _setCalibrationIntent(
+        start: bs.CommandIntentState.failed,
+        terminal: bs.CommandIntentState.failed,
+        reason: 'Start calibration failed (code: $result)',
+        lifecycle: 'failed',
+      );
+      _showSnack('Start calibration failed ($result)');
+    }
   }
 
   Future<void> _cancelCalibration() async {
     final result = await PowerSdkBridge.cancelMagCalibration();
     if (!mounted) return;
-    _showSnack(result == 0
-        ? 'Compass calibration cancelled'
-        : 'Cancel calibration failed ($result)');
+    if (result == 0) {
+      _calibrationTerminalTimeout?.cancel();
+      _calibrationTimeoutVisible = false;
+      _setCalibrationIntent(
+        terminal: bs.CommandIntentState.confirmed,
+        reason: 'Calibration cancelled by user command',
+        lifecycle: 'confirmed',
+      );
+      _showSnack('Compass calibration cancelled');
+    } else {
+      _setCalibrationIntent(
+        terminal: bs.CommandIntentState.failed,
+        reason: 'Cancel calibration failed (code: $result)',
+        lifecycle: 'failed',
+      );
+      _showSnack('Cancel calibration failed ($result)');
+    }
   }
 
   Future<void> _loadConnectionStatus() async {
@@ -450,18 +753,68 @@ class _SettingsPanelState extends ConsumerState<SettingsPanel> {
     try {
       final storage = await PowerSdkBridge.getStorageInfo();
       final camera = await PowerSdkBridge.getCameraSettings();
+      final logFiles = await PowerSdkBridge.listLogFiles();
+      final currentLogPath = await PowerSdkBridge.getLogPath();
+      final logRecording = await PowerSdkBridge.isLogRecording();
       if (!mounted) return;
       setState(() {
         _storageInfo = storage;
         _cameraSettings = camera;
+        _logFiles = logFiles;
+        _currentLogPath = currentLogPath;
+        _logRecording = logRecording;
       });
     } catch (_) {
       if (!mounted) return;
       setState(() {
         _storageInfo = const {};
         _cameraSettings = const {};
+        _logFiles = const [];
+        _currentLogPath = '';
+        _logRecording = false;
       });
     }
+  }
+
+  Future<void> _openLogFile(String path) async {
+    final content = await PowerSdkBridge.readLogFile(path);
+    if (!mounted) return;
+    await showDialog<void>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xFF141414),
+          title: Text(
+            _logLabel(path),
+            style: const TextStyle(color: Colors.white),
+          ),
+          content: SizedBox(
+            width: 520,
+            child: SingleChildScrollView(
+              child: SelectableText(
+                content.isEmpty ? 'Log file is empty' : content,
+                style: const TextStyle(
+                  color: Colors.white70,
+                  fontSize: 12,
+                  fontFamily: 'monospace',
+                ),
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  String _logLabel(String path) {
+    final parts = path.split('/');
+    return parts.isEmpty ? path : parts.last;
   }
 
   String _storageTypeLabel(int type) {
@@ -510,6 +863,160 @@ class _SettingsPanelState extends ConsumerState<SettingsPanel> {
         setState(() => _firmwareVersion = version);
       }
     }
+  }
+
+  void _onNavigationEvent(Map<String, dynamic> event) {
+    if (event['type'] != 'mag_calibration_status') {
+      return;
+    }
+    final previousStatus = _lastCalibrationStatus;
+    final status = (event['status'] as num?)?.toInt() ?? -1;
+    _lastCalibrationStatus = status;
+
+    if (_calibrationStartIntent == bs.CommandIntentState.idle ||
+        _calibrationStartIntent == bs.CommandIntentState.failed) {
+      _setCalibrationIntent(
+        start: bs.CommandIntentState.stale,
+        reason: 'Stale mag_calibration_status=$status without active start command',
+        lifecycle: 'stale',
+      );
+      return;
+    }
+
+    _calibrationTimeoutVisible = false;
+    if (_calibrationStartIntent != bs.CommandIntentState.confirmed) {
+      _calibrationStartTimeout?.cancel();
+      _setCalibrationIntent(
+        start: bs.CommandIntentState.confirmed,
+        terminal: bs.CommandIntentState.acked,
+        reason: 'Calibration start confirmed from callback status=$status',
+        lifecycle: 'confirmed',
+      );
+      _armCalibrationTerminalTimeout();
+    }
+
+    if (_isCalibrationTerminal(status, previousStatus: previousStatus)) {
+      _calibrationTerminalTimeout?.cancel();
+      final terminalIntent = _terminalIntentForStatus(status);
+      _setCalibrationIntent(
+        terminal: terminalIntent,
+        reason: _terminalReason(status),
+        lifecycle: terminalIntent == bs.CommandIntentState.failed ? 'failed' : 'confirmed',
+      );
+    } else if (status == 5) {
+      _setCalibrationIntent(
+        terminal: bs.CommandIntentState.acked,
+        reason: 'Calibration pending callback received (status=5)',
+        lifecycle: 'pending',
+      );
+    } else if (status == 6 && previousStatus == null) {
+      _setCalibrationIntent(
+        terminal: bs.CommandIntentState.confirmed,
+        reason: 'Calibration already completed callback received (status=6)',
+        lifecycle: 'confirmed',
+      );
+    }
+  }
+
+  void _armCalibrationTerminalTimeout() {
+    _calibrationTerminalTimeout?.cancel();
+    _calibrationTerminalTimeout =
+        Timer(bs.RuntimeCommandTimeouts.calibrationTerminal, () {
+      if (!mounted || _calibrationTerminalIntent == bs.CommandIntentState.confirmed) {
+        return;
+      }
+      _calibrationTimeoutVisible = true;
+      _setCalibrationIntent(
+        terminal: bs.CommandIntentState.timeout,
+        reason:
+            'Calibration terminal timeout after ${bs.RuntimeCommandTimeouts.calibrationTerminal.inSeconds}s',
+        lifecycle: 'timed_out',
+      );
+    });
+  }
+
+  bool _isCalibrationTerminal(int status, {required int? previousStatus}) {
+    if (status < 0 || status == 7 || status == 8 || status == 9) {
+      return true;
+    }
+    if (status == 6 && previousStatus != null && previousStatus > 1) {
+      return true;
+    }
+    if (status == 5 && previousStatus != null && previousStatus > 1) {
+      return true;
+    }
+    return false;
+  }
+
+  bs.CommandIntentState _terminalIntentForStatus(int status) {
+    if (status == 9) {
+      _calibrationTimeoutVisible = true;
+      return bs.CommandIntentState.timeout;
+    }
+    if (status < 0 || status == 7) {
+      return bs.CommandIntentState.failed;
+    }
+    return bs.CommandIntentState.confirmed;
+  }
+
+  String _terminalReason(int status) {
+    switch (status) {
+      case 8:
+        return 'Calibration success callback status=8';
+      case 9:
+        return 'Calibration timeout callback status=9';
+      case 7:
+        return 'Calibration start failed callback status=7';
+      case 6:
+        return 'Calibration failed/timeout callback status=6';
+      case 5:
+        return 'Calibration success callback status=5';
+      default:
+        return status < 0
+            ? 'Calibration terminal failure callback status=$status'
+            : 'Calibration terminal callback status=$status';
+    }
+  }
+
+  void _setCalibrationIntent({
+    bs.CommandIntentState? start,
+    bs.CommandIntentState? terminal,
+    required String reason,
+    required String lifecycle,
+  }) {
+    _logCalibrationLifecycle(
+      lifecycle: lifecycle,
+      reason: reason,
+      start: start ?? _calibrationStartIntent,
+      terminal: terminal ?? _calibrationTerminalIntent,
+      callbackStatus: _lastCalibrationStatus,
+    );
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      if (start != null) {
+        _calibrationStartIntent = start;
+      }
+      if (terminal != null) {
+        _calibrationTerminalIntent = terminal;
+      }
+      _calibrationIntentReason = reason;
+    });
+  }
+
+  void _logCalibrationLifecycle({
+    required String lifecycle,
+    required String reason,
+    required bs.CommandIntentState start,
+    required bs.CommandIntentState terminal,
+    required int? callbackStatus,
+  }) {
+    developer.log(
+      'command=calibration lifecycle=$lifecycle start=${start.name} terminal=${terminal.name} callback=$callbackStatus reason="$reason"',
+      name: 'runtime.command.lifecycle',
+      time: DateTime.now(),
+    );
   }
 
   void _showSnack(String text) {

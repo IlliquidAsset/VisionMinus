@@ -1,0 +1,433 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - link "Skip to main content" [ref=e2] [cursor=pointer]
+      - link "Accessibility help" [ref=e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=en
+      - link "Accessibility feedback" [ref=e4] [cursor=pointer]
+  - generic [ref=e9]:
+    - search [ref=e10]:
+      - generic [ref=e12]:
+        - generic:
+          - generic:
+            - img
+        - link "NASA's Artemis II Mission Around the Moon" [ref=e14] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=en&ictx=2&sa=X&ved=0ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQPQgL
+          - img "NASA's Artemis II Mission Around the Moon" [ref=e15]
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - combobox "Search" [ref=e20]: PowerVision Vision+ IPA download PowerVision Vision+ IPA download
+            - generic [ref=e21]:
+              - button "Clear" [ref=e23] [cursor=pointer]:
+                - img [ref=e25]
+              - generic [ref=e28]:
+                - button "Search by voice" [ref=e29] [cursor=pointer]:
+                  - img [ref=e30]
+                - button "Search by image" [ref=e32] [cursor=pointer]:
+                  - img [ref=e33]
+          - button "Search" [ref=e35] [cursor=pointer]:
+            - img [ref=e38]
+    - generic [ref=e40]:
+      - button "Settings" [ref=e42] [cursor=pointer]:
+        - img [ref=e45]
+      - generic [ref=e48]:
+        - button "Google apps" [ref=e50] [cursor=pointer]:
+          - img [ref=e51]
+        - link "Sign in" [ref=e55] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/search%3Fq%3DPowerVision%2BVision%252B%2BIPA%2Bdownload%26sei%3DWjHNaY3ZH6qOwbkPi8yXmAc&ec=futura_srp_og_si_72236_p
+  - generic [ref=e57]:
+    - navigation [ref=e63]:
+      - generic [ref=e67]:
+        - list [ref=e68]:
+          - listitem [ref=e69]:
+            - link "AI Mode" [ref=e72] [cursor=pointer]:
+              - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&udm=50&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpmAsnXCN5UBx17opt8eaTX-kA7ovRmAIYWC70eULDzbpnQTYs94Mq8g6LHC3WhbQOljuR5mw9iVoN_pQSpe3kL2QziRKFPk1GwRfvEqRWO0ACO0L-tqEa3BA5gVm988p0zNX3UrQfTrxRo8ENOo0Ili3W4S8YJGewh6QgvUm7KNUixjmxV3hSS8SG4CbEtObVYWqwNA&aep=1&ntc=1&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ2J8OegQIDBAE
+              - generic [ref=e75]: AI Mode
+          - listitem [ref=e76]:
+            - link "All" [disabled] [ref=e77]:
+              - generic [ref=e79]: All
+          - listitem [ref=e80]:
+            - link "Videos" [ref=e81] [cursor=pointer]:
+              - /url: /search?sca_esv=031e7e0cba0603c0&udm=7&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpmAsnXCN5UBx17opt8eaTX-kA7ovRmAIYWC70eULDzbpnQTYs94Mq8g6LHC3WhbQOljuR5mw9iVoN_pQSpe3kL2QziRKFPk1GwRfvEqRWO0ACO0L-tqEa3BA5gVm988p0zNX3UrQfTrxRo8ENOo0Ili3W4S8YJGewh6QgvUm7KNUixjmxV3hSS8SG4CbEtObVYWqwNA&q=PowerVision+Vision%2B+IPA+download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQtKgLegQIExAB
+              - generic [ref=e83]: Videos
+          - listitem [ref=e84]:
+            - link "Images" [ref=e85] [cursor=pointer]:
+              - /url: /search?sca_esv=031e7e0cba0603c0&udm=2&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpmAsnXCN5UBx17opt8eaTX-kA7ovRmAIYWC70eULDzbpnQTYs94Mq8g6LHC3WhbQOljuR5mw9iVoN_pQSpe3kL2QziRKFPk1GwRfvEqRWO0ACO0L-tqEa3BA5gVm988p0zNX3UrQfTrxRo8ENOo0Ili3W4S8YJGewh6QgvUm7KNUixjmxV3hSS8SG4CbEtObVYWqwNA&q=PowerVision+Vision%2B+IPA+download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQtKgLegQIDxAB
+              - generic [ref=e87]: Images
+          - listitem [ref=e88]:
+            - link "Forums" [ref=e89] [cursor=pointer]:
+              - /url: /search?sca_esv=031e7e0cba0603c0&udm=18&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpmAsnXCN5UBx17opt8eaTX-kA7ovRmAIYWC70eULDzbpnQTYs94Mq8g6LHC3WhbQOljuR5mw9iVoN_pQSpe3kL2QziRKFPk1GwRfvEqRWO0ACO0L-tqEa3BA5gVm988p0zNX3UrQfTrxRo8ENOo0Ili3W4S8YJGewh6QgvUm7KNUixjmxV3hSS8SG4CbEtObVYWqwNA&q=PowerVision+Vision%2B+IPA+download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQs6gLegQIEBAB
+              - generic [ref=e91]: Forums
+          - listitem [ref=e92]:
+            - link "Shopping" [ref=e93] [cursor=pointer]:
+              - /url: /search?sca_esv=031e7e0cba0603c0&udm=28&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpmAsnXCN5UBx17opt8eaTX-kA7ovRmAIYWC70eULDzbpnQTYs94Mq8g6LHC3WhbQOljuR5mw9iVoN_pQSpe3kL2QziRKFPk1GwRfvEqRWO0ACO0L-tqEa3BA5gVm988p0zNX3UrQfTrxRo8ENOo0Ili3W4S8YJGewh6QgvUm7KNUixjmxV3hSS8SG4CbEtObVYWqwNA&q=PowerVision+Vision%2B+IPA+download&ved=1t:220175&ictx=111
+              - generic [ref=e95]: Shopping
+          - listitem [ref=e96]:
+            - link "News" [ref=e97] [cursor=pointer]:
+              - /url: /search?sca_esv=031e7e0cba0603c0&q=PowerVision+Vision%2B+IPA+download&tbm=nws&source=lnms&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpmAsnXCN5UBx17opt8eaTX-kA7ovRmAIYWC70eULDzbpnQTYs94Mq8g6LHC3WhbQOljuR5mw9iVoN_pQSpe3kL2QziRKFPk1GwRfvEqRWO0ACO0L-tqEa3BA5gVm988p0zNX3UrQfTrxRo8ENOo0Ili3W4S8YJGewh6QgvUm7KNUixjmxV3hSS8SG4CbEtObVYWqwNA&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ0pQJegQIEhAB
+              - generic [ref=e99]: News
+          - listitem [ref=e100]:
+            - button "More filters" [ref=e101] [cursor=pointer]:
+              - generic "More filters" [ref=e102]:
+                - generic [ref=e103]:
+                  - generic [ref=e104]: More
+                  - img [ref=e106]
+        - button "Tools" [ref=e109] [cursor=pointer]:
+          - generic [ref=e111]:
+            - generic [ref=e112]: Tools
+            - img [ref=e114]
+    - heading "Search Results" [level=1] [ref=e116]
+    - main [ref=e122]:
+      - generic [ref=e126]:
+        - generic [ref=e129]:
+          - heading "Web results" [level=2] [ref=e130]
+          - generic [ref=e131]:
+            - generic [ref=e134]:
+              - link "Vision＋ - App Store Apple https://apps.apple.com › app › vision" [ref=e136] [cursor=pointer]:
+                - /url: https://apps.apple.com/us/app/vision/id1158765123
+                - heading "Vision＋ - App Store" [level=3] [ref=e137]
+                - generic [ref=e142]:
+                  - generic [ref=e144]: Apple
+                  - generic [ref=e146]: https://apps.apple.com › app › vision
+              - button "About this result" [ref=e147] [cursor=pointer]:
+                - img [ref=e150]
+            - generic [ref=e154]:
+              - emphasis [ref=e155]: Download Vision＋
+              - text: by
+              - emphasis [ref=e156]: PowerVision
+              - text: Robot inc. on the App Store. See screenshots, ratings and reviews, user tips, and more apps like
+              - emphasis [ref=e157]: Vision＋
+              - text: .
+            - generic [ref=e160]:
+              - generic [ref=e161]:
+                - img "Rated 2.4 out of 5, (45) user reviews" [ref=e162]:
+                  - text: "2.4"
+                  - img [ref=e163]
+                  - text: (45)
+                - text: ·
+              - text: Free · ‎iOS · ‎Entertainment
+            - generic [ref=e167]:
+              - text: "Missing: IPA ‎| Show results with:"
+              - link "IPA" [ref=e168] [cursor=pointer]:
+                - /url: /search?sca_esv=031e7e0cba0603c0&q=PowerVision+Vision%2B+%22IPA%22+download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ5t4CegQINBAB
+        - generic [ref=e172]:
+          - generic [ref=e175]:
+            - link "Vision+ 2 2.2.1 Free Download Soft112 https://vision-2-ios.soft112.com" [ref=e177] [cursor=pointer]:
+              - /url: https://vision-2-ios.soft112.com/
+              - heading "Vision+ 2 2.2.1 Free Download" [level=3] [ref=e178]
+              - generic [ref=e183]:
+                - generic [ref=e185]: Soft112
+                - generic [ref=e187]: https://vision-2-ios.soft112.com
+            - button "About this result" [ref=e188] [cursor=pointer]:
+              - img [ref=e191]
+          - generic [ref=e194]:
+            - generic [ref=e195]:
+              - text: To install
+              - emphasis [ref=e196]: Vision+
+              - text: 2 on your
+              - emphasis [ref=e197]: iOS
+              - text: device, just click the green Continue To App button above to start the installation process. The app is listed on our website ...
+            - link "Read more" [ref=e198] [cursor=pointer]:
+              - /url: https://vision-2-ios.soft112.com/#:~:text=To%20install%20Vision%2B%202%20on,and%20was%20downloaded%20232%20times.
+          - generic [ref=e200]:
+            - text: "Missing: IPA ‎| Show results with:"
+            - link "IPA" [ref=e201] [cursor=pointer]:
+              - /url: /search?sca_esv=031e7e0cba0603c0&q=PowerVision+Vision%2B+%22IPA%22+download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ5t4CegQILRAB
+        - generic [ref=e205]:
+          - generic [ref=e208]:
+            - link "PowerVision Robot inc. for iPhone - App Store Apple https://apps.apple.com › developer › powervision-robot..." [ref=e210] [cursor=pointer]:
+              - /url: https://apps.apple.com/us/developer/powervision-robot-inc/id1158765122
+              - heading "PowerVision Robot inc. for iPhone - App Store" [level=3] [ref=e211]
+              - generic [ref=e216]:
+                - generic [ref=e218]: Apple
+                - generic [ref=e220]: https://apps.apple.com › developer › powervision-robot...
+            - button "About this result" [ref=e221] [cursor=pointer]:
+              - img [ref=e224]
+          - generic [ref=e228]:
+            - emphasis [ref=e229]: Download apps by PowerVision Robot inc
+            - text: ., including Vision+S1, Vision+ 2, and Vision＋.
+          - generic [ref=e231]:
+            - text: "Missing: IPA ‎| Show results with:"
+            - link "IPA" [ref=e232] [cursor=pointer]:
+              - /url: /search?sca_esv=031e7e0cba0603c0&q=PowerVision+Vision%2B+%22IPA%22+download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ5t4CegQINRAB
+        - generic [ref=e236]:
+          - generic [ref=e239]:
+            - link "Vision＋ for iOS (iPhone/iPod touch) - Free Download at ... APPPure https://iphone.apkpure.com › Apps › Entertainment" [ref=e241] [cursor=pointer]:
+              - /url: https://iphone.apkpure.com/app/vision%EF%BC%8B/com.powervision.gcs
+              - heading "Vision＋ for iOS (iPhone/iPod touch) - Free Download at ..." [level=3] [ref=e242]
+              - generic [ref=e247]:
+                - generic [ref=e249]: APPPure
+                - generic [ref=e251]: https://iphone.apkpure.com › Apps › Entertainment
+            - button "About this result" [ref=e252] [cursor=pointer]:
+              - img [ref=e255]
+          - generic [ref=e258]:
+            - generic [ref=e259]: Jun 14, 2023 —
+            - generic [ref=e260]:
+              - emphasis [ref=e261]: Vision＋
+              - text: latest version for
+              - emphasis [ref=e262]: iOS
+              - text: (iPhone/iPod touch) free
+              - emphasis [ref=e263]: download
+              - text: . With
+              - emphasis [ref=e264]: Vision+
+              - text: ", you no longer need to worry about the sophisticated commands ..."
+        - generic [ref=e268]:
+          - generic [ref=e271]:
+            - link "PowerVision PowerVision https://powervision.me › activity › vision" [ref=e273] [cursor=pointer]:
+              - /url: https://powervision.me/en/activity/vision
+              - heading "PowerVision" [level=3] [ref=e274]
+              - generic [ref=e279]:
+                - generic [ref=e281]: PowerVision
+                - generic [ref=e283]: https://powervision.me › activity › vision
+            - button "About this result" [ref=e284] [cursor=pointer]:
+              - img [ref=e287]
+          - generic [ref=e290]:
+            - generic [ref=e291]:
+              - text: ...
+              - emphasis [ref=e292]: PowerVision
+              - text: Case ·
+              - emphasis [ref=e293]: PowerVision
+              - text: Pack · Support · App
+              - emphasis [ref=e294]: Download
+              - text: · Blog.
+              - emphasis [ref=e295]: powervision
+              - text: ...
+              - emphasis [ref=e296]: PowerVision
+              - text: S1. About
+              - emphasis [ref=e297]: PowerVision
+              - text: . About Us Contact Us. Cooperation. Become a ...
+            - link "Read more" [ref=e298] [cursor=pointer]:
+              - /url: https://powervision.me/en/activity/vision#:~:text=PowerEgg%20PowerRay%20PowerEye%20PowerSeeker&text=PowerVision%20S1,Cooperation
+        - generic [ref=e302]:
+          - generic [ref=e305]:
+            - link "Bypass login on app. Company went out of business ... Reddit · r/ReverseEngineering 90+ comments · 1 year ago" [ref=e307] [cursor=pointer]:
+              - /url: https://www.reddit.com/r/ReverseEngineering/comments/1ich60h/bypass_login_on_app_company_went_out_of_business/
+              - heading "Bypass login on app. Company went out of business ..." [level=3] [ref=e308]
+              - generic [ref=e313]:
+                - generic [ref=e315]: Reddit · r/ReverseEngineering
+                - generic [ref=e317]: 90+ comments · 1 year ago
+            - button "About this result" [ref=e318] [cursor=pointer]:
+              - img [ref=e321]
+          - generic [ref=e324]:
+            - generic [ref=e325]:
+              - text: Bought a
+              - emphasis [ref=e326]: PowerVision
+              - text: S1 and can't get to bypass login on the
+              - emphasis [ref=e327]: Vision+
+              - text: S1 app for me to set it up? Any other alternatives to setting it up?
+            - link "Read more" [ref=e328] [cursor=pointer]:
+              - /url: https://www.reddit.com/r/ReverseEngineering/comments/1ich60h/bypass_login_on_app_company_went_out_of_business/#:~:text=Bought%20a%20PowerVision%20S1%20and,alternatives%20to%20setting%20it%20up%3F
+          - generic [ref=e331]:
+            - generic [ref=e332]:
+              - link "Power vision egg drone - Reddit" [ref=e335] [cursor=pointer]:
+                - /url: https://www.reddit.com/r/drones/comments/1jf36bm/power_vision_egg_drone/
+                - generic [ref=e336]:
+                  - emphasis [ref=e337]: Power vision
+                  - text: egg drone - Reddit
+              - generic [ref=e339]: 7 answers
+              - generic [ref=e341]: Mar 20, 2025
+            - generic [ref=e342]:
+              - link "Login omzeilen op de app. Het bedrijf is failliet ..." [ref=e345] [cursor=pointer]:
+                - /url: https://www.reddit.com/r/ReverseEngineering/comments/1ich60h/bypass_login_on_app_company_went_out_of_business/?tl=nl
+              - generic [ref=e347]: 98 answers
+              - generic [ref=e349]: Jan 29, 2025
+            - link "More results from www.reddit.com" [ref=e353] [cursor=pointer]:
+              - /url: /search?q=PowerVision+Vision%2B+IPA+download+site:www.reddit.com&sca_esv=031e7e0cba0603c0&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQrQIoAnoECCEQAw
+        - generic [ref=e357]:
+          - generic [ref=e360]:
+            - link "Vision+ 2 for iPhone - Free App Download AppBrain https://www.appbrain.com › App Store Apps › Utilities" [ref=e362] [cursor=pointer]:
+              - /url: https://www.appbrain.com/appstore/vision-2/ios-1440239783
+              - heading "Vision+ 2 for iPhone - Free App Download" [level=3] [ref=e363]
+              - generic [ref=e368]:
+                - generic [ref=e370]: AppBrain
+                - generic [ref=e372]: https://www.appbrain.com › App Store Apps › Utilities
+            - button "About this result" [ref=e373] [cursor=pointer]:
+              - img [ref=e376]
+          - generic [ref=e379]:
+            - generic [ref=e380]:
+              - emphasis [ref=e381]: Vision + 2 is designed for PowerEgg X and PowerDolphin
+              - text: . You can preview the live picture and control the device, and you can download the shooting content ...
+            - link "Read more" [ref=e382] [cursor=pointer]:
+              - /url: https://www.appbrain.com/appstore/vision-2/ios-1440239783#:~:text=Vision%20%2B%202%20is%20designed,content%20to%20the%20local%20device.
+          - generic [ref=e385]:
+            - generic [ref=e386]:
+              - img "Rated 3.2 out of 5, (16) user reviews" [ref=e387]:
+                - text: "3.2"
+                - img [ref=e388]
+                - text: (16)
+              - text: ·
+            - text: Free · ‎iOS
+          - generic [ref=e392]:
+            - text: "Missing: IPA ‎| Show results with:"
+            - link "IPA" [ref=e393] [cursor=pointer]:
+              - /url: /search?sca_esv=031e7e0cba0603c0&q=PowerVision+Vision%2B+%22IPA%22+download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ5t4CegQINhAB
+        - generic [ref=e400]:
+          - generic [ref=e403]:
+            - link "How to download Powervision VISION+ app and connect with ... YouTube · Powervision Europe 10.7K+ views · 8 years ago" [ref=e405] [cursor=pointer]:
+              - /url: https://www.youtube.com/watch?v=TTzP_GYL3t0
+              - heading "How to download Powervision VISION+ app and connect with ..." [level=3] [ref=e406]
+              - generic [ref=e411]:
+                - generic [ref=e413]: YouTube · Powervision Europe
+                - generic [ref=e415]: 10.7K+ views · 8 years ago
+            - button "About this result" [ref=e416] [cursor=pointer]:
+              - img [ref=e419]
+          - generic [ref=e421]:
+            - button "How to download Powervision VISION+ app and connect with ... by Powervision Europe on YouTube. Play on Google. 2:25" [ref=e422] [cursor=pointer]:
+              - generic [ref=e424]:
+                - img [ref=e430]
+                - generic [ref=e433]:
+                  - generic [ref=e434]: 2:25
+                  - img [ref=e437]
+            - generic [ref=e440]: In this tutorial we will show you how to download the Powervision VISION+ app and connect it with you PowerEgg product.
+          - button "3 key moments in this video" [ref=e445] [cursor=pointer]:
+            - generic [ref=e454]:
+              - generic [ref=e457]: 3 key moments in this video
+              - img [ref=e459]
+          - generic [ref=e462]:
+            - text: "Missing: IPA ‎| Show results with:"
+            - link "IPA" [ref=e463] [cursor=pointer]:
+              - /url: /search?sca_esv=031e7e0cba0603c0&q=PowerVision+Vision%2B+%22IPA%22+download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ5t4CegQIQxAl
+        - generic [ref=e467]:
+          - generic [ref=e470]:
+            - link "Vision＋ - App Store Apple https://apps.apple.com › app › vision" [ref=e472] [cursor=pointer]:
+              - /url: https://apps.apple.com/no/app/vision/id1158765123
+              - heading "Vision＋ - App Store" [level=3] [ref=e473]
+              - generic [ref=e478]:
+                - generic [ref=e480]: Apple
+                - generic [ref=e482]: https://apps.apple.com › app › vision
+            - button "About this result" [ref=e483] [cursor=pointer]:
+              - img [ref=e486]
+          - generic [ref=e489]:
+            - generic [ref=e490]:
+              - emphasis [ref=e491]: Download Vision＋
+              - text: by
+              - emphasis [ref=e492]: PowerVision
+              - text: Robot inc. on the App Store. See ... Requires
+              - emphasis [ref=e493]: iOS
+              - text: 12.0 or later. iPhone. Requires
+              - emphasis [ref=e494]: iOS
+              - text: 12.0 or later. iPod touch
+            - link "Read more" [ref=e495] [cursor=pointer]:
+              - /url: https://apps.apple.com/no/app/vision/id1158765123#:~:text=Requires%20iOS%2012.0%20or%20later.
+          - generic [ref=e497]:
+            - text: "Missing: IPA ‎| Show results with:"
+            - link "IPA" [ref=e498] [cursor=pointer]:
+              - /url: /search?sca_esv=031e7e0cba0603c0&q=PowerVision+Vision%2B+%22IPA%22+download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ5t4CegQISBAB
+        - generic [ref=e502]:
+          - generic [ref=e505]:
+            - link "Vision+ 2 - Download updatestar.com https://vision-2-2.updatestar.com › System Utilities" [ref=e507] [cursor=pointer]:
+              - /url: https://vision-2-2.updatestar.com/
+              - heading "Vision+ 2 - Download" [level=3] [ref=e508]
+              - generic [ref=e513]:
+                - generic [ref=e515]: updatestar.com
+                - generic [ref=e517]: https://vision-2-2.updatestar.com › System Utilities
+            - button "About this result" [ref=e518] [cursor=pointer]:
+              - img [ref=e521]
+          - generic [ref=e524]:
+            - generic [ref=e525]:
+              - text: This app allows users to preview live footage, control their devices, and conveniently
+              - emphasis [ref=e526]: download
+              - text: captured content to their local storage.
+            - link "Read more" [ref=e527] [cursor=pointer]:
+              - /url: https://vision-2-2.updatestar.com/#:~:text=This%20app%20allows%20users%20to,content%20to%20their%20local%20storage.
+      - generic [ref=e529]:
+        - generic [ref=e534]:
+          - heading "People also search for" [level=2] [ref=e536]
+          - generic [ref=e538]:
+            - generic [ref=e539]:
+              - link "Powervision vision+ ipa download free" [ref=e543] [cursor=pointer]:
+                - /url: /search?sca_esv=031e7e0cba0603c0&q=Powervision+vision%2B+ipa+download+free&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ1QJ6BAg7EAE
+                - generic [ref=e544]:
+                  - generic [ref=e549]: Powervision vision+ ipa download free
+                  - img [ref=e553]
+              - link "Powervision vision+ ipa download for iphone" [ref=e558] [cursor=pointer]:
+                - /url: /search?sca_esv=031e7e0cba0603c0&q=Powervision+vision%2B+ipa+download+for+iphone&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ1QJ6BAhCEAE
+                - generic [ref=e559]:
+                  - generic [ref=e564]: Powervision vision+ ipa download for iphone
+                  - img [ref=e568]
+              - link "Powervision vision+ ipa download android" [ref=e573] [cursor=pointer]:
+                - /url: /search?sca_esv=031e7e0cba0603c0&q=Powervision+vision%2B+ipa+download+android&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ1QJ6BAhBEAE
+                - generic [ref=e574]:
+                  - generic [ref=e579]: Powervision vision+ ipa download android
+                  - img [ref=e583]
+              - link "Powervision vision+ ipa download apk" [ref=e588] [cursor=pointer]:
+                - /url: /search?sca_esv=031e7e0cba0603c0&q=Powervision+vision%2B+ipa+download+apk&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ1QJ6BAhAEAE
+                - generic [ref=e589]:
+                  - generic [ref=e594]: Powervision vision+ ipa download apk
+                  - img [ref=e598]
+            - generic [ref=e600]:
+              - link "Powervision Vision+ app" [ref=e604] [cursor=pointer]:
+                - /url: /search?sca_esv=031e7e0cba0603c0&q=Powervision+Vision%2B+app&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ1QJ6BAg8EAE
+                - generic [ref=e605]:
+                  - generic [ref=e610]: Powervision Vision+ app
+                  - img [ref=e614]
+              - link "Vision+ app download" [ref=e619] [cursor=pointer]:
+                - /url: /search?sca_esv=031e7e0cba0603c0&q=Vision%2B+app+download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ1QJ6BAg_EAE
+                - generic [ref=e620]:
+                  - generic [ref=e625]: Vision+ app download
+                  - img [ref=e629]
+              - link "Powervision PowerRay app" [ref=e634] [cursor=pointer]:
+                - /url: /search?sca_esv=031e7e0cba0603c0&q=Powervision+PowerRay+app&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ1QJ6BAg9EAE
+                - generic [ref=e635]:
+                  - generic [ref=e640]: Powervision PowerRay app
+                  - img [ref=e644]
+              - link "PowerVision PowerRay app Download" [ref=e649] [cursor=pointer]:
+                - /url: /search?sca_esv=031e7e0cba0603c0&q=PowerVision+PowerRay+app+Download&sa=X&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ1QJ6BAg-EAE
+                - generic [ref=e650]:
+                  - generic [ref=e655]: PowerVision PowerRay app Download
+                  - img [ref=e659]
+        - navigation [ref=e661]:
+          - heading "Page Navigation" [level=1] [ref=e662]
+          - text: "1"
+          - link "Page 2" [ref=e665] [cursor=pointer]:
+            - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&ei=WjHNacm7M9aTwbkPkLfxyQY&start=10&sa=N&sstk=Af77f_fKlu3Kzwsle5BvYxJwSSW1nl1XmbGOLfwjxsZyLceatrSoCvZjQrNSMpFRI1tAxDRjBb6NyJ6sKGk91csEkiUOGTLyzd9FGw&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ8tMDegQICRAE
+            - text: "2"
+          - link "Page 3" [ref=e667] [cursor=pointer]:
+            - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&ei=WjHNacm7M9aTwbkPkLfxyQY&start=20&sa=N&sstk=Af77f_fKlu3Kzwsle5BvYxJwSSW1nl1XmbGOLfwjxsZyLceatrSoCvZjQrNSMpFRI1tAxDRjBb6NyJ6sKGk91csEkiUOGTLyzd9FGw&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ8tMDegQICRAG
+            - text: "3"
+          - link "Page 4" [ref=e669] [cursor=pointer]:
+            - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&ei=WjHNacm7M9aTwbkPkLfxyQY&start=30&sa=N&sstk=Af77f_fKlu3Kzwsle5BvYxJwSSW1nl1XmbGOLfwjxsZyLceatrSoCvZjQrNSMpFRI1tAxDRjBb6NyJ6sKGk91csEkiUOGTLyzd9FGw&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ8tMDegQICRAI
+            - text: "4"
+          - link "Page 5" [ref=e671] [cursor=pointer]:
+            - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&ei=WjHNacm7M9aTwbkPkLfxyQY&start=40&sa=N&sstk=Af77f_fKlu3Kzwsle5BvYxJwSSW1nl1XmbGOLfwjxsZyLceatrSoCvZjQrNSMpFRI1tAxDRjBb6NyJ6sKGk91csEkiUOGTLyzd9FGw&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ8tMDegQICRAK
+            - text: "5"
+          - link "Page 6" [ref=e673] [cursor=pointer]:
+            - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&ei=WjHNacm7M9aTwbkPkLfxyQY&start=50&sa=N&sstk=Af77f_fKlu3Kzwsle5BvYxJwSSW1nl1XmbGOLfwjxsZyLceatrSoCvZjQrNSMpFRI1tAxDRjBb6NyJ6sKGk91csEkiUOGTLyzd9FGw&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ8tMDegQICRAM
+            - text: "6"
+          - link "Page 7" [ref=e675] [cursor=pointer]:
+            - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&ei=WjHNacm7M9aTwbkPkLfxyQY&start=60&sa=N&sstk=Af77f_fKlu3Kzwsle5BvYxJwSSW1nl1XmbGOLfwjxsZyLceatrSoCvZjQrNSMpFRI1tAxDRjBb6NyJ6sKGk91csEkiUOGTLyzd9FGw&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ8tMDegQICRAO
+            - text: "7"
+          - link "Page 8" [ref=e677] [cursor=pointer]:
+            - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&ei=WjHNacm7M9aTwbkPkLfxyQY&start=70&sa=N&sstk=Af77f_fKlu3Kzwsle5BvYxJwSSW1nl1XmbGOLfwjxsZyLceatrSoCvZjQrNSMpFRI1tAxDRjBb6NyJ6sKGk91csEkiUOGTLyzd9FGw&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ8tMDegQICRAQ
+            - text: "8"
+          - link "Page 9" [ref=e679] [cursor=pointer]:
+            - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&ei=WjHNacm7M9aTwbkPkLfxyQY&start=80&sa=N&sstk=Af77f_fKlu3Kzwsle5BvYxJwSSW1nl1XmbGOLfwjxsZyLceatrSoCvZjQrNSMpFRI1tAxDRjBb6NyJ6sKGk91csEkiUOGTLyzd9FGw&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ8tMDegQICRAS
+            - text: "9"
+          - link "Page 10" [ref=e681] [cursor=pointer]:
+            - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&ei=WjHNacm7M9aTwbkPkLfxyQY&start=90&sa=N&sstk=Af77f_fKlu3Kzwsle5BvYxJwSSW1nl1XmbGOLfwjxsZyLceatrSoCvZjQrNSMpFRI1tAxDRjBb6NyJ6sKGk91csEkiUOGTLyzd9FGw&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ8tMDegQICRAU
+            - text: "10"
+          - heading "Next" [level=2] [ref=e683]:
+            - link "Next" [ref=e684] [cursor=pointer]:
+              - /url: /search?q=PowerVision+Vision%2B+IPA+download&sca_esv=031e7e0cba0603c0&ei=WjHNacm7M9aTwbkPkLfxyQY&start=10&sa=N&sstk=Af77f_fKlu3Kzwsle5BvYxJwSSW1nl1XmbGOLfwjxsZyLceatrSoCvZjQrNSMpFRI1tAxDRjBb6NyJ6sKGk91csEkiUOGTLyzd9FGw&ved=2ahUKEwjJ0OHy88yTAxXWSTABHZBbPGkQ8NMDegQICRAW
+              - generic [ref=e686]: Next
+      - navigation
+    - contentinfo [ref=e687]:
+      - heading "Footer Links" [level=1] [ref=e688]
+      - generic [ref=e692]:
+        - generic [ref=e696]:
+          - button "Jefferson City, Tennessee - From your IP address" [ref=e698] [cursor=pointer]:
+            - generic [ref=e699]: Jefferson City, Tennessee
+            - generic [ref=e701]:
+              - text: "-"
+              - generic [ref=e702]: From your IP address
+          - text: "-"
+          - button "Update location" [ref=e704] [cursor=pointer]: Update location
+        - generic [ref=e707]:
+          - link "Help" [ref=e708] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=en&fg=1
+          - link "Send feedback" [ref=e709] [cursor=pointer]:
+            - /url: "#"
+          - link "Privacy" [ref=e710] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=en&fg=1
+          - link "Terms" [ref=e711] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=en&fg=1

@@ -1,7 +1,18 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import '../../core/sdk/power_sdk_bridge.dart';
 import '../connection/connection_provider.dart';
+
+class PhoneHeading {
+  final double bearingDeg;
+  final int updatedAtMs;
+
+  const PhoneHeading({
+    required this.bearingDeg,
+    required this.updatedAtMs,
+  });
+}
 
 /// Phone GPS position stream provider.
 final phonePositionProvider = StreamProvider<Position>((ref) {
@@ -13,11 +24,31 @@ final phonePositionProvider = StreamProvider<Position>((ref) {
   );
 });
 
+/// Phone heading stream from Android sensors.
+final phoneHeadingProvider = StreamProvider<PhoneHeading?>((ref) {
+  PowerSdkBridge.init();
+  return PowerSdkBridge.phoneHeadingStream.map((event) {
+    final type = event['type']?.toString();
+    if (type != 'phone_heading') {
+      return null;
+    }
+    final bearing = (event['heading_deg'] as num?)?.toDouble();
+    if (bearing == null || bearing.isNaN || bearing.isInfinite) {
+      return null;
+    }
+    return PhoneHeading(
+      bearingDeg: bearing,
+      updatedAtMs: (event['ts_ms'] as num?)?.toInt() ??
+          DateTime.now().millisecondsSinceEpoch,
+    );
+  });
+});
+
 /// Breadcrumb trail of boat positions.
 final boatTrailProvider = StateNotifierProvider<BoatTrailNotifier, List<LatLng>>((ref) {
   final notifier = BoatTrailNotifier();
   ref.listen(boatStateProvider, (prev, next) {
-    if (next.gps.hasFix && next.gps.latE7 != 0) {
+    if (next.gps.hasFix && next.gps.isSane) {
       notifier.addPoint(LatLng(next.gps.lat, next.gps.lon));
     }
   });
@@ -46,8 +77,11 @@ class BoatTrailNotifier extends StateNotifier<List<LatLng>> {
   }
 }
 
-/// Whether the map camera should follow the boat.
-final mapFollowBoatProvider = StateProvider<bool>((ref) => true);
+enum MapFollowMode { drone, phone, free }
+
+/// Map camera follow/orientation mode.
+final mapFollowModeProvider =
+    StateProvider<MapFollowMode>((ref) => MapFollowMode.phone);
 
 enum MapFocusCommand { boat, phone }
 

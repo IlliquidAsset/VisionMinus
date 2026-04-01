@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:developer' as developer;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
+import '../../core/models/gps_position.dart';
 import '../../core/sdk/power_sdk_bridge.dart';
 import '../../shared/utils/geo_utils.dart';
 import '../map/map_provider.dart';
@@ -39,6 +41,10 @@ class RthNotifier extends StateNotifier<RthState> {
   final Ref _ref;
   Timer? _locationUpdateTimer;
   StreamSubscription? _navSub;
+  bool _homeVerified = false;
+  bool _locationUpdateInFlight = false;
+
+  bool get isHomeVerified => _homeVerified;
 
   RthNotifier(this._ref) : super(const RthState()) {
     PowerSdkBridge.init();
@@ -97,21 +103,47 @@ class RthNotifier extends StateNotifier<RthState> {
         locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
       );
 
-      // Set return point to phone location
-      await PowerSdkBridge.setReturnPoint(
+      if (!GpsPosition.isCoordinateSane(pos.latitude, pos.longitude)) {
+        developer.log(
+          'BLOCKED setHomeToPhone: insane phone GPS lat=${pos.latitude} lon=${pos.longitude}',
+          name: 'runtime.safety',
+        );
+        state = state.copyWith(
+          status: RthStatus.error,
+          statusMessage: 'Phone GPS position invalid — cannot set home',
+        );
+        return;
+      }
+
+      final setReturnPointResult = await PowerSdkBridge.setReturnPoint(
         type: 1,
         lat: pos.latitude,
         lon: pos.longitude,
       );
+      if (setReturnPointResult != 0) {
+        state = state.copyWith(
+          status: RthStatus.error,
+          statusMessage: 'Set home failed (code: $setReturnPointResult)',
+        );
+        return;
+      }
 
       // Send initial user location
-      await PowerSdkBridge.setUserLocation(
+      final setUserLocationResult = await PowerSdkBridge.setUserLocation(
         lat: GeoUtils.toDegE7(pos.latitude),
         lon: GeoUtils.toDegE7(pos.longitude),
       );
+      if (setUserLocationResult != 0) {
+        state = state.copyWith(
+          status: RthStatus.error,
+          statusMessage: 'Phone location upload failed (code: $setUserLocationResult)',
+        );
+        return;
+      }
 
       // Start periodic updates every 5 seconds
       _startPeriodicLocationUpdates();
+      _homeVerified = true;
 
       state = state.copyWith(
         status: RthStatus.idle,
@@ -130,16 +162,25 @@ class RthNotifier extends StateNotifier<RthState> {
     _locationUpdateTimer = Timer.periodic(
       const Duration(seconds: 5),
       (_) async {
+        if (_locationUpdateInFlight) {
+          return;
+        }
+        _locationUpdateInFlight = true;
         try {
           final pos = await Geolocator.getCurrentPosition(
             locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
           );
+          if (!GpsPosition.isCoordinateSane(pos.latitude, pos.longitude)) {
+            return;
+          }
           await PowerSdkBridge.setUserLocation(
             lat: GeoUtils.toDegE7(pos.latitude),
             lon: GeoUtils.toDegE7(pos.longitude),
           );
         } catch (_) {
           // Silently continue — phone GPS may temporarily be unavailable
+        } finally {
+          _locationUpdateInFlight = false;
         }
       },
     );
@@ -147,6 +188,17 @@ class RthNotifier extends StateNotifier<RthState> {
 
   /// Trigger return to home.
   Future<void> returnToHome() async {
+    if (!_homeVerified) {
+      developer.log(
+        'BLOCKED RTH: home position never verified this session',
+        name: 'runtime.safety',
+      );
+      state = state.copyWith(
+        status: RthStatus.error,
+        statusMessage: 'RTH blocked — set home first',
+      );
+      return;
+    }
     state = state.copyWith(
       status: RthStatus.returning,
       statusMessage: 'Returning to home...',

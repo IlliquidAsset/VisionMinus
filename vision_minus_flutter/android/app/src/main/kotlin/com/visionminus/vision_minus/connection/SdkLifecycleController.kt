@@ -6,6 +6,8 @@ import com.powervision.natives.JniAp03Native
 import com.powervision.natives.JniCommonNative
 import com.powervision.natives.JniSdkEngine
 import com.powervision.natives.JniW4Native
+import com.powervision.natives.PVSDK_W4_API
+import com.powervision.natives.callback.DophinCallback
 import com.visionminus.vision_minus.PowerSdkEventHandler
 import java.util.concurrent.Executors
 
@@ -19,6 +21,15 @@ object SdkLifecycleController : SdkInitializer {
     private val callbackGate = CallbackGate(ConnectionRuntimeImpl)
 
     private var sdkActive = false
+
+    private val armStatusBridge = object : DophinCallback.RayArmStatusListener {
+        override fun rayArm() {
+            Log.i(TAG, "RayArmStatusListener.rayArm()")
+        }
+        override fun rayDisarm() {
+            Log.i(TAG, "RayArmStatusListener.rayDisarm()")
+        }
+    }
 
     override fun initWifi(): Int {
         return runSerialized("initWifi") {
@@ -38,6 +49,7 @@ object SdkLifecycleController : SdkInitializer {
                     installCallbackGate(generation)
                     JniW4Native.registerW4Callbacks()
                     JniAp03Native.registerAp03Callbacks()
+                    PVSDK_W4_API.setArmStatusListener(armStatusBridge)
                     sdkActive = true
                     ConnectionRuntimeImpl.setCurrentPhase(ConnectionPhase.SDK_ACTIVE)
 
@@ -83,6 +95,7 @@ object SdkLifecycleController : SdkInitializer {
                     installCallbackGate(generation)
                     JniW4Native.registerW4Callbacks()
                     JniAp03Native.registerAp03Callbacks()
+                    PVSDK_W4_API.setArmStatusListener(armStatusBridge)
                     sdkActive = true
                     ConnectionRuntimeImpl.setCurrentPhase(ConnectionPhase.CONNECTED)
                 } else {
