@@ -1,7 +1,0 @@
-cross_app_resync.sh execution started but blocked at adb logcat clear due no attached device.
-
-Observed command output:
-- "adb logcat -c" -> "- waiting for device -"
-- "adb devices -l" -> "List of devices attached" (no devices listed)
-
-No runtime log artifacts could be captured in this environment.

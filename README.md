@@ -1,63 +1,60 @@
 # VisionMinus
 
-A reverse-engineered and modified version of the PowerVision mobile application. This project contains the decompiled code of the original app (com.powervision.newvisionplus) that has been modified for research and educational purposes.
+A Flutter re-implementation of the controller app for the **PowerVision PowerDolphin**
+water drone. It replaces the original, defunct `com.powervision.newvisionplus` Android
+app (reverse-engineered from Smali) with a maintainable Flutter/Kotlin codebase that
+still drives the drone through the original closed-source `libPowerSDK.so`.
 
-## Project Overview
+## Architecture
 
-This repository contains a decompiled Android application (APK) processed with APKTool. The original app is a control application for PowerVision devices, likely drones or underwater devices, and this repository contains modifications for research purposes.
+The hard part of the original app — the drone comms protocol, telemetry, and flight
+logic — lives inside a proprietary native library that cannot be decompiled. Rather than
+reimplement it, this app **reuses `libPowerSDK.so`** and bridges to it:
 
-### Repository Structure
-
-- `smali/`, `smali_classes2/`, etc. - Decompiled Smali code (Android Dalvik bytecode)
-- `res/` - Resource files including layouts, drawables, and values
-- `assets/` - Application assets
-- `lib/` - Native libraries (.so files)
-- `AndroidManifest.xml` - The app's manifest file
-- `apktool.yml` - APKTool configuration file
-
-## Working with This Repository
-
-### Prerequisites
-
-To work with this codebase, you will need:
-
-- APKTool (for building and decompiling)
-- Java Development Kit (JDK)
-- Android SDK (optional, for testing)
-- Keystore for signing the APK
-
-### Building
-
-To build the modified APK:
-
-```bash
-apktool b . -o modified.apk
+```
+Flutter UI (Dart)
+   │  MethodChannel / EventChannel  (com.visionminus/*)
+Kotlin platform host (PowerSdkPlugin)
+   │  JNI  (com.powervision.natives.*  — package preserved so .so symbols resolve)
+libPowerSDK.so  (bundled in android/app/src/main/jniLibs)
 ```
 
-### Signing
+The Kotlin JNI shim classes (`JniW4Native`, `JniRemoteNative`, `JniGimbalNative`, …)
+are reconstructed in the original `com.powervision.natives` package so the native
+symbols exported by `libPowerSDK.so` (`Java_com_powervision_natives_*`) resolve at
+runtime.
 
-After building, the APK needs to be signed:
+## Layout
+
+- `lib/` — Flutter/Dart application
+  - `core/` — connection, models, SDK bridge
+  - `features/` — connection, dashboard, map, navigation, rth, spot_lock, media, settings
+  - `shared/` — utilities
+- `android/app/src/main/kotlin/` — platform host + reconstructed JNI shims
+- `android/app/src/main/jniLibs/` — bundled `libPowerSDK.so` (arm64-v8a, armeabi-v7a)
+- `docs/` — development history and the requirements registry (product spec)
+- `test/` — widget/unit tests
+
+## State management
+
+Riverpod. Video via `media_kit`; map via `google_maps_flutter`.
+
+## Building
 
 ```bash
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-debug-key.keystore modified.apk alias_name
+flutter pub get
+flutter run          # device required; needs a connected PowerDolphin to exercise the SDK
+flutter analyze
+flutter test
 ```
 
-### Installing
+## History
 
-```bash
-adb install -r modified.apk
-```
+The original Smali decompilation and all prior branches are preserved on the
+`archive/*` branches (see `archive/main-smali-decompilation` for the full decompiled
+APK). This branch is the active line of development.
 
-## Modifications
+## Legal
 
-This repository contains modifications to the original app, including:
-- Bypass login screen
-- Change Firebase from VisionMinus acct to mine (please use your own)
-
-## Legal Disclaimer
-
-This project is for educational and research purposes only. The original application is the property of PowerVision. Use of this modified application must comply with all relevant laws and terms of service.
-
-## License
-
-??
+For educational and research purposes. PowerDolphin, PowerVision, and `libPowerSDK.so`
+are the property of PowerVision. Use must comply with all applicable laws and terms.
