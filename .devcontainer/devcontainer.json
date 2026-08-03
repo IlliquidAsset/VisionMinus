@@ -1,0 +1,29 @@
+{
+  "name": "VisionMinus (Flutter + Android)",
+  "// image": "Bundles Flutter stable, the Android SDK, and a JDK. Enough to run flutter analyze/test and build a debug APK entirely in the cloud (e.g. GitHub Codespaces). Running against the real PowerDolphin still requires a physical device.",
+  "image": "ghcr.io/cirruslabs/flutter:stable",
+
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Dart-Code.dart-code",
+        "Dart-Code.flutter"
+      ],
+      "settings": {
+        "dart.flutterSdkPath": "/sdks/flutter"
+      }
+    }
+  },
+
+  "// onCreate": "Resolve packages once the container is built.",
+  "onCreateCommand": "flutter pub get",
+
+  "// postCreate": "Quick sanity check that the toolchain is wired up.",
+  "postCreateCommand": "flutter --version && flutter doctor -v || true",
+
+  "remoteUser": "root"
+}
