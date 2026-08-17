@@ -1,5 +1,13 @@
 # VisionMinus Evidence
 
+## 2026-08-17 — Corrected product/release candidate build
+- Candidate: `815aa680f44fb28503e8f2ce26072aa025cd4265`
+- Parent verification: clean worktree; 143 tests passed; `flutter analyze`, YAML, diff, licensing, and deterministic launcher checks clean.
+- Debug APK SHA-256: `3f19d968f35002d060592c1ca85783e6b14cdb5626c255ca60a4c1bd93016c76`
+- Release APK SHA-256: `814d15a4965b941c3a9f0582d6f4420035d5478e86f18efff96a6726a2566287`
+- `apksigner` result: release APK signer DN is `C=US, O=Android, CN=Android Debug`; nondistributable build evidence only.
+- Does not support: publication, phone screenshot fidelity, production signing, hardware control readiness, or release readiness.
+
 ## 2026-08-17 — Second rejected control/safety review
 - Candidate: `ab1cab309a98f943d7d171e5a122428485133387`
 - Review: `docs/reviews/CONTROL_SAFETY_REVIEW_AB1CAB30.md`

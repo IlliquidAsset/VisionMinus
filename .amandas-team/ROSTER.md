@@ -19,6 +19,6 @@
 | Talia | Product/release correction finisher | Asset/research work preserved; parent closed prose/tests after turn ceiling | Fable 5 / Claude Code / Mac Mini / `fix/product-release-review` | RETIRED — CONTEXT SATURATED | Candidate completed by Amanda and in independent review |
 | Rhea | Independent safety correction implementer | Rejected corrected candidate `ab1cab30`; preserved for evidence | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review` | RETIRED — REVIEW FAILED | Session retired at turn ceiling after coherent handoff |
 | Soren | Second independent safety correction implementer | Two verified commits; provenance fix left mid-edit at bounded turn ceiling | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review-2` | RETIRED — CONTEXT SATURATED | Fresh surgical finisher owns remaining work |
-| Nia | Safety surgical finisher | Finish field provenance, bench attestation lifecycle, lockfile cleanup | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review-2` | RUNNING | Fresh bounded 35-turn finish-only seat |
+| Nia | Safety surgical finisher | Provenance/lockfile committed; bench lifecycle left mid-migration at turn ceiling | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review-2` | RETIRED — CONTEXT SATURATED | Amanda completed migration; candidate in independent review |
 
 Temporary seats remain bounded until initial reconnaissance determines which roles need durable PDDs. Provider/session IDs remain in the task history, not principal-facing status.
