@@ -15,7 +15,8 @@
 - Mira: six product/map/brand commits preserved; 86 tests and analysis pass. Session retired after a second max-turn cutoff rather than resumed again.
 - Noa: product/release candidate `02d7286c` built and tested but independent review rejected false-fresh telemetry, release-workflow, credential, claim, and asset blockers. Candidate is frozen and not mergeable.
 - Petra: three committed corrections preserved; parent verification: clean branch, 142 tests, analysis, and diff checks pass. Fixed boat/phone freshness, read-only signer-derived release preparation, immutable action pins, and Maps credential injection. Session retired at turn ceiling rather than resumed.
-- Talia: fresh product/release correction finisher on the same clean branch; live process `proc_9d80923aa61c`. Owns only restrained claims, licensing evidence, numeric/test-count corrections, monochrome/reproducible icon work, and whole-branch handoff verification.
+- Talia: generated deterministic launcher/monochrome assets and restored licensing artifact, then hit the bounded turn ceiling before commit. Session retired. Amanda completed XML, reproducibility test, restrained claims, correction report, commits, and verification.
+- Product/release corrected candidate `815aa680`: clean worktree; 143 tests, analysis, YAML, diff, licensing, and launcher-regeneration checks pass. Independent review `deleg_0d46a508` and APK build/signature process `proc_b388e8524a20` active; lane is `IN_REVIEW`.
 - Amanda: supervision, evidence promotion, independent review, and integration.
 
 ## Waiting
