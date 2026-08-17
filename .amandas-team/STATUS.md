@@ -11,7 +11,8 @@
 - Cass: control/safety candidate completed at `59ef3b51`; clean worktree, 118 tests, analysis, and APK builds passed, but independent review rejected four safety logic blockers. Candidate is frozen and not mergeable.
 - Rhea: fresh Fable 5 correction worker on `fix/control-safety-review`; live process `proc_bfc533fb8020`. Owns only review findings and regression proof.
 - Mira: six product/map/brand commits preserved; 86 tests and analysis pass. Session retired after a second max-turn cutoff rather than resumed again.
-- Noa: product/release finish completed at `02d7286c`; clean worktree, 86 tests, analysis, diff check, and YAML syntax pass. Independent review `deleg_2f9b77f1` and APK build/hash process `proc_a7cba766d687` are active; lane is `IN_REVIEW`.
+- Noa: product/release candidate `02d7286c` built and tested but independent review rejected false-fresh telemetry, release-workflow, credential, claim, and asset blockers. Candidate is frozen and not mergeable.
+- Petra: fresh Fable 5 product/release correction worker on `fix/product-release-review`; live process `proc_cc114528439e`. Owns only review findings and regression proof.
 - Amanda: supervision, evidence promotion, independent review, and integration.
 
 ## Waiting

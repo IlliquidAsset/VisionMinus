@@ -1,5 +1,12 @@
 # VisionMinus Evidence
 
+## 2026-08-17 — Rejected product/release candidate review
+- Candidate: `02d7286ca721055b5e79091df49905dac2bd438a`
+- Review: `docs/reviews/PRODUCT_RELEASE_REVIEW_02d7286c.md`
+- Review SHA-256: `493fc896990fea2afd3a45bc6982ace9952c8aac6607b8b747934f7d567f85b7`
+- Verdict: rejected for false-fresh boat/phone telemetry, unsafe release/signing/tag/input handling, packaged credential, unsupported claims/evidence gaps, and invalid monochrome asset.
+- Candidate remains build evidence only; no merge, workflow dispatch, tag, or release.
+
 ## 2026-08-17 — Product/release candidate build
 - Candidate: `02d7286c`
 - Parent verification: clean worktree; 86 tests passed; `flutter analyze` and diff check clean; workflow/funding YAML parses.
