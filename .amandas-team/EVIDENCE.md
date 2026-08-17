@@ -1,5 +1,14 @@
 # VisionMinus Evidence
 
+## 2026-08-17 — Product/release candidate build
+- Candidate: `02d7286c`
+- Parent verification: clean worktree; 86 tests passed; `flutter analyze` and diff check clean; workflow/funding YAML parses.
+- Debug APK SHA-256: `39d707b34909d6744384999678b55aa277ac26922a5f77e02097477c2c976ef5`
+- Release APK SHA-256: `c54ab18af7561fda3763b89d938f9a575aad4bb97fa69637ab9f7ad2b40e6c49`
+- `apksigner` result: release APK signer DN is `C=US, O=Android, CN=Android Debug`; therefore it is not distributable and not a release candidate.
+- Toolchain warnings: project compiles against SDK 35/NDK 26.3 while current video/maps/lifecycle plugins request SDK 36/NDK 27.0.
+- Does not support: public release readiness, phone screenshot fidelity, hardware control readiness, or production signing.
+
 ## 2026-08-17 — Rejected control candidate review
 - Candidate: `59ef3b51cfc4eea2f6f5706ba0493e0fdc3c67f7`
 - Review: `docs/reviews/CONTROL_SAFETY_REVIEW_59ef3b51.md`
