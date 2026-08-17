@@ -8,7 +8,7 @@
 - Amanda: installed debug build on Samsung SM-S931U through the MacBook; launch and short stability check passed.
 
 ## Running
-- Cass: Fable 5 control/safety implementation in isolated `feat/control-min-thrust` worktree; live process `proc_a7428092e79d`.
+- Cass: control/safety implementation completed at `59ef3b51`; clean worktree, 118 tests passed, analysis clean. Independent review `deleg_9026796b` and APK build/hash process `proc_39880ff88680` are active; lane is `IN_REVIEW`.
 - Mira: Fable 5 product/release continuation in isolated `feat/product-release` worktree; original run hit the 80-turn ceiling after producing partial artifacts, parent verification localized one `TrailPoint`→`LatLng` integration failure, and the same Claude session resumed as `proc_b6527d86200a` with narrowed scope.
 - Amanda: supervision, evidence promotion, independent review, and integration.
 
