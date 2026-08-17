@@ -47,9 +47,10 @@ Do not publish the thesis until company status, hardware support status, legal l
 ### 2026-08-17 — Modern build returns to a real Android phone
 - **Observed:** The MacBook recognized Kendrick's Samsung SM-S931U over authorized ADB. The phone contained a March 2026 VisionMinus build and PowerVision's `com.powervision.newvisionplus` 2.2.1.
 - **Observed:** Both installed APKs and package metadata were backed up before replacement. Android rejected an in-place VisionMinus upgrade because the old and new signatures differed, so the prior VisionMinus package was removed and the verified debug APK from commit `58f3357f` was installed cleanly.
-- **Observed:** The new app launched, remained alive, and rendered its connection screen in DISCOVERING state. A short log scan found no Flutter fatal, process crash, or ANR. The original PowerVision app remains installed as a fallback.
+- **Observed:** The new app launched, remained alive, and rendered its connection screen in DISCOVERING state. A short log scan found no Flutter fatal, process crash, or ANR.
+- **Observed:** Kendrick confirmed the original PowerVision client was unusable because it depended on calls to services whose accounts are now defunct. After its APK and metadata were archived, `com.powervision.newvisionplus` was removed from the phone. Only the new VisionMinus package remains.
 - **Limitation:** This proves only install, launch, and initial rendering on the real phone. It does not prove drone Wi-Fi discovery, native SDK loading, command behavior, disconnect safety, or hardware control.
-- **Editorial significance:** The recovered modern client is back on contemporary hardware, but the team preserved the original tool until the replacement earns the right to supersede it.
+- **Editorial significance:** The recovered modern client is back on contemporary hardware, while the unusable service-dependent original is preserved as an archived artifact rather than dead weight on the phone.
 
 ## Claims requiring verification before publication
 - Whether PowerVision or the relevant product line is legally/operationally "defunct," abandoned, unsupported, or merely discontinued.

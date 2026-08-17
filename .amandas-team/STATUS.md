@@ -16,4 +16,4 @@
 - Hardware-in-loop: deliberately gated behind production wiring and controlled bench conditions.
 
 ## Principal action
-Nothing. Leave the original PowerVision app installed as the hardware fallback.
+Nothing. The unusable original PowerVision app was removed after its APK and metadata were archived.
