@@ -9,7 +9,7 @@
 
 ## Running
 - Cass: Fable 5 control/safety implementation in isolated `feat/control-min-thrust` worktree; live process `proc_a7428092e79d`.
-- Mira: Fable 5 product/release implementation in isolated `feat/product-release` worktree; live process `proc_86f00b4edf4e`.
+- Mira: Fable 5 product/release continuation in isolated `feat/product-release` worktree; original run hit the 80-turn ceiling after producing partial artifacts, parent verification localized one `TrailPoint`→`LatLng` integration failure, and the same Claude session resumed as `proc_b6527d86200a` with narrowed scope.
 - Amanda: supervision, evidence promotion, independent review, and integration.
 
 ## Waiting
