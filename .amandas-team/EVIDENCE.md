@@ -1,5 +1,14 @@
 # VisionMinus Evidence
 
+## 2026-08-17 — Corrected control/safety candidate build
+- Candidate: `ab1cab309a98f943d7d171e5a122428485133387`
+- Parent verification: clean worktree; 177 tests passed; `flutter analyze` and diff checks clean.
+- Debug APK SHA-256: `b0235d063fca103f248f1086a12b0d6984cacdc4dff878711090914f4267654d`
+- Release APK SHA-256: `1f64c761e02184b33a3b8a70cda284044764f51ba752dbe3309d8091495e283d`
+- `apksigner` result: release APK signer DN is `C=US, O=Android, CN=Android Debug`; nondistributable build evidence only.
+- Build debt: Kotlin 2.2 dependency metadata was consumed by a project compiler expecting 2.0; Gradle emitted incompatibility diagnostics but produced both APKs. SDK 36/NDK 27 upgrade warnings also remain.
+- Does not support: production wiring, hardware readiness, distribution, or propulsion safety claims.
+
 ## 2026-08-17 — Rejected product/release candidate review
 - Candidate: `02d7286ca721055b5e79091df49905dac2bd438a`
 - Review: `docs/reviews/PRODUCT_RELEASE_REVIEW_02d7286c.md`
