@@ -12,7 +12,8 @@
 | Elise | Safety API architect | Capability-bound read model and trusted transition authority | Delegated worker / isolated worktree | RUNNING | Project-local temporary seat |
 | Simone | Transport safety architect | Unified transport lease, arm state, shutdown, and close recovery | Delegated worker / isolated worktree | RUNNING | Project-local temporary seat |
 | Rowan | Safety phase-machine architect | Reentrant transport safety phases and ambiguous-effect recovery | Delegated worker / isolated worktree | VERIFIED | Project-local temporary seat |
-| Cass | Safety/control implementer | Production adapter, arm semantics, low-thrust control foundation | Fable 5 / Claude Code / Mac Mini / `feat/control-min-thrust` | RUNNING | Project-local temporary seat |
+| Cass | Safety/control implementer | Rejected candidate `59ef3b51`; preserved for evidence | Fable 5 / Claude Code / Mac Mini / `feat/control-min-thrust` | RETIRED — REVIEW FAILED | Project-local temporary seat |
 | Mira | Product/release implementer | GPS display, mapping, brand, README, screenshots, release preparation | Fable 5 / Claude Code / Mac Mini / `feat/product-release` | RUNNING | Project-local temporary seat |
+| Rhea | Independent safety correction implementer | Close review blockers on rejected control candidate | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review` | RUNNING | Fresh context; project-local temporary seat |
 
 Temporary seats remain bounded until initial reconnaissance determines which roles need durable PDDs. Provider/session IDs remain in the task history, not principal-facing status.

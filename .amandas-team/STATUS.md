@@ -8,7 +8,8 @@
 - Amanda: installed debug build on Samsung SM-S931U through the MacBook; launch and short stability check passed.
 
 ## Running
-- Cass: control/safety implementation completed at `59ef3b51`; clean worktree, 118 tests passed, analysis clean. Independent review `deleg_9026796b` and APK build/hash process `proc_39880ff88680` are active; lane is `IN_REVIEW`.
+- Cass: control/safety candidate completed at `59ef3b51`; clean worktree, 118 tests, analysis, and APK builds passed, but independent review rejected four safety logic blockers. Candidate is frozen and not mergeable.
+- Rhea: fresh Fable 5 correction worker on `fix/control-safety-review`; live process `proc_bfc533fb8020`. Owns only review findings and regression proof.
 - Mira: Fable 5 product/release continuation in isolated `feat/product-release` worktree; original run hit the 80-turn ceiling after producing partial artifacts, parent verification localized one `TrailPoint`→`LatLng` integration failure, and the same Claude session resumed as `proc_b6527d86200a` with narrowed scope.
 - Amanda: supervision, evidence promotion, independent review, and integration.
 

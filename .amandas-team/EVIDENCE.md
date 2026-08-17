@@ -1,5 +1,15 @@
 # VisionMinus Evidence
 
+## 2026-08-17 — Rejected control candidate review
+- Candidate: `59ef3b51cfc4eea2f6f5706ba0493e0fdc3c67f7`
+- Review: `docs/reviews/CONTROL_SAFETY_REVIEW_59ef3b51.md`
+- Review SHA-256: `ae39e09d1b657853ee2e121550ef7d1e5b53bb0b490cf3d17a2ba28f6dd0d00a`
+- Parent verification: 118 tests passed; `flutter analyze` clean; debug/release APK builds passed.
+- Debug APK SHA-256: `036a134d94f826e4d40d4f37d64327cac55ba216bca9a407b1f2bfdf2d3e0a65`
+- Release APK SHA-256: `c00cb7e26af832124f6f4b4af6bab996bec54636f91126aed8fdca9c9957c3e0`
+- Verdict: rejected for four safety logic blockers. Artifacts prove buildability only and are not release candidates.
+- Toolchain warnings: project compiles against SDK 35/NDK 26.3 while current plugins request SDK 36/NDK 27.0; upgrade remains release hygiene.
+
 ## 2026-08-17 — Control capability audit
 - Commit inspected: `b80b2467a906bbe4769747dcb6ef47b2f2e5a96f`
 - Artifact: `docs/research/CONTROL_CAPABILITY_AUDIT.md`
