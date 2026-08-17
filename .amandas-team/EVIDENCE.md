@@ -1,5 +1,12 @@
 # VisionMinus Evidence
 
+## 2026-08-17 — Second rejected control/safety review
+- Candidate: `ab1cab309a98f943d7d171e5a122428485133387`
+- Review: `docs/reviews/CONTROL_SAFETY_REVIEW_AB1CAB30.md`
+- Review SHA-256: `1d6acd7a6ec5ad219baf3bc5f5bacdc983ae87ea605dbd14d504273476c851df`
+- Verdict: rejected for async physical-dispatch race, non-exact disarm attempt correlation, publicly self-mintable field authority, and indefinitely reusable bench kill-path attestation.
+- Candidate remains unwired build evidence only; no merge, deployment, or propulsion claim.
+
 ## 2026-08-17 — Corrected control/safety candidate build
 - Candidate: `ab1cab309a98f943d7d171e5a122428485133387`
 - Parent verification: clean worktree; 177 tests passed; `flutter analyze` and diff checks clean.

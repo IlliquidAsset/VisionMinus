@@ -10,6 +10,6 @@
 | Device validation | Amanda | WAITING_HUMAN_GATE | Phone physically connected | `adb devices -l`, install/launch/log capture | Real phone path exercised at named commit |
 | Hardware-in-loop | Amanda | WAITING_HUMAN_GATE | Phone + PowerDolphin + safety closure | Controlled test protocol and logs | Each control feature physically verified |
 | Editorial chronicle | Celeste | READY | Evidence from all lanes | Dated factual change log | Every public claim traceable to evidence |
-| Minimum-thrust control foundation | Rhea | IN_REVIEW | Corrected candidate `ab1cab30`; 177 tests/analyze/diff checks pass | Fresh independent verdict and APK hashes | Contracts remain unwired; production bypasses explicitly unclosed; no physical claim |
+| Minimum-thrust control foundation | Soren | RUNNING | Corrected candidate `ab1cab30` rejected; review in `docs/reviews/CONTROL_SAFETY_REVIEW_AB1CAB30.md` | Regression-tested second correction and fresh independent verdict | Contracts remain unwired; production bypasses unclosed; no physical claim |
 | Product and first-release preparation | Petra | RUNNING | Candidate `02d7286c` rejected; findings preserved in `docs/reviews/PRODUCT_RELEASE_REVIEW_02d7286c.md` | Regression-tested correction branch and fresh independent verdict | Actual-phone screenshots, signing, key rotation, and publication remain gated |
-| Integration | Amanda | INTEGRATING | Rhea/Petra outputs require independent review | Small reviewed merges, full tests/build, phone verification | Release candidate only after end-to-end evidence |
+| Integration | Amanda | INTEGRATING | Soren/Petra outputs require independent review | Small reviewed merges, full tests/build, phone verification | Release candidate only after end-to-end evidence |
