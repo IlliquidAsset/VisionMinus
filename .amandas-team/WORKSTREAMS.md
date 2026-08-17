@@ -11,5 +11,5 @@
 | Hardware-in-loop | Amanda | WAITING_HUMAN_GATE | Phone + PowerDolphin + safety closure | Controlled test protocol and logs | Each control feature physically verified |
 | Editorial chronicle | Celeste | READY | Evidence from all lanes | Dated factual change log | Every public claim traceable to evidence |
 | Minimum-thrust control foundation | Rhea | RUNNING | Candidate `59ef3b51` rejected; four safety blockers preserved in `docs/reviews/CONTROL_SAFETY_REVIEW_59ef3b51.md` | Regression-tested correction branch and fresh independent verdict | No physical claim; all nonzero output remains gated |
-| Product and first-release preparation | Noa | RUNNING | Six Mira commits verified; uncommitted finish bundle preserved | Claim/workflow validation, commit, actual-phone screenshot gate | No release/push; honest status matrix and reproducible assets |
+| Product and first-release preparation | Noa | IN_REVIEW | Candidate `02d7286c`; 86 tests, analysis, diff/YAML checks pass | Independent verdict plus debug/release APK hashes | Actual-phone screenshots, signing, key rotation, and publication remain gated |
 | Integration | Amanda | INTEGRATING | Rhea/Noa outputs require independent review | Small reviewed merges, full tests/build, phone verification | Release candidate only after end-to-end evidence |
