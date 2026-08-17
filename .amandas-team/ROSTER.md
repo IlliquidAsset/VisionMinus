@@ -16,6 +16,6 @@
 | Mira | Product/release implementer | Six verified product/map/brand commits; session saturated after two turn ceilings | Fable 5 / Claude Code / Mac Mini / `feat/product-release` | RETIRED — CONTEXT SATURATED | Project-local temporary seat |
 | Noa | Product/release finisher | Rejected candidate `02d7286c`; preserved for evidence | Fable 5 / Claude Code / Mac Mini / `feat/product-release` | RETIRED — REVIEW FAILED | Fresh replacement completed bounded handoff |
 | Petra | Independent product/release correction implementer | Close product/release review blockers | Fable 5 / Claude Code / Mac Mini / `fix/product-release-review` | RUNNING | Fresh context; project-local temporary seat |
-| Rhea | Independent safety correction implementer | Close review blockers on rejected control candidate | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review` | RUNNING | Fresh context; project-local temporary seat |
+| Rhea | Independent safety correction implementer | Corrected candidate `ab1cab30`; independent review active | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review` | IN_REVIEW | Session retired at turn ceiling after coherent handoff |
 
 Temporary seats remain bounded until initial reconnaissance determines which roles need durable PDDs. Provider/session IDs remain in the task history, not principal-facing status.
