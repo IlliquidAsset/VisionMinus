@@ -11,6 +11,8 @@
 | Priya | Safety correction implementer | Reviewer-blocked encapsulation and race defects | Delegated worker / isolated worktree | REVIEW | Project-local temporary seat |
 | Elise | Safety API architect | Capability-bound read model and trusted transition authority | Delegated worker / isolated worktree | RUNNING | Project-local temporary seat |
 | Simone | Transport safety architect | Unified transport lease, arm state, shutdown, and close recovery | Delegated worker / isolated worktree | RUNNING | Project-local temporary seat |
-| Rowan | Safety phase-machine architect | Reentrant transport safety phases and ambiguous-effect recovery | Delegated worker / isolated worktree | RUNNING | Project-local temporary seat |
+| Rowan | Safety phase-machine architect | Reentrant transport safety phases and ambiguous-effect recovery | Delegated worker / isolated worktree | VERIFIED | Project-local temporary seat |
+| Cass | Safety/control implementer | Production adapter, arm semantics, low-thrust control foundation | Fable 5 / Claude Code / Mac Mini / `feat/control-min-thrust` | RUNNING | Project-local temporary seat |
+| Mira | Product/release implementer | GPS display, mapping, brand, README, screenshots, release preparation | Fable 5 / Claude Code / Mac Mini / `feat/product-release` | RUNNING | Project-local temporary seat |
 
 Temporary seats remain bounded until initial reconnaissance determines which roles need durable PDDs. Provider/session IDs remain in the task history, not principal-facing status.

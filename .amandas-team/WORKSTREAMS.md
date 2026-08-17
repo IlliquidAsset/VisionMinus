@@ -10,4 +10,6 @@
 | Device validation | Amanda | WAITING_HUMAN_GATE | Phone physically connected | `adb devices -l`, install/launch/log capture | Real phone path exercised at named commit |
 | Hardware-in-loop | Amanda | WAITING_HUMAN_GATE | Phone + PowerDolphin + safety closure | Controlled test protocol and logs | Each control feature physically verified |
 | Editorial chronicle | Celeste | READY | Evidence from all lanes | Dated factual change log | Every public claim traceable to evidence |
-| Integration | Amanda | VERIFIED (PURE CONTRACT) | Review passed | Commit `58f3357f`; integrated tests and APKs | Contract integrated; production adapter and physical paths remain gated |
+| Minimum-thrust control foundation | Cass | RUNNING | Verified control audit; isolated branch | Production adapter and arm semantics tests/commits | No physical claim; all nonzero output remains gated |
+| Product and first-release preparation | Mira | RUNNING | Verified map-source audit; isolated branch | GPS display tests, brand integration, README/screenshots, draft release machinery | No release/push; honest status matrix and reproducible assets |
+| Integration | Amanda | INTEGRATING | Cass/Mira outputs require independent review | Small reviewed merges, full tests/build, phone verification | Release candidate only after end-to-end evidence |

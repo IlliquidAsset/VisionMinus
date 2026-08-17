@@ -1,4 +1,19 @@
-# VisionMinus Evidence Index
+# VisionMinus Evidence
+
+## 2026-08-17 — Control capability audit
+- Commit inspected: `b80b2467a906bbe4769747dcb6ef47b2f2e5a96f`
+- Artifact: `docs/research/CONTROL_CAPABILITY_AUDIT.md`
+- SHA-256: `f4fe87ae60bce68c001e1ea2ed9266883c72e72ab8c9723e5921019c73bda964`
+- Verification: parent reran full `flutter test` (54 passing) and `flutter analyze` (no issues) before promotion.
+- Supports: exact feature paths, absence of cruise command, arm-polarity defect, unwired production safety coordinator.
+- Does not support: physical motor thresholds or hardware readiness.
+
+## 2026-08-17 — Map and bathymetry source audit
+- Artifact: `docs/research/MAP_AND_BATHYMETRY_SOURCES.md`
+- SHA-256: `d4c0aadd10c38853cf0dd24270bc479448a2e374ad3a43a777f63fed111baf89`
+- Supports: NAIP lawful imagery recommendation, Cherokee C-MAP coverage/licensing limits, TVA data-request path.
+- Does not support: possession or redistribution rights for a Cherokee bathymetry dataset.
+
 
 | Date | Claim | Artifact / command | Result | Limitations |
 |---|---|---|---|---|

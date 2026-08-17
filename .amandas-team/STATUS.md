@@ -8,7 +8,9 @@
 - Amanda: installed debug build on Samsung SM-S931U through the MacBook; launch and short stability check passed.
 
 ## Running
-- Amanda: production adapter isolation design and integration gate.
+- Cass: Fable 5 control/safety implementation in isolated `feat/control-min-thrust` worktree; live process `proc_a7428092e79d`.
+- Mira: Fable 5 product/release implementation in isolated `feat/product-release` worktree; live process `proc_86f00b4edf4e`.
+- Amanda: supervision, evidence promotion, independent review, and integration.
 
 ## Waiting
 - Device validation: basic debug install/launch passed; permissions and production-adapter behavior remain untested.
