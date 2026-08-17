@@ -44,6 +44,13 @@ Do not publish the thesis until company status, hardware support status, legal l
 - **Limitation:** This is a verified contract, not a production safety claim. Concrete adapter error isolation, operation deduplication, writable-transport proof, JNI/USB lifecycle wiring, phone validation, and PowerDolphin bench testing remain undone.
 - **Editorial significance:** The useful story is not that an agent wrote a controller quickly. It is that disciplined adversarial review kept refusing plausible-looking safety code until authority, lifecycle, liveness, and physical ambiguity were modeled honestly.
 
+### 2026-08-17 — Modern build returns to a real Android phone
+- **Observed:** The MacBook recognized Kendrick's Samsung SM-S931U over authorized ADB. The phone contained a March 2026 VisionMinus build and PowerVision's `com.powervision.newvisionplus` 2.2.1.
+- **Observed:** Both installed APKs and package metadata were backed up before replacement. Android rejected an in-place VisionMinus upgrade because the old and new signatures differed, so the prior VisionMinus package was removed and the verified debug APK from commit `58f3357f` was installed cleanly.
+- **Observed:** The new app launched, remained alive, and rendered its connection screen in DISCOVERING state. A short log scan found no Flutter fatal, process crash, or ANR. The original PowerVision app remains installed as a fallback.
+- **Limitation:** This proves only install, launch, and initial rendering on the real phone. It does not prove drone Wi-Fi discovery, native SDK loading, command behavior, disconnect safety, or hardware control.
+- **Editorial significance:** The recovered modern client is back on contemporary hardware, but the team preserved the original tool until the replacement earns the right to supersede it.
+
 ## Claims requiring verification before publication
 - Whether PowerVision or the relevant product line is legally/operationally "defunct," abandoned, unsupported, or merely discontinued.
 - Exact original hardware and application versions.

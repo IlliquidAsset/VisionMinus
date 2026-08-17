@@ -1,13 +1,13 @@
 # VisionMinus Gates
 
 ## Phone connection
-- **Blocked:** On-device install, permissions, launch, and log verification.
+- **Partial pass:** ADB authorization, debug install, launch, rendering, and short crash scan completed on Samsung SM-S931U.
 - **Continues:** Repository audit, build, tests, architecture, documentation.
 - **Class:** Physical.
-- **Evidence:** `adb devices -l` returned no attached devices on 2026-08-12.
+- **Evidence:** On 2026-08-17, ADB showed `RFCY61AS2MN device`; package launched with a live PID and rendered the DISCOVERING screen; crash/ANR scan was empty.
 - **Recommendation:** Keep the phone disconnected until production adapter isolation is implemented and Amanda supplies the exact ADB-only validation sequence.
-- **Need from Kendrick:** One physical connection and any Android USB-debugging approval.
-- **Closes when:** Adapter-isolation gate passes and the device appears as `device` in ADB.
+- **Need from Kendrick:** Nothing for install validation. Keep the original PowerVision app as fallback.
+- **Closes when:** Production adapter isolation passes and the connected-device workflow is exercised without hardware control.
 
 ## PowerDolphin hardware
 - **Blocked:** Hardware-in-loop control verification.

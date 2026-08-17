@@ -5,14 +5,15 @@
 ## Completed
 - Rowan: capability-separated transport safety phase machine passed independent correctness review.
 - Amanda: integrated commit `58f3357f`; 54 tests and debug/release APK builds passed.
+- Amanda: installed debug build on Samsung SM-S931U through the MacBook; launch and short stability check passed.
 
 ## Running
 - Amanda: production adapter isolation design and integration gate.
 
 ## Waiting
-- Device validation: phone not yet attached; debug and release APKs exist.
+- Device validation: basic debug install/launch passed; permissions and production-adapter behavior remain untested.
 - Production wiring: blocked until adapter error isolation, operation deduplication, and writable-transport proof exist.
 - Hardware-in-loop: deliberately gated behind production wiring and controlled bench conditions.
 
 ## Principal action
-Nothing yet. Do not connect the phone until Amanda provides the exact ADB sequence.
+Nothing. Leave the original PowerVision app installed as the hardware fallback.
