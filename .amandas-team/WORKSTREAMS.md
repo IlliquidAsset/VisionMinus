@@ -10,6 +10,6 @@
 | Device validation | Amanda | WAITING_HUMAN_GATE | Phone physically connected | `adb devices -l`, install/launch/log capture | Real phone path exercised at named commit |
 | Hardware-in-loop | Amanda | WAITING_HUMAN_GATE | Phone + PowerDolphin + safety closure | Controlled test protocol and logs | Each control feature physically verified |
 | Editorial chronicle | Celeste | READY | Evidence from all lanes | Dated factual change log | Every public claim traceable to evidence |
-| Minimum-thrust control foundation | Soren | RUNNING | Corrected candidate `ab1cab30` rejected; review in `docs/reviews/CONTROL_SAFETY_REVIEW_AB1CAB30.md` | Regression-tested second correction and fresh independent verdict | Contracts remain unwired; production bypasses unclosed; no physical claim |
+| Minimum-thrust control foundation | Nia | RUNNING | Soren's two commits verified; provenance edit preserved; bench lifecycle/lockfile remain | Clean committed correction and fresh independent verdict | Contracts remain unwired; production bypasses unclosed; no physical claim |
 | Product and first-release preparation | Talia | RUNNING | Petra's three commits verified; four review items remain | Finish claims/evidence/icon corrections, full validation, fresh independent verdict | Actual-phone screenshots, production signing, external key rotation, and publication remain gated |
-| Integration | Amanda | INTEGRATING | Soren/Talia outputs require independent review | Small reviewed merges, full tests/build, phone verification | Release candidate only after end-to-end evidence |
+| Integration | Amanda | INTEGRATING | Nia/Talia outputs require independent review | Small reviewed merges, full tests/build, phone verification | Release candidate only after end-to-end evidence |

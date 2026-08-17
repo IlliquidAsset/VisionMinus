@@ -18,6 +18,7 @@
 | Petra | Independent product/release correction implementer | Three verified correction commits; session saturated at turn ceiling | Fable 5 / Claude Code / Mac Mini / `fix/product-release-review` | RETIRED — CONTEXT SATURATED | Fresh replacement owns four unfinished review items |
 | Talia | Product/release correction finisher | Claims, licensing evidence, numeric evidence, monochrome/reproducible icon | Fable 5 / Claude Code / Mac Mini / `fix/product-release-review` | RUNNING | Fresh bounded 40-turn finish-only seat |
 | Rhea | Independent safety correction implementer | Rejected corrected candidate `ab1cab30`; preserved for evidence | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review` | RETIRED — REVIEW FAILED | Session retired at turn ceiling after coherent handoff |
-| Soren | Second independent safety correction implementer | Close four remaining contract defects | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review-2` | RUNNING | Fresh context; bounded 55-turn correction seat |
+| Soren | Second independent safety correction implementer | Two verified commits; provenance fix left mid-edit at bounded turn ceiling | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review-2` | RETIRED — CONTEXT SATURATED | Fresh surgical finisher owns remaining work |
+| Nia | Safety surgical finisher | Finish field provenance, bench attestation lifecycle, lockfile cleanup | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review-2` | RUNNING | Fresh bounded 35-turn finish-only seat |
 
 Temporary seats remain bounded until initial reconnaissance determines which roles need durable PDDs. Provider/session IDs remain in the task history, not principal-facing status.

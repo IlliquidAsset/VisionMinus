@@ -10,7 +10,8 @@
 ## Running
 - Cass: control/safety candidate completed at `59ef3b51`; clean worktree, 118 tests, analysis, and APK builds passed, but independent review rejected four safety logic blockers. Candidate is frozen and not mergeable.
 - Rhea: corrected candidate `ab1cab30` passed 177 tests/analyze/builds but independent review rejected four remaining contract defects. Candidate frozen; production bypasses remain unclosed.
-- Soren: fresh second safety correction worker on `fix/control-safety-review-2`; live process `proc_b361c61aeb98`. Owns only dispatch fusion, exact disarm identity, field-authority provenance, bench-attestation lifetime, and dependency-churn cleanup.
+- Soren: two safety corrections committed—physical-write authority fusion and exact disarm correlation. Parent verification: 183 tests pass; field-authority provenance edit remains uncommitted and one analysis warning remains. Session retired at bounded turn ceiling.
+- Nia: fresh surgical finisher on the same safety branch; live process `proc_f260d74aeafe`. Preserves the provenance edit and owns only its completion, bench attestation lease/run/expiry/revocation, lockfile cleanup, warning removal, and handoff verification.
 - Mira: six product/map/brand commits preserved; 86 tests and analysis pass. Session retired after a second max-turn cutoff rather than resumed again.
 - Noa: product/release candidate `02d7286c` built and tested but independent review rejected false-fresh telemetry, release-workflow, credential, claim, and asset blockers. Candidate is frozen and not mergeable.
 - Petra: three committed corrections preserved; parent verification: clean branch, 142 tests, analysis, and diff checks pass. Fixed boat/phone freshness, read-only signer-derived release preparation, immutable action pins, and Maps credential injection. Session retired at turn ceiling rather than resumed.
