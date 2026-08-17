@@ -15,7 +15,8 @@
 | Cass | Safety/control implementer | Rejected candidate `59ef3b51`; preserved for evidence | Fable 5 / Claude Code / Mac Mini / `feat/control-min-thrust` | RETIRED — REVIEW FAILED | Project-local temporary seat |
 | Mira | Product/release implementer | Six verified product/map/brand commits; session saturated after two turn ceilings | Fable 5 / Claude Code / Mac Mini / `feat/product-release` | RETIRED — CONTEXT SATURATED | Project-local temporary seat |
 | Noa | Product/release finisher | Rejected candidate `02d7286c`; preserved for evidence | Fable 5 / Claude Code / Mac Mini / `feat/product-release` | RETIRED — REVIEW FAILED | Fresh replacement completed bounded handoff |
-| Petra | Independent product/release correction implementer | Close product/release review blockers | Fable 5 / Claude Code / Mac Mini / `fix/product-release-review` | RUNNING | Fresh context; project-local temporary seat |
+| Petra | Independent product/release correction implementer | Three verified correction commits; session saturated at turn ceiling | Fable 5 / Claude Code / Mac Mini / `fix/product-release-review` | RETIRED — CONTEXT SATURATED | Fresh replacement owns four unfinished review items |
+| Talia | Product/release correction finisher | Claims, licensing evidence, numeric evidence, monochrome/reproducible icon | Fable 5 / Claude Code / Mac Mini / `fix/product-release-review` | RUNNING | Fresh bounded 40-turn finish-only seat |
 | Rhea | Independent safety correction implementer | Rejected corrected candidate `ab1cab30`; preserved for evidence | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review` | RETIRED — REVIEW FAILED | Session retired at turn ceiling after coherent handoff |
 | Soren | Second independent safety correction implementer | Close four remaining contract defects | Fable 5 / Claude Code / Mac Mini / `fix/control-safety-review-2` | RUNNING | Fresh context; bounded 55-turn correction seat |
 

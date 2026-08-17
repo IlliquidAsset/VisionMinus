@@ -13,7 +13,8 @@
 - Soren: fresh second safety correction worker on `fix/control-safety-review-2`; live process `proc_b361c61aeb98`. Owns only dispatch fusion, exact disarm identity, field-authority provenance, bench-attestation lifetime, and dependency-churn cleanup.
 - Mira: six product/map/brand commits preserved; 86 tests and analysis pass. Session retired after a second max-turn cutoff rather than resumed again.
 - Noa: product/release candidate `02d7286c` built and tested but independent review rejected false-fresh telemetry, release-workflow, credential, claim, and asset blockers. Candidate is frozen and not mergeable.
-- Petra: fresh Fable 5 product/release correction worker on `fix/product-release-review`; live process `proc_cc114528439e`. Owns only review findings and regression proof.
+- Petra: three committed corrections preserved; parent verification: clean branch, 142 tests, analysis, and diff checks pass. Fixed boat/phone freshness, read-only signer-derived release preparation, immutable action pins, and Maps credential injection. Session retired at turn ceiling rather than resumed.
+- Talia: fresh product/release correction finisher on the same clean branch; live process `proc_9d80923aa61c`. Owns only restrained claims, licensing evidence, numeric/test-count corrections, monochrome/reproducible icon work, and whole-branch handoff verification.
 - Amanda: supervision, evidence promotion, independent review, and integration.
 
 ## Waiting
